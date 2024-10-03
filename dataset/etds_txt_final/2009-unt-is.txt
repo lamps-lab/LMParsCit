@@ -1,0 +1,3442 @@
+VARIABILITY-AWARE LOW-POWER TECHNIQUES  
+FOR NANOSCALE MIXED-SIGNAL CIRCUITS 
+Dhruva V. Ghai, B.E., M.Tech. 
+ 
+ 
+ 
+Dissertation Prepared for the Degree of 
+DOCTOR OF PHILOSOPHY 
+ 
+ 
+ 
+ 
+UNIVERSITY OF NORTH TEXAS 
+May 2009 
+ 
+ 
+ 
+APPROVED: 
+ 
+Saraju P. Mohanty, Major Professor 
+Elias Kougianos, Co-Major Professor 
+Murali Varanasi, Committee Member 
+Armin Mikler, Committee Member 
+  and Coordinator of Graduate Studies 
+Krishna Kavi, Chair of the Department 
+  of Computer Science and Engineering 
+Costas Tsatsoulis, Dean of College of 
+ Engineering 
+Michael Monticino, Interim Dean of the Robert 
+  B. Toulouse School of Graduate Studies 
+Ghai, Dhruva V. Variability-aware low-power techniques for nanoscale mixed-signal 
+circuits. Doctor of Philosophy (Computer Science and Engineering), May 2009, 131 pp., 27 
+tables, 63 illustrations, 130 references. 
+New circuit design techniques that accommodate lower supply voltages necessary for 
+portable systems need to be integrated into the semiconductor intellectual property (IP) core. 
+Systems that once worked at 3.3 V or 2.5 V now need to work at 1.8 V or lower, without causing 
+any performance degradation. Also, the fluctuation of device characteristics caused by process 
+variation in nanometer technologies is seen as design yield loss. The numerous parasitic effects 
+induced by layouts, especially for high-performance and high-speed circuits, pose a problem for 
+IC design. Lack of exact layout information during circuit sizing leads to long design iterations 
+involving time-consuming runs of complex tools. There is a strong need for low-power, high-
+performance, parasitic-aware and process-variation-tolerant circuit design.  This dissertation 
+proposes methodologies and techniques to achieve variability, power, performance, and 
+parasitic-aware circuit designs. Three approaches are proposed: the single iteration automatic 
+approach, the hybrid Monte Carlo and design of experiments (DOE) approach, and the corner-
+based approach. Widely used mixed-signal circuits such as analog-to-digital converter (ADC), 
+voltage controlled oscillator (VCO), voltage level converter and active pixel sensor (APS) have 
+been designed at nanoscale complementary metal oxide semiconductor (CMOS) and subjected to 
+the proposed methodologies. The effectiveness of the proposed methodologies has been 
+demonstrated through exhaustive simulations. Apart from these methodologies, the application 
+of dual-oxide and dual-threshold techniques at circuit level in order to minimize power and 
+leakage is also explored. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Copyright 2009 
+by 
+Dhruva V. Ghai 
+i i
+ACKNOWLEDGMENTS 
+  The writing of a dissertation is not possible without the personal and practical support of 
+numerous people. I would like to express my profound gratitude and deep appreciation to my 
+major professor, Dr. Saraju P. Mohanty, and my co-major professor, Dr. Elias Kougianos, for 
+supervising my overall research and guiding me throughout the course of my Ph.D. Without their 
+help and guidance this research would not have been possible. The numerous brainstorming 
+sessions with them helped me to not only embolden my knowledge but also to cultivate new 
+ideas. I am grateful to my doctoral committee member, Dr. Armin Mikler, for offering his insight 
+and spending his valuable time in reviewing my dissertation. I also thank Dr. Murali Varanasi for 
+being on my doctoral committee and offering guidance. I would like to acknowledge the 
+National Science Foundation for funding my research through NSF award number 0702361. 
+Thanks to my colleagues at VDCL (VLSI Design and CAD Laboratory), Garima, Ruchi, Manish 
+and Sahasan, for lively discussions, insightful comments, and honest opinions on my research. 
+Finally, I would like to thank my family, who encouraged me to join the Ph.D. program at UNT 
+and supported me throughout. 
+ii i 
+TABLE OF CONTENTS 
+                                   Page 
+ACKNOWLEDGMENTS……………………………………………………………….……. iii 
+LIST OF TABLES …………………………………………………………………..………..viii 
+LIST OF FIGURES…………………………………………………………………………….. x 
+Chapter 
+1.  INTRODUCTION AND MOTIVATION …………………………………………….….….1 
+1.1. Issues Faced by Digital, Analog, and Mixed-Signal Circuits ………………………...….3 
+1.1.1. Technology Scaling…………………………………………………………………. 3 
+1.1.2. Power Performance ………………………………………….………………….……5 
+1.1.3. Process Variation …………………………………………….………………………5 
+1.1.4. Parasitics…………………………………………………….………………………..6 
+1.1.5. Temperature Variation …………………………………….…………………………6 
+1.2. Organization of This Dissertation ………………………………………………………...7 
+2.  THEORETICAL BACKGROUND..…………………………………………………..……...9 
+2.1. Emerging Technologies …………………………………………………………………...9 
+2.1.1. Nanoscale CMOS (Nano-CMOS)…………………………………………….……..11 
+2.1.2. High-κ/Metal Gate………………………………………………………………….. 15 
+2.1.3. Fin FET/Dual-Gate FET …………………………………………………………….16 
+2.1.4. Carbon Nanotube (CNT) ……………………………………………………………18 
+2.2. Power Leakage and Delay Models……………………………………………………… 20 
+2.2.1. Dynamic Power ……………………………………………………………………..21 
+2.2.4. Total Power Dissipation……………………………………………………………. 23 
+2.2.5. Delay Model ………………………………………………….……………………..23 
+iv  
+2.3. Low-Power Design Techniques…………………………………………………………. 24 
+2.3.1. Dual Threshold (Dual V ) 
+T
+…….……………………………………………………..26 
+2.3.2. Dual Oxide (Dual T ) 
+ox
+……….………………………………………………………26 
+2.3.3. Dual Supply (Dual V )……….…………………………………………………….. 
+dd
+27 
+3.  RELATED PRIOR RESEARCH …………………………………………………………….29 
+3.1. Dual Supply and Dual Threshold ….……………………………………………………..29 
+3.2. Dual Oxide………………………………………………………………………………. 30 
+3.3. Process Variation………………………………………………………………………... 31 
+3.4. Parasitics………………………………………………………………………………… 31 
+3.5. Literature Related to Mixed-Signal Circuits ……………………………………….…….32 
+3.5.1. Analog-to-digital Converters …………………………………………………….….32 
+3.5.2. Voltage-controlled Oscillators ………………………………………………………33 
+3.5.3. Level Converters……………………………………………………………………. 35 
+3.5.4. Active Pixel Sensors ………………………………………………………………...37 
+4.  PROPOSED LOW-POWER DESIGN AND OPTIMIZATION METHODOLOGIES……. 39 
+4.1. Issue of Process Variation……………………………………………………………….. 39 
+4.2. Single-Iteration Automatic Approach…………………………………………………… 41 
+Algorithm Used for Optimization in the Single-iteration Automatic Approach…………….. 44 
+4.3. Hybrid Monte Carlo and Design of Experiments (DOE) Approach……………………. 46 
+Proposed Monte Carlo/DOE-based Algorithm for Variability-Aware Optimization ………...46 
+v  
+4.4. Corner-based Methodology ……………………………………………………………...49 
+5.  CASE STUDIES USING SAMPLE DIGITAL, ANALOG AND MIXED-SIGNAL 
+CIRCUITS ………………………………………………………………………………………51 
+5.1. Analog-to-digital Converter............................................................................................... 51 
+5.1.1. Comparator Design ………………………………………………………………….52 
+5.1.2. 1 of n Code Generator Design……………………………………………………… 54 
+5.1.3. NOR ROM Design…………………………………………………………….……. 55 
+5.1.4. Physical Design and Characterization of ADC……………………………..………. 56 
+5.1.5. Transistor-Level Design and Characterization  
+of the ADC at 45 nm Technology ………………………………………………………….63 
+5.2. Voltage-controlled Oscillator (VCO) ……………………………………………………68 
+5.3. Universal Voltage Level Converter (ULC) ………………………………………………71 
+5.3.1. Design of ULC ………………………………………………………………………72 
+5.4. Active Pixel Sensor (APS) ……………………………………………………………….80 
+5.4.1. Models for the Figures of Merit of the APS array………………………………….. 84 
+6.  PROCESS VARIATION ANALYSIS AND DESIGN OPTIMIZATION ………………….86 
+6.1. Analog-to-digital Converter (ADC) ……………………………………………………..86 
+6.1.1. Process and Supply Variation ……………………………………………………….86 
+6.1.2. Temperature Variation Characterization ……………………………………………88 
+6.2. Voltage-controlled Oscillator (VCO) ……………………………………………………89 
+6.2.1. Parasitic-aware Optimization ………………………………………………………..89 
+6.2.2. Process Variation Study …………………………………………………………….93 
+6.2.3. Parasitic- and Process-variation-aware Optimization ……………………………….97 
+v i 
+6.2.4. Physical Design of the Optimal VCO ……………………………………………...102 
+6.3. Universal Voltage Level Converter (ULC)…………………………………………….. 102 
+6.3.1. Dual T  Technique ………………………………………………………………...102 
+ox
+6.3.2. Dual V  Technique …………………………………………………………………104 
+T
+6.3.3. Characterization ……………………………………………………………………105 
+6.4. Active Pixel Sensor (APS) ……………………………………………………………...109 
+7.  CONCLUSION AND FUTURE WORKS …………………………………………………119 
+7.1. Summary ………………………………………………………………………………..119 
+7.2. Conclusions ……………………………………………………………………………..119 
+7.3. Future Research ………………………………………………………………………...122 
+REFERENCES ………………………………………………………………………………..123 
+ 
+ 
+vi i 
+LIST OF TABLES 
+ 
+ 
+                        Page 
+ 
+Table 3.1. Comparative Perspective of Existing 6-bit Flash ADCs …………………………….33 
+Table 3.2. VCO Performance Comparison ……………………………………………………...34 
+Table 3.3. Comparative Perspective of Level-converters ………………………………………37 
+Table 3.4. Comparative Perspective of Existing APS Designs …………………………………38 
+Table 5.1. Componentwise Power Consumption of ADC ……………………………………....61 
+Table 5.2 ADC Performance with Nominal Supply and Threshold Voltages …………………..62 
+Table 5.3. Comparator Transistor Sizes for Input Voltage Range at 45 nm Technology ……….64 
+Table 5.4. ADC Performance at 45 nm Technology ……………………………………………67 
+Table 5.5. Truth Table for Functionality of Baseline ULC Design ……………………………..72 
+Table 5.6. Transistor Sizes ………………………………………………………………………81 
+Table 5.7. Baseline Characterization of APS Array …………………………………………….85 
+Table 6.1 Process Variation Results …………………………………………………………….87 
+Table 6.2. Supply Voltage Variation Results ……………………………………………………88 
+Table 6.3. Effect of Temperature Variation ……………………………………………………..89 
+Table 6.4. Final Values of the Design Variables fro Parasitic-aware Design …………………..91 
+Table 6.5. Measured Performance of the Parasitic-aware VCO ………………………………..91 
+Table 6.6. Mean and Standard Deviation of Oscillation Frequency for 5 Cases ………………..96 
+Table 6.7. Frequency Discrepancy and Worst-case Process Values for a Target Frequency ≥ 2 
+GHz ……………………………………………………………………………………………...97 
+Table 6.8. Final Optimal Values for Design Variables ………………………………………….99 
+Table 6.9. Performance Summary of the Parasitic and Process-variation-aware VCO ………..101 
+vi ii 
+Table 6.10. Final Values of the Optimization Parameters Using the DOX-CMOS Technique .103 
+Table 6.11. Optimal Design Variable Values Using the DVTCMOS Technique ……………..104 
+Table 6.12. Power Consumption ……………………………………………………………….109 
+Table 6.13. Monte Carlo Simulation Results …………………………………………………..113 
+Table 6.14. Baseline and Optimal Values of the Figures of Merit …………………………….117 
+Table 7.1. Comparison of Results of Optimization Approaches ………………………………121 
+ 
+ 
+ix  
+LIST OF FIGURES 
+ 
+ 
+                        Page 
+ 
+Figure 2.1. Various leakage currents in a nanoscale CMOS transistor. ………………………...14 
+Figure 2.2. Structure of high-κ metal gate transistor. …………………………………………...16 
+Figure 2.3. Structure of the fin FET transistor. ………………………………………………….18 
+Figure 2.4. Structure of a CNT transistor. ………………………………………………………20 
+Figure 4.1. Standard IC design flow. ……………………………………………………………42 
+Figure 4.2. Proposed parasitic-aware IC design flow. …………………………………………..43 
+Figure 4.3 Parasitic- and process-variation-aware IC design flow ……………………………...45 
+Figure 4.4. Aim of the hybrid Monte Carlo and DOE-based optimization. …………………….49 
+Figure 4.5. The corner-based methodology used for process variation. ………………………...50 
+Figure 5.1. High-level representation of the ADC. ……………………………………………...52 
+Figure 5.2. Detailed block diagram of the flash ADC. ………………………………………….52 
+Figure 5.3. Threshold inverter (TI) comparator. ………………………………………………...54 
+Figure 5.4. Complete circuit diagram for a 3-bit flash ADC shown for brevity. ………………..55 
+Figure 5.5. Complete layout of the 90 nm ADC. ………………………………………………..56 
+Figure 5.6. Functional simulation of the 6-bit ADC operating at 1 GS/s. ………………………57 
+Figure 5.7. INL plot of the ADC. ………………………………………………………………..59 
+Figure 5.8. DNL plot of the ADC. ………………………………………………………………59 
+Figure 5.9. FFT plot of the ADC at a sinusoidal input frequency f  of 1 MHz for SNDR 
+in
+calculation. ………………………………………………………………………………………60 
+Figure 5.10. Instantaneous power plot of ADC with a load capacitance of 100 fF. …………….62 
+Figure 5.11. Functional simulation of the ADC at 45 nm mode. ………………………………..64 
+x  
+Figure 5.12. INL plot of the ADC at 45 nm node. ………………………………………………65 
+Figure 5.13. DNL plot of the ADC at 45 nm node. ……………………………………………..66 
+Figure 5.14. SNDR plot of ADC at 45 nm node. ……………………………………………….66 
+Figure 5.15. Instantaneous power plot of the ADC at 45 nm node. …………………………….67 
+Figure 5.16. Nominal-case logical design of the VCO. …………………………………………69 
+Figure 5.17. High level representation of the ULC. …………………………………………….71 
+Figure 5.18. Schematic logical block diagram of the baseline (unoptimized) ULC. ……………72 
+Figure 5.19. Circuit used for pass/block ………………………………………………………...73 
+Figure 5.20. Functional simulation result of up-converter circuit. ……………………………...74 
+Figure 5.21. Down-converter circuit. ……………………………………………………………75 
+Figure 5.22. Functional simulation of down-converter circuit. …………………………………75 
+Figure 5.23. Transistor-level realization of the baseline design of the ULC with 32 transistors. 76 
+Figure 5.24. Functional simulation for pass/block circuit at V  = 1.02 V, V  = 1.2 V and load 
+ddl ddh
+= 45 fF. 
+……………………………………………………………………………………………77 
+Figure 5.25. Transistor-level realization of the baseline design of the ULC with 32 transistors. 78 
+Figure 5.26. Transistor-level circuit realization of the area optimal ULC. ……………………..79 
+Figure 5.27. Functional simulation of the area optimal ULC. …………………………………..79 
+Figure 5.28. Circuit diagram of an APS. ………………………………………………………..81 
+Figure 5.29. An 8 × 8 APS array constructed by using a collection of APS. …………………...82 
+Figure 5.30. Circuit diagram of an APS. ………………………………………………………..83 
+Figure 5.31. Circuit simulation of the 8 × 8 APS array. ………………………………………...83 
+Figure 6.1. Corner methodology used for the process variation study. …………………………87 
+x i 
+Figure 6.2. Comparison of frequency-voltage characteristics of the logical design and parasitic 
+extracted physical design of the VCO. …………………………………………………………90 
+Figure 6.3. Final layout of the VCO optimized for parasitic-aware design flow. ………………92 
+Figure 6.4. Frequency-voltage transfer characteristics of the VCO optimized  for design flow 
+accounting for parasitics. …………………………………..……………………………………92 
+Figure 6.5. Statistical V  variation. …………………………………………………………….94 
+dd
+Figure 6.6. Statistical V  variation. ………………………………………………………….94 
+Tnmos
+Figure 6.7. Statistical V  variation. 
+Tpmos
+…………………………………………………………..95 
+Figure 6.8. Statistical simultaneous T  + T  variation. 
+oxnmos oxpmos
+…………………………………95 
+Figure 6.9. V  + V  + V  + T  + T  variation. 
+dd Tnmos Tpmos oxnmos oxpmos
+…………………………………96 
+Figure 6.10. Comparison of frequency-voltage characteristics of the logical design, parasitic 
+extracted physical design, and parasitic extracted physical design subjected to worst-case process 
+variation. …………………………………………………………………………………...……98 
+Figure 6.11. Final VCO layout optimized for parasitic- and process-variation-aware design 
+flow.…………………………………………………………………………………………….100 
+Figure 6.12. Frequency-voltage transfer characteristics of the VCO optimized for design flow 
+accounting for parasitics and process variation. …………………………………………….…101 
+Figure 6.13. Parametric analysis with input voltage sweep. …………………………………...107 
+Figure 6.14. Performance of the ULC under varying output capacitive load. …………………108 
+xi i 
+Figure 6.15. Instantaneous power plot of the ULC at a load capacitance of 45 fF. Average power 
+consumed = 19.89µW..………………………………………………………………………....109 
+Figure 6.16. Proposed design flow for optimal design of nano-CMOS APS array. …………...110 
+Figure 6.17. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . 
+dd dd-H  xo ox-L
+……………………………………………………………….112 
+Figure 6.18. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . ……………………………………………………………….114 
+dd dd-L  xo ox-L
+Figure 6.19. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . ……………………………………………………………....114 
+dd dd-L  xo ox-H
+Figure 6.20. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . 
+dd dd-H  xo ox-H
+……………………………………………………………….115 
+Figure 6.21. Pareto plots for (a) fPAPS and (b) fVswing. 
+…………………………………………..117 
+Figure 6.22. Flowchart of the proposed algorithm. ……………………………………………118 
+ 
+ 
+xi ii 
+CHAPTER 1 
+INTRODUCTION AND MOTIVATION 
+  The demand for low-power consuming circuits is increasing with the requirements for 
+personal computing devices and wireless communications equipment. Several factors, such as 
+battery life, heat dissipation, packaging costs, environmental concerns, and reliability issues are 
+driving this demand [83]. Mechanisms such as voltage reduction, frequency scaling, and clock 
+gating are helpful in reducing power consumption of the target systems for different applications 
+[85]. Power management is fast becoming one of the most critical design constraints in the world 
+of integrated circuit (IC) designers. New 90 nanometer (nm) processes deliver greater silicon (Si) 
+performance and integration, but battery technology has not kept up. To compensate, new design 
+techniques are being developed to address the need for low-power silicon. Dynamic power 
+management techniques using variable supply voltage (variable V ) are popular for system-level 
+dd
+power reduction, and multiple supply voltage (MSV) is a static solution for switching power 
+reduction in application specific ICs (ASICs) [18]. 
+  The major components of total power dissipation in any circuit can be identified as 
+P , the switching power dissipation; P , the short-circuit power dissipation; and 
+switching short-circuit
+P , the leakage power from various sources. Each one of these power dissipation sources is 
+leakage
+dependent on supply voltage, some linearly and some quadratically. For example, switching 
+power has a quadratic relationship with the power supply voltage V . Hence, a significant 
+dd
+amount of power can be saved by simply reducing the supply voltage V . However, the power 
+dd
+reduction puts a strain on the performance targets. Since lowering the supply voltage slows down 
+the speed at which transistors can switch, one must be selective in determining which parts of the 
+design should have the voltage reduced (known as voltage scaling). Voltage scaling requires 
+1  
+partitioning of the design into voltage islands or voltage domains. Each domain operates at a 
+different supply voltage depending on its timing characteristics [86]. The blocks that are time-
+critical in one domain operate at the standard supply voltage. The less time-critical blocks are 
+aggregated into a second domain, with the voltage scaled down. A challenge with voltage scaling 
+is the need to translate the voltages for the signals that interface between voltage domains. This 
+translation is accomplished by inserting level shifters, which are special cells that perform 
+voltage translation [57], and clamp cells to provide isolation. Basically, there are two types of 
+voltage converters: level-up and level-down. A level-up converter is used as an interface in 
+which low V  cells (V ) drive high V  cells (V ) in order to reduce the short-circuit power 
+dd ddl dd ddh
+dissipation [129]. One application is the dual-V  field programmable gate array (FPGA) fabric 
+dd
+[78]. Level-down converter is required for switching power reduction, where the non-critical 
+blocks of the circuit are made to operate at a lower-power supply voltage [57]. In the standby 
+mode of a circuit, no active switching occurs, and all power dissipation is due to standby 
+leakage. A simple power-saving scheme could be to shut off unused blocks in the standby mode. 
+  Portable electronic components such as cell phones, which are realized as systems on a 
+chip (SoCs) and supplied with power from a single battery source require level converters. Such 
+electronic devices often contain several sub-circuits, with each sub-circuit requiring a unique 
+voltage level different from that supplied by the battery (sometimes higher or lower than the 
+battery voltage). Level converters offer a method of generating multiple controlled voltages from 
+a single, rather than multiple batteries, thereby saving space and cost to supply different parts of 
+the device. They can also be effectively applicable for large-scale integration (LSI) high-speed 
+input-output circuits, as an interface between internal and external buses as a server or 
+2  
+exchanger. They can also be used as an interface circuit between optical devices for optical 
+communications [129] or as interfaces between different logic families. 
+1.1. Issues Faced by Digital, Analog, and Mixed-Signal Circuits 
+  The main issues faced by digital, analog, and mixed-signal circuits of today are as 
+follows: 
+1.1.1. Technology Scaling 
+  A large number of SoCs are manufactured nowadays in the 90 nm process node, and the 
+ramp up for 65 nm design has become more aggressive than expected. The 45 nm process design 
+is following close behind, with early versions of design rules and process parameters already 
+available [5, 4]. Intellectual property (IP) core providers are faced with the challenge of meeting 
+analog performance in a technology that has been targeted for digital logic. New circuit design 
+techniques that accommodate lower supply voltages necessary for portable systems also need to 
+be integrated into the IP core. Systems that once worked at 3.3 volts (V) or 2.5 V now need to 
+work at 1.8 V or lower without causing any performance degradation. The need for greater 
+processing speed has designers craving smaller device geometries. Smaller devices provide 
+higher packing density and lower overall power consumption, due to lower parasitics and lower 
+supply voltages. This shortening of the minimum channel length has resulted in the reduction of 
+power supply voltage to the 1 V - 0.7 V range. The SoC trend also forces analog circuits to be 
+integrated with digital circuits. To keep up with the scaling of the minimum channel length and 
+SoC trend, analog circuits need to be operated at low voltages, especially in portable devices. 
+However, the minimum supply voltage for analog circuits predicted in the semiconductor road 
+map [5] does not follow the reduction of digital supply voltage. Analog supply voltages between 
+1.8 V and 2.5 V are still being used with channel lengths of 0.18 micrometer (µm) and 0.13 µm 
+3  
+[30]. Hence, it is a great challenge to design low supply voltage operating analog/mixed-signal 
+circuits while considering the relatively high threshold voltage of short channel length 
+transistors.  
+  Another important consideration for an SoC is that the analog/mixed-signal circuits 
+should be designed by using a standard complementary metal oxide semiconductor (CMOS) 
+digital process without having process options such as deep n-well or on-chip inductors or 
+varactors.  
+  Analog circuit designs often contain matched transistors [98]. The threshold voltage of a 
+metal oxide semiconductor (MOS) transistor is defined as the gate voltage required to induce a 
+channel for current flow through the transistor [99]. Matched CMOS transistors are designed to 
+be necessarily identical. During fabrication, the threshold voltage of an MOS transistor is 
+engineered to a desired voltage using processing. In a typical MOS field effect transistor (FET) 
+process, ion-implanted charges are used to shift the threshold voltage. This processing step, 
+called the threshold voltage adjustment implant, is random, consisting of varying energy levels 
+of the implanted ions and subsequent temperature ramp step to diffuse the ions. The random 
+nature of this process results in the random fluctuations in threshold voltage as a function of 
+transistor area. Additionally, random variations in the lithography result in small geometric 
+inaccuracies. The variation of the effective threshold voltage (V ) increases as the transistor 
+T
+areas decrease. In CMOS analog circuits, it is the variation of the threshold voltages between two 
+transistors rather than their absolute voltage values that is of interest for the majority of 
+applications. Hence, it is essential to analyze the effect of threshold voltage mismatch on the 
+analog circuit performance. Because the threshold voltage, mobility, and channel length of a 
+device are sensitive to temperature variations [10], a temperature sensitivity analysis also needs 
+4  
+to be carried out. In addition, the power supply voltage variations in the analog design have been 
+accounted for, to verify its system-on-chip capability. 
+1.1.2. Power Performance 
+  A dichotomy exists in the design of ICs: They must be simultaneously low power and 
+high performance. Minimum power expenditure is joined at the hip to performance today. The 
+goal of power-aware design is to minimize power consumption while meeting performance 
+requirements. Therefore, as power dissipation increases, the cost of power delivery to the ever-
+increasing number of transistors on a chip multiplies rapidly. Power conservation impacts every 
+budget, whether technological or financial. Product acceptability, reliability, and profitability 
+depend as much on power efficiency as they do on performance. There is a difference between 
+low-power design and power-aware design [97]. Low-power design refers to minimizing power 
+with or without a performance constraint. Power-aware design refers to maximizing some other 
+performance metric, subject to a power budget. 
+1.1.3. Process Variation 
+  The fluctuation of device characteristics caused by process variation has considerably 
+increased in nanometer technologies. Process variations can be classified into inter- and intra-die 
+[92]. Inter-die variation, which comes from lot-to-lot, wafer-to-wafer, and within wafer, affects 
+every device on a single chip equally. On the other hand, intra-die variation refers to device 
+characteristics such as device geometry change, dopant density change, threshold voltage, gate 
+oxide thickness, and circuit timing change, which vary from device to device within the same 
+die. Some of the variations are random and some are systematic. 
+  Capturing and modeling the intra-die process variation becomes essential to device and 
+interconnect extraction tools for accurate timing and power analysis. The standard design cycle 
+5  
+must include process variation in order to produce variation-tolerant physical designs. Just as in 
+digital design where interconnect delays make or break a design, the move to 90 nm and lower 
+process technologies means that the variations in process parameters have a resounding effect on 
+the performance metrics of analog/mixed-signal, memory and radio-frequency (RF) circuits. 
+Unlike a digital circuit, which is typically optimized only for speed and power, an analog circuit 
+is designed to meet as many as 5 to 10 performance metrics. As a result, the impact of these 
+process variations is seen as design yield loss, which in turn directly bites the bottom line of a 
+company's profits. This loss calls for a proactive and a deterministic way to deal with 
+performance and yield while in the design phase and not after the first silicon. 
+1.1.4. Parasitics 
+  Parasitic-aware optimization methodologies require that the parasitics be considered at 
+the beginning of the design [96]. Where IC components are designed assuming ideal 
+components, it is observed that parasitics have serious degrading effects at high frequencies. The 
+only way to overcome these effects is to consider parasitics as an integral part of the circuit. 
+Thus, parasitic-aware design and optimization are essential. If parasitics have an acute effect on 
+the design, an early layout needs to be created so that the parasitics can be extracted and their 
+effect estimated. Without that early layout-parasitic information, designers rely mostly on 
+experience. If a design is understood well enough to know the sensitive nodes, dummy elements 
+can be placed on those nodes to mimic the effect of real parasitics. This process is tedious and 
+error-prone. Therefore, a methodology is required which can achieve the required performance 
+while accounting for the parasitics. Hence, there is a need for a design methodology accounting 
+for parasitics and process variation of general IC components.  
+1.1.5. Temperature Variation 
+6  
+  Another emerging critical issue due to technology scaling is the effect of on-die 
+temperature variation [21]. What was previously a second-order effect that could be adequately 
+addressed with a few corner cases and guardbands has now become a first-order effect. 
+Temperature interacts with a number of these other issues in ways that make analysis difficult. 
+There's a need for new, temperature-aware design methodologies in order to produce properly 
+functioning and reliable first silicon. Both power dissipation and operating frequency worsen at 
+high temperatures because of the increase of leakage currents and the reduction of carrier 
+mobility. The challenge for RF design is centering of a design including process, voltage and 
+temperature (PVT) variations. By integrating temperature-aware capabilities into today's design 
+flows, there is no need to rewrite the golden analysis standards that have been established for the 
+past decade. Instead, through the use of tools that incrementally retrofit today's flows with 
+temperature-aware data, the temperature effects can be fully accounted for. Applying thermal 
+analysis reduces pessimism or risk associated with the assumption of a uniform on-chip 
+temperature. A temperature-aware design flow is useful for existing technologies down to 90 nm, 
+and is required for technologies below 90 nm. 
+  In summary, the demand for emerging application-specific, nanoscale mixed-signal SoCs 
+which need process (threshold voltage mismatch) variation-tolerant low-power high-performance 
+parasitic-aware mixed-signal circuitry and development of mature nano-CMOS processing 
+technology has motivated this research. 
+1.2. Organization of This Dissertation 
+  This dissertation is organized as follows: Chapter 2 discusses the theory behind current 
+state-of-art emerging technologies, the power leakage and delay models used in this dissertation, 
+and the low-power design techniques implemented. Chapter 3 summarizes the various works 
+7  
+related to low-power design, parasitic-aware and process-variation characterization techniques, 
+and mixed-signal circuits implemented in this dissertation. Chapter 4 discusses the issue of low-
+power design in the presence of process variations and parasitics and presents the optimization 
+methodologies used to achieve low-power, parasitic-aware and process-variation tolerant 
+circuits. Chapter 5 presents the logical and physical design of mixed-signal circuits used as case 
+studies in this dissertation, and their nominal characterization. Chapter 6 describes the 
+application of the optimization methodologies discussed in chapter 4 to the circuits presented in 
+chapter 5, thus demonstrating the effectiveness of these approaches. Finally, chapter 7 
+summarizes the results and concludes the dissertation with a mention of the future directions of 
+research. 
+8  
+CHAPTER 2 
+THEORETICAL BACKGROUND 
+  This chapter presents the theoretical background related to the work presented in this 
+dissertation. Section 2.1 discusses the current emerging technologies, considering the ongoing 
+trends of the market. This discussion includes nanoscale complementary metal oxide 
+semiconductor (nano-CMOS) transistors, high-κ metal gate transistors, fin field effect transistors 
+(FET) (dual-gate FETs) and carbon nanotube transistors (CNT). Section 2.2 discusses the power 
+leakage and delay models used for measurement. Finally, section 2.3 gives an overview of the 
+existing low-power design techniques used in the market today and implemented in the work 
+described in this dissertation. 
+2.1. Emerging Technologies 
+  Since their first demonstration in 1960 [5], planar silicon metal oxide semi-conductor 
+field effect transistors (Si MOSFETs) have experienced a steady exponential downsizing of their 
+critical dimensions. Over a period of 45 years, the printed gate lengths of the MOSFETs have 
+been scaled down from 100 µm to 35 nm; the latter refers to the gate lengths for the 65 nm 
+technology node devices in commercial microprocessors that are currently available. Because of 
+a steady improvement of their performances through scaling, MOSFETs have become the 
+leading integrated circuit (IC) technology for high-performance and low-power logic 
+applications. Over this long period of development, the technology has faced numerous 
+challenges, which were always solved by vigorous research, ingenious design, and brilliant 
+engineering. The exponential scaling down of the feature sizes, and hence the exponential 
+increase of the transistor count in an IC was first observed by Gordon Moore in 1965 [88]. His 
+observation, which later became known as Moore's law, states that the number of transistors per 
+9  
+IC doubles every 24 months. Moore's law has been serving as the guiding principle for the 
+semiconductor industry for over 30 years. 
+  According to projections by the International Technology Roadmap for Semiconductors 
+(ITRS), by the middle of next decade, the printed gate length of the MOSFETs will be less than 
+10 nm [38]. Since no exponential can continue forever, sustaining Moore's law is becoming 
+challenging for the planar bulk CMOS technology, for which the key technical issue for scaling 
+devices below the 32 nm node is the high off-state leakage current [103]. The origin of this 
+scaling limit for the single-gate, bulk CMOS technology can be traced back to the inherent poor 
+electrostatic design of the planar device geometry and the poor transport properties of carriers in 
+the Si channels. Consequently, an intense research effort, directed toward exploring new device 
+designs and new channel materials for future logic technologies, has recently been undertaken. 
+  Dual-gate devices and carbon nanotube transistors [110] show promise for scaling 
+beyond the planar bulk MOSFET limit. The electrostatic integrity of the nanoscale CMOS 
+devices improves considerably when additional gates are included, such as for dual-gate or 
+finFET devices. Because these non-planar devices are inherently resistant to short-channel-
+effects, it is widely believed that one of them will form the basic device architecture for future 
+generations of CMOS devices. In order to sustain Moore's law for over four decades, nearly all 
+materials and design aspects of the original MOSFET have been lost, except the use of Si-silicon 
+dioxide (SiO ) material system as channel material and gate insulator. Aggressive scaling of gate 
+2
+oxide has reduced its thickness to a present-day value of about 1 nm, and any further thinning is 
+prohibitive because of oxide reliability issues and the exponential increase of leakage current 
+from direct tunneling. Sustaining Moore's law, however, depends crucially on the gate insulator 
+scaling; consequently, replacing SiO  with high-κ dielectric-metal gate stack is within sight [39]. 
+2
+1 0 
+Among all semiconductors, although Si has the poorest transport properties (mobilities and 
+diffusion coefficients for electron and holes), its success as channel material is due to the 
+excellent interface property of the Si-SiO  system. SiO  will almost certainly be replaced by 
+2 2
+high-κ gate dielectric in the near future. Research activity in this area has experienced a boom in 
+recent years with many new devices and material systems now proposed. The following sections 
+briefly describe the devices explored in this dissertation. 
+2.1.1. Nanoscale CMOS (Nano-CMOS) 
+  It has been overwhelmingly felt that mixed-signal electronics has been the driving 
+force behind modern technological advances in the society. It has penetrated every walk of life 
+and has been embedded into all our activities. Whether it is the built-in feature of an alarm clock 
+in mobile phones that people wake up to in the morning or the sensor embedded into the 
+microwave oven that heats a breakfast; the sleek, handheld personal digital assistant device or 
+the laptop that keeps a busy executive on the move; or the latest MP3 player that accompany 
+many joggers, everything has that “digital” tinge in it. In short, every accessory or gadget that 
+used in daily life is becoming smaller, cheaper, more efficient, and more feature-packed; this is 
+what “digital” equipment has come to mean to a general user. Demands for more and more 
+features in every device have thus skyrocketed. Consequently, in recent years, there has been a 
+phenomenal increase in the demand for low-power and high-performance digital devices. This 
+market of digital electronics is driven by the prowess of an immensely versatile, efficient, and 
+economical device called the CMOS. CMOS forms the backbone of today's circuits deploying 
+very large scale integration (VLSI). 
+  The transistor-feature sizes have shrunk dramatically with the technology scaling. With 
+the accompanying shrinking of feature size, a paradigm shift in the power profiles of the devices 
+1 1 
+has occurred. The leakage components of the fundamental CMOS device have changed 
+exponentially, and each component of the total leakage has gained in relative importance. Thus, 
+a drastic change has occurred in the leakage components of the device, both in the inactive as 
+well as the active modes of operation. As the dimensions of the CMOS device reach nanometer 
+ranges, dynamic power consumption remains almost unchanged; but leakage power dissipation 
+increases significantly and becomes a large portion of the total power dissipation as the 
+technology changes. This change has necessitated a critical analysis of the leakage components 
+in the nanoscale CMOS VLSI devices and a concomitant need for the exploration of efficient 
+reduction techniques of these leakage components, which continues to be dissipated even when a 
+device is not doing any useful operation. 
+  Scaling of CMOS implies proportional reduction of the geometrical features as well as 
+the parametric features (device characteristics) of the CMOS transistor. The idea of scaling 
+began with the classical Moore's law, which had a phenomenal impact as a driving force for the 
+entire semiconductor industry. CMOS scaling has become a very well-defined practice in the 
+semiconductor industry. The design goals for scaling have been well defined for a long time. The 
+main three typical goals of classical technology scaling are to 
+•  Reduce gate delay by about 30%, which results in an increase in an operating frequency of 
+about 43% 
+•  Double the transistor density, which results in packing ever more components in the same 
+chip (following Moore's law) 
+•  Reduce energy per transition by about 65% and thus save 50% of power (at a 43% increase 
+in frequency) 
+1 2 
+  Most of the goals have been maintained over all the years to a great benefit and have 
+fueled market demand for portable devices. The scaling of CMOS has always beaten predictions 
+and has advanced faster than predicted. The benefits of scaling have been manifold: 
+•  Decreasing device size 
+•  Increasing chip density and component density 
+•  Increasing performance and speed 
+•  Decreasing cost 
+•  Decreasing supply voltage 
+•  Decreasing power requirement 
+However, there are some obvious roadblocks that can be credited to scaling: 
+•  Tremendous increase in power density in a chip 
+•  Issues in reliability and robustness 
+•  Ever-increasing mask costs and fabrication issues 
+•  Tremendous increase in complexity 
+•  Decreasing design flexibility 
+•  Random dopant fluctuations 
+•  Increasing process variations at nano levels 
+•  Increased likelihood of soft errors 
+  The channel length of a device represents the technology node that a particular process 
+follows. The current industrial processes now are inching down to reach the nanometer level, 
+where the channel length is of the order of a fraction of a micron. Industry has already put 45 nm 
+node process into production. However, at these nanoscale levels, the channel is much shorter 
+than the conventional channel length, and the device characteristics are very much affected by 
+1 3 
+these shorter channel lengths. A number of adverse effects peculiar to scaling which result in a 
+significantly reduced channel length are identified as short channel effects (SCEs). These SCEs 
+mostly pertain to the power dissipation or leakage characteristics of the nanoscaled CMOS 
+device. There are several forms of leakage currents (figure 2.1) in a short-channel nanometer 
+transistor [103]: 
+•  I : Drain to source active current (ON state) 
+1
+•  I : Drain to source short-circuit current (ON state) 
+2
+•  I : Subthreshold leakage (OFF state) 
+3
+•  I : Gate oxide tunneling leakage (ON and OFF states) 
+4
+•  I : Gate current due to hot carrier injection (ON and OFF states) 
+5
+•  I : Channel punch through current (OFF state) 
+6
+•  I : Gate-induced drain leakage (GIDL) (OFF state) 
+7
+•  I : Reverse biased p-n junction leakage (ON and OFF states) 
+8
+󲐀󲐀󲐀󲐀󲐀 
+ 
+Figure 2.1. Various leakage currents in a nanoscale CMOS transistor. 
+  Each power component has several forms and origins as they flow between different 
+terminals and in different operating conditions of a transistor, as shown in figure 2.1. These 
+1 4 
+SCEs, among others, are gaining prominence with the phenomenon of scaling. To overcome 
+these SCEs, the ITRS roadmap envisions that high-performance CMOS circuits will require 
+ultra-low gate oxide thickness [5]. However, such devices will be susceptible to a more profound 
+leakage mechanism because of tunneling through the gate oxide (I ) [29]. Thus, there is a 
+gate
+critical need for analysis, explanation, and characterization of the various tunneling mechanisms, 
+targeted toward design for manufacturing (DFM) and process variation modeling. 
+2.1.2. High-κ/Metal Gate 
+  Aggressive scaling of SiO  has been going on for the past 15 years for low-power, high-
+2
+performance CMOS transistor applications [38]. Recently, SiO  with a physical thickness of 1.2 
+2
+nm was implemented in the 90 nm logic technology node. In addition, research transistors with 
+0.8 nm (physical thickness) SiO  have been demonstrated in the laboratory. However, continual 
+2
+gate oxide scaling will require high-κ gate dielectric (κ being the dielectric constant) since the 
+gate oxide leakage in SiO  is increasing with reducing physical thickness and SiO  will 
+2 2
+eventually run out of atoms for further scaling. The majority of the high-κ gate dielectrics 
+investigated are based on hafniun oxide (HfO ) and zirconium oxide (ZrO ) [39]. Metals are 
+2 2
+being evaluated as the gate electrodes for the high-κ gate dielectrics. The use of high-κ serves the 
+dual purpose of scaling the device as well as reducing gate leakage. Hence, high-κ metal gate 
+transistors serve as a good alternative to classical CMOS transistors in nanoscale technologies. 
+The structure of a high-κ metal gate transistor is shown in figure 2.2. 
+1 5 
+ 
+Figure 2.2. Structure of high-κ metal gate transistor. 
+2.1.3. Fin FET/Dual-Gate FET 
+  General MOSFET at a submicron level is suffering from several submicron issues like 
+SCEs and threshold voltage variation. Fin FET is proposed to overcome the SCEs. The silicon-
+on-insulator (SOI) process is used to fabricate fin FET. This process ensures the ultrathin 
+specifications of the device regions. In fin FET, electrical potential throughout the channel is 
+controlled by the gate voltage. This control is possible because of the proximity of the gate 
+control electrode to the current conduction path between the source and the drain. These 
+characteristics of the fin FET minimize the SCE [105]. Advantages of the fin FET over its bulk-
+Si counterpart are as follows: 
+•  Conventional MOSET manufacturing processes can also be used to fabricate fin FET 
+•  Fin FET provides better area efficiency than MOSFET 
+•  Mobility of the carriers can be improved by using the fin FET process in conjunction with 
+the strained Si process 
+  The silicon on insulator (SOI) process is used to manufacture fin FET. A single 
+polysilicon layer is deposited over a fin. Thus polysilicon straddles the fin structure to form 
+perfectly aligned gates. Here fin itself acts as a channel and it terminates on both sides of source 
+and drain. In general MOSFET device, over the Si substrate poly-Si gate is formed. Poly-Si gate 
+1 6 
+controls the channel. Straddling of poly-Si gate over the Si fin gives efficient gate-controlled 
+characteristics compared to MOSFET. Since gate straddles the fin the length of the channel is 
+same as that of width of the fin. As there are two gates effectively around the fin, the width of the 
+channel is equivalent to twice the height of the fin; i.e., W = 2 × h. A term called “fin pitch" is 
+used to define the space between two fins. The height of the fin FET is equivalent to the width of 
+the MOSFET. If W is the fin pitch, then to attain the same area efficiency required, fin height is 
+W/2. But practical experiments have shown that fin height can be greater than W/2 for a fin pitch 
+of W; thus, fin FET achieves more area efficiency than MOSFET. 
+  SOI technology is used for the fabrication of fin FET. In SOI technology, an insulator, 
+SiO , isolates the bulk from the substrate. An extremely shallow junction is formed because of 
+2
+the depth limitation put by the insulator. The dielectric isolation and elimination of the latch-up 
+problem are the advantages of the SOI process. In the Fin FET fabrication process, silicon nitride 
+(Si N ) and SiO  are deposited on a thin SOI layer. Electron beam lithography is used to form a 
+3 4 2
+Si fin. Channel length and channel width are determined by the accuracy of the fin. Poly-Si with 
+pentavalent impurities and the oxide layer are deposited over the Si fin. The source and drain 
+regions are separated and insulator spacers are formed. Then the etching process is carried out on 
+a spacer until a Si fin is reached. Gate is formed by depositing the gate layer. Silicidation is 
+performed to decrease the high-source drain resistance which is formed because of very thin 
+layers of source and drain. The structure of fin FET is shown in figure 2.3. 
+1 7 
+ 
+Figure 2.3. Structure of the fin FET transistor. 
+2.1.4. Carbon Nanotube (CNT) 
+  Research within the computing industry continues to focus on downscaling the existing 
+CMOS architectures. However, several problems arise when CMOS transistor feature sizes drop 
+below 45 nm; these problems prevent manufacturers from fabricating improved VLSI designs 
+using these nanoscale transistors. On the other hand, CNT devices show either only a fraction of 
+these unwanted characteristics or exhibit no degree at all [11]. CNTs can be fabricated in either 
+metallic or semiconducting configurations in which the current transport is ballistic, leading to 
+carrier mobilities that are much higher than in Si. In addition, the absence of collision scattering 
+in the one-dimensional crystalline structure of the CNTs results in current densities well in 
+excess that of metals. Given their wire-like structure, CNTs can be used to fabricate transistors 
+and interconnects, the two fundamental components of modern microelectronics technology. 
+Among the preventative phenomena exhibited by nanoscale MOSFETs are the following: 
+• High electric fields 
+  As feature sizes shrink to the nanometer level, MOSFETs require a nonlinear decrease 
+in the power supply voltage as a function of channel length. The result is an increase in the 
+magnitude of electric field across the gate oxide layer, which produces higher leakage 
+1 8 
+currents at the gate. This leakage current degrades performance and may drive the device into 
+avalanche breakdown during which freely conducted electrons produce damaging current levels. 
+The nanotube, however, acts as a quasi-one-dimensional path and possesses no called bulk. 
+Therefore, power supply voltage can be reduced linearly as a function of channel (or tube) 
+length. 
+• Threshold voltage 
+  Although desirable, reduction of the threshold voltage proportional to the downscale 
+of the MOSFET channel is not possible because it is necessary to control the quiescent state 
+power consumption. This power consumption is due primarily to leakage current through the 
+device, which is mitigated by maintaining a high threshold voltage. The large V , however, 
+T
+reduces the margins between saturation and cutoff states, and therefore the probability the device 
+may enter a linear mode of operation. 
+• Interconnect delays 
+  Any decrease in wire width leads to an increase in interconnect resistance, thereby 
+increasing propagation delay. It turns out that the increase in interconnect delays is large 
+compared to the corresponding increase in gate delay. Thus, continued downscaling will yield 
+diminishing returns in speed, which may eventually curtail altogether.  
+• Gate-oxide layer shrinking 
+  At 0.1 µm, CMOS devices require an oxide thickness of at least 3 nm. Such a thin 
+oxide layer allows quantum tunneling and hence leakage current through the gate. Decreases in 
+the gate oxide layer exacerbate this leakage and render further downscaling impractical. Thus, 
+inefficient doping and the onset of quantum mechanical effects hinder CMOS device operation 
+when fabricated at nanometer scales. The hardware industry is attempting to work around these 
+1 9 
+obstacles by engineering devices that compensate for quantum effects. CNTs eliminate these 
+concerns and provide a means of meeting future demands for smaller, faster microelectronic 
+devices. What remains is to master the CNT FET fabrication techniques and the work required to 
+bring these techniques to production level. 
+  Thus, we see that CNT is a potential successor for CMOS in nanoscale technologies. The 
+research described in this dissertation aimed to explore the design scenario when future, CNT 
+will be used to design the circuits at nanometer levels. Figure 2.4 shows the structure of a CNT 
+transistor. 
+ 
+Figure 2.4. Structure of a CNT transistor. 
+2.2. Power Leakage and Delay Models 
+  While the aggressive scaling of CMOS technology to ever smaller dimensions has 
+enabled higher performance and integration levels, it has given rise to a plethora of new 
+problems in the design of ICs. The reason for this rise is that the supply voltage has continually 
+scaled down to reduce the dynamic power consumption. As the supply voltage is scaled down, 
+the threshold voltage has to be reduced in the same proportion to maintain performance. Reduced 
+threshold voltages and gate oxide thicknesses have caused an alarming increase in subthreshold 
+2 0 
+source-drain leakage and gate leakage power dissipation in both active and standby modes of 
+operation. As a result, leakage power has become an increasingly important fraction of the total 
+chip power in the current technology generation. In the past, the subthreshold leakage of 
+transistors has been very small; but as transistors have been scaled down below the 100 nm node, 
+leakage composes nearly 50% of the total power consumption. As threshold voltages are 
+reduced, subthreshold leakage rises exponentially. Also at nanoscale technologies, gate-oxide 
+leakage is comparable to subthreshold leakage. The subthreshold leakage problem has been 
+widely researched in recent years, and several promising circuit techniques have been proposed 
+for addressing it [43]. However, in future technology generations, gate leakage is expected to 
+grow faster than subthreshold leakage since gate oxide thicknesses are being scaled at a much 
+faster rate than supply or threshold voltages [5].  
+  Furthermore, gate leakage is a problem when the transistor is in both the on and the off 
+states, whereas subthreshold leakage dissipates power only when the transistor is off. In general, 
+the requirements for minimizing subthreshold leakage are contradictory to those for reducing 
+gate leakage because of their inherently different mechanisms. This contradiction makes the 
+problem of total leakage reduction challenging and intriguing as it is necessary to suitably 
+mitigate both of these leakage components based on their relative contributions. In the future, it 
+is certain that most of the burden of dealing with total leakage reduction will fall to circuit 
+techniques.  
+  The following subsections explain the power models that are referred for the power-delay 
+optimization of circuits used in this dissertation. Design techniques for the reduction of 
+leakage power should not affect design performance. Hence, I also considered a delay model. 
+2.2.1. Dynamic Power 
+2 1 
+  The dynamic power consumption of a circuit is given as [99]: 
+(1)        P = α×C ×V 2 × f  
+dynamic L dd
+where the α term is an activity factor that captures how many devices are active on any 
+particular clock cycle, C  is the total switched capacitive load, V  is the supply voltage, 
+L dd
+and f is the frequency of the clock. P  term is derived from the equations for energy 
+dynamic
+consumed in charging and discharging a capacitor. This power dissipation depends on 
+loading condition not the device features. 
+2.2.2. Subthreshold Leakage 
+  The subthreshold leakage current (I ) through a MOSFET can be modeled as follows 
+sub
+[1, 72]: 
+ −V  V −V −V 
+(2)        Isub = I0×1− exp v ds × exp gsS×vT off  
+therm therm
+where I  is a constant dependent upon device parameters for a given technology, v  is 
+0 therm
+the thermal voltage, V  is the threshold voltage, V is the offset voltage which determines 
+T off  
+the channel current at V  = 0, S is the subthreshold swing factor, V is gate-to-source 
+gs gs  
+voltage, and V  is the drain-to-source voltage. Hence, if T  is increased, the length (L ) 
+ds ox eff
+is increased and/or the width (W ) of the transistors is reduced, there will be a reduction 
+eff
+in the subthreshold current. 
+2.2.3. Gate-Oxide Leakage 
+Gate-oxide leakage in a MOSFET due to direct tunneling can be modeled as follows 
+[42, 109]: 
+ 
+2 2 
+  3
+   V 2
+−B1−1− ox  
+2  φ 
+V    ox 
+(3)        JDT = A×Tooxx  ×exp  Vox  
+ T 
+ox
+ 
+ 
+where J  is the direct tunneling current density, V  is the potential drop across the thin oxide, 
+DT ox
+and φ  is the barrier height for the tunneling particle (hole or electron). A and B are physical 
+ox
+parameters. From this expression, one can see that gate leakage is exponentially dependent on 
+variations in T . Hence, if T  is increased, there will be a reduction in the gate oxide leakage 
+ox ox
+current. 
+2.2.4. Total Power Dissipation 
+The total power of a circuit (P ) can then be calculated as 
+circuit
+(4)        P  = P  + P  + P  
+circuit dynamic subthreshold gate-oxide
+where P , P  and P  can be calculated from equations 1, 2 and 3, respectively. 
+dynamic subthreshold gate-oxide
+Thus, we conclude that T , V , and the geometry of a transistor play a crucial role in 
+ox T
+determining the power dissipation of a circuit. 
+2.2.5. Delay Model 
+The delay of a device is approximately given as [109]: 
+ 
+ 
+ C ×V 
+(5)        Delay =k× L dd  
+ 
+∈  W 
+μ× ox × eff ×(V −V )α
+ Tox   Leff  dd T 
+where k = technology constant, µ is the electron surface mobility and α is the velocity 
+saturation index, which varies from 1.4 to 2 for nanometer CMOS. The delay of circuits is 
+generally calculated from the 50% level of the input swing to 50% level of the output swing. 
+2 3 
+2.3. Low-Power Design Techniques 
+  As seen in the section 2.1, power dissipation has become the most significant issue for 
+consumers as well as designers for the nanoscale CMOS regime. As the demand for more and 
+more portable battery-operated devices increases, the issue of low-power VLSI design becomes 
+more critical. The reasons that why power becomes an issue can be summarized as follows: 
+•  With scaling, new and ever-more obtrusive forms of power leakage become prevalent 
+•  Static power consumption becomes as significant as dynamic power, implying that the 
+device is dissipating half the power without doing any useful work 
+•  High-power dissipation increases the packaging and cooling costs, which are not 
+economical even at higher technology nodes 
+•  Battery technology, like many other technologies, is not expected to keep pace with the 
+scaling 
+•  Wasting precious power resources affects the environment 
+•  Scaling has resulted in manifold complexity in today's CMOS circuits; this issue, along 
+with diverse and profound power leakage makes reliability and robustness of the device a 
+prime concern. 
+The various low-power techniques can be classified into two categories: 
+(1) Structural Techniques 
+•  Voltage islands 
+•  Multi-threshold (V ) devices 
+T
+•  Minimized capacitance by custom design 
+•  Power-efficient circuits 
+•  Parallelism in micro-architecture 
+2 4 
+(2) Traditional Techniques 
+•  Clock gating 
+•  Power gating 
+•  Variable frequency 
+•  Variable voltage supply 
+•  Variable device threshold (V ) 
+T
+The above techniques are also aimed at reducing dynamic power and leakage power: 
+(1) Dynamic Power Reduction 
+•  Clock gating 
+•  Power-efficient circuits 
+•  Variable frequency 
+•  Variable voltage supply 
+(2) Leakage Power Reduction 
+•  Minimized usage of low V  cells 
+T
+•  Power gating 
+•  Back-biasing 
+•  Reduced dynamic power 
+•  Reduced oxide thickness (T ) 
+ox
+•  Use of fin FETs 
+  In this dissertation, I have used the dual-threshold, dual-oxide, and dual-supply 
+techniques for power reduction. These techniques are described in detail in the following 
+paragraphs. 
+ 
+2 5 
+2.3.1. Dual Threshold (Dual V ) 
+T
+  Foundries typically provide two V  process options: high and low V . Having only two 
+T T
+options forces the designer to optimize either for performance or power. Designers often use 
+different V  transistors for different logic blocks and logic gates within a device. That is, 
+T
+designers can use a low V , high-leakage transistors for the critical path where performance is a 
+T
+requirement, and high V  transistors in parts of the chip where performance is not critical. Since 
+T
+the leakage current is exponentially dependent on the threshold voltage, increasing the threshold 
+voltage would decrease the leakage current substantially. However, the high-threshold-voltage 
+devices have larger switching delays. The various leakage-current mechanisms and some leakage 
+reduction techniques for CMOS circuits have been discussed in [63] and [103]. The techniques 
+for reducing leakage power involve static and dynamic approaches. The dynamic approach, 
+  The dual V  (DVTCMOS) design technique, which is a static approach, has been widely 
+T
+used in the custom VLSI designs for reducing leakage power. The DVTCMOS implementation 
+reduces both the active and the standby leakages. Further, there is no performance degradation in 
+a DVTCMOS implementation for custom VLSI designs. This technique uses two kinds of 
+transistors in the same circuit. Some transistors have a high threshold voltage, and other 
+transistors have a low threshold voltage. The high-threshold-voltage transistors have less 
+subthreshold leakage-power dissipation but also have a larger delay as compared to the low-
+threshold-voltage transistors. 
+2.3.2. Dual Oxide (Dual T ) 
+ox
+  Leakage current is a primary concern for low-power, high-performance digital CMOS 
+circuits for portable applications, and industry trends show that leakage will be the dominant 
+component of power in future technologies. New leakage mechanisms, such as tunneling across 
+2 6 
+thin gate oxides, which lead to gate oxide leakage current (I ), are coming into play from the 
+gate
+90 nm node onwards. According to the ITRS, a high-performance CMOS device will require 
+gate oxide thicknesses of 0.7 to 1.2 nm, thus leading to gate leakage due to carrier tunneling 
+through the ultra thin layer of gate oxide [5]. The probability of electron tunneling is a strong 
+function of the barrier height (i.e., the voltage drop across gate oxide) and the barrier thickness, 
+which is simply T . A small change in T  can have a tremendous impact on I .  
+ox ox gate
+  The other component of leakage, subthreshold leakage (I ), forms a reducing fraction of 
+sub
+the total leakage as T  is reduced, so that I  becomes the dominant leakage mechanism at 
+ox gate
+nanoscale. The dual oxide technique explores the use of dual T  values for minimizing leakage 
+ox
+minimization and maintaining performance at the same time. A higher oxide thickness (T ) 
+ox-H
+leads to increased delay. The dual T  technique involves higher oxide thickness (T ) 
+ox ox-H
+assignment to transistors in the non-critical path and lower oxide thickness (T ) assignment to 
+ox-L
+transistors in the critical path. Thus, by using this technique, one can suppress gate oxide leakage 
+while maintaining the speed of the circuit. 
+2.3.3. Dual Supply (Dual V ) 
+dd
+  Although a dual V  design helps engineers minimize leakage of their designs, another 
+T
+technique, dual supply design, helps designers control dynamic power. Similar to dual threshold 
+design, dual supply design enables designers to give the critical paths and blocks in their designs 
+access to maximum voltage for the process and specification, but the designers then reduce the 
+voltage for less power-hungry blocks. For example, a processor block may require a clock speed 
+of 500 MHz, but a universal serial bus (USB) core may require only 30 MHz to comply with the 
+USB protocol and thus require less voltage to run. So, if designers give the USB core only the 
+power it needs, they can drastically reduce the overall power that the design consumes. To 
+2 7 
+implement the method, designers traditionally put level shifters between blocks that are running 
+at different voltages. If there is a 0.9 V region on an IC design that is sending a signal to a 1.2 V 
+region, it is necessary to put a level shifter between the two regions so that it is possible to boost 
+it to the swing in voltage and control timing. 
+  Although a fairly simple concept, its implementation is more complex. First, designers 
+must get used to dealing with multiple voltages on a die. There are also some fairly significant 
+challenges on the tools front. Most commercial synthesis and physical-design tools can insert 
+level shifters and can perform multivoltage, but creating a register transfer level (RTL) is a 
+problem. Hardware description languages (HDLs) do not yet have a mechanism for describing 
+power connectivity. This lack is one area that electronic design automation (EDA) vendors are 
+addressing by trying to implement a low-power standard. 
+  Another emerging method that started in custom design but is making its way into 
+application specific integrated circuit (ASIC) design is the use of parallelism with voltage 
+scaling. Parallelism is done to get the performance up, and then voltage is scaled down to reduce 
+the power and energy. If one looks at dynamic power, voltage is clearly where the biggest gains 
+will be. Given a timing constraint of 2 ns, for example, one first overachieves the timing 
+objective. In particular, parallelism is added to get the critical path down to 1.2 ns. Then, the 
+voltage is scaled down to relax back to the 2 ns cycle time achievement is needed. The decrease 
+in voltage more than compensates for the increase in area. 
+2 8 
+CHAPTER 3 
+RELATED PRIOR RESEARCH 
+  In this chapter, I present a survey of the current literature related to the research presented 
+in this dissertation. Section 3.1 and section 3.2 deal with literature on low-power design 
+techniques such as dual supply voltage (V ), dual threshold voltage (V ), and dual oxide 
+dd T
+thickness (T ). Section 3.3 and section 3.4 discuss the current research on process variation and 
+ox
+parasitic-aware research. This discussion is followed by current literature related to the mixed-
+signal circuits discussed in section 3.5. 
+3.1. Dual Supply and Dual Threshold 
+  The research using the dual V  technique is quite mature, and several approaches have 
+dd
+been proposed in the literature over the past several years [18, 86, 59]. Certain types of circuitry 
+called level converters are used for this purpose. The transistors on critical paths are operated on 
+a higher supply voltage (V ), whereas transistors on the non-critical paths are operated on a 
+ddh
+lower supply voltage (V ) [70, 57]. Dual V  and dual V  designs are becoming increasingly 
+ddl dd T
+popular because of the rising leakage current levels of ultra-small metal oxide semiconductor 
+field effect transistor (MOSFETs) [34, 115]. Decreasing the supply voltage is an effective way of 
+reducing power. However, the delay increase that is due to the reduction in supply voltage causes 
+reduction in the throughput of the circuit. In order to maintain circuit speed, it is necessary to 
+reduce V . This reduction, however, leads to an exponential increase in leakage current. Setting 
+T
+some of the transistors to high V  and low V  allows maintaining overall performance while 
+T dd
+reducing leakage current [113, 69, 114]. Multiple threshold CMOS has been used by Pant et al. 
+[95] for subthreshold current reduction. Khouri and Jha [64] proposed a dual V  technique for 
+T
+subthreshold leakage analysis and reduction during behavioral synthesis, targeting the least used 
+2 9 
+modules as the candidates for leakage optimization. Gopalakrishnan and Katkoori in [51, 52] 
+also use the multi-threshold CMOS approach for reduction of subthreshold current during high-
+level synthesis and propose binding algorithms for power, delay, and area trade-off. They used a 
+clique partitioning approach in [52] and a knapsack-based binding algorithm in [51]. In [35], Liu 
+et al. applied probabilistic analysis to V variation. Dual V  design methodology was analyzed in 
+T  T
+the presence of large variations in threshold voltage. In [7], a dual V  and dual T  technique was 
+T ox
+applied to static random access memory (SRAM) in order to reduce leakage. In [71], a dual V
+T 
+field program gate array (FPGA) architecture has been proposed in which the logic elements are 
+used for dual V  assignment. In [33], Wei et al. tried to reduce the leakage power by using high 
+T 
+V  transistors in the non-critical paths and low V  transistors in the critical paths. 
+T  T
+3.2. Dual Oxide 
+  In [90], Mukherjee et al. have proposed a gate oxide leakage minimization approach 
+using dual T  and dual K. In [84], Mohanty et al. presented analytical models and a data-path 
+ox
+scheduling algorithm for reduction of tunneling current. The heuristic assigns higher thickness 
+resources to more leaky nodes (multipliers) but does not address the area overhead. In [75], Lee 
+et al. developed a method for analyzing gate oxide leakage current in logic gates and suggested 
+utilizing pin reordering to reduce gate leakage. In [29], Sultania et al. developed an algorithm to 
+optimize the total leakage power by assigning dual T  values to transistors in a given circuit. In 
+ox
+[112], Sirisantana and Roy used multiple channel lengths and multiple gate oxide thickness for 
+reduction of leakage. In [91], Mukhopadhyay et al. have carried out extensive modeling and 
+estimation of total leakage current of complementary metal oxide semiconductor (CMOS) 
+devices considering the effect of parameter variation. In [46], the authors proposed application of 
+dual T  technique at circuit level to power-hungry transistors of a given circuit. 
+ox
+3 0 
+3.3. Process Variation 
+  As the device technology scales down to nanometer region, intra-die variations such as 
+gate oxide thickness (T ) and threshold voltage (V ) variations have become as important as 
+ox T
+inter-die variation when analyzing circuit performance and predicting the yield of a chip [17, 13, 
+14, 117]. With rising concerns of intra-die variation, some of these investigations which modeled 
+process variations and performed timing analysis have been proposed [28, 94, 36]. Supply 
+voltage (V ) variations also need to be considered during performance estimation.  
+dd
+  Several research works address process variation in nano-CMOS circuits. In [66], a 
+current-controlled oscillator was subjected to process variations. In [83], the authors showed the 
+effect of simultaneous variation of supply and process parameters on power consumption of 
+data-path components. In [82], the authors developed process variation aware component 
+libraries. This work focused on behavioral (high-level) synthesis. An increase in the number of 
+variation sources has led to even more corner cases that need to be simulated for each design. In 
+[93], the authors have estimated that the 3-σ/µ variation for 65 nm process technology is as high 
+as 30% for transistor channel length and transistor threshold voltage. Future processes could 
+have even larger amounts of variation. 
+3.4. Parasitics 
+  Because of the high sensitivity of radiofrequency (RF) integrated circuit (IC) design to 
+layout parasitics, a lot of research has been done in the parasitic-aware synthesis area to 
+overcome degradations that prevent optimal performance [96, 12] because of device and package 
+parasitics. Simulated annealing is proposed for synthesizing RF CMOS circuits in [22, 53, 68, 
+77, 20]. Optimization techniques such as particle swarm optimization are proposed for parasitic-
+aware design in [23]. In [25], an inductor-capacitor (LC)-based, voltage-controlled oscillator 
+3 1 
+(VCO) has been subjected to a parasitic-aware synthesis. A parasitic- and process-aware design 
+flow has been proposed in [48]. In [67], the center frequency has been optimized using a design 
+of experiments approach. A simulation-based circuit synthesis example is presented in [130]. 
+3.5. Literature Related to Mixed-Signal Circuits 
+  The current literature on mixed-signal circuits is discussed in this section. Four mixed-
+signal circuits widely used for various applications in the electronics industry today are 
+discussed: 
+•  Analog-to-digital converters 
+•  Voltage-controlled oscillators 
+•  Level converters 
+•  Active pixel sensors 
+3.5.1. Analog-to-digital Converters 
+  Analog-to-digital converter (ADC) design is a bottleneck in system-on-a-chip (SoC) 
+design. There is a need for more sophisticated circuitry in terms of speed, area, noise immunity 
+and adaptability to the digital process. Recent ADC literature deals with issues of comparator 
+offset cancellation [26], using capacitive interpolation to eliminate power-hungry resistive 
+ladders [30] or simplifying the comparator design [32]. In [108], an average termination circuit 
+was proposed to reduce power consumption. The problem of metastability at high sampling 
+speeds was addressed in [119]. The SoC integration problem faced by ADCs has not been given 
+sufficient attention. In [127], the authors proposed a solution using the threshold inverting 
+technique. In [111], Song et al. proposed an ADC operating at 1 V but the technology is not 
+nano-CMOS. Low-voltage ADC designs generally need to use voltage-boosting techniques [6] 
+3 2 
+or low-threshold processes [41]. The authors in [45] proposed an ADC design at 45 nm, but it is 
+not supported with the physical design. 
+  Table 3.1 compares the proposed ADC of this dissertation with other ADCs described in 
+the current literature. For fair comparison, only 6-bit, flash-type architecture ADCs have been 
+chosen. The table shows that the proposed ADC is suitable for nanoscale SoCs; has superior 
+integral nonlinearity (INL) and differential nonlinearity (DNL) (expressed in least significant bit 
+[LSB]) performance; and is a low-voltage, low-power, high-speed design. 
+Table 3.1. Comparative Perspective of Existing 6-bit Flash ADCs 
+Works  Technology(nm)  DNL(LSB)  INL(LSB)  V (V)  Power(mW)  Rate(GS/s) 
+dd
+Geelen [44]  350  < 0.7  < 0.7  3.3  300  1.1 
+Donovan [26]  250  --  --  2.2  150  0.4 
+Yoo [60]  250  --  --  2.5  66.87  1 
+Sandner [30]  130  < 0.4  <0.6  1.5  160  0.6 
+My research 
+45  0.7  0.46  0.7  8.8µ  0.1 
+ 
+3.5.2. Voltage-controlled Oscillators 
+  Analog or mixed-signal designs require accurate frequency or time reference signals. 
+Phase-locked loops (PLLs) are used to provide such stable references [16] and one of the 
+important components of a PLL is the voltage-controlled oscillator (VCO) [9]. The VCO 
+3 3 
+produces the necessary frequency in the PLL used to synchronize with the reference signal and 
+increases or decreases its frequency of operation, depending on the increase or decrease in the 
+control voltage supplied to it [10]. Most commonly, LC oscillators and ring-type oscillators are 
+used for this purpose. In today's generation of nanoscale technology, LC oscillators cannot be 
+used because the inductors are quite large and hence cannot be scaled down to the minimal 
+dimensions of technology. Ring oscillators, which are realized by using transistors, are more 
+suitable for technology scaling, because they have an on-chip area saving advantage [58].  
+  Various VCO architectures using the cross-coupled technique on n-type metal oxide 
+semiconductor (NMOS) and p-type (PMOS) transistors are given in [27], and their advantages 
+and disadvantages are discussed. Tuning of the VCO at a desired frequency is required for fast 
+acquisition. The acquisition time increases in proportion to the initial frequency difference and 
+the inverse of loop bandwidth [56]. An extended frequency range CMOS monolithic VCO 
+design has been presented in [124], where a wide range of frequency can be achieved without 
+any preregistered settings by using analog feedback control. A number of PLL and VCO 
+designs are presented in [100]. The authors in [74] studied high-performance designs using 
+CMOS processes. Low-power VCOs are presented in [73, 101, 89, 79]. Jitter and phase 
+noise were studied in [80] and [54]. A tabular comparison of my research with the existing 
+literature (table 3.2) reveals the design proposed in this dissertation to be a high-performance 
+VCO at nanoscale technology.  
+Table 3.2. VCO Performance Comparison 
+Works  Technology (nm)  Performance (GHz) 
+Tiebout [89]  250  1.8 
+Long [79]  180  2.4 
+My research  90  2 
+3 4 
+3.5.3. Level Converters 
+  A comparative perspective of selected related research works on level converters is 
+presented in table 3.3. In a multiple supply voltage (MSV) system, it is essential to consider the 
+overhead caused by the level converters [102]. MSV implements pipeline flip-flops along with 
+level converters at the end of low Vdd clusters [102] to overcome this overhead. The flip-flops, 
+combined with level converters, perform the operation of latching and level conversion at the 
+same time. Such flip-flops are called level converting flip-flops. In [57], key properties and 
+design metrics of a level converter for dual Vdd systems are examined. Traditional level-converter 
+circuits, like cross-coupled level converters (CCLC), single-supply diode voltage Limited buffer 
+level converters (SSLC), pass transistor half-latches (PHL), and precharged circuits, have been 
+studied. Several new level-converting flip-flop circuits are also proposed. These new designs are 
+compared to the above-mentioned traditional level converting circuits in terms of level converter 
+performance and robustness as well as system-level performance and robustness. The proposed 
+level-converting flip-flops exhibit improved energy-delay product values, reduced system-level 
+power, and better immunity to supply noise without significant layout area penalties. 
+  In [128, 129, 70], and [104], the authors studied a conventional level-converter circuit 
+known as dual cascode voltage switch (DCVS). The DCVS circuit is a small circuit consisting of 
+a PMOS pair connected back to back, which acts as a differential pair. Each of the above-
+referenced papers proposes new level converter designs considering DCVS as a baseline design. 
+In [104], a new level-converter circuit based on the keeper transistor concept was proposed. The 
+keeper transistor serves as a level restorer in the pass transistor logic [15]. The authors also 
+compared the performance of the proposed circuit and the traditional DCVS by calculating the 
+delay, power, and energy-delay product.  
+3 5 
+  Novel asynchronous level-converters were proposed in [70]. The simulation results 
+showed that the proposed designs consume 8% to 50% less energy at equivalent or better speeds 
+compared to the other designs at 0.13 µm CMOS technology. A new level-converter design 
+based on DCVS was presented in [129]. The authors also compared the speed and power 
+consumption of their level converter design and DCVS. In [128], a novel circuit called 
+symmetrical dual cascode switch (SDCVS) was proposed. The authors addressed the 
+contention problem of DCVS and provided a solution for it, stating that the contention problem 
+gave rise to increased delay time and power consumption.  
+  Two additional NMOS transistors were added to the DCVS design to eliminate the 
+contention problem. Two new logic level-converter designs were presented in [65]. The two 
+designs are dynamic logic level-converter (DLC) and dynamic logic level-converter for duty 
+ratio conversing. These two designs were applied to a 72-Mb double-data-rate (DDR) SRAM, 
+which allowed the chip to operate at a low voltage of 1.2 V when the supply voltages were 
+around 1.5 V or 1.8 V. The DLC design consisted of a self-resetting dynamic CMOS logic, 
+which made it much faster in operation. 
+  In [62], a distinct level down converting circuit was proposed. This circuit consisted of a 
+differential input pair circuit acting as the level converting circuit. This level-converter provided 
+stable operation for low-voltage and high-speed use [62]. The circuits used thin gate-oxide 
+MOSFETS, which enabled a faster level conversion. The differential input pair of this level 
+converter offered a high immunity against power supply bouncing. In [104], only the issue of 
+short-circuit power dissipation was handled. The SDCVS achieved 50% power reduction and 
+60% speed increase. However, this reduced short-circuit power dissipation only. The design I 
+propose in my dissertation achieves 83% power savings compared to the original baseline 
+3 6 
+design. For fair comparison of power consumption, I used my baseline design because the other 
+designs presented were different in technology as well as functionality. In addition, the proposed 
+design achieved 60% delay compared to that reported in existing works [57]. 
+Table 3.3. Comparative Perspective of Level-converters 
+Works  Technology (nm)  Power (µW)  Delay  Conversion  Design Approach 
+Ishihara [57]  130  --  127ps  Level-up/  Level converting  
+down  flip flops 
+Sadeghi [104]  100  10  1ns  Level-up  Pass transistor and 
+Keeper transistor 
+ 
+3.5.4. Active Pixel Sensors 
+  The scaling of CMOS technologies has accelerated in recent years and will arguably 
+continue toward the 10 nm node regime [5]. Advanced circuit design exploration must start 
+before future technologies are fully developed in order to solve design challenges posed by 
+nanoscale CMOS technology. Particular examples of these emerging challenges include leakage 
+current, process variations, and transistor reliability. In [61], the authors examined mismatch in 
+photo-detectors at 2 µm and 1.2 µm CMOS processes. In [40], the authors presented results for 
+pixel mismatch. In [31, 123], low-voltage APS designs were proposed. The authors in [122] 
+presented recent advances in image sensors with device scaling considerations. In [106], the 
+authors analyzed the effect of technology scaling on readout time. A multiple-resolution APS 
+was presented in [8]. 
+  Table 3.4 provides a broad overview of the existing works on APS array. The APS 
+I propose in this dissertation has been designed with the smallest CMOS technology, has 
+3 7 
+the lowest power dissipation, and operates at the lowest supply voltage. Thus, my proposed APS 
+is more suitable for target nanoscale SoC applications. 
+Table 3.4. Comparative Perspective of Existing APS Designs 
+Works  Technology (nm)  V  (V)  P  (W)  V (V)  DR (dB) 
+dd APS swing 
+Xu [123]  250  1  520n (pixel)  0.55  71 
+Cho [19]  350  1.5  550µ (array)  --  -- 
+ 
+3 8 
+CHAPTER 4 
+PROPOSED LOW-POWER DESIGN AND OPTIMIZATION METHODOLOGIES 
+  This chapter constitutes the main original contributions of this dissertation. The issue of 
+process variation and how it is becoming a major obstacle for nanoscale design is discussed first. 
+Next is an explanation of optimization methodologies for power, parasitic-aware and process-
+variation-aware designs at nanoscale. 
+4.1. Issue of Process Variation 
+  Semiconductor designers are facing numerous challenges as they migrate their existing 
+designs or start new designs in 90 nm, 65 nm and finer process geometries. Two of the biggest 
+challenges are the increasing power specifications because of leakage power and potential yield 
+loss caused by increasing process variations. 
+  Designing for yield is an afterthought in today's design flows, whether it is digital, 
+analog/radiofrequency (RF), or mixed-signal. The lack of design for yield tools has forced the 
+digital world to accept overly pessimistic guardbands as the norm. Just as in digital design where 
+interconnect delays make or break a design, the move to 90 nm and lower process technologies 
+means that the variations in process parameters have a resounding effect on the performance 
+metrics of analog/mixed-signal, memory and RF circuits.  
+  A digital circuit is typically optimized only for speed and power, whereas an analog 
+circuit is designed to meet as many as 5 to 10 performance metrics. As a result, the impact of 
+these process variations is seen as design yield loss. A proactive and a deterministic way is 
+needed to deal with performance and yield while in the design phase, and not after first silicon. 
+Design yield, also known as parametric yield, is a design's sensitivity to process variations. In 
+general, designers verify the operation of their circuits at the center point of the process, which is 
+3 9 
+also called the nominal point. In addition, they verify the operation of their circuits at the typical 
+four worst-case “corner” points.  
+  The nominal point is not necessarily “the best operating point for that process,” but is 
+easiest for fabrication to control. However, the reality is that with the variations that process 
+parameters exhibit and the nonlinear nature of analog/RF circuits, the design must operate across 
+the entire range of process and operating conditions, not just the nominal and the four worst-case 
+points. Current tools analyze and optimize a design only for the nominal point without sweeping 
+across the full range of process and operational parameters. A significant part of the loss in yield 
+of a design can be attributed to parametric yield, and it is typically on the order of 20%. 
+  Simulation and nominal optimization tools analyze a design only for a fixed process point 
+(typically the nominal or, supposedly, the worst-case point). They fall short of optimizing true 
+parametric yield based on process variations. Yield optimization with built-in sensitivity analysis 
+and full knowledge of the distribution of process variations is critical to understanding the factors 
+that contribute to parametric yield and to optimizing the design to achieve the maximum yield. 
+The impact of the variations in the process parameters and operating conditions of the 
+performance factors of a design is much more for nanometer than the sub-micron technologies. 
+Hence, the nominal operating point, which is the center of the distribution of the parameters for a 
+given process, may not be the best operating point for design yield.  
+  What is really needed is an automated way to maximize design yield such that the design 
+operates as specified across the entire process and operating environment. When an analog/ 
+mixed-signal or memory design is optimized for multiple performance parameters, the worst-
+case condition may be different for each performance parameter such as gain, bandwidth, and 
+jitter [54]. Trying to simultaneously optimize a design for each such performance parameter can 
+4 0 
+be a nightmare and is typically beyond what an individual can assimilate. Furthermore, net yield 
+is determined by the design simultaneously meeting all those requirements. 
+  It is common to address design yield problems after a design is manufactured. Engineers 
+will track a low-yielding wafer to see what process variations cause the yield loss. Then, they 
+will run simulations to see where the design should be tweaked to improve yield. This "redesign 
+by autopsy" approach to addressing design yield issues is very costly compared to handling 
+design yield at the front end of the design process using design for yield (DFY) techniques. Use 
+of DFY techniques in the front end design process will accelerate the design flow and get the 
+final product to market faster and with higher yield. 
+  The following sections describe methodologies used in this dissertation for attacking 
+this problem of yield caused by process variations and achieving low-power designs at the same 
+time. These methodologies have been tested on specific analog/mixed-signal circuits (discussed I 
+n chapter 5) in order to verify their effectiveness. 
+4.2. Single-Iteration Automatic Approach 
+  The primary purpose of this approach is to address the issues of parasitic degradation and 
+process variation in integrated circuits (ICs). To achieve parasitic closure, multiple iterations 
+between the front-end circuit design and back-end layout will be required, according to the 
+standard IC design flow in figure 4.1 [120]. In this figure, I have indicated the manual and 
+automatic processes separately. I assume that the manual process requires X number of 
+iterations. The primary purpose of the proposed design flow, called parasitic-aware design flow, 
+is to reduce the number of manual iterations to 1 by performing the X number of iterations on 
+a parasitic parameterized netlist instead of the layout. The parasitic parameterized netlist refers to 
+the netlist derived from the initial physical design and then parameterized. This netlist gives the 
+4 1 
+designer a fair idea of the parasitics present in the designed circuit. The final optimal physical 
+design is carried out after optimization and constitutes 1 iteration. 
+ 
+Figure 4.1. Standard IC design flow. 
+  Hence, I reduced the X number of manual iterations required for parasitic closure to 1 
+manual iteration. The proposed design flow is shown in figure 4.2. The optimized physical 
+design was then tested, and the results are presented in figure 6.4. The discrepancy in the 
+oscillation frequency of the logical and physical design of the voltage controlled oscillator 
+(VCO) has been reduced to 1% in a single physical design iteration. More details are given in 
+section 6.2.1. To have a process variation robust design, I also introduced a process variation 
+analysis step in the parasitic-aware design flow to formulate a new design flow called parasitic- 
+4 2 
+and process-variation-aware design flow. In this cycle, the parasitic parameterized netlist was 
+subjected to worst-case process variations. 
+ 
+Figure 4.2. Proposed parasitic-aware IC design flow. 
+  The final physical design was carried out with the optimized parameters obtained from 
+the netlist optimized for a worst case process variation environment constituting 1 iteration. A 
+nano-complementary metal oxide semiconductor (CMOS) VCO has been subjected to this 
+methodology; the results are presented in chapter 6. This procedure (shown in figure 4.3) ensures 
+that the resulting final physical design is not only resistant to parasitic effects but is also tolerant 
+4 3 
+to process variations. These are novel methodologies for physical design of nano-CMOS RF 
+components to meet the required design specifications. In both procedures, a 1-iteration approach 
+(see algorithm 1) is followed, in which the layout has to be done only twice, once before the 
+optimization and once after the optimization. In this communication, the fully extracted physical 
+design consisting of resistors (R), capacitors (C), inductors (L) and mutual inductors (K) is 
+optimized to meet the target specification.  
+Algorithm 1 
+Algorithm Used for Optimization in the Single-iteration Automatic Approach 
+1: Input: parasitic parameterized netlist, objective set F, stopping criterion S, design variable set 
+D, lower design constraint C , upper design constraint C . 
+lower upper
+2: Output: optimized objective set F , optimal design variable set D for S = ± β. 
+optimized optimal 
+{where 2% ≤ β ≤ 5%} 
+3: Run initial simulation in order to obtain feasible values of design variables for the given 
+specifications. 
+4: while (C  < D < C ) do {This loop outputs optimal design variable set D } 
+lower upper optimal
+5: Using conjugate gradient method, generate D′ = D ± δD. 
+6: Compute objective set F. 
+7: if (S = ± β) then 
+8: return D = D′. 
+optimal 
+9: end if 
+10: end while 
+11: Using design variable set D , construct final physical design and simulate. 
+optimal
+12: Record objective set F . 
+optimized
+4 4 
+ 
+Figure 4.3 Parasitic- and process-variation-aware IC design flow. 
+  Algorithm 1 presents the optimization used in the single-iteration approach. The inputs to 
+the algorithm consist of the parasitic parameterized netlist, the objective set F with its stopping 
+criterion S (which is the specification required for successful design closure), and the design 
+variable set D with its lower constraint Clower and upper design constraint Cupper. The outputs of 
+the algorithm are the optimized objective set Foptimized within the specifications and the 
+4 5 
+corresponding optimal values of the design variable set Doptimal. First, a simulation is run using 
+the initial values of D, and the value of F is calculated to determine whether the initial values are 
+feasible for the given Foptimized  (which are the specifications for the design as shown in figure 
+4.3). In the next iteration, the design variable set (D) values are changed by using conjugate 
+gradient method, to achieve the required Foptimized. The circuit is simulated again by using this 
+new design variable set. This process continues until F meets the stopping criterion S. 
+4.3. Hybrid Monte Carlo and Design of Experiments (DOE) Approach 
+  The general convention used to determine a given circuit's yield is Monte-Carlo analysis: 
+A large number of parameter sets is generated, using a normal distribution with the process 
+standard deviations (presumed to be known); and the number of samples within specifications is 
+determined. A DOE is used to determine the influence of variation of fabrication parameters on 
+measurable quantities. The advantage is that only a very limited amount of experiments needs to 
+be performed from which a maximum amount of information must be gained. In general, a fit of 
+the data is performed with the measured data points. This fit can then be used to find optimal 
+working points or to determine the expected yield of a process. Thus, while a Monte Carlo 
+approach gives a designer an idea about the circuit's yield, a DOE approach allows the designer 
+to reduce the number of required simulations dramatically while providing a near-optimal 
+design. A novel algorithm for optimization of any given circuit is discussed in Algorithm 2. The 
+proposed algorithm takes advantages of both the strengths of Monte Carlo analysis and DOE. 
+Algorithm 2 
+Proposed Monte Carlo/DOE-based Algorithm for Variability-Aware Optimization 
+1: Input: Baseline circuit, Objective set F, design variable set D. 
+2: Output: Optimized circuit, F  D . 
+optimized, optimal
+4 6 
+3: for (each corner of design variable set D) do 
+4: Run Monte Carlo simulation for N runs. 
+5: Record Monte Carlo Data for F. 
+6: Normalize the Monte Carlo data for F. 
+7: Record µ  , σ . 
+F F
+8: end for 
+9: Using DOE, obtain prediction equations for µ^  , σ^  . 
+F F
+10: Form objective function: f  = µ^  ± 3 x σ^ . 
+F F F
+11: while All corners of design variable set D not explored do 
+12: Compute f  . 
+F
+13: if (f  = acceptable) then 
+F
+14: return D  = D. 
+optimal
+15: end if 
+16: end while 
+17: Replace D = D  in baseline circuit. Circuit obtained is optimized. Simulate opti- 
+optimal
+mized circuit. 
+18: Compute F = F  from optimized circuit. 
+optimized
+  The presented optimization algorithm is very suitable for power-aware design of circuits 
+while being subjected to process variation. The inputs to the algorithm are the baseline circuit, 
+the objective set F, which may be power and delay for a given circuit; and the design variable set 
+D, which consists of quantities under the designer's control (for example, the widths of 
+transistors and supply voltage). The output of the algorithm is a circuit, which gives the 
+4 7 
+optimized values of F (F ), and the values of the design variable set, which give this 
+optimized
+optimized circuit (Doptimal).  
+  The first stage of the algorithm involves Monte Carlo data collection. In this stage, for 
+each corner of the design variable set D, N Monte Carlo runs consider process variation or 
+mismatch or both, depending on the designer's requirement. The data for F is recorded and 
+normalized, from which the mean (µF) and standard deviation (σF) are calculated. Thus, µF  and 
+σ   are obtained for each corner of the design variable set D in the Monte Carlo data collection 
+F
+stage.  
+  The next stage is the DOE. Using DOE, I obtained prediction equations for µF  and σF, 
+called µ^F  and σ^F, which show the dependence of F on the design variable set D. This was 
+followed by formation of the objective function fF . If F is the power of the circuit under 
+consideration, optimization would refer to power minimization. Hence, the objective function: 
+(6)           f  = µ^  + 3 × σ^  
+F F F
+where fF  has to be minimum. Once the objective function was formed (equation 6), I computed 
+fF  for all the design corners of D, and the acceptable value was chosen. For example, if power is 
+considered, then the minimum value will be acceptable. The design corner, which gave this 
+acceptable value, is called Doptimal. Using this Doptimal, the circuit was simulated; and the 
+corresponding value of F, i.e., Foptimized, was obtained. Hence an optimized circuit was obtained. 
+This approach has been used to optimize an 8 × 8 APS array (presented in chapter 6). Figure 4.4 
+shows the theory behind the formation of the objective functions. The idea is that µbaseline of the 
+figure of merit to be optimized needs to be shifted left or right, depending on whether it needs to 
+be minimized (µminimized) or maximized (µmaximized). The 3 × σbaseline of the figure of merit (which is 
+4 8 
+a measure of the spread) also needs to be minimized to 3 x σminimized. A 3 × σ limit has been 
+considered, so that 99.5% of all the figure-of-merit values will fall within the 3 × σ limit. 
+ 
+Figure 4.4. Aim of the hybrid Monte Carlo and DOE-based optimization. 
+4.4. Corner-based Methodology 
+  For robust designs, the influence of process variations has to be considered during circuit 
+simulation. I propose a corner-based method that covers the process spread with a minimum 
+number of simulation runs. This methodology may be applied to process (say, threshold voltage 
+Vt) as well as design parameters (Vdd) while testing a circuit's robustness against process 
+variations. Consider two parameters in a given circuit: 
+•  Vtn: NMOS transistor threshold voltage. 
+•  Vtp: PMOS transistor threshold voltage. 
+During CMOS fabrication, threshold voltage implantation for p-type metal oxide semiconductors 
+(PMOS) and n-type metal oxide semiconductors (NMOS) are separate steps; hence these two 
+parameters are considered independent of each other. Thus for simulating intra-die variations or 
+mismatch of, say, ± 5%, between these two parameters, there are four process corners: 
+4 9 
+•  Corner 1: Vtn  −5%, Vtp  −5% 
+•  Corner 2: Vtn −5%, Vtp +5% 
+•  Corner 3: Vtn +5%, Vtp −5% 
+•  Corner 4: Vtn +5%, Vtp +5% 
+  Using these four process corners, I simulated the design and measured the figure of merit 
+under consideration. A satisfactory value of the figure of merit obtained gave an indication of 
+whether the design was process-variation-tolerant or not. A 90 nm ADC was subjected to such a 
+technique. The results are presented in chapter 6. This method might not be as accurate as 
+traditional Monte-Carlo simulations, which are very time-consuming, but it is very useful in 
+getting a quick estimate of the impact of process variation on a circuit's behavior. Figure 4.5 
+depicts this method. 
+ 
+Figure 4.5. The corner-based methodology used for process variation. 
+5 0 
+CHAPTER 5 
+CASE STUDIES USING SAMPLE DIGITAL,  
+ANALOG AND MIXED-SIGNAL CIRCUITS 
+  In this chapter, I present the logical and physical designs of specific mixed-signal 
+circuits, which have been used as case studies for this dissertation. These circuits are used by the 
+industry for a variety of applications such as radiofrequency (RF), wireless, and cell phones. The 
+post-layout functional simulation results of each of these circuits are also presented. The design 
+of the following circuits is presented: 
+•  90 nm/45 nm analog-to-digital converter (ADC) 
+•  90 nm voltage-controlled oscillator (VCO) 
+•  90 nm universal voltage level converter (ULC) 
+•  32 nm active pixel sensor (APS) 
+5.1. Analog-to-digital Converter (ADC) 
+  Figure 5.1 shows the high-level representation of the 6-bit ADC [126], followed by a 
+detailed block diagram of a flash ADC 5.2. To achieve a high sampling rate, a flash architecture 
+is chosen. The input to the ADC is analog voltage, and the output is in the form of digital codes. 
+An n-bit ADC requires 2n − 1 comparators which are contained in the comparator bank. The 
+comparator bank outputs a thermometer code. The position of the meniscus (the 1-0 transition) 
+represents the analog input and is determined by the thermometer decode circuit, which consists 
+of “1 of n" code generators. The “1 of n” code generators generate a “1 of n” code which is 
+converted to binary code using the NOR read-only memory (ROM). Hence, the output of the 
+ADC is in the form of 6-bit binary code. 
+5 1 
+ 
+Figure 5.1. High-level representation of the ADC. 
+ 
+Figure 5.2. Detailed block diagram of the flash ADC. 
+5.1.1. Comparator Design 
+  The comparators in the proposed flash ADC are designed by using the threshold inverting 
+(TI) technique [60, 76]. The TI comparator has the advantage of high speed and simplicity [76] 
+and eliminates the need for inherently complex high-gain differential input voltage comparators 
+and additional resistor ladder circuit [116]. The TI comparator sets its switching threshold 
+voltage V  internally as the built-in reference voltage, based on its transistor sizes. The 
+switching
+comparators in a conventional flash ADC are identical in size. In the TI-based ADC, all 
+comparators have unique sizes. An n-bit ADC requires 2n − 1 different comparators, each 
+comparator having a different V  value. Hence, a total of 63 comparators for a 6-bit ADC, 
+switching
+each comparator having a different size of transistors, is required. The switching voltage is 
+generally calculated by using the following expression [99]: 
+5 2 
+ μ ×W ( ) 
+ pmos pmos × V −V +V 
+ μ ×W dd tpmos tnmos 
+(7)       V = nmos nmos  
+switching  μ ×W 
+1+ pmos pmos
+ 
+μ ×W
+ 
+nmos nmos
+where W  = p-type metal oxide semiconductor (PMOS) width, W  = n-type metal oxide 
+pmos nmos
+semiconductor (NMOS) width, V  = supply voltage, V  = NMOS threshold voltage, V  = 
+dd tnmos tpmos
+PMOS threshold voltage, µ  = electron mobility, and µ  = hole mobility, assuming that the 
+nmos pmos
+PMOS length (L ) = NMOS length (L ). However, short-channel devices do not follow the 
+pmos nmos
+square-law model used in deriving equation 7. A more suitable expression to determine the 
+V  for short-channel devices is given by [10]: 
+switching
+ 
+R
+(8)        V =V × nmos  
+switching dd R +R 
+ nmos pmos 
+where R and R  are the effective switching resistances for short-channel NMOS and 
+nmos  pmos
+PMOS transistors, respectively. Since the switching resistance of a transistor depends on the 
+width (W) of the transistor, we have varied the width of the PMOS (W ) transistor in the TI 
+pmos
+comparator in order to achieve the 63 different switching voltages. Another reason for varying 
+the width is that the channel length (L) of the transistor more effectively controls the 
+performance (frequency ∝ 1 = L2). Hence, L is kept constant throughout the design and only W is 
+varied. In the design process, a good input voltage is determined with the following equation: 
+(9)        Input voltage range = V  = (V  + V ) 
+dd tnmos tpmos
+I chose the input voltage range to vary from 493 mV (V ) to 557 mV (V ). The least-
+start end
+significant bit (LSB) value V is calculated as: 
+LSB 
+input voltage range V −V 
+(10)        V = = end start  
+LSB  2n   2n 
+5 3 
+The V  value is calculated to be 1 mV for the design process. The V  signifies the minimum 
+LSB LSB
+step that the ADC can distinguish. The sizes of NMOS transistors in the comparator were kept 
+constant at 240 nm/120 nm (W /L ). For determining the sizes of PMOS transistors, we 
+nmos nmos
+used a DC parametric sweep using an analog simulator, where the input DC voltage was varied 
+from 0 to 1.2 V in steps of 1 mV. During this simulation, L  was kept at 120 nm while W  
+pmos pmos
+was varied from 240 nm (W  = W ) to 448 nm (in steps of 1 nm) in order to obtain 63 linear 
+pmos nmos
+quantization voltage levels. The TI comparator consists of four cascaded inverters, as shown in 
+figure 5.3. Inverters 1 and 2 form the baseline comparator, while inverter 3 and 4 provide 
+increased gain and sharper switching. 
+ 
+Figure 5.3. Threshold inverter (TI) comparator. (In this figure, W /L  = W /L , which 
+pmos pmos nmos nmos
+is the starting point for quantization.) 
+ 
+5.1.2. 1 of n Code Generator Design 
+  The output of the comparator bank is a thermometer code. This thermometer code is 
+converted to a “1 of n" code using “1 of n” code generators. A single slice of “1 of n” code 
+5 4 
+generator consists of AND gates as combinations of an inverter followed by a NAND gate. The 
+output from each of the AND gates is fed to the input of the NOR ROM. One of the two inputs to 
+the AND gate is fed from the TI comparator output [24]. The other input to the AND gate is the 
+inverted output from the next-level comparator as shown in figure 5.4.  
+ 
+Figure 5.4. Complete circuit diagram for a 3-bit flash ADC shown for brevity. (A similar 6-bit 
+structure has been implemented in this paper.) 
+ 
+5.1.3. NOR ROM Design 
+  The input to the NOR ROM is a “1 of n” code. The NOR ROM converts this “1 of n” 
+code to a binary code. Basically, the NOR ROM maps the n-bit address input onto arbitrary 
+values of m-bit data output consisting of a grid of word lines (the address input) and bit lines (the 
+5 5 
+data output), selectively joined together with transistor switches. It can represent an arbitrary 
+look-up table with a regular physical layout. As there are 63-word lines and 6-bit lines, I have 
+designed a 63 × 6 NOR ROM. The NOR ROM consists of PMOS pull-up and NMOS pull-down 
+devices. The PMOS and NMOS sizes have been taken as 135 nm/180 nm and 180 nm/180 nm, 
+respectively. The design decision of W  < W  has been taken to obtain a good voltage 
+pmos nmos
+swing at the output so that the pull-up device (PMOS) is narrow enough for the pull-down 
+devices (NMOS) to pull the output down safely [99]. Finally, buffers are applied at the outputs to 
+obtain symmetrical waveforms with equalized rise and fall times. The buffer consists of two 
+cascaded inverters having NMOS sizes of 240 nm/120 nm and PMOS sizes of 480 nm/120 nm. 
+5.1.4. Physical Design and Characterization of ADC 
+  The physical design of the ADC has been carried out with a generic 90 nm salicide 
+“1.2V/2.5V 1 Poly 9 Metal” process design kit. A digital CMOS process has been used for the 
+physical design, demonstrating the system-on-a-chip (SoC) readiness of the ADC. The three 
+major blocks of the flash ADC (the comparator bank, the “1 of n” code generator and the NOR 
+ROM) have been laid out column-wise in figure 5.5. The post-layout simulation results are 
+presented in subsequent sections. Power and ground routing consist of wide vertical bars, as can 
+be seen from the layout, giving minimal electromigration risk and current-resistance (IR) drop. 
+Generous use of contacts to the power and ground buses also ensures the small IR drop. 
+ 
+Figure 5.5. Complete layout of the 90 nm ADC. 
+5 6 
+5.1.4.1. Post-Layout Functional Simulation 
+  Figure 5.6 shows the functional simulation of the ADC obtained from the post-layout 
+simulation. The ADC is subjected to a transient analysis, where a linearly varying ramp covering 
+the full-scale range of the ADC is given as input. Output digital codes from 0 to 63 are obtained 
+correctly, with no missing codes. A maximum sampling speed of 1 GS/s can be observed in 
+figure 5.6. The least significant bit (out 0) toggles the fastest, as expected. Successive bits toggle 
+at half the frequency of the previous one. All 64 codes of the ADC are covered as the input ramp 
+traverses the full-scale range.  
+ 
+Figure 5.6. Functional simulation of the 6-bit ADC operating at 1 GS/s. 
+ 
+  The ADC has been characterized for static and dynamic performance. The INL and DNL 
+tests have been performed with nominal supply and threshold voltages to confirm satisfactory 
+results before process and supply variation are introduced. The signal-to-noise and distortion 
+ratio (SNDR) has been measured for dynamic performance. In addition, power consumption of 
+the designed circuit has been analyzed. 
+5 7 
+5.1.4.2. Static Characterization 
+  The histogram test is commonly used for linear characterization of the ADC [2]. The 
+proposed 6-bit ADC's integral nonlinearity (INL) and differential nonlinearity (DNL) have been 
+measured using the histogram method. A mixed-signal simulation environment is set up, where 
+INL and DNL calculating blocks are Verilog-A modules. The Verilog-A block generates a 
+voltage “vout,” which is sequentially set to 4096 equally spaced voltages between V  and V , 
+start end
+which is the input voltage range for ADC conversion (section 5.1.1). At each different value of 
+vout, a clock pulse is generated causing the ADC to convert this vout value. The resultant code 
+of each conversion is stored. When all the conversions have been performed, the INL and DNL 
+are calculated from the recorded data as follows: 
+(11)        INL[i] = width[i] + INL[I – 1] – 1 
+(12)        DNL[i] = width[i] – 1 
+[]
+1.0×bucket i
+[]
+(13)        widthi =  
+( )
+hits× NUM −2
+CODES
+where bucket holds the number of code hits for each code, and width holds the code width 
+calculations. The total hits between codes 1 and 62 are denoted as hits. NUM  is the number 
+CODES
+of codes (64 for a 6-bit ADC). The maximum INL obtained is 0.344 LSB and the maximum 
+DNL is 0.459 LSB. Figures 5.7 and 5.8 show the INL and DNL plots, respectively. Low 
+distortion requires an ADC with a low INL. A DNL < 1 LSB also ensures a monotonic transfer 
+function for the ADC.  
+5 8 
+ 
+Figure 5.7. INL plot of the ADC. 
+ 
+Figure 5.8. DNL plot of the ADC. 
+5 9 
+5.1.4.3. Dynamic Characterization 
+  SNDR is a good indicator of the overall dynamic performance of the ADC because it 
+includes all the components which make up noise and distortion. The SNDR of an ADC is given 
+by the following equation [3]: 
+ A 
+(14)        SNDR =20×log  RMS,signal  
+10 ARMS,noise+harmonics 
+The fast fourier transformation (FFT) test was used to measure the SNDR. A 1 MHz sinusoidal 
+input was fed to the ADC, and the FFT of the output was obtained. The SNDR was calculated 
+from this FFT plot (shown in figure 5.9). The SNDR was found to be 31.7 dB. 
+ 
+Figure 5.9. FFT plot of the ADC at a sinusoidal input frequency f  of 1 MHz for SNDR 
+in
+calculation. 
+ 
+5.1.4.4. Power Analysis 
+  Power analysis of the ADC was performed with a capacitive load of 100 fF, which is a 
+reasonable load for a 90 nm CMOS technology [87]. The ADC consumes a peak power of 5.794 
+6 0 
+milliwatts (mW) and an average power of 3.875 mW, which satisfies the lower bound on power 
+consumption [118]. The component-wise power consumption is shown in Table 5.1.  
+Table 5.1. Componentwise Power Consumption of ADC 
+Component  Average Power (mW) 
+Comparator bank  3.68125 (95%) 
+NOR ROM  0.155 (4%) 
+ 
+  It can be seen that the comparator bank consumes maximum power. A power-saving 
+scheme can be used to turn off the unused TI comparators. The instantaneous power plot of the 
+ADC, shown in figure 5.10, has a parabolic nature with peak power at the middle of the 
+conversion process because most of the comparators are turned on at the middle voltage, (input 
+voltage range)/2. The summary of the measured performance of the ADC is shown in table 5.2. 
+6 1 
+ 
+Figure 5.10. Instantaneous power plot of ADC with a load capacitance of 100 fF. 
+Table 5.2 ADC Performance with Nominal Supply and Threshold Voltages 
+Parameter  Value 
+Technology  90 nm CMOS 1P 9M  
+Supply voltage (V )  1.2 V 
+dd
+INL  0.344 LSB 
+SNDR  31.7 dB @ f  = 1 MHz 
+in
+Average power  3.875 mW@ 1.2V 
+ 
+ 
+6 2 
+5.1.5. Transistor-Level Design and Characterization of the ADC at 45 nm Technology 
+  The proposed ADC has also been built and characterized at 45 nm technology [45]. The 
+block diagram of the ADC remains the same as described earlier in section 5.1.1. But the device 
+sizes and the supply voltage change according to the technology used. The simulation and 
+characterization details of ADC at 45 nm technology are discussed in this section. Simulated 
+with the 45 nm predictive technology model, the results demonstrate INL < 0.5 LSB, DNL < 0.8 
+LSB and an SNDR of 31.9 dB. The TI technique is used with W /W  < 1 for many 
+pmos nmos
+transistors in order to keep the power consumption as low as possible. It is also observed that the 
+ADC consumes 45.42 µW of peak power and 8.8 µW of average power while it operates on a 
+power supply voltage of 0.7 V. Because the process design kit for 45 nm technology is 
+unavailable, the physical design has not been presented. The transistor level design at 45 nm is 
+the same as at 90 nm technology. However, the transistor sizes are different. The differences are 
+highlighted in the following subsections.  
+5.1.5.1. Comparator Design 
+  The methodology followed for choosing the comparator sizes was the same as for 90 nm 
+technology. However, a suitable power supply of 0.7 V for 45 nm design [5] has been chosen. 
+The channel length of transistors has been reduced accordingly. Using equation 9, the input 
+voltage range was chosen to vary from 296.3 mV (V ) to 328.3 mV (V ). The V  value is 
+start end LSB
+calculated to be 500 µV (equation 10). Here, W  = L  = 90 nm/90 nm and L  = 90 nm 
+nmos nmos pmos
+was kept constant throughout the design, while W  was varied from 51 nm to 163 nm, to get 
+pmos
+64 quantization levels, 500 µV apart. The results are presented in table 5.3. 
+ 
+ 
+6 3 
+Table 5.3. Comparator Transistor Sizes for Input Voltage Range at 45 nm Technology 
+V   W /L   W /L  
+switching pmos pmos nmos nmos
+296.3 mV (V )  51 nm/90nm  90 nm/90nm 
+start
+327.8 mV (V )  163 nm/90 nm  90 nm/90 nm 
+end
+ 
+5.1.5.2. NOR ROM Design 
+  The basic structure of NOR ROM remains the same as the 90 nm design. However, at 45 
+nm, W /L  = 75 nm/90 nm and W /L  = 90 nm/90 nm have been used.  
+pmos pmos nmos nmos
+5.1.5.3. Functional Simulation 
+  An instantaneous plot of the functional simulation of the ADC is shown in figure 5.11. 
+Output codes from 0 to 63 are obtained with no missing codes. In this design, a maximum 
+sampling speed of 100 MS/s has been obtained. This speed is sufficient as far as video 
+applications are concerned [37]. 
+ 
+Figure 5.11. Functional simulation of the ADC at 45 nm mode. 
+6 4 
+5.1.5.4. Characterization 
+  The ADC has been characterized for INL, DNL, and SNDR. The peak and average 
+power consumption have also been evaluated. The histogram method was used to calculate INL 
+and DNL. The INL and DNL plots of the ADC are shown in figures 5.12 and 5.13, respectively. 
+The ADC is observed to have maximum INL = 0.46 LSB and maximum DNL = 0.7 LSB. The 
+FFT test was used to measure the SNDR. The SNDR plot of the ADC is shown in figure 5.14. 
+The ADC is observed to have an SNDR = 31.9 dB for a 1 MHz sinusoidal input. 
+ 
+ 
+Figure 5.12. INL plot of the ADC at 45 nm node. 
+6 5 
+ 
+Figure 5.13. DNL plot of the ADC at 45 nm node. 
+ 
+Figure 5.14. SNDR plot of ADC at 45 nm node. 
+6 6 
+  
+Figure 5.15. Instantaneous power plot of the ADC at 45 nm node. 
+ 
+The ADC was observed to consume peak power = 45.42 µW, and average power = 8.8 µW. The 
+instantaneous power plot of the 45 nm ADC at no-load condition is shown in figure 5.15. The 
+complete performance summary of the 45 ADC has been tabulated in table 5.4. 
+Table 5.4. ADC Performance at 45 nm Technology 
+Parameter  Value 
+Technology  45 nm PTM  
+Resolution  6 bit 
+Supply voltage (V )  0.7 V 
+dd
+Sampling rate  100 MS/s 
+INL  0.46 LSB 
+DNL  0.7 LSB 
+(table continues) 
+   
+6 7 
+Table 5.4 (continued.)   
+Parameter  Value 
+SNDR  31.9 dB @ f  = 1 MHz 
+in
+Peak Power  45.42 µW@ 0.7V 
+ 
+5.2. Voltage-controlled Oscillator (VCO) 
+  I have considered the current starved type of VCO, as other designs require large resistors 
+and capacitors consuming a large silicon area. The design, as shown in figure 5.16, consists of 
+two input stage transistors with high impedance, an odd numbered chain of inverters and two 
+current source transistors per inverter. The current starved transistors limit the current flow to the 
+inverter; i.e., they are starved for current. For determination of the oscillation frequency, we 
+calculate the total capacitance (C ) on the drain of the inverter.  
+TOT
+6 8 
+ 
+Figure 5.16. Nominal-case logical design of the VCO. 
+The C  is given as the sum of the input (C ) and output (C ) capacitances of the inverter 
+TOT in out
+[10]: 
+C =C +C
+TOT out in
+( )
+=C × W L +W L
+oxide p p n n
+(15)        ( ) 
++ 3×C × W L +W L
+2 oxide p p n n
+( )
+= 5×C × W L +W L
+2 oxide p p n n
+where C  is the gate oxide capacitance per unit area, W  and W  are the widths, and L  and L  
+oxide n p n p
+are the lengths of the inverter NMOS and PMOS transistors, respectively. The gate oxide 
+capacitance per area C  is calculated as  
+oxide
+∈ ×∈0
+(16)        C = rox  
+oxide T
+ox
+where ∈ is the relative dielectric constant of SiO2, ∈  is vacuum dielectric constant, and T  is 
+rox  0 ox
+the gate oxide thickness.  
+6 9 
+  The total time required to charge and discharge the capacitance of an inverter stage is 
+then given by: 
+V 
+(17)        T =C × dd  
+TOT  I 
+D
+  The operating frequency of the VCO, f , can be determined by using this simple 
+0
+capacitance charging estimate (equation 17) [10], where V  is the supply voltage, I  is the 
+dd D
+current flowing through the inverter, and N is the odd number of inverters in the VCO circuit. 
+Hence, the oscillation frequency is determined by the number of inverters, size of the transistors 
+in the circuit, and the current flowing through the inverter (I ), which is determined by the input 
+D
+voltage to the VCO. 
+  The oscillation frequency is the functional specification for the design. The target 
+oscillation frequency is kept at a minimum of 2 GHz for this design. To meet high-frequency 
+requirements and an area optimal design, the number of stages (N) is fixed to 13. Minimum-sized 
+transistors have been used to design the inverters. The length is kept constant for all devices. 
+Hence, L  = L  = 100 nm, W  = 250 nm and W  = 2 × W  = 500 nm. Choosing minimum-width 
+n p n p n
+transistors also ensures an area optimal design. The C  is calculated using these values. The I  
+TOT D
+requirement is calculated by using equation 18 for the desired f .  
+0
+1 I
+(18)        f = = D  
+0 N×T N×C ×V
+TOT dd
+  The current starved NMOS and PMOS devices are sized to provide the required current 
+I . Thus, I obtained L  = L  = 100 nm, and W  = 500 nm and W  = 10 × W  = 5 µm, 
+D ncs pcs ncs pcs ncs
+where W  and W  are the widths and L  and L  are the lengths of the current-starved 
+ncs pcs ncs pcs
+NMOS and PMOS transistors, respectively. The minimum sizes of transistors needed for 
+successful operation are obtained by using equations 15 and 18. However, it is extremely 
+7 0 
+difficult to find the optimum design by minimizing the phase noise and maximizing the tuning 
+range simultaneously. To maximize the tuning range, it is necessary to minimize the parasitic 
+capacitances and hence reduce the size of transistors. If the size becomes too small, however, 
+flicker noise can dominate, which in turn would increase phase noise. The parasitic inductors 
+(considered in this design) also exhibit nonlinear dependence on frequency, which makes the 
+complexity of the problem worse.  
+5.3. Universal Voltage Level Converter (ULC) 
+  The high-level representation of the ULC is shown in figure 5.17.  
+ 
+Figure 5.17. High level representation of the ULC. 
+It has an input voltage signal called V ; two control signals, S1 and S0; two supply voltages V
+in ddl 
+(V -low) and V  (V -high); and an output voltage signal, V . The state of control signals 
+dd ddh dd out
+determines the functionality to be implemented and depending on that, the input voltage V  is 
+in
+transformed to the output voltage V . Figure 5.18 gives a more detailed picture. To achieve 
+out
+programmability we have used multiplexers. First, the baseline design is discussed. The designs 
+of the level-up and level-down converters are discussed separately. The area optimal design is 
+then presented, followed by the power-delay optimal design.  
+ 
+7 1 
+ 
+Figure 5.18. Schematic logical block diagram of the baseline (unoptimized) ULC. 
+5.3.1. Design of ULC 
+  The baseline design of the proposed ULC is capable of performing four functions defined 
+in table 5.5 blocking, passing, step-up conversion, and step-down conversion [81].  
+Table 5.5. Truth Table for Functionality of Baseline ULC Design 
+Select Signal   
+S1  S0  Type of 
+Operation 
+0  1  Pass signal 
+1   1  Step-up 
+ 
+7 2 
+The circuit has been designed with built-in programmability, and the number of transistors 
+required to implement the circuit has been optimized. For circuit optimization, instead of using 
+one 4:1 multiplexer or three 2:1 multiplexers, functionality is achieved by using two 2:1 
+multiplexers, thus saving on area overhead and resulting in lower power consumption, because 
+of reduced transistor count. 
+5.3.1.1. Level-up Conversion Circuit 
+  The level-up converter is responsible for conversion of a signal at lower voltage (V ) 
+ddl
+level to a higher voltage (V ). I used a cross coupled level converting circuit (CCLC) (figure 
+ddh
+19) to achieve the up conversion functionality.  
+ 
+Figure 5.19. Circuit used for pass/block. 
+  The CCLC circuit is an asynchronous level converter, which can be inserted anywhere in 
+the circuit wherever level conversion is necessary. Because of this flexibility, CCLC is one of the 
+designs most commonly used to suppress the direct current (DC) [57]. In this circuit, there are 
+two cross-coupled PMOS transistors to form the circuit load. They act as a differential pair [57]. 
+Thus, when the output at one side is pulled low, the opposite PMOS transistor will be turned on. 
+The output on that side will be pulled high. Below the PMOS load, there are two NMOS 
+transistors that are controlled by the input signal V . The NMOS transistors operate with a 
+in
+7 3 
+reduced overdrive V  - V , compared to the PMOS devices. They must be larger to be able to 
+ddl T
+overpower the positive feedback [99]. The functional simulation result of the level-up converter 
+5.3.1.2. Level-down Converter 
+  The level-down converter is responsible for converting the high voltage (V ) input 
+ddh
+signal to a lower voltage level (V ). A differential pair level converter which acts as a level-
+ddl
+down converter circuit, is used for achieving the functionality of level-down conversion. Such a 
+type of level converter finds applications in high-speed digital signal processing (DSP) chips 
+[62] and low-voltage devices. It has high noise immunity against supply voltage bouncing [107]. 
+The high noise immunity for a level converter circuit is very helpful because noise in the circuit 
+is not considered when scaling down V  for low-power design [62]. This has impact on the 
+dd
+7 4 
+output quality of overall system. The circuit diagram for the differential input level-down 
+converter is shown in figure 5.21.  
+  The circuit runs at a dual voltage that consists of V  and V . The circuit consists of a 
+ddh ddl
+cross-coupled PMOS pair, similar to the level-up converter circuit. The lower voltage signal, 
+V , is applied at an inverter operating at V . The higher level of the signal is converted to a 
+ddl ddh
+lower level at the output side. The functional simulation result of the level-down converter is 
+shown in figure 5.22. 
+5.3.1.3. Pass/Block Circuit 
+  This is another stage of circuit optimization. To minimize the transistor count of the 
+circuit, I used the same circuit for passing and blocking with a control signal used for 
+determining the functionality. The circuit diagram for the pass/block circuit is shown in figure 
+5.23. The pass/block circuit uses a transmission gate and an inverter to achieve the functionality 
+of passing and blocking.  
+ 
+Figure 5.23. Transistor-level realization of the baseline design of the ULC with 32 transistors. 
+  When the control signal = 0, it behaves as a pass circuit. When the control signal = 1, it 
+behaves as a block circuit, as shown in figure 5.24.  
+7 6 
+control signal = 1, it behaves as a block circuit. The bottom curve is input, and the top curve is 
+output.) 
+ 
+  The blocking functionality completely stops any kind of signal at the input side from 
+appearing at the other side. This feature is very important when total isolation from the input 
+signal is required for reduction of standby leakage power. Transmission gates are specifically 
+used to build the pass/block circuit because of its ability to pass strong 0 or strong 1. This type of 
+circuit is very handy when designing a data path or multiplexers. 
+5.3.1.4. Baseline ULC Circuit 
+  Figure 5.25 shows the transistor level circuit design of the ULC.  
+7 7 
+ 
+Figure 5.25. Transistor-level realization of the baseline design of the ULC with 32 transistors. 
+  This design is achieved by stitching the individual subcircuits performing step-up 
+conversion, step-down conversion, passing, and blocking. To achieve programmability, 
+multiplexers are used. For circuit optimization, instead of using a 4:1 multiplexer, I achieved the 
+functionality by using three 2:1 multiplexers. The average power consumption of the baseline 
+design is 97.83 µW (from simulation program with integrated circuit emphasis (SPICE) 
+simulations). 
+5.3.1.5. Area Optimal Design 
+  To achieve the area optimal design of the ULC, I reduced the functionality of the ULC. 
+Because pass function is not generally required, I removed the pass functionality. The design is 
+shown in figure 5.26.  
+7 8 
+ 
+Figure 5.26. Transistor-level circuit realization of the area optimal ULC. (The power-hungry 
+transistors, which are subjected to a dual T  technique for power minimization, are highlighted.) 
+ox
+ 
+ 
+Figure 5.27. Functional simulation of the area optimal ULC. (This waveform verifies the truth 
+table given in table 5.6. The sequence of operations is block, step-down, and step-up.) 
+ 
+  In this design, a switch constructed using transmission gates is attached in front of the up 
+level converter and down level converter. The output of the level converters can be controlled by 
+the switches. I obtained an area optimal design by using two output nodes instead of one node. 
+The number of transistors was also reduced to 24, eliminating 8 transistors from the baseline 
+7 9 
+design by using two 2:1 multiplexers instead of three 2:1 multiplexers. The functional simulation 
+of the proposed ULC is shown in figure 5.27.  
+  Hence, the area optimal design is capable of performing blocking, level-up conversion 
+and level-down conversion. The above subcircuits, as well as the overall ULC circuit, are 
+thoroughly tested for functionality. Then, they are exhaustively characterized through 
+parametric, load, and power analysis.  
+5.3.1.6. Physical Design for 90 nm Technology 
+  The physical design of the ULC has been performed using a generic 90 nm salicide 1.2 
+V/2.5 V 1P 9M process design kit. In this layout, it was necessary to supply both V  and V  to 
+ddh ddl
+the cell. The two supply rails (V  and V ) travel side by side to provide the two voltages to the 
+ddl ddh
+cell. Such a layout does not comply with the conventional application specific integrated circuits 
+(ASIC) standard-cell power routing but is more robust [57]. The post-parasitic re-simulations 
+matched with the schematic-level simulations. To improve the functional yield and reliability of 
+the physical design, I followed design for manufacturability (DFM) methodologies. The use of 
+additional vias has been made in the design wherever possible to make it more fault-tolerant 
+[55]. The metal lines have been spread out wherever possible to control the capacitance and 
+crosstalk between them [46]. 
+5.4. Active Pixel Sensor (APS) 
+  An APS is an image sensor consisting of an IC containing an array of pixel sensors, each 
+pixel containing a photodetector and an active amplifier. There are many types of active pixel 
+sensors, including the complementary metal oxide semiconductor (CMOS) APS used most 
+commonly in cell-phone cameras, web cameras, and some digital single-lens reflex cameras 
+(DSLRs). Such an image sensor is produced by a CMOS process (and is hence also known as a 
+8 0 
+CMOS sensor) and has emerged as an alternative to charge-coupled device (CCD) imager 
+sensors. The design of a three-transistor single pixel is presented as shown in figure 5.28 [50].  
+ 
+Figure 5.28. Circuit diagram of an APS. 
+  The three transistors of the circuit are as follows: (i) M1: reset transistor, (ii) M2: source 
+follower transistor, and (iii) M3: access transistor. A PMOS transistor (M1) has been used as the 
+reset transistor because it results in a higher output voltage swing as compared to a conventional 
+APS [31]. Transistor sizes are chosen carefully for enough current, source follower gain, and 
+isolation of source follower output from the pixel output. In addition, the transistor sizes should 
+be as small as possible for the maximum photodiode/pixel ratio (“fill factor"), when considering 
+the physical design in silicon. Table 5.6 shows the sizes chosen for the transistors of the APS. 
+Table 5.6. Transistor Sizes 
+Transistor Name  Size (W:L for 32 nm CMOS) 
+M1  160 nm : 32 nm 
+M2  320 nm : 32 nm 
+M3  240 nm : 32 nm 
+8 1 
+  The most important component of the APS, the photodiode, is modeled as a pulsed 
+current source representing the photocurrent (I  = 100 nA to 350 nA) in parallel with a 
+photo
+capacitor representing the diode capacitance (C  = 20 fF) and a direct current (DC) current 
+diode
+source representing the dark current (I  = 2 fA) [125]. I  = 500 nA and C  = 1 pF are 
+dark bias bias
+assigned to the biasing circuitry. The values are selected to be consistent with the 32 nm 
+technology node. Higher bias current (I ) ensures a smaller readout time. 
+bias
+  A typical two-dimensional array of M × N pixels is organized into M rows and N 
+columns. Pixels in a given row share reset lines, so that a whole row is reset at a time. The select 
+lines of each pixel in a row are tied together. The outputs of each pixel in any given column are 
+tied together. Since only one row at a time is selected, no competition for the output line occurs. 
+Further amplifier circuitry is typically on a column basis. Figure 5.29 shows the block diagram 
+of an 8 × 8 APS array implemented by using 64 single pixels of the type shown in figure 5.30.  
+ 
+Figure 5.29. An 8 × 8 APS array constructed by using a collection of APS. 
+8 2 
+ 
+Figure 5.30. Circuit diagram of an APS. 
+The array is accessed pixel-wise. The functional simulation results of the array are shown in 
+figure 5.31 for high illumination photocurrent. An output voltage swing of 428 mV can be 
+observed. The result is obtained from transient analysis of the APS array. 
+ 
+Figure 5.31. Circuit simulation of the 8 × 8 APS array. 
+ 
+8 3 
+5.4.1. Models for the Figures of Merit of the APS array 
+  I now discuss the baseline characterization of the APS array. The models used for 
+characterizing the various figures of merit are presented. The array has been characterized for the 
+following figures of merit or attributes: (i) average power dissipation P , (ii) capture time 
+APS
+C , (iii) output voltage swing V , and (iv) dynamic range DR. For measuring P , we have 
+time swing APS
+used the models provided in chapter 2. 
+5.4.1.1. Output Voltage Swing 
+  The output voltage swing (V ) of array is defined as the maximum swing achieved by 
+swing
+the output voltage. It is an important figure of merit because it affects the dynamic range (DR) of 
+the array. From figure 5.32, I measured baseline V  as 428 mV. This value is 47.6% of V , 
+swing dd
+which is in the acceptable range (chapter 3). 
+5.4.1.2. Dynamic Range (DR) 
+  The DR of array can be formulated as follows [125]: 
+ 
+q×Q 
+  max −I 
+  t  dark 
+(19)        DR =20×log int  
+10 
+ q  σ2 +Idark ×tint 
+tint  total  q 
+where 
+C ×V 
+(20)        Q = diode swing  
+max  q 
+where σ2  = variance of noise because of readout and reset (in electron2), t  = integration 
+total int
+period. The baseline DR of the APS for 32 nm CMOS technology is calculated to be 59.47 dB. 
+8 4 
+5.4.1.3. Capture Time 
+  The input to each pixel in the array has been modeled in the form of a pulse shaped 
+photocurrent I . The capture time is defined as the delay from the 50% level of the input 
+photo
+swing (I ) to the 50% level of the output voltage (V ). For measurement of capture time 
+photo out
+(C ) of the array, I considered the pixel in the middle of the array because it suffers the 
+time
+maximum loading. Thus, it gives us the maximum C  of the array. The APS array has a 
+time
+baseline C  of 5.65 µs for 32 nm CMOS. The APS array baseline results are in table 5.7. 
+time
+Table 5.7. Baseline Characterization of APS Array 
+Parameter  Value 
+Technology  32 nm PTM 
+P   16.32 µW 
+APS
+V   428 mV 
+swing
+ 
+8 5 
+CHAPTER 6 
+PROCESS VARIATION ANALYSIS AND DESIGN OPTIMIZATION 
+  In this chapter, I provide the implementation details of the optimization methodologies 
+discussed in chapter 4. Each of the mixed-signal circuits has been subjected to an optimization 
+approach to verify its process variation tolerance. 
+6.1. Analog-to-digital Converter (ADC) 
+  The 90 nm ADC discussed in chapter 5 was subjected to a corner-based methodology 
+described in this section. First, the results for process and supply variation are presented, 
+followed by temperature variation characterization of the ADC. 
+6.1.1. Process and Supply Variation 
+  Process and supply variation in an ADC is a critical issue. Whereas process variation is a 
+static problem, the supply variation is a dynamic problem [47]. The ADC was tested for the 
+effects of threshold voltage mismatch and supply voltage variation on the integral nonlinearity 
+(INL) and differential nonlinearity (DNL). It is assumed that V  is not sensitive to variation 
+switching
+in the length of the transistors (L , L ), because the effective switching resistances of 
+pmos nmos
+transistors are independent of their lengths (equation 8). Hence, the effect that is due to device 
+mismatch can be modeled to some degree by the effect of threshold voltage mismatch.  
+  The results revealed that while the INL and DNL values were within control, a shift 
+occurred in the input voltage range. Consequently, the V  value also changed. To overcome 
+LSB
+this shift, one may add a programmable preamplifier to the input signal of the ADC, thereby 
+adjusting the signal offset and amplitude [32], or DSP may be performed on the ADC, which is 
+suitable for system-on-a-chip (SoC) applications, because an on-chip processor might be present. 
+8 6 
+A corner-based process variation methodology was used for testing the ADC. The methodology 
+is shown in figure 6.1.  
+ 
+Figure 6.1. Corner methodology used for the process variation study. 
+  The n-type metal oxide semiconductor (NMOS) threshold voltage (V ) and the p-type 
+tnmos
+metal oxide semiconductor (PMOS) threshold voltage (V ) were varied by ±5% from their 
+tpmos
+nominal values specified in the process design kit (PDK), and the INL, DNL, and input voltage 
+range values were recorded. The results are summarized in table 6.1.  
+Table 6.1 Process Variation Results 
+PMOS threshold voltage (V ),   Input Voltage  V    INL  DNL 
+tp LSB
+NMOS threshold voltage (V )  Range (mV)  (mV)  (LSB)  (LSB) 
+tn
+V  (nominal), V  (nominal)  493-557  1  0.344  0.459 
+tp tn
+V  (+5%), V  (-5%)  501-566  1.015625  0.38  0.479 
+tp tn
+Corner 2 
+V  (+5%), V  (+5%)  495-557  0.96875  0.333  0.46 
+tp tn
+Corner 4 
+ 
+8 7 
+The INL shows a variation from +0.2% to +10.5% and the DNL shows a variation from +2.2% 
+to +5.7%. For the supply voltage variation, the nominal supply voltage (1.2 V) was varied by 
+±10%, and the INL, DNL, and input voltage range values were recorded, as shown in table 6.2.  
+Table 6.2. Supply Voltage Variation Results 
+V  (V)  Input Voltage Range (mV)  V  (mV)  INL(LSB)  DNL(LSB) 
+dd LSB
+1.08V (-10%)  448-500  0.8125  0.359  0.467 
+1.32V (+10%)  537-614  1.203  0.339  0.481 
+ 
+The INL shows a variation of −1% to +4%, and the DNL shows a variation of +1.8% to +4.8%. 
+It can be observed that the INL and DNL values are satisfactory [INL, DNL < 0.5 least 
+significant bit (LSB)]. Hence, the ADC is process and supply variation tolerant. 
+6.1.2. Temperature Variation Characterization 
+  If the temperature of a device is changed, the mobility, the channel length, and the 
+threshold voltage of the device are affected [10]. Thus, it is essential to consider the effect of 
+temperature variation on ADC performance. The ADC was subjected to an extensive range of 
+temperature (−40°C to 90°C), and the INL and DNL values were recorded. The 27°C was treated 
+as the nominal temperature. The INL showed less sensitivity to temperature variations than the 
+DNL. Efforts are going on to make the DNL robust to temperature variation. A shift was also 
+observed in the input voltage range, leading to a decrease (at −40°C) or increase (at 90°C) in 
+V  value. The results are shown in table 6.3. This shift can be compensated for by subjecting 
+LSB
+the input signal to preamplification before feeding it to the ADC. 
+ 
+8 8 
+Table 6.3. Effect of Temperature Variation 
+Temperature (°C)  Input Voltage Range (mV)  V  (mV)  INL (LSB)  DNL (LSB) 
+LSB
+-40  484.5-544.5  0.9375  0.30  1 
+90  503.5-570.5  1.046875  0.67  1 
+ 
+6.2. Voltage-controlled Oscillator (VCO) 
+  This section demonstrates how the oscillation frequency discrepancy arising because of 
+parasitics and process variation have been overcome with minimal modification of the physical 
+design. The parasitic-aware optimization is discussed first, followed by the parasitic- and 
+process-variation-aware optimization. 
+6.2.1. Parasitic-aware Optimization 
+  For the optimization, first a baseline logical design was performed with the design 
+equations presented in chapter 5. The physical design was prepared with that baseline design. 
+After full extraction (resistance, capacitance, inductance, self-inductance) (RCLK), a 25% 
+degradation in the oscillation frequency was observed between the logical and the physical 
+designs (figure 6.2): 
+•  Target oscillation frequency f  = 2 GHz 
+0
+•  Logical design oscillation frequency f  = 1.95 GHz 
+0log
+•  Physical design oscillation frequency f  = 1.56 GHz 
+0phys
+ 
+ 
+8 9 
+ 
+Figure 6.2. Comparison of frequency-voltage characteristics of the logical design and parasitic 
+extracted physical design of the VCO. 
+ 
+  The parasitic-aware netlist, generated from the first layout (including parasitics), was 
+then subjected to an optimization loop using an analog simulator and a conjugate gradient 
+optimization technique (algorithm 1) in which the design variables were varied in order to 
+achieve the required performance criterion (oscillation frequency). The set of design variables 
+used for optimization were the following:  
+•  Widths of NMOS devices in the inverter (W ) 
+n
+•  Widths of PMOS devices in the inverter (W ) 
+p
+•  Widths of NMOS devices in the current-starved circuitry (W ) 
+ncs
+•  Widths of PMOS devices in the current-starved circuitry (W ) 
+pcs
+  Since the channel length (L) of the transistor more effectively controls the performance 
+(frequency ∝ 1 = L2), I kept the channel lengths constant ( L  = L  = L  = L  = 100 nm) and 
+n p ncs pcs
+varied the channel widths. These are the constraints for the design methodology. My objective 
+9 0 
+function was a target oscillation frequency of 2 GHz. The stopping criterion was within 2% of 
+target The final optimal values of the design variables are given in table 6.4. 
+Table 6.4. Final Values of the Design Variables fro Parasitic-aware Design 
+Variable  Varied from  Varied to  Optimal value 
+W   200 nm  500 nm  220 nm 
+n
+W   500 nm  2 µm  945 nm 
+ncs
+ 
+The physical design of the VCO was carried out with these parameter values, and the following 
+results were obtained: 
+•  Target oscillation frequency f  = 2 GHz 
+0
+•  Logical design oscillation frequency f  = 1:95 GHz 
+0log
+•  Parasitic aware physical design oscillation frequency f  = 1:98 GHz 
+0opt
+  I was able to obtain convergence with only one iteration in the layout. The final 
+optimized layout for the parasitic-aware VCO is in figure 6.3. Figure 6.4 shows the frequency-
+voltage transfer curves for the logical and the physical design after parasitic-aware optimization. 
+The optimized curve closely follows the logical design curve. The measured performance of the 
+VCO is given in table 6.5. 
+Table 6.5. Measured Performance of the Parasitic-aware VCO 
+ 
+Parameter  Value 
+Technology  90 nm CMOS 1P 9M  
+Oscillation frequency  1.98 GHz 
+Number of objectives  1 (f  ≥ 2 GHz) 
+0
+9 1 
+ 
+Figure 6.3. Final layout of the VCO optimized for parasitic-aware design flow. 
+ 
+Figure 6.4. Frequency-voltage transfer characteristics of the VCO optimized for design flow 
+accounting for parasitics. 
+ 
+ 
+ 
+ 
+9 2 
+6.2.2. Process Variation Study 
+  It can be seen from equations 16 and 18 that the oscillation frequency shows strong 
+dependence on V , threshold voltage of the CMOS V  (I  depends on V ), and gate oxide 
+DD T D T
+thickness T . Hence, any variation in these process (V , T ) parameters and supply (V ) would 
+ox T ox dd
+lead to a degradation in the oscillation frequency. Process variations can be modeled by using 
+technology files or analytical formulas. Technology files are process-dependent and can be 
+created from the information provided by foundries. In this work, a technology file based on a 
+general 90 nm process design kit was used. For the VCO, the following parameters were 
+identified for process variation:  
+•  Supply voltage (V ) 
+dd
+•  Threshold voltage of NMOS transistors (V ) 
+Tnmos
+•  Threshold voltage of PMOS transistors (V ) 
+Tpmos
+•  Gate oxide thickness of NMOS transistors (T ) 
+oxnmos
+•  Gate oxide thickness of PMOS transistors (T ) 
+oxpmos
+  In this section, I present the results of statistical process variation carried out on the 
+parasitic extracted netlist of the VCO. Statistical variations in the process parameters, each 
+assumed to be Gaussian, were explicitly taken into account by using Monte Carlo simulations, 
+and the effect on oscillation frequency was observed [49]. In particular, 5 different cases were 
+recorded. 
+6.2.2.1. Only V  Variation 
+DD
+  Statistical distribution for V  was taken as Gaussian to obtain results in a realistic 
+DD
+scenario, with a standard deviation σ = 10%. Monte Carlo simulations were run for N = 100 
+runs. The oscillation frequency shows a Gaussian distribution in figure 6.5. 
+9 3 
+ 
+Figure 6.5. Statistical V  variation. 
+dd
+6.2.2.2. Only V  Variation 
+Tnmos
+  V  had a Gaussian statistical distribution with a standard deviation σ = 10%. One 
+Tnmos
+hundred Monte Carlo runs were performed. The oscillation frequency shows a Gaussian 
+distribution in figure 6.6. 
+ 
+Figure 6.6. Statistical V  variation. 
+Tnmos
+6.2.2.3. Only V  Variation 
+Tpmos
+  V  was given a Gaussian statistical distribution with a standard deviation σ = 10%. 
+Tnmos
+One hundred Monte Carlo simulations were performed. The oscillation frequency shows a 
+Gaussian distribution in figure 6.7. 
+9 4 
+ 
+Figure 6.7. Statistical V  variation. 
+Tpmos
+6.2.2.4. Simultaneous T  and T  Variation 
+oxnmos oxpmos
+  In a typical complementary metal oxide semiconductor (CMOS) process, the gate oxide 
+of NMOS and PMOS transistors are grown together [10]. Hence, I considered simultaneous 
+variations of T and T  with a correlation coefficient (cc) of 0.9 and a Gaussian 
+oxnmos  oxpmos
+distribution for both with σ = 10%. One hundred Monte Carlo runs were considered. Figure 6.8 
+shows a Gaussian distribution of the oscillation frequency. 
+ 
+Figure 6.8. Statistical simultaneous T  + T  variation. 
+oxnmos oxpmos
+ 
+9 5 
+6.2.2.5. Simultaneous V  V , V , T  and T  Variation 
+dd Tnmos Tpmos oxnmos oxpmos
+  One thousand Monte Carlo runs were considered for simultaneous variation of all the 
+process parameters with σ = 10%. More numbers of runs give a more accurate picture. The 
+distribution of f  is shown in figure 6.9. 
+0
+ 
+Figure 6.9. V  + V  + V  + T  + T  variation. 
+dd Tnmos Tpmos oxnmos oxpmos
+  The value of the mean (µ) and the standard deviation (σ) of the oscillation frequency for 
+all 5 cases has been recorded in table 6.6. It can be seen that f  shows greater dependence on 
+0
+V  and V  (value of σ is greater) than V , T , and T . However, in my 
+DD Tnmos Tpmos oxnmos oxpmos
+methodology, I considered all these parameters to obtain more realistic results.  
+Table 6.6. Mean and Standard Deviation of Oscillation Frequency for 5 Cases 
+Parameter  Mean (µ)  Std. Dev (σ) 
+Only V  variation  1.54 GHz  77.9 MHz 
+dd
+Only V  variation  1.56 GHz  19.7 MHz 
+Tpmos
+V  + V  + V  + T  + T   1.54 GHz  103.5 MHz 
+dd Tnmos Tpmos oxnmos oxpmos
+9 6 
+ 
+6.2.3. Parasitic- and Process-variation-aware Optimization 
+  For the parasitic- and process-variation-aware design, baseline logical design presented in 
+chapter 5 was used. The physical design was prepared by using this baseline design. A 25% 
+discrepancy in the oscillation frequency was observed between the logical and the fully extracted 
+(RCLK) physical design (as discussed in section 6.2.1). The parasitic parameterized netlist 
+derived from this initial physical design was then subjected to process and supply variation 
+where V , V , V , T  and T  were varied by ±10% from their nominal values. 
+dd Tnmos Tpmos oxnmos oxpmos
+The worst case is identified as the one in which V  is reduced by 10%, and all the process 
+dd
+parameters increased by 10%. In this case, a 43.5% discrepancy was observed in the oscillation 
+frequency of the logical and the physical designs (figure 6.10). The results are summarized in 
+table 6.7. 
+Table 6.7. Frequency Discrepancy and Worst-case Process Values for a Target Frequency ≥ 2 
+GHz 
+ 
+Parameter  Unoptimized   Unoptimized   Optimized  
+physical   physical design +  physical design + 
+design  process variation   process variation 
+Frequency  1.56 GHz  1.13 GHz  1.91 GHz 
+V   1.2 V (nominal)   1.08 V (-10%)  1.08 V  
+dd
+V -0.1359511 V (nominal)  -0.149546 V (+10%)  -0.149546 V 
+Tpmos 
+T   2.48 nm (nominal)  2.728 nm (+10%)  2.728 nm  
+oxpmos
+ 
+9 7 
+ 
+Figure 6.10. Comparison of frequency-voltage characteristics of the logical design, parasitic 
+extracted physical design, and parasitic extracted physical design subjected to worst-case process 
+variation. 
+ 
+The initial values of various attributes are as follows: 
+•  Target oscillation frequency f  = 2 GHz 
+0
+•  Logical design oscillation frequency f  = 1.95 GHz 
+0,logical
+•  Physical design oscillation frequency f  = 1.56 GHz 
+0,physical
+•  Physical design oscillation frequency in a worst case process variation environment 
+f  = 1.13 GHz 
+0,physical¡process
+  Once again, the objective was to achieve a minimum target oscillation frequency of 2 
+GHz with a stopping criterion of 2%. The parasitic parameterized netlist generated from the first 
+layout iteration was subjected to the optimization loop where the design variables were varied in 
+9 8 
+order to achieve the required performance criterion (oscillation frequency) in a worst-case 
+process variation environment [48]. The design variables were the constraints for the design 
+methodology. The sets of design variables used for optimization were as follows: 
+•  Widths of NMOS devices in the inverter (W ) 
+n
+•  Widths of PMOS devices in the inverter (W ) 
+p
+•  Widths of NMOS devices in the current-starved circuitry (W ) 
+ncs
+•  Widths of PMOS devices in the current-starved circuitry (W ) 
+pcs
+•  Lengths of all devices (L  = L  = L  = L  = L) 
+n p ncs pcs
+  The final optimal values obtained for the design variables are recorded in table 6.8.  
+Table 6.8. Final Optimal Values for Design Variables 
+Variable  Varied from  Varied to  Optimal value 
+W   200 nm  500 nm  415 nm 
+n
+W   1 µm  5 µm  4 µm 
+ncs
+L  100 nm  110 nm  100 nm 
+ 
+The physical design of the VCO was then carried out using these parameter values, and the 
+following results were obtained: 
+•  Target oscillation frequency f  = 2 GHz 
+0
+•  Logical design oscillation frequency f  = 1.95 GHz 
+0,logical
+•  Parasitic- and process-variation-aware physical design oscillation frequency in a worst-
+case process variation environment f  = 1.91 GHz 
+0,physical¡process
+9 9 
+•  Parasitic- and process-variation-aware physical design oscillation frequency in a nominal 
+case process environment f  = 2.54 GHz 
+0,physical¡nominal¡process
+  Hence, I obtained a final optimized layout, with 1.91 GHz oscillation frequency under 
+worst case process variation and 2.54 GHz oscillation frequency in nominal-case process 
+conditions. This parasitic-aware, process-variation-tolerant layout of the VCO is shown in figure 
+6.11.  
+ 
+Figure 6.11. Final VCO layout optimized for parasitic- and process-variation-aware design flow. 
+  I was able to obtain convergence with only one iteration in layout. This technique can 
+also be applied for optimization of other parameters, such as phase noise and jitter. [54]. Figure 
+6.12 shows the frequency-voltage transfer curves for the logical and the physical designs after 
+parasitic and process-variation-aware optimization. It is evident that the optimized curve closely 
+10 0 
+follows the logical design curve. I also obtained a phase noise of −109.13 dBc/Hz at an offset 
+frequency of 10 MHz. The performance summary of the VCO is shown in table 6.9. 
+ 
+Figure 6.12. Frequency-voltage transfer characteristics of the VCO optimized for design flow 
+accounting for parasitics and process variation. 
+ 
+  Table 6.9. Performance Summary of the Parasitic and Process-variation-aware VCO 
+Parameter  Value 
+Technology  90 nm CMOS 1P 9M  
+Oscillation frequency (nominal process)  2.54 GHz 
+Oscillation frequency (worst-case process)  1.91 GHz 
+Number of objectives  1 (f  ≥ 2 GHz) 
+0
+ 
+ 
+10 1 
+6.2.4. Physical Design of the Optimal VCO 
+  The physical design of the VCO was carried out using a generic 90 nm salicide 1.2 V/2.5 
+V 1 poly-9 metal process design kit. A full extraction of the layout was performed [including 
+resistors (R), capacitors (C), inductors (L) and mutual inductors (K)] so that the impact of 
+inductive coupling could be assessed and minimized on the layout. The final layouts for the 
+parasitic-aware design flow and parasitic- and process-variation-aware design flow are shown in 
+figures 6.3 and 6.11, respectively. For the parasitic- and process-variation-aware design, 
+multifingered transistors are laid out to minimize the area's overhead, considering that the 
+optimization resulted in wide transistors. 
+6.3. Universal Voltage Level Converter (ULC) 
+  To minimize power, I first identified the power-hungry transistors (shown in figure 5.20) 
+by measuring the power consumed by each transistor of the circuit. The power estimation 
+included dynamic, subthreshold, and gate leakage, as presented in chapter 2. These transistors 
+were then subjected to the power-delay optimization technique. Two types of optimization 
+techniques were used: 
+•  Dual T  
+ox
+•  Dual V  
+T
+6.3.1. Dual T  Technique 
+ox
+  The T  was varied between 10% and 200% of its nominal value, and the width of 
+ox
+transistors was varied from 120 nm to 1 µm. All transistors were assumed to have an effective 
+length of 100 nm corresponding to the nominal value of the 90 nm process design kit used. To 
+optimize the power and delay, I varied the following parameters: 
+•  T  of the power-hungry NMOS transistors (T ) 
+ox oxnmos
+10 2 
+•  T  of the power-hungry PMOS transistors (T ) 
+ox oxpmos
+•  Width (W ) of the NMOS transistors of the down converter 
+nmosdown
+•  Width (W ) of the PMOS transistors of the down converter 
+pmosdown
+•  Width (W ) of the NMOS transistors of the up converter 
+nmosup
+•  Width (W ) of the PMOS transistors of the up converter 
+pmosup
+The final optimal values of these parameters are given in table 6.10.  
+Table 6.10. Final Values of the Optimization Parameters Using the DOX-CMOS Technique 
+Variable  Varied from  Varied to  Optimal value 
+T   2.563 nm  4.66 nm  2.667 nm 
+oxnmos
+W   120 nm  1 µm  220.1 nm 
+pmosup
+W   120 nm  1 µm  298.9 nm 
+pmosdown
+ 
+The optimized values of delay and power were obtained as: 
+•  Optimized average power (P ) = 16.68µW 
+ULC
+•  Delay of up converter (Delay ) = 80.35 ps 
+up
+•  Delay of down converter (Delay ) = 80.43 ps 
+down
+•  Average delay (Delay ) = 80.39 ps 
+ULC
+  I achieved 83% power savings compared to the baseline design and 60% delay savings 
+compared to the existing designs presented in the literature [57]. 
+ 
+10 3 
+6.3.2. Dual V  Technique 
+T
+  The dual V  technique [34] was used along with transistor geometry to achieve a 
+T
+power-delay optimized ULC. Minimizing power consumption was the target objective function, 
+with a delay constraint. The power-hungry transistors were assigned high V  values, which 
+T
+reduced the power consumption considerably but which also increased the delay (equation 4). 
+Hence, the transistor geometry was also explored, where the widths of all the transistors in the 
+level-up and level-down converters were considered. Hence, a simultaneous variation of the 
+design variables (i.e., V , V , W , W , W , and W ) achieved a good 
+Tpmos Tnmos pmosup nmosup pmosdown nmosdown
+power-delay optimization. The final values are shown in table 6.11. 
+Table 6.11. Optimal Design Variable Values Using the DVTCMOS Technique 
+Variable  Varied from  Varied to  Optimal value 
+V   -0.476 V  -0.136 V  - 0.432 V 
+Tpmos
+W   120 nm  1 µm  121.4 nm 
+pmosup
+W   120 nm  1 µm  370 nm 
+pmosdown
+ 
+To optimize the power and delay, I varied the following parameters: 
+•  V  of the power-hungry NMOS transistors (V ) 
+T Tnmos
+•  V  of the power-hungry PMOS transistors (V ) 
+T Tpmos
+•  Width (W ) of the NMOS transistors of the down converter 
+nmosdown
+•  Width (W ) of the PMOS transistors of the down converter 
+pmosdown
+10 4 
+•  Width (W ) of the NMOS transistors of the up converter 
+nmosup
+•  Width (W ) of the PMOS transistors of the up converter 
+pmosup
+The optimized values of delay and power were obtained as: 
+•  Optimized average power (P ) = 10.95 µW 
+ULC
+•  Delay of up converter (Delay ) = 95.1 ps 
+up
+•  Delay of down converter (Delay ) = 95.7 ps 
+down
+•  Average delay (Delay ) = 95.4 ps 
+ULC
+  With the dual threshold, complementary metal oxide semiconductor (DVTCMOS) 
+technique, 178% power savings occurred compared to the baseline design and 35% delay savings 
+occurred compared to the existing designs presented in the literature [57].  
+6.3.3. Characterization 
+  In low-power circuit designs, it is of paramount importance to consider various design 
+constraints concerning power consumption, lower voltage level and load, and many more. My 
+design of the universal voltage level converter (ULC) mainly focuses on low-power multivoltage 
+circuit applications. Thus, it is essential to consider these design limitations. Keeping in mind 
+these design constraints and ensuring that the ULC design is essentially a low-power-consuming 
+circuit in itself, I studied and analyzed the ULC circuit under various input conditions. The 
+circuit was characterized by performing the following three analyses: 
+•  Parametric analysis 
+•  Load analysis 
+•  Power analysis 
+These characterizations are discussed in the following subsections. 
+ 
+10 5 
+6.3.3.1. Parametric Analysis 
+  Parametric analysis is a process in which the circuit's behavior is observed while 
+continuously changing one of its input parameters. In this type of analysis, a transient analysis is 
+carried out where in the output voltage is observed for a varying input voltage. For testing the 
+level-up converter, V  was varied from 0.1 V to 1.02 V with an increasing step of 0.1 V. The 
+in
+value of control signals S1, S0 was kept at 1, 0 to achieve the level-up conversion functionality. 
+The output signal was observed at the output terminal V  of the ULC. The plot for the 
+out
+parametric analysis for up conversion is shown in the lower graph (b) of figure 6.13, which 
+confirms that the circuit produces a stable output even for a voltage V  as low as 0.65 V. The 
+in
+same steps were followed for level-down converter parametric analysis. The values for the 
+control signals S1, S0 were kept at 0, 1. In this case, V  was varied from 0.1 V to 1.2 V with an 
+in
+increasing step size of 0.1 V. The output plot for the down converter parametric analysis is 
+shown in the upper graph (a) of figure 6.13. From the plot, it can be determined that the down 
+converter circuit can produce a stable output even for V  as low as 0.6 V.  
+in
+10 6 
+ 
+Figure 6.13. Parametric analysis with input voltage sweep. 
+6.3.3.2. Load Analysis 
+  Load analysis is a very important category of analysis for any electrical system design. 
+Load analysis helps the designer understand the transient behavior of a system at different loads 
+which mainly helps in verifying the overall system functionality. Each gate connected to the 
+output of another gate loads the later gate. Electronic constraints limit the load on a gate and 
+hence the number of gates connected to its output. The ULC is used as an interface between two 
+circuits (or gates) operating at different voltage levels. The output load of the level converting 
+circuit may change quite often. Thus, it is of great importance to ensure that the design of ULC 
+produces the desired results even under such varying load conditions. Therefore, a load analysis 
+on the ULC is performed when the output load capacitance of the circuit is varied and the effect 
+of that on the output signal is observed.  
+ 
+10 7 
+  During the load analysis of the ULC, the output of the circuit is studied by varying the 
+capacitive load at the output from 10 fF to 200 fF. These values of load capacitance represent 
+realistic loads [128] for a 90 nm CMOS technology. From this analysis, it can be concluded that 
+the ULC produces stable output under varying load conditions. This design feature is important 
+for voltage level converters. Figure 6.14 shows the output plot for load analysis on the complete 
+ULC. 
+ 
+Figure 6.14. Performance of the ULC under varying output capacitive load. 
+6.3.3.3. Power Analysis 
+  Power analysis includes determining the total power consumed by the overall ULC 
+circuit. During the power analysis, the total power consumed by the ULC at three different 
+loads of 10 fF, 45 fF and 90 fF is calculated (shown in table 6.12). It is evident that there is not a 
+significant difference in power consumption with varying loads.  
+ 
+10 8 
+Table 6.12. Power Consumption 
+Capacitive load (fF)  Average power consumption (µW) 
+10  17.23 
+90  23.27 
+ 
+Figure 6.15 shows the instantaneous power plot of the ULC at a capacitive load of 45 fF. Power 
+measurement includes switching power, short-circuit power, standby-leakage power, 
+and gate-oxide leakage consumed by the circuit.  
+ 
+Figure 6.15. Instantaneous power plot of the ULC at a load capacitance of 45 fF. Average power 
+consumed = 1989.µW. 
+ 
+6.4. Active Pixel Sensor (APS) 
+  The design flow presented in figure 6.16 was used for variability-aware optimization of a 
+nanometer-scale CMOS APS array.  
+10 9 
+ 
+Figure 6.16. Proposed design flow for optimal design of nano-CMOS APS array. 
+  The first step in the design flow was the design of a baseline array for a specific nano-
+CMOS technology node. Then, the baseline M × N array was simulated for functional 
+correctness. This step was followed by measuring the baseline values of the various figures of 
+merit, such as power, leakage, voltage swing, and capture time. The target figures of merit that 
+needed to be optimized were identified. Because nanoscale circuits suffer from high leakage, I 
+chose to optimize average power (P ) with minimum degradation in output voltage swing 
+APS
+(V ). These metrics are defined in chapter 5.  
+swing
+  In the next step, the parameters to be used for process variation were identified. The array 
+was then subjected to simultaneous “intra-array" mismatch and “inter-array" process variation. 
+The intra-array mismatch can also be interpreted as pixel-to-pixel variation. This variation 
+enables designers to consider the trade-off between matched transistor size and yield when 
+designing their circuits.  
+  Once the process variation results were analyzed, the design flow proceeded to the 
+optimization. In the optimization, the parameters to be used as design variables were identified. 
+Then I performed a design and analysis optimization based on Monte Carlo experiments. The 
+design flow led to an optimized APS array, which is also the output of this design flow. The 
+11 0 
+details of the optimization algorithm were presented in chapter 4. Hence, the end product was a 
+M × N APS array optimized for nanoscale process variations.  
+  The APS array was subjected to simultaneous intra-array mismatch and inter-array 
+process variation, and the effects on the figures of merit were studied. The process parameters 
+identified for mismatch and process variation were: (i) supply voltage V , (ii) 
+dd
+NMOS threshold voltage V , (iii) PMOS threshold voltage V , (iv) NMOS 
+Tnmos Tpmos
+gate-oxide thickness T , and (v) PMOS gate-oxide thickness T . The figures of merit 
+oxnmos oxpmos
+under consideration were P  and V . Hence they formed the objective set F for 
+APS swing
+optimization.  The process parameters were subjected to intra-array mismatch and inter-array 
+process variation simultaneously for R = 1000 runs. For the intra-array mismatch, the parameters 
+were assumed to have a Gaussian distribution and were assigned mean (µ) values as the baseline 
+values specified in the predictive technology model (PTM), and a standard deviation (σ) of 5%. 
+For the inter-array process variation, the parameters were also assumed to have a Gaussian 
+distribution and were assigned mean (µ) values as the baseline values specified in the PTM and a 
+standard deviation (σ) of 10%. P  shows a lognormal distribution in the upper graph (a) of 
+APS
+figure 17. Because of significant impact of various leakage mechanisms (P , P ) having an 
+sub gate
+exponential relationship with the process parameters, this observation was intuitive from the 
+governing expressions. V  showed a Gaussian (normal) distribution [figure 17(b)]. This 
+swing
+distribution is considered the baseline case. 
+ 
+ 
+11 1 
+ 
+ 
+ 
+Figure 6.17. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . 
+dd dd-H  xo ox-L
+ 
+  To demonstrate the array optimization, P  minimization and V  maximization were 
+APS swing
+kept as the objectives. Power is always a contraint for nanoscale SoCs. Hence, P  was chosen. 
+APS
+Also, V  directly affects the dynamic range of the APS, thus giving an important measure of 
+swing
+performance. The proposed methodology can also be extended to other figures of merit as a 
+multiobjective optimization. However, it is unlikely that both these objectives would be 
+optimized by the same alternative parameter choices. For design and analysis of Monte Carlo 
+experiments, the parameters to be used as design variables for optimization were identified as 
+follows: (i) supply voltage V , (ii) NMOS gate-oxide thickness T , and (iii) PMOS gate-
+dd oxnmos
+oxide thickness T . From the power model equations presented in chapter 2, it can be seen 
+oxpmos
+that these parameters affect the power consumption significantly. Hence, they form the design 
+variable set D for the optimization algorithm. I did not consider V  and V  as optimization 
+Tnmos Tpmos
+parameters because they depend on a variety of parameters, such as doping concentration of 
+source or drain diffusions and channel length [1]. 
+11 2 
+  I now present the algorithm for two values of design variables with H denoting high and 
+L denoting low values. Thus, V , V , T , and T  are the possible values of the design 
+dd-H dd-L ox-H ox-L
+variables. V  and T  are baseline values as per the 32 nm CMOS technology node. V  
+dd-H ox-L dd
+scaling refers to reduction in V  (i.e. from V  to V ), whereas T  scaling refers to increase 
+dd dd-H dd-L ox
+in T  (i.e., from T  to T ). As in a traditional CMOS process, the gate oxides of NMOS and 
+ox ox-L ox-H
+PMOS transistors are grown together, T ; T  are scaled together, i.e., they are assigned 
+oxnmos oxpmos
+either a higher (T ) or a lower (T ) value together. 
+ox-H ox-L
+  For the above scenario, we have four different combinations. However, the situation is 
+much more involved for other discrete sets of design variables. These values are assigned to the 
+µ of optimization parameters for R = 100 Monte Carlo runs. The array is subjected to 5% intra-
+array mismatch and 10% inter-array process variation for each of the four combinations. The 
+Monte Carlo data for F are obtained and normalized. Normalization involves division of each 
+value of the data by the maximum value of data. The µ and σ values for P  and V  are listed 
+APS swing
+in table 6.13 for V  = 0.9V, V  = 0.7V , T  = 2.0nm, and T  = 1.65nm. P  is observed 
+dd-H dd-L ox-H ox-L APS
+to have a lognormal distribution [figure 17(a), 18(a), 19(a), and 20(a)] and V  is observed to 
+swing
+have a Gaussian distribution [figure 17(b), 18(b), 19(b), and 20(b)] using a least-squares fit.  
+Table 6.13. Monte Carlo Simulation Results 
+V  (V)  T  (nm)  µ   σ   µ   σ  
+dd ox PAPS PAPS Vswing Vswing
+V   T   0.5774  0.1306  0.5058  0.1402 
+dd-L ox-L
+V   T   0.7314  0.1717  0.6902  0.1029 
+dd-H ox-L
+11 3 
+ 
+Figure 6.18. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . 
+dd dd-L  xo ox-L
+ 
+ 
+ 
+Figure 6.19. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . 
+dd dd-L  xo ox-H
+ 
+11 4 
+ 
+Figure 6.20. Distribution of (a) average power P  and (b) output voltage swing V  for the 
+APS swing
+case V  = V and T  = T . 
+dd dd-H  xo ox-H
+ 
+  The following prediction equations were obtained by using the design of experiments 
+method on Monte Carlo experiments: 
+(21)        μˆ P  = 0.6361 + 0.0716 × V  − 0:0183 × T  
+APS dd ox
+(22)        σˆ P  = 0.1157 + 0.0081 × V  − 0:0354 × T  
+APS dd ox
+(23)        μˆ V = 0.6113 + 0.0898 × V  + 0.0133 × T  
+swing dd ox
+(24)        σˆ V  = 0.1233 − 0.0180 × V  + 0.0018 × T  
+swing dd ox
+The prediction equations are of the form: 
+
+ΔV ΔT
+(25)        Yˆ  = Y+  dd ×V + ox ×T  
+2 dd 2 ox
+
+ΔV ΔT
+where Yˆ is the response, Yis the average, and  dd  and  ox  are the half effects of the design 
+2 2
+variables. A linear relationship between the design variables and the response is assumed, as this 
+reduces the complexity considerably, with a maximum discrepancy of 1% between the observed 
+results and the results calculated with the predictive equations. If a nonlinear relationship is 
+11 5 
+assumed, the complexity would increase exponentially. From equations 21, 22 and 24, it can be 
+observed that μˆP  , σˆ P  and σˆ V  are to be minimized for power minimization, whereas 
+APS APS swing
+μˆ V  needs to be maximized for V  maximization (equation 23). It can be seen that μˆ P  
+swing swing APS
+and σˆP  are perfectly correlated; i.e., optimizing the mean would also optimize the standard 
+APS
+deviation. However, μˆV  and σˆ V  are not correlated. Hence, a combined effect of the 
+swing swing
+mean and the standard deviation must be considered for possible generalization of the proposed 
+methodology. This information is also available only after the prediction equations have been 
+obtained.  
+  The purpose of the paper is process optimization. Parametric yield is not under 
+consideration here. I formed two objective functions, fPAPS and fVswing, as follows: 
+f =μˆ +3×σˆ
+P P P
+(26)        APS APS PAPS  
+=0.9832+0.0959×V −0.1245×T
+dd ox
+f =μˆ −3×σˆ
+V V V
+(27)        swing swing swing  
+=0.2414+0.1438×V +0.0079×T
+dd ox
+  From equations 26 and 27, it can be seen that fPAPS needs to be minimized and fVswing 
+needs to be maximized. The Pareto chart for fPAPS in figure 21(a) shows that the design variable 
+set D = [Vdd-L, Tox-H] leads to the minimum value of fPAPS. The value of fVswing corresponding to 
+this set [figure 21(b)] is also acceptable. This is confirmed by using this value of D to simulate 
+the array, which yields an acceptable V  (46.4% of V ). Because a nanoscale circuit is 
+swing dd
+involved, power minimization is treated as primary objective. A reduction of 21% in P  with a 
+APS
+24% reduction penalty in V  can be achieved. The baseline and optimal values of P  and 
+swing APS
+V  are shown in table 6.14. The algorithm is shown as a flowchart in figure 6.22. 
+swing
+ 
+11 6 
+Figure 6.21. Pareto plots for (a) fPAPS and (b) fVswing. 
+ 
+ 
+Table 6.14. Baseline and Optimal Values of the Figures of Merit 
+Value  P  (µW)  V  (mV) 
+APS swing
+Baseline  16.32  428 
+Optimal  12.91  325 
+ 
+11 7 
+ 
+Figure 6.22. Flowchart of the proposed algorithm. 
+11 8 
+CHAPTER 7 
+CONCLUSION AND FUTURE WORKS 
+  This chapter presents a summary of the dissertation, followed by conclusions drawn from 
+the research. Finally, directions for future research are discussed.  
+7.1. Summary 
+  This dissertation describes low-power design techniques that were applied to nanoscale 
+and emerging technology based mixed-signal circuits. Optimization approaches have been 
+applied to these circuits to achieve low-power designs which are also process-variation-tolerant. 
+The optimization methodologies proposed are the following: 
+•  Single iteration automatic approach 
+•  Hybrid Monte Carlo/DOE approach 
+•  Corner-based methodology 
+The following circuits were subjected to these optimization methodologies: 
+•  90 nm analog-to-digital converter (ADC) 
+•  90 nm voltage-controlled oscillator (VCO) 
+•  90 nm universal voltage level converter (ULC) 
+•  32 nm active pixel sensor (APS) 
+The following section presents the conclusions drawn from the experimental results. 
+7.2. Conclusions 
+  For the ADC, the design of a process- and supply-variation-aware, low-voltage, high-
+speed circuit was presented. The design was functionally verified and characterized for 
+nanoscale feature sizes (90 nm and 45 nm). The physical design of the ADC was performed by 
+using a 90 nm digital complementary metal oxide semiconductor (CMOS) process, 
+11 9 
+demonstrating its system-on-a-chip (SoC) readiness. The comparators were designed by using 
+the threshold inverting technique. The nominal results at 90 nm show that the ADC has an 
+integral nonlinearity (INL) of 0.344 least significant bit (LSB) and a differential nonlinearity 
+(DNL) of 0.459 LSB, showing a maximum variation of 10.5% and 5.7%, respectively, when 
+subjected to ±10% variation in the supply and ±5% mismatch in the transistor threshold voltages. 
+The analog supply voltage is 1.2 V. At 45 nm, the ADC exhibits INL = 0.46 LSB, DNL = 0.7 
+LSB at a supply voltage of 0.7 V. This is one of the lowest published power supply values used 
+to implement high speed 6-bit ADCs. Several design issues were also addressed and used in the 
+optimization procedure of the ADC; e.g., current-resistance (IR) drop and low V . It is 
+LSB
+demonstrated that the design of low-voltage, high-speed, and SoC-ready ADCs is possible at 90 
+nm technology and below. 
+  For the VCO, two novel design foows for parasitic- and process-variation-aware design 
+methodology for optimization of performance for radiofrequency (RF) circuit components have 
+been presented. The first design flow, called parasitic aware design flow, considers parasitics. 
+The second design flow considers process variation along with parasitics; hence, it is called 
+parasitic- and process-variation-aware design flow. A high-frequency, low-phase noise, current-
+starved VCO was used as a case study. The oscillation frequency was treated as the target 
+specification. The degradation of the oscillation frequency that was due to parasitics only was 
+narrowed down from 25% to 1%. The degradation of the oscillation frequency that was due to 
+parasitic and process variation effects was narrowed down from 43.5% to 4.5% in only one 
+iteration of the physical design, a tremendous reduction in overall design time. Thus, I obtained a 
+parasitic- and process-variation-aware design, as the target technology is nanoscale CMOS in 
+which such variations do affect design metrics and yield. 
+12 0 
+  For the ULC, a dual-gate oxide thickness (T ) (DOXCMOS)/ dual-threshold (V ) 
+ox T
+(DVTCMOS) approach along with transistor geometry variations to reduce the power-delay 
+overhead of a ULC has been proposed. To the best of my knowledge, this is the first ULC being 
+subjected to such power-saving techniques. It was observed that while DVTCMOS might be the 
+preferred technique for achieving lower power, DOXCMOS gives better delay savings. Other 
+analog circuits might also be subjected to such techniques in the future.  
+  The ULC is capable of performing three types of distinct operations on the input signal; 
+i.e., level-up conversion, level-down conversion, and blocking of the input signal. This makes 
+the ULC highly suitable for use in the context of dynamic power management techniques in 
+circuits. The robustness of the level converter is tested by using parametric, load and power 
+analysis. It is observed that a stable output is obtained for voltages as low as 0.6 V and capacitive 
+loads varying from 10 fF to 200 fF. The average power consumption of the level converter is 
+16.68 milliwatts (µW) with DOXCMOS, and 10.95 µW with DVTCMOS, making the design 
+suitable for low power applications. The design is also area-optimal. The physical design of the 
+level converter was also presented. At 90 nm technology, subthreshold leakage is more dominant 
+than gate oxide leakage [5]. Hence, from table 7.1 it can be seen that DVTCMOS achieves more 
+power savings than DOXCMOS. However, the DOXCMOS technique shows better delay 
+savings than DVTCMOS. Depending on the requirements of the designer, a choice can be made. 
+Table 7.1. Comparison of Results of Optimization Approaches 
+Approach  P   P  savings  Delay   Delay  savings 
+ULC ULC ULC ULC
+DOXCMOS  16.68 µW  83%  80.39 ps  60% 
+DVTCMOS  10.95 µW  178%  95.4 ps  35% 
+ 
+12 1 
+  For the APS, I presented a novel design flow and optimization algorithm suitable for 
+variation-tolerant (robust) design of nano-CMOS-based APS array. A 32 nm 8 × 8 APS array 
+was subjected to this design flow in the presence of simultaneous intra-array mismatch and inter-
+array process variation. This gives APS designers an insight into the yield of their circuits that 
+might be caused by transistor mismatch and process variation before going into fabrication. 
+Design and analysis of Monte Carlo experiments on the baseline array was carried out leading to 
+21% power reduction at the cost of 24% output voltage swing reduction. 
+7.3. Future Research 
+  For the ADC, as part of a future work, I plan to carry out the complete design cycle 
+including physical design for this ADC at 45 nm. Alternative encoder architectures will be 
+explored to achieve higher sampling speeds.  For the VCO, the current work might be extended to 
+study the simultaneous optimization of oscillation frequency, response linearity and phase noise 
+using the proposed methodology.  
+  As part of future work for the ULC, I plan to implement this design at a lower technology 
+node, i.e., 45 nm. The layout rules will be scaled from 90 nm to 45 nm and the layout of the 
+design will be carried out. Efforts are also being undertaken to include the block functionality in 
+the level converter design itself. In addition, the impact of parasitics on the performance of the 
+ULC physical design using dual-V  and dual-T  process kits might be studied. For future work 
+T ox
+on the APS, I plan to implement the proposed array using alternative technologies such as high-
+κ/metal gate, carbon nanotube (CNT), dual-gate field effect transistors (FETs) and analyze their 
+performance. 
+12 2 
+REFERENCES 
+ 
+[1] BSIM4 MOS Models, Release 4.5.0., http://www.device.eecs.berkeley.edu/~bsim3/ 
+bsim4.html  
+ 
+[2] Histogram Testing Determines DNL and INL Errors, http://www.maxim-ic.com/ 
+appnotes.cfm/an_pk/2085  
+ 
+[3] Maxim Integrated Products. Defining and Testing Dynamic Parameters in High Speed ADCs, 
+2001, http://www.maxim-ic.com/appnotes.cfm/an_pk/728  
+ 
+[4] Meet the World's First 45nm Processor, http://www.intel.com/technology/silicon/ 
+45nm_technology.htm  
+ 
+[5] Semiconductor Industry Association, International Technology Roadmap for Semiconductors, 
+http://public.itrs.net  
+ 
+[6] A. Abo and P. Gray. 1999. A 1.5 V, 10-bit, 14.3-MS/s CMOS pipeline analog-to-digital 
+converter, IEEE, Journal of Solid State Circuits 34, no. 5: 599-605. 
+ 
+[7] B. Ameliford, F. Fallah, and M. Pedram. 2006. Reducing the Subthreshold and Gate-
+tunneling Leakage of SRAM Cells Using Dual-V  and Dual-T  Assignment, Proceedings of 
+t ox
+Design Automation and Test in Europe, 1-6. 
+ 
+[8] E. Artyomov and O. Y. Pecht. 2006. Adaptive multiple-resolution cmos active pixel sensor, 
+IEEE Transactions on Circuits and Systems 53, no. 10: 2178-2186. 
+ 
+[9] F. Azais, A. Ivanov, M. Renovell, and Y. Bertrand. 1998. A methodology and design for 
+effective testing of Voltage Controlled Oscillators (VCOs), Proceedings of the Seventh Asian 
+Test Symposium, 383-387. 
+ 
+[10] R. J. Baker. 2005. CMOS: Circuit Design, Layout and Simulation, IEEE Press. 
+ 
+[11] A. Balijepalli, S. Sinha, and Yu Cao. 2007. Compact modeling of carbon nanotube 
+transistor for early stage process-design exploration, Proceedings of the International 
+Symposium on Low Power Electronics and Design, 2-7. 
+ 
+[12] B. M. Ballweber, R. Gupta, and D. J. Allstot. 2000. A fully integrated 0.5-5.5 GHz CMOS 
+distributed amplifier, IEEE Journal of Solid State Circuits 35 no. 2: 231-239. 
+ 
+[13] S. Basu, B. Kommineni, and R. Vemuri. 2008. Mismatch Aware Analog Performance 
+Macromodeling Using Spline Center and Range Regression on Adaptive Samples, Proceedings 
+of the International Conference on VLSI Design, 287-293. 
+ 
+12 3 
+[14] ________. 2008. Variation Aware Spline Center and Range Modeling for Analog Circuit 
+Performance, Proceedings of the International Symposium on Quality Electronic Design, 162-
+167. 
+[15] A. Bellaouar and M. Elmasry. 1995. Low Power Digital VLSI Design: Circuits and Systems, 
+Boston: Kluwer Academic Publishers. 
+ 
+[16] R. E. Best. 1993. Phase Locked Loops: Theory, Design and Applications, McGraw-Hill, 2nd 
+Edition. 
+ 
+[17] K. A. Bowman and J. D. Meindl. 2001. Impact of within-die parameter fluctuations on 
+future maximum clock frequency distributions, Proceedings of the IEEE Custom Integrated 
+Circuits Conference, 229-232. 
+ 
+[18] J. M. Chang and M. Pedram. 1997. Energy minimization using multiple supply voltages, 
+IEEE Transactions on VLSI Systems 5, no. 4:436-443. 
+ 
+[19] K. B. Cho, A. I. Krymski, and E. R. Fossum. 2003. A 1.5-V 550 µW 176 × 144 Autonomous 
+CMOS Active Pixel Image Sensor, IEEE Transactions on Electron Devices 50, no. 1:96-105. 
+ 
+[20] K. Choi and D. J. Allstot. 2002. Parasitic-aware design and optimisation of RF power 
+amplifiers, Proceedings of the IEE Circuits, Devices and Systems 149, no. 5/6:369-375. 
+ 
+[21] _________. 2004. Post-optimization design centering for RF integrated circuits, 
+Proceedings of the International Symposium on Circuits and Systems, 956-959. 
+ 
+[22] K Choi and D.J. Allstot. 2006. Parasitic-aware design and optimization of a CMOS RF 
+power amplifier, IEEE Transactions on Circuits and Systems I 53, no. 1:16-25. 
+ 
+[23] K. Choi, J. Park, and D. J. Allstot. 2003. Parasitic-aware Optimization of CMOS RF 
+Circuits, Kluwer Academic Publishers. 
+ 
+[24] J. Choudhury and G. H. Massiha. 2004. Efficient Encoding Scheme for Ultra-Fast Flash 
+ADC, Proceedings of the 5th Topical Meeting on Silicon Monolithic Integrated Circuits in RF 
+Systems, 290-293. 
+ 
+[25] Min Chu, D. J. Allstot, Jeffrey M. Huard, and Kim Y. Wong. 2004. NSGA-based parasitic 
+aware Optimization of a 5GHz Low-noise VCO, Proceedings of the Asia South Pacific Design 
+Automation Conference), 169-174.  
+ 
+[26] C. Donovan and M. P. Flynn.2002. A Digital 6-bit ADC in 0:25¹m CMOS, IEEE Journal of 
+Solid State Circuits 37, no. 3:432-437. 
+ 
+[27] J. H. C. Zhan J. S. Duster and K. T. Kornegay. 2004. A Comparative Study of MOS VCOs 
+for Low Voltage High Performance Operation, Proceedings of the International Symposium on 
+Low Power Electronics and Design, 244-247. 
+ 
+12 4 
+[28] A. Agarwal et al. 2003. Statistical delay computation considering spatial correlations, 
+Proceedings of the Asia and South Pacific Design Automation Conference, 271-276. 
+[29] A. K. Sultania et al. 2004. Tradeoffs between Gate Oxide Leakage and Delay for Dual T  
+ox
+Circuits, Proceedings of Design Automation Conference, 761-766. 
+ 
+[30] C. Sandner et al. 2005. A 6-bit 1.2Gs/s Low-Power Flash ADC in 0.13µm Digital CMOS, 
+IEEE Journal of Solid State Circuits 40, no. 7:1499-1505. 
+ 
+[31] C. Shen et al. 2001. Low voltage CMOS active pixel sensor design methodology with device 
+scaling considerations, Proceedings of the IEEE Hong Kong Electron Devices Meeting, 21-24. 
+ 
+[32] H. C. Tseng et al. 2004. A Low-Power Rail-to-Rail 6-bit Flash ADC based on a Novel 
+Complementary Average-Value Approach, Proceedings of the International Symposium on Low 
+Power Electronics and Design, 252-256. 
+ 
+[33] L. Wei et al. 1999. Design and Optimization of dual-threshold circuits for Low-Voltage, 
+Low-Power Applications, IEEE Transactions on VLSI Systems 7, no. 1:227-248. 
+ 
+[34] Liqiong Wei et al. 1999. Design and Opimization of Dual-Threshold Circuits for Low-
+Voltage Low-Power Applications, IEEE Transactions on VLSI Systems 7, no. 1:16-24. 
+ 
+[35] M. Liu et al. 2004. Leakage Power Reduction by Dual V  designs under probabilistic 
+th
+analysis of V  variation, Proceedings of the International Symposium on Low Power Electronics 
+th
+and Design, 2-7. 
+ 
+[36] M. Orhansky et al. 2002. Impact of spatial intrachip gate length variability on the 
+performance of high-speed digital circuits, IEEE Transactions on Computer-Aided Design 21, 
+no. 5:544-553. 
+ 
+[37] O.A. Adeniran et al. 2004. A CMOS low-power ADC for DVB-T and DVB-H systems, 
+Proceedings of the International Symposium on Circuits and Systems, 209-212. 
+ 
+[38] R. Chau et al. 2000. 30nm physical gate length CMOS transistors with 1.0ps n-MOS and 
+1.7ps p-MOS gate delays, IEDM Technical Digest, 45-48. 
+ 
+[39] R. Choi et al. 2002. Fabrication of high quality ultra-thin HfO  gate dielectric MOSFETs 
+2
+using deuterium anneal, IEDM Technical Digest, 613-616. 
+ 
+[40] R. M. Philipp et al. 2007. Linear current-mode active pixel sensor, IEEE Journal of Solid 
+State Circuits 42, no. 11:2482-2491. 
+ 
+[41] S. Mutoh et al. 1996. A 1-V multithreshold-voltage CMOS digital signal processor for 
+mobile phone application, IEEE Journal of Solid State Circuits 31, no. 11:1795-1802. 
+ 
+[42] Saibal Mukhopadhyay et al. 2003. Gate Leakage Reduction for Scaled Devices Using 
+Transistor Stacking, IEEE Transactions on VLSI Systems 11, no. 4:716-730. 
+12 5 
+[43] T. Kurado et al. 1996. A 0.9-V, 150MHz, 10-mW, 4mm2, 2-D Discrete Cosine Transform 
+Core Processor with Variable Threshold (V ) Scheme, IEEE Journal of Solid State Circuits 31, 
+t
+no. 11:1770-1779. 
+ 
+[44] G. Geelen. 2001. A 6-b 1.1G samples/s CMOS A/D Converter, Proceedings of the 
+International Solid State Circuits Conference, 127-128. 
+ 
+[45] D. Ghai, S. P. Mohanty, and E. Kougianos. 2007. A 45nm Flash Analog to Digital 
+Converter for Low Voltage High Speed System on Chips, Proceedings of the 13th NASA 
+Symposium on VLSI Design, 3.1. 
+ 
+[46] ___________. 2008. A Dual Oxide CMOS Universal Voltage Converter for Power 
+Management in Multi-V  SoCs, Proceedings of the International Sympoisum on Quality 
+DD
+Electronic Design, 257-260. 
+ 
+[47] ___________. 2008. A Process and Supply Variation Tolerant Nano-CMOS Low Voltage, 
+High Speed, A/D Converter for System-on-Chip, Proceedings of the Great Lakes Symposium on 
+VLSI, 47-52. 
+ 
+[48] ___________. 2008. Parasitic Aware Process Variation Tolerant VCO Design, Proceedings 
+of the International Sympoisum on Quality Electronic Design, 330-333. 
+ 
+[49] ____________. 2009. Design of Parasitic and Process Variation Aware RF Circuits: A 
+Nano-CMOS VCO Case Study, IEEE Transactions on Very Large Scale Integration Systems. 
+ 
+[50] ____________. 2009. Variability-Aware Optimization of Nano-CMOS Active Pixel Sensors 
+using Design and Analysis of Monte Carlo Experiments, Proceedings of the International 
+Sympoisum on Quality Electronic Design. 
+ 
+[51] C. Gopalakrishnan and S. Katkoori. 2003. Knapbind: an area effcient binding algorithm for 
+low leakage datapaths, Proceedings of the International Conference on Computer Design, 430-
+435. 
+ 
+[52] _____________. 2003. Resource allocation and binding approach for low leakage power, 
+Proceedings of the International Conference on VLSI Design, 297-302. 
+ 
+[53] R. Gupta et al. 1998. Parasitic-aware design and optimization of CMOS RF integrated 
+circuits, Proceedings of the IEEE RFIC Symposium, 325-328. 
+ 
+[54] A. Hajimiri, S. Limotyrakis, and T. H. Lee. 1999. Jitter and Phase Noise in Ring Oscillators, 
+IEEE Journal of Solid State Circuits 34, no. 6:790-804. 
+ 
+[55] Chuck Hawkins. 2007. Little Vias Can Be Vicious, Proceedings of the 13th NASA 
+Symposium on VLSI Design, 2.1. 
+ 
+12 6 
+[56] I. Hwang, S. Lee, and S. Kim. 2000. A digitally controlled phase-locked loop with fast 
+locking scheme for clock synthesis application, Proceedings of the IEEE International 
+Conference on Solid-State Circuits, 168-169. 
+ 
+[57] F. Ishihara and F. Sheikh. 2004. Level Conversion for Dual Supply Systems, IEEE 
+Transactions on VLSI Systems 12, no. 2:185-195. 
+ 
+[58] S. Joeres, A. Kruth, O. Meike, G. Ordu, S. Sappok, R. Wunderlich, and S. Heinen. 2004. 
+Design of a Ring-Oscillator with a Wide Tuning Range in 0.13 µm CMOS for the use in Global 
+Navigation Satellite Systems, Proceedings ProRISC, 529-535. 
+ 
+[59] M. Johnson and K. Roy. 1997. Datapath scheduling with multiple supply voltages and level 
+converters, ACM Transactions on Design Automation of Electronic Systems 2, no. 3:227-248. 
+ 
+[60] J. Yoo, K. Choi, and A. Tangel. 2001. A 1-GSPS CMOS Flash A/D Converter for System-
+on-Chip Applications, Proceedings of the IEEE Computer Society Workshop on VLSI, 135-139. 
+ 
+[61] Z. K. Kalayjian and A. G. Andreou. 2000. Mismatch in photodiode and phototransistor 
+arrays, Proceedings of the International Symposium on Circuits and Systems, 121-124. 
+ 
+[62] Y. Kanno, H. Mizuno, K. Tanaka, and T. Watanabe. 2000. Level Converters with High 
+Immunity to Power-Supply Bouncing for High-Speed Sub-1-V LSIs, Proceedings of the 
+Symposium on VLSI Circuits Digest of Technical Papers, 202-203. 
+ 
+[63] J. Kao, S. Narendra, and A. Chandrakasan. 2002. Subthreshold leakage modeling and 
+reduction techniques, Proceedings of the IEEE International Conference on Computer-Aided 
+Design, 141-148. 
+ 
+[64] K. S. Khouri and N. K. Jha. 2000. Leakage power analysis and reduction during behaviora- 
+synthesis, Proceedings of the International Conference on Computer Design, 561-564. 
+ 
+[65] N.-S. Kim, Y.-J. Yoon, U.-R. Cho, and H.-G. Byun. 2003. New Dynamic Logic-Level 
+Converters for High Performance Applications, Proceedings of the IEEE International 
+Symposium on Circuits and Systems, 93-96. 
+ 
+[66] D. Kim et al. 2006. CMOS Mixed-Signal Circuit Process Variation Sensitivity 
+Characterization for Yield Improvement, Proceedings of the IEEE Custom Integrated Circuits 
+Conference, 365-368. 
+ 
+[67] E. Kougianos and S. P. Mohanty. 2009. Impact of Gate-Oxide Tunneling on Mixed-Signal 
+Design and Simulation of a Nano-CMOS VCO, Elsevier Microelectronics Journal 40, no. 1:95-
+103. 
+ 
+[68] M. J. Krasnicki et al. 2001. ASF: A practical simulation-based methodology for the 
+synthesis of custom analog circuits, Proceedings of the IEEE/ACM International Conference on 
+Computer Aided Design, 350-357. 
+12 7 
+[69] S. H. Kulkarni, A. N. Srivastava, and D. Sylvester. 2004. A New Algorithm for Improved 
+Vdd Assignment in Low Power Dual V  Systems, Proceedings of the International Symposium 
+dd
+on Low Power Electronics and Design, 200-205. 
+ 
+[70] S. H. Kulkarni and D. Sylvester. 2003. Fast and Energy-Efficient Asynchronous Level 
+Converters for Multi-V  Design, Proceedings of the IEEE International Systems-on-Chip 
+DD
+Conference, 169-172. 
+ 
+[71] A. Kumar and M. Anis. 2006. Dual-V  Design of FPGAs for Subthreshold Leakage 
+t
+Tolerance, Proceedings of the 7th International Symposium on Quality Electronic Design, 735-
+740. 
+ 
+[72] __________. 2007. Dual-Threshold CAD Framework for Subthreshold Leakage Power 
+Aware FPGAs, IEEE Transactions on Computer-Aided Design of Integrated Circuits and 
+Systems 26, no. 1:53-66. 
+ 
+[73] K. Kwok and C. H. 2005. Luong. 2005. Ultra-low-Voltage high-performance CMOS VCOs 
+using transformer feedback, IEEE Journal of Solid State Circuits 40, no. 3:652-660. 
+ 
+[74] P. Larsson. 1999. A 2 − 1600 −MHz Clock Recovery P  with Low-V  Capability, IEEE 
+LL dd
+Journal of Solid State Circuits 34, no. 12:1951-1960. 
+ 
+[75] D. Lee, D. Blaauw, and D. Sylvester. 2004. Gate Oxide Leakage Current Analysis and 
+Reduction for VLSI Circuits, IEEE Transactions on VLSI Systems 12, no. 2:155-166. 
+ 
+[76] D. Lee, J. Yoo, and K. Choi. 2002. Design Method and Automation of Comparator 
+Generation for Flash A/D Converter, Proceedings of the International Symposium on Quality 
+Electronics Design (ISQED), 138-142. 
+ 
+[77] D. Leenaerts et al. 2001. CAD solutions and outstanding challenges for mixed-signal and 
+RF IC design, Proceedings of the IEEE/ACM International Conference on Computer Aided 
+Design, 270-277. 
+ 
+[78] F. Li, Y. Lin, L. He, and J. Cong. 2004. Low Power FPGA using Pre-defined Dual-
+V /Dual-V  Fabrics, Proceedings of the International Symposium on FPGAs, 42-50. 
+dd t
+ 
+[79] J. Long, J. Y. Foo, and R. J. Weber. 2004. A 2.4 GHz Low-Power Low-Phase-Noise CMOS 
+LC VCO, Proceedings of the IEEE Computer Society Annual Symposium on VLSI, 213. 
+ 
+[80] J. McNeill. 1997. Jitter in Ring Oscillators, IEEE Journal of Solid State Circuits 32, no. 
+6:201-204. 
+ 
+[81] S. P. Mohanty, D. Ghai, E. Kougianos, and B. Joshi. 2009. A Universal Level Converter 
+Towards the Realization of Energy Efficient Implantable Drug Delivery Nano-Electro-
+Mechanical-Systems, Proceedings of the International Symposium on Quality Electronic Design. 
+12 8 
+[82] S. P. Mohanty and E. Kougianos. 2007. Simultaneous Power Fluctuation and Average 
+Power Minimization During Nano-CMOS Behavioral Synthesis, Proceedings of the 20th IEEE 
+International Conference on VLSI Design, 195-200. 
+ 
+[96] J. Park, K. Choi, and D. J. Allstot. 2003. Parasitic-aware design and optimization of a fully 
+integrated CMOS wideband amplifier, Proceedings of the Asia South Pacific Design Automation 
+Conference, 904-907. 
+ 
+[97] M. Pedram and J. M. Rabaey. 2002. Power Aware Design Methodologies, Springer. 
+ 
+[98] M. J. M. Pelgrom, AAD C. J. Duinmaijer, and A. P. G. Welbers. 1989. Matching Properties 
+of MOS Transistors, IEEE Journal of Solid State Circuits 24, no. 5:1433-1440. 
+ 
+[99] J. M. Rabaey, A. Chandrakasan, and B. Nikolic. 2003. Digital Integrated Circuits. 2nd Ed. 
+Prentice-Hall. 
+ 
+[100] B. Razavi. 1996. Monolithic Phase Locked-loops and Clock Recovery Circuits, IEEE 
+Press. 
+ 
+[101] R.Dehghani and S.M. Atarodi. 2003. Optimised analytic designed 2.5GHz CMOS VCO, 
+IEE Electronic Letters 39, no. 16:1160-1162. 
+ 
+[102] K. Roy and H. M. Meimand. 2002. Self-Precharging Flip-Flop (SPFF): A New Level 
+Converting Flip-Flop, Proceedings of the 28th European Solid-State Circuits Conference, 407-
+410. 
+ 
+[103] K. Roy, S. Mukhopadhyay, and H. Mahmoodi-Meimand. 2003. Leakage current 
+mechanisms and leakage reduction techniques in deep-submicrometer CMOS circuits, 
+Proceedings of the IEEE 91, no. 2:305-327. 
+ 
+[104] K. Sadeghi, M. Emadi, and F. Farbiz. 2006. Using Level Restoring Method for Dual 
+Supply Voltage, Proceedings of the 19th International Conference on VLSI Design, 601-605. 
+ 
+[105] T. Sairam, W. Zhao, and Y. Cao. 2007. Optimizing Finfet technology for high-speed and 
+low-power design, Proceedings of the ACM Great Lakes symposium on VLSI, 73-77. 
+ 
+[106] K. Salama and A. E. Gamal. 2003. Analysis of active pixel sensor readout circuit, IEEE 
+Transactions on Circuits and Systems-I: Fundamental Theory and Applications 50, no. 7: 941-
+944. 
+ 
+[107] H. Sanchez, J. Siegel, C. Nicoletta, J. P. Nissen, and J. Alvarez. 1999. A Versatile 
+3.3/2.5/1.8-V CMOS I/O Driver Built in a 0.2-um, 3.5-nm T , 1.8-V CMOS Technology, IEEE 
+ox
+Journal of Solid State Circuits 34, no. 11:1501-1511. 
+ 
+12 9 
+[108] P. C. S. Scholtens and M. Vertregt. 2002. A 6b 1.6 G sample/s Flash ADC in 0:18 µm 
+CMOS using Averaging Termination, IEEE Journal of Solid State Circuits 37, no. 12:1599-
+1609. 
+ 
+[109] Frank Sill, Jiaxi You, and Dirk Timmerman. 2007. Design of Mixed Gates for Leakage 
+Reduction, Proceedings of the 17th Great Lakes Symposium on VLSI, 263-268. 
+ 
+[110] S. Sinha, A. Balijepalli, and Y. Cao. 2008. A Simplified Model of Carbon NanoTube 
+Transistor with Applications to Analog and Digital Design, Proceedings of the International 
+Symposium on Quality Electronic Design, 502-507. 
+ 
+[111] B. S. Song, P. L. Rakers, and S. F. Gillig. 2000. A 1-V 6-b 50-M Samples/s Current-
+Interpolating CMOS ADC, IEEE Journal of Solid State Circuits 35, no. 4:647-651. 
+ 
+[112] N. Srisantana and K. Roy. 2004. Low Power Design using Multiple Channel Lengths and 
+Oxide Thicknesses, IEEE Design and Test of Computers 21, no. 1:56-63. 
+ 
+[113] A. Srivastava. 2003. Simultaneous V  selection and assignment for leakage optimization, 
+t
+Proceedings of the International Symposium on Low Power Electronics and Design, 146-151. 
+ 
+[114] A. Srivastava and D. Sylvester. 2003. Minimizing total power by simultaneous V /V  
+dd th
+assignment, Proceedings of the Design Automation Conference, 400-403. 
+ 
+[115] A. Srivastava, D. Sylvester, and D. Blaauw. 2004. Power minimization using simultaneous 
+gate sizing, dual-V  and dual-V  assignment, Proceedings of the Design Automation 
+dd th
+Conference, 783-787. 
+ 
+[116] Maria Stanoeva and Angel Popov. 2005. Investigation of a Parallel Resistorless ADC, 
+Proceedings of the International Conference on Computer Systems and Technologies, 8:1-5. 
+ 
+[117] S. Sundareswaran, J. A. Abraham, A. Ardelea, and R. Panda. 2008. Characterization of 
+Standard Cells for Intra-Cell Mismatch Variations, Proceedings of the International Symposium 
+on Quality Electronic Design, 213-219. 
+ 
+[118] C. Svensson, S. Andersson, and P. Bogner. 2006. On the power consumption of analog to 
+digital converters, Proceedings of the 24th Norchip Conference, 49-52. 
+ 
+[119] K. Uyttenhove and M. Steyaert. 2000. A 6-bit 1GHz Acquisition Speed CMOS Flash ADC 
+with Digital Error Correction, Proceedings of the Custom Integrated Circuits Conference, 249-
+252. 
+ 
+[120] Xuejin Wang et al. 2006. A Novel Parasitic-Aware Synthesis and Verification Flow for 
+RFIC Design, Proceedings of the 36th European Microwave Conference, 664-667. 
+ 
+13 0 
+[121] H. S. Weng, R. T. Chang, E. Crabbe, and P. Agnello. 1998. CMOS active pixel image 
+sensors fabricated using a 1.8V , 0.25µm CMOS technology, IEEE Transactions on Electron 
+Devices 45, no. 4:889-894. 
+ 
+[122] H. Wong. 1997 December. CMOS image sensors-recent advances and device scaling 
+considerations, International Electron Devices Meeting Technical Digest, 7:201-204. 
+ 
+[123] C. Xu, W. H. Ki, and M. Chan. 2002. A low-voltage CMOS complementary active pixel 
+sensor (CAPS) fabricated using a 0.25µm CMOS technology, IEEE Electron Device Letters 23, 
+no. 7:398-400. 
+ 
+[124] C. Xu, W. Sargeant, K. R. Laker, and J. Van der Spiegel. 2002. An Extended Frequency 
+Range CMOS Voltage Controlled Oscillator, Proceedings of the IEEE International Conference 
+on Electronics, Circuits and Systems, 425-428. 
+ 
+[125] D. Yang and A. El Gamal. 1999. Comparative Analysis of SNR for Image Sensors with 
+Enhanced Dynamic Range, Proceedings of the SPIE Electronic Imaging '99 Conference, 197-
+211. 
+ 
+[126] J. Yoo, K. Choi, and J. Ghaznavi. 2003. A 0.07µm CMOS Flash Analog to Digital 
+Converter for High Speed and Low Voltage Applications, Proceedings of the Great Lakes 
+Symposium on VLSI, 56-59. 
+ 
+[127] J. Yoo, K. Choi, and D. Lee. 2003. Comparator Generation and Selection for Highly 
+Linear CMOS Flash Analog-to-Digital Converter, Journal of Analog Integrated Circuits and 
+Signal Processing, 179-187. 
+ 
+[128] C.-C. Yu, W.-P.Wang, and B.-D. Liu. 2001. A New Level Converter for Low Power 
+Applications, Proceedings of the IEEE International Symposium on Circuits and Systems, 113-
+116. 
+ 
+[129] C. P. Yuan and Y. C. Chen. 2005. A Voltage Level Converter Circuit Design with Low-
+Power Consumption, Proceedings of the 6th International Conference on ASIC, 309-310. 
+ 
+[130] G. Zhang, A. Dengi, and L. R. Carley. 2002. Automatic Synthesis of a 2:1GHz SiGe low 
+noise amplifier, Proceedings of the IEEE RFIC Symposium, 125-128. 
+ 
+13 1 

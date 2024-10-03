@@ -1,0 +1,2390 @@
+Copyright
+by
+Eric Bruce Chesebro
+2006
+The Dissertation Committee for Eric Bruce Chesebro
+certiﬁes that this is the approved version of the following dissertation:
+Undetected boundary slopes and roots of unity for the
+character variety of a 3-manifold
+Committee:
+Alan Reid, Supervisor
+Daniel Allcock
+Cameron Gordon
+John Luecke
+Edward Marcotte
+Undetected boundary slopes and roots of unity for the
+character variety of a 3-manifold
+by
+Eric Bruce Chesebro, B.A.
+DISSERTATION
+Presented to the Faculty of the Graduate School of
+The University of Texas at Austin
+in Partial Fulﬁllment
+of the Requirements
+for the Degree of
+DOCTOR OF PHILOSOPHY
+THE UNIVERSITY OF TEXAS AT AUSTIN
+May 2006
+For Kelly.
+Acknowledgments
+I would like to thank my advisor, Alan Reid, for teaching me what I
+know about mathematics and for directing me towards the problems in this
+thesis. I thank him especially for his great generosity in sharing his time, his
+ideas, and his enthusiasm for the subject. I would also like to thank Stephan
+Tillmann for his important contributions to Chapter 3. Finally, I thank my
+friends, my fellow graduate students, and the postdocs and faculty at the
+University of Texas for making Austin such an inspiring and fertile place for
+studying topology, .
+v
+Undetected boundary slopes and roots of unity for the
+character variety of a 3-manifold
+Publication No.
+Eric Bruce Chesebro, Ph.D.
+The University of Texas at Austin, 2006
+Supervisor: Alan Reid
+This dissertation is concerned with the Culler-Shalen techniques for
+using the SL (C)-character variety for the fundamental group of a 3-manifold
+2
+to ﬁnd embedded essential surfaces in the manifold. It is known that when
+a boundary slope is strongly detected by the character variety the limiting
+eigenvalue of the slope is a root of unity. In Chapter 2, we show that every
+root of unity arises in this manner. Given any root of unity, we construct
+inﬁnitely many hyperbolic 3-manifolds whose character varieties all detect this
+root. In Chapter 3, we give inﬁnitely many hyperbolic knots whose exteriors
+have strict boundary slopes which are not strongly detected by the character
+variety.
+vi
+Table of Contents
+Acknowledgments v
+Abstract vi
+List of Figures ix
+Chapter 1. Introduction 1
+1.1 Preliminary Material . . . . . . . . . . . . . . . . . . . . . . . 4
+1.1.1 Conventions and notation . . . . . . . . . . . . . . . . . 4
+1.1.2 Representation varieties . . . . . . . . . . . . . . . . . . 6
+1.1.3 Character varieties . . . . . . . . . . . . . . . . . . . . . 8
+1.2 The action associated to an ideal point . . . . . . . . . . . . . 10
+1.3 Ideal points and essential surfaces . . . . . . . . . . . . . . . . 12
+1.4 A-polynomials . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+Chapter 2. Roots of unity and the character variety 22
+2.1 Construction of the manifolds M . . . . . . . . . . . . . . . . 22
+n
+2.2 M has nth roots . . . . . . . . . . . . . . . . . . . . . . . . . 26
+n
+2.3 Hyperbolic Examples . . . . . . . . . . . . . . . . . . . . . . . 28
+2.4 Computations for n = 5 . . . . . . . . . . . . . . . . . . . . . . 31
+2.5 Final Remarks . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+Chapter 3. Not all boundary slopes are strongly detected 34
+3.1 Proof of Theorem 3.0.3 . . . . . . . . . . . . . . . . . . . . . . 38
+3.2 Mutants with distinct slope sets . . . . . . . . . . . . . . . . . 44
+3.2.1 Setup from [13] . . . . . . . . . . . . . . . . . . . . . . . 44
+3.2.2 Boundary slopes for K and Kτ . . . . . . . . . . . . . 51
+n n
+3.3 The slope 4(n+4) of K is not strongly detected . . . . . . . 58
+n
+3.3.1 Lemmas . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+3.3.2 Calculations . . . . . . . . . . . . . . . . . . . . . . . . 63
+vii
+Bibliography 75
+Vita 79
+viii
+List of Figures
+1.1 The ﬁgure-eight knot . . . . . . . . . . . . . . . . . . . . . . . 16
+2.1 Newton polygons for the ﬁgure-eight knot . . . . . . . . . . . 24
+2.2 The (2,6)-torus link . . . . . . . . . . . . . . . . . . . . . . . 25
+3.1 A connect sum of two small knots . . . . . . . . . . . . . . . . 35
+3.2 The pretzel knot K . . . . . . . . . . . . . . . . . . . . . . . 38
+n
+3.3 Curve systems and tangles . . . . . . . . . . . . . . . . . . . . 45
+3.4 A piece of D . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+3.5 A surface corresponding to the edge h1i,h1i . . . . . . . . . 49
+2
+3.6 The diagram for Lemma 3.3.1 . . . . . . . . . . . . . . . . . . 59
+£ ¤
+ix
+Chapter 1
+Introduction
+This thesis concerns the techniques of Culler and Shalen [8] for ﬁnding
+embedded essential surfaces in 3–manifolds. Embedded essential surfaces have
+played a critical role in the development of the theory of 3-manifolds, and the
+Culler-Shalen machinery provides the most general strategy for constructing
+essential surfaces. Their techniques play an important part in proofs of the
+Smith conjecture [22], the cyclic surgery theorem [7], and the ﬁnite ﬁlling
+conjecture [2], among others.
+Let M be a compact irreducible orientable 3-manifold whose boundary
+consists of a disjoint union of incompressible tori. We write X(M) to denote
+the space of all characters of representations in Hom π (M),SL (C) . This
+1 2
+spacehasthestructureofanaﬃnealgebraicset. Ifwea¡ssumethatX ⊂¢X(M)
+is an irreducible aﬃne curve and let X be the smooth projective model for
+X, then all but ﬁnitely many points of X correspond to characters in X.
+e
+These points are referred to as ordinary points while the points which are not
+e
+ordinary points are called ideal points. The set of ideal points in X is ﬁnite
+and non-empty because we have assumed thatX is a curve. The Culler-Shalen
+e
+machinery shows how to associate essential surfaces in M to each ideal point
+1
+in X.
+e Although their techniques may associate many diﬀerent essential sur-
+faces to a given ideal point, some information about these surfaces can be
+obtained by evaluating certain functions in the function ﬁeld C(X) at that
+ideal point. Let γ ∈ π (M) and deﬁne the regular function I ∈ C(X) to be
+1 γ
+the function which evaluates characters on the element γ. That is
+I (χ) = χ(γ)
+γ
+where χ ∈ X. I extends to a meromorphic function
+γ
+I : X −→ C∪{∞}.
+γ
+e
+Suppose there is a peripheral element β ∈ π (∂M) and an ideal point xˆ ∈ X
+1
+such that I (xˆ) = ∞. Then there is a unique unoriented isotopy class of a
+β e
+simple closed curve c ⊂ M with the property that I (xˆ) is ﬁnite. In fact,
+[c]
+I (xˆ) is of the form ξ +ξ−1 where ξ is a root of unity [4].
+[c]
+The above information translates directly into topological data about
+associated surfaces. Let Σ be an essential surface associated to an ideal point
+xˆ as above, and take Σ to have the minimal number of boundary components
+among such surfaces. Then, for every connected component Σ of Σ, ∂Σ 6= ∅,
+0 0
+the order of ξ divides the number of boundary components of Σ , and every
+0
+boundary component of Σ represents the unoriented isotopy class of c. In this
+0
+situation, we say that the unoriented isotopy class of c is a strongly detected
+boundary slope.
+2
+In practice, strongly detected slopes are quite common. If the interior
+of M is a hyperbolic 3-manifold with ﬁnite volume, then work of Thurston
+[25] implies that M has at least two strongly detected boundary slopes. Also,
+it follows from work of Kronheimer and Mrowka that the exterior of any non-
+trivial knot in S3 has at least one strongly detected boundary slope [3], [10].
+Thus, we see that the Culler-Shalen techniques lend themselves particularly
+well to these settings.
+It is known that a boundary slope which is only represented by bound-
+ary components of essential surfaces which are virtual ﬁbers in virtual ﬁbra-
+tions over S1 will not be strongly detected [7]. However, in light of the discus-
+sion in the previous paragraph, it has been asked whether their techniques are
+sensitive enough to ﬁnd all other boundary slopes for the exterior of a given
+non-trivial knot in S3. A similar question has been asked for manifolds whose
+interiors have a ﬁnite volume structure and a single cusp. In Chapter 3, we
+give a negative answer to both questions by exhibiting an inﬁnite family of
+hyperbolic knots with boundary slopes which are not strongly detected. (This
+work is joint with Stephan Tillmann.)
+In[4], itisaskedwhichrootsofunitycanarisewhenaboundaryslopeis
+strongly detected. Ohtsuki [19] shows that for the exterior of a 2-bridge knot
+every ideal point detects an essential surface with a connected component
+which has one or two boundary components. Thus, the only roots of unity
+which appear in these cases are ±1. There are, however, examples of higher
+order roots. There are explicit examples of 3-manifolds with 4th, 6th, and 11th
+3
+roots given in [5], [9], and [14]. In Chapter 2, we show that given any n ∈ Z+
+there are inﬁnitely many hyperbolic 3-manifolds which have a curve in their
+character varieties with ideal points at which nth roots of unity arise in the
+strong detection of a boundary slope.
+1.1 Preliminary Material
+WebeginbyoutliningtheCuller-Shalenconstructionsandstatingsome
+known results that will be needed. See [23] as a reference.
+1.1.1 Conventions and notation
+An embedding
+f: F −→ M
+of a compact orientable connected surface (F À S2,D2) into an irreducible
+3-manifold M is called incompressible if the induced homomorphism
+f : π (F) −→ π (M)
+∗ 1 1
+is injective. If, in addition, f is not properly homotopic into ∂M, then f is
+essential in M. We will say that the surface F is essential in M. A discon-
+nected compact orientable surface is incompressible (essential) if each of its
+components is.
+An essential surface F in M is a virtual ﬁber if there is a ﬁnite cover
+p: M0 −→ M
+4
+where M0 is ﬁbered over S1 and the surface F lifts to a ﬁber in M0.
+Throughout this dissertation, all 3-manifolds are assumed to be com-
+pact, connected, orientable, and irreducible. We assume further that all
+boundary components of 3-manifolds are incompressible and homeomorphic
+to tori. All surfaces are assumed to be properly embedded and orientable, but
+not necessarily connected.
+For a topological space Y, we write |Y| to denote the number of con-
+nected components of Y.
+For a 3-manifold M, we will say that M is hyperbolic if the interior of
+M admits a complete ﬁnite volume hyperbolic structure. This is equivalent to
+the existence of a discrete faithful homomorphism
+π (M) −→ PSL (C).
+1 2
+Aslopeona3-manifoldM istheisotopyclassofanunorientedessential
+simple closed curve on a component ∂ M of ∂M. Every slope corresponds to
+0
+a pair {α,α−1} of primitive elements of π (∂ M). For convenience, we will
+1 0
+often refer to the slope {α,α−1} as, simply, α. Given a generating set {λ,µ}
+for π (∂ M), we can identify the set of slopes on ∂ M with p/q ∈ Q∪{1/0},
+1 0 0
+where p/q corresponds to the slope λqµp. A boundary slope is a slope that is
+representedbyaboundarycomponentofanessentialsurfaceinM.Aboundary
+slope is strict if it arises as the boundary of an essential surface which is not
+a virtual ﬁber.
+5
+Let
+G×T −→ T
+be a simplicial action of a group G on a simplicial tree T. The action is non-
+trivial if no point of T is ﬁxed by the entire group. G acts without inversions
+if no element of G interchanges a pair of adjacent vertices of T.
+If Y is a simplicial complex, we write Y(i) to denote its i-skeleton.
+If L is a 1-manifold properly embedded in a 3-manifold M, then we
+write U(L) to denote a small open tubular neighborhood of L in M. If L is a
+disjoint union of smooth simple closed curves in S3, we deﬁne the exterior of
+the link L as the compact 3-manifold
+E(L) = S3 −U(L).
+If G is a group, then GAB denotes the abelianization of G.
+1.1.2 Representation varieties
+An SL (C)-representation for a group G is a homomorphism
+2
+ρ: G −→ SL (C).
+2
+We say that an SL (C)-representation ρ is irreducible if the only two invariant
+2
+vector subspaces of C2 under the action of ρ(G) are {0} and C2. Otherwise, ρ
+is reducible.
+We denote the space of all SL (C)-representations for G by R(G) and
+2
+by R(M) if G = π (M) for a 3-manifold M. Two representations ρ,ρ0 ∈ R(G)
+1
+6
+are equivalent if ρ0 = Jρ where J is an inner automorphism of SL (C). The
+2
+character of a representation ρ ∈ R(G) is the function
+χ : G −→ C
+ρ
+given by χ (γ) = Tr(ρ(γ)). Since the trace function on SL (C) is invariant
+ρ 2
+under inner automorphisms, equivalent SL (C)-representations always have
+2
+the same character. A reducible representation always shares its character
+with an abelian representation and irreducible representations are determined
+up to conjugacy by their characters.
+Assume that G is ﬁnitely generated and let hγ ,...,γ |r ,...i be a
+1 n 1
+presentation for G. We can identify R(G) with the set
+n
+ρ(γ ),...,ρ(γ ) ρ ∈ R(G) ⊂ SL (C) ⊂ R4n.
+1 n 2
+n ¯ o ³ ´
+¡ ¢
+¯
+R(G) is an aﬃne algebraic set¯in R4n since it is deﬁned by polynomial equa-
+tions which arise from the set of relations {r } and from the condition that
+i
+det ρ(γ ) = 1. (If {r } = ∞, there are inﬁnitely many deﬁning equations,
+i i
+how¡ever, ¢by the Hil¯bert¯basis theorem, we can always replace them with a
+¯ ¯
+ﬁnite set of polynomial equations.) Given any two such presentations for
+G, there is a polynomial bijection between their corresponding aﬃne algebraic
+sets. Therefore, up to canonical isomorphism, R(G) is well-deﬁned as an aﬃne
+algebraic set.
+Let R be an irreducible algebraic component of R(G) and let K be
+0
+the function ﬁeld C(R ). We construct the tautological representation for R
+0 0
+7
+as follows. For i ∈ {1,...,n}, let a ,b ,c and d be the four coordinate
+γi γi γi γi
+functions for R(G) which correspond to the generator γ . Then , by deﬁnition,
+i
+a (ρ) b (ρ)
+ρ(γ ) = γi γi .
+i c (ρ) d (ρ)
+µ γi γi ¶
+The map {γ }n −→ SL (K) given by
+i i=1 2
+a b
+γ 7→ γi γi
+i c d
+µ γi γi¶
+extends to a homomorphism
+P: G −→ SL (K)
+2
+which we refer to as the tautological representation for R .
+0
+1.1.3 Character varieties
+Let X(G) denote the space of characters of SL (C)-characters for G.
+2
+For every element γ ∈ G, we deﬁne the function
+I : R(G) −→ C
+γ
+by I (ρ) = χ (γ). This map descends to a map (also denoted by I ) from
+γ ρ γ
+X(G) to C.
+Let
+t: R(G) −→ X(G)
+be the map that takes a representation to its character. It is shown in [8] that
+the map t can be viewed as a map into Cr given by
+t(ρ) = I (ρ),...,I (ρ) ∈ Cr
+δ1 δr
+¡ ¢
+8
+for a ﬁnite set {δ ,...,δ } ⊂ G. The following result is Proposition 1.4.4 in
+1 r
+[8].
+Proposition 1.1.1. If R is an irreducible component of R(G) which contains
+0
+an irreducible representation, then t(R ) has the structure of an aﬃne algebraic
+0
+set.
+If G = π (M) where M is hyperbolic, then we know more. Since M is
+1
+hyperbolic, we have a discrete faithful representation
+ρ : π (M) −→ PSL (C).
+0 1 2
+It is well known that there exist lifts of ρ to SL (C). The following theorem
+0 2
+is due to Thurston and can be found as Theorem 4.5.1 of [23].
+Theorem 1.1.2. Let ρ˜ : π (M) −→ SL (C) be a lift of ρ . Let X be an
+0 1 2 0 0
+irreducible component of X(M) containing t(ρ˜). Then
+0
+dimC(X0) = |∂M|.
+Furthermore, if B ,...,B are the boundary components of M and g ∈ π (M)
+1 m i 1
+lies in a conjugacy class carried by B , then t(ρ˜) is an isolated point of the
+i 0
+algebraic subset
+{χ ∈ X |I2 = ··· = I2 = 4}.
+0 g1 gm
+If X is an irreducible algebraic curve in X(G) ⊂ Cr, then we write
+0
+X to denote its smooth projective completion. (X can be deﬁned as the
+0 0
+f f
+9
+smooth projective curve which is birationally equivalent to X , it is unique
+0
+up to birational equivalence.) The birational equivalence φ: X −→ X is
+0 0
+well-deﬁned at all but a ﬁnite set of points; we call these points ideal points
+f
+whereas the remaining points of X are called ordinary points. We identify the
+0
+functionﬁeldsofX andX withtheisomorphisminducedbyφ.Thefunctions
+0 0 f
+I extend to meromorphic functions from X to the Riemann sphere. Because
+γ f 0
+a subset of the I ’s make up a set of coordinate functions for the aﬃne curve
+γ f
+X , for every ideal point xˆ ∈ X , there is a γ ∈ G with I (xˆ) = ∞.
+0 0 γ
+If R is an irreducible falgebraic set in R(G) with t R(G) = X , then
+0 0
+the regular map t induces an injection ¡ ¢
+t : C(X ) −→ C(R ).
+∗ 0 0
+Using this identiﬁcation of C(X ) with a subﬁeld of C(R ), we can view C(R )
+0 0 0
+as an extension of C(X ). Since R and X are ﬁnite dimensional, C(R ) and
+0 0 0 0
+C(X ) are ﬁnitely generated over C, and therefore C(R ) is ﬁnitely generated
+0 0
+over C(X ).
+0
+1.2 The action associated to an ideal point
+Take R , X , and X as at the end of the previous section. Let F =
+0 0 0
+C(X ) and K = C(R ).
+0 0 f
+Because X is smooth, for any point x ∈ X we get a valuation
+0 0
+f f
+v : F× −→ Z
+x
+10
+where
+the order of the zero at x if f(x) = 0
+v (f) = −(the order of the pole at x) if f(x) = ∞ .
+x
+
+0 if f(x) ∈ C−{0}
+
+We saythat a valuation is non-trivial if there exists an element which
+values negatively. Recall that if xˆ is an ideal point, we have a γ ∈ G with
+I (x) = ∞. Thus, v (I ) < 0, and so the valuation v is non-trivial.
+γ xˆ γ xˆ
+We can use the following extension theorem from [15] to “extend” the
+valuation v to a non-trivial valuation on K×.
+xˆ
+Theorem 1.2.1. Let K be a ﬁnitely generated extension of a ﬁeld F. Let
+ω: F× −→ Z be a valuation. Then there exists a valuation v: K× −→ Z such
+that v|F× = d·ω for some d ∈ Z+.
+Recalling the tautological representation for R , we have
+0
+P: G −→ SL (K)
+2
+where K is now equipped with a non-trivial discrete valuation given by xˆ.
+Work in [21] shows how use a non-trivial valuation to construct a simplicial
+tree T on which SL (K) acts simplicially, non-trivially, and without inversions.
+2
+Using P, we pull back this action to get an action of G on T. We say that
+such an action is associated to the ideal point xˆ. The following proposition is
+fundamental (see Proposition 1.2.6 of [7]).
+Proposition 1.2.2. Let G × T −→ T be an action associated to an ideal
+point xˆ. An element γ ∈ G has a ﬁxed point in T if and only if I (xˆ) 6= ∞.
+γ
+11
+Moreover, if N is a normal subgroup of P(G) which ﬁxes a point of T, then N
+is contained in the center of SL (K) or P(G) contains an abelian subgroup of
+2
+index at most 2.
+Henceforth, as no new information comes from them, we will ignore
+components of X(G) which correspond to tautological representations where
+P(G) contains an abelian subgroup of ﬁnite index. Notice also, that the ﬁrst
+part of Proposition 1.2.2 implies that G acts non-trivially on T.
+1.3 Ideal points and essential surfaces
+For the remainder of this chapter, we assume that G = π (M) for a
+1
+3-manifold M with |∂M| = 1. Let
+p: M −→ M
+f
+betheuniversalcoverforM.FixatriangulationforM andgiveM theinduced
+triangulation.
+f
+Assume that
+π (M)×T −→ T
+1
+is an action associated to an ideal point xˆ. Let E be the set of midpoints of
+edges of T. We explain how to use this setup to construct essential surfaces in
+M.
+We say that a properly embedded surface Σ ⊂ M is associated to the
+12
+action if there exists a π (M)-equivariant map
+1
+f: M −→ T
+f
+which is transverse to E and such that f−1(E) = p−1(Σ). Notice that any such
+surface is orientable because π (M) acts without inversions.
+1
+There are many such maps; one such is constructed as follows. Let
+S(0) be a complete set of orbit representatives for the action of π (M) on M(0).
+1
+Deﬁne f on S(0) by any map into T(0) and extend f to all of M(0) using π (M)-
+1f
+invariance. This map extends to a π (M)-invariant map on all of M since T
+1 f
+is contractible. This map can be taken to be simplicial, and hence transverse
+f
+to E. The surface p f−1(E) is associated to the action.
+¡ ¢
+We can now state the following (see Proposition 1.3.2 of [7]).
+Proposition 1.3.1. Assume that Σ is a surface associated to the action given
+by an ideal point. Then, for each component D of M −Σ, the image of π (D)
+1
+in π (M) is contained in a vertex stabilizer. Thus, the fact that the action is
+1
+non-trivial implies that any associated surface is non-empty.
+Standard arguments show how f can be adjusted to make p f−1(E)
+essential in M (see [23] for a detailed account). This proves the ¡following¢
+theorem.
+Theorem 1.3.2. If X(M) has a component with dimension at least one, then
+M contains an essential surface.
+13
+Proof. Let R be an irreducible algebraic subset of R(M) whose projection
+0
+to X(M) is a curve X . Since X is a curve, the set of ideal points in X is
+0 0 0
+non-empty. Let xˆ be one such ideal point. Then, as discussed above, we can
+f
+construct a tree T on which π (M) acts without inversions. Take f: M −→ T
+1
+to be any π (M)-invariant map which is transverse to E. Let Σ = p f−1(E) .
+1 f
+From the comments above, we may assume that Σ is an essential ¡surface i¢n
+M and, by Proposition 1.3.1, Σ 6= ∅.
+We obtain more information about surfaces associated to ideal points
+using Proposition 1.3.8 from [7].
+Proposition 1.3.3. Assume that π (M) × T −→ T is an action on a tree
+1
+given by an ideal point. If C is a connected subcomplex of ∂M such that the
+image of π (C) in π (M) is contained in a vertex stabilizer, then there is an
+1 1
+essential surface associated to the action which is disjoint from C.
+This is especially useful in the following setting. Assume that xˆ is an
+ideal point in X where X is an algebraic curve in X(M). Assume also that
+0 0
+c is an oriented essential simple closed curve on ∂M with
+f
+I (xˆ) ∈ C.
+[c]
+Then [c] stabilizes a vertex under the action π (M) × T −→ T given by xˆ.
+1
+By Proposition 1.3.3, there exists an essential surface associated to xˆ which
+is disjoint from the curve c. If we assume further that there exists another
+14
+oriented essential simple closed curve s on ∂M where
+I (xˆ) = ∞
+[s]
+then, by Proposition 1.2.2, [s] ∈ π (M) does not ﬁx any vertex of T. Using
+1
+Proposition 1.3.1, we see that any surface associated to the action on T given
+by xˆ must intersect the curve s. Choose an essential surface Σ associated to xˆ
+which is disjoint from c. Since ∂Σ is a non-empty collection of essential simple
+closed curves parallel to c, [c] is a boundary slope. In fact, by considering
+Propositions 1.2.2 and 1.3.1, we conclude that this boundary slope is strict.
+When a strict boundary slope arises in this manner we say that it is strongly
+detected by the ideal point xˆ.
+If M is hyperbolic, then, by Theorem 1.1.2, we know that there is
+a curve X in X(M). Theorem 1.1.2 also implies that if α is a non-trivial
+0
+primitive element of π (∂M), then I is non-constant on X . This implies that
+1 α 0
+there is an ideal point xˆ ∈ X with I (xˆ) = ∞. As above, any essential surface
+0 α
+Σ associated to xˆ must intersect any simple closed curve on ∂M which is
+f
+parallel to a representative of α. Thus, components of ∂Σ represent boundary
+slopes for M. Now choose β ∈ π (∂M) so that a representative for β is parallel
+1
+to the components of ∂Σ and repeat the above argument. We obtain a new
+ideal point yˆ with I (yˆ) = ∞. Let Λ be an essential surface associated to
+β
+yˆ. Then boundary components of Λ represent a new boundary slope for M.
+Therefore, M has at least two strongly detected boundary slopes.
+15
+Figure 1.1: The ﬁgure-eight knot
+Example (The ﬁgure-eight knot). Let K bethe ﬁgure-eightknot as shown
+in Figure 1.1. Then M = E(K) is an example of a hyperbolic manifold with
+one boundary component and exactly two strongly detected boundary slopes.
+It is worth noting that E(K) actually has three boundary slopes; in addition
+tothetwostronglydetectedslopes, theboundaryofanessentialSeifertsurface
+gives another boundary slope for E(K). However, this slope is not strict which
+explains why it is not strongly detected.
+In light of the discussion preceding the example, it is convenient to
+divide the ideal points of X(M) into two classes.
+• An ideal point xˆ is of type I if for every α ∈ π (∂M) we have I (xˆ) ∈ C.
+1 α
+• An ideal point xˆ is of type II if there exists an α ∈ π (∂M) with I (xˆ) =
+1 α
+∞.
+If xˆ is of type I, then Proposition 1.3.3 implies that there is a closed
+essential surfaces associated to xˆ. 3-manifolds which do not contain closed
+16
+essential surfaces are called small. In this terminology, we see that small 3-
+manifolds do not have any type I ideal points.
+On the other hand, if xˆ is of type II, then xˆ strongly detects a unique
+strict boundary slope. Assume that Σ is an essential surface associated to xˆ.
+Then ∂Σ 6= ∅ and the boundary components of Σ are essential closed curves all
+representing the same boundary slope. Assume that β ∈ π (∂M) represents
+1
+this slope. By Proposition 1.3.1, β stabilizes a vertex of T. Proposition 1.2.2
+implies that I (xˆ) ∈ C. If Λ is another essential surface associated to xˆ, then
+β
+let α ∈ π (∂M) represent the boundary slope realized by Λ. Again, we have
+1
+that I (xˆ) ∈ C. If α ∈/ {β±1}, take C to be the 1-complex in ∂M made up of
+α
+two simple closed curves representing α and β. Proposition 1.3.3 implies that
+we can ﬁnd a closed essential surface associated to xˆ. This contradicts our
+assumption that xˆ is of type II, so we must have α ∈ {β±1}. We summarize
+with the following handy proposition.
+Proposition 1.3.4. If xˆ is a type II ideal point, then there is a unique (up to
+inverses) primitive element β ∈ π (∂M) with the property that I (xˆ) ∈ C. β
+1 β
+is the unique strongly detected boundary slope detected by xˆ.
+A surface Σ associated to an ideal point is said to be reduced if it is
+essential and has the minimal number of boundary components among all
+essential surfaces associated to this ideal point. The following theorem gives
+us some additional topological information about reduced surfaces associated
+to type II ideal points [4].
+17
+Theorem 1.3.5. Assume that β ∈ π (∂M) represents a boundary slope which
+1
+is strongly detected by an ideal point xˆ. Then I (xˆ) = ξ+ξ−1 where ξ is a root
+β
+of unity. Moreover, if Σ is a reduced surface associated to β, then the order of
+ξ divides |∂Σ|.
+We say that ξ appears as a root of unity for M.
+Sometimes boundary slopes are realized by surfaces associated to type I
+idealpoints. Inotherwords,althoughsurfacesassociatedtoanidealpointmay
+be taken to be disjoint from ∂M, there may be essential surfaces associated to
+the same ideal point which have non-empty boundary. We say that this ideal
+point weakly detects the boundary slope represented by the boundary of such
+a surface.
+There are known examples of 3-manifolds with strict boundary slopes
+which are not strongly detected but are weakly detected. The ﬁrst examples
+were given in [20]. In their paper, Schanuel and Zhang give a family of (non-
+hyperbolic)graphmanifoldswithstrictboundaryslopeswhicharenotstrongly
+detected. The slopes in question are, however, weakly detected [27].
+As mentioned above, if an ideal point xˆ strongly detects a boundary
+slope, then it detects a unique slope. The same is not known to be true if the
+boundary slope is weakly detected.
+Question 1.3.1. If xˆ is an ideal point which weakly detects a boundary slope
+β, is β the unique boundary slope detected by this ideal point?
+18
+1.4 A-polynomials
+The A-polynomial A (l,m) for M was introduced in [4]. It is helpful
+M
+in identifying strongly detected boundary slopes for M.
+Throughout this section, we ﬁx a generating set {λ,µ} for π (∂M).
+1
+If ρ is an SL (C)-representation of the peripheral subgroup π (∂M) with
+2 1
+Tr ρ(µ) 6= ±2, then ρ is conjugate to a diagonal representation. We are
+con¡cerne¢d with characters of SL (C)-representations and traces are invariant
+2
+under conjugation, hence we will assume that ρ is diagonal. Take l,m ∈ C×
+so that
+l 0 m 0
+ρ(λ) = and ρ(µ) = .
+0 l−1 0 m−1
+µ ¶ µ ¶
+On the other hand, since π (∂M) ∼= Z × Z, every pair (l,m) of non-zero
+1
+complex numbers determines such a representation. Two such representations
+ρ and ρ0 will have the same character if and only if the upper left entries of the
+pair ρ(λ), ρ(µ) are related to the upper left entries of the pair ρ0(λ), ρ0(µ) by
+the involution (l,m) 7→ l−1,m−1 . Thus, we see that X(∂M) is the quotient
+of C× ×C× by this invo¡lution. ¢
+The inclusion
+i: ∂M −→ M
+induces a regular map
+i∗: X(M) −→ X(∂M)
+by restricting characters to the boundary subgroup of π (M). Let {X }k be
+1 j j=1
+the set of irreducible components of X(M) such that, for every j ∈ {1,...,k},
+19
+Xj contains the character of an irreducible representation and dimC i∗(Xj) =
+1. Deﬁne ¡ ¢
+k
+D = i∗(X )
+M j
+j=1
+[
+and D as the inverse image of D under the quotient map C× × C× −→
+M M
+X(∂M). If A (l,m) ∈ Q[l,m] is a deﬁning polynomial for D , it can be
+M M
+normalized to have relatively prime Z-coeﬃcients. This is the A-polynomial
+for M corresponding to the generating set {λ,µ}.
+The Newton polygon N for the A-polynomial A = a limj is the
+M M ij
+convex hull of the set P
+(i,j)|a 6= 0 ⊂ R2.
+ij
+© ª
+From [4], we have the famous “boundary slopes are boundary slopes” theorem.
+Theorem 1.4.1. There exists an edge of N with slope p/q if and only if p/q
+M
+is a strongly detected boundary slope for M.
+We give a rough description of why this is true. Assume that e is
+an edge of N with slope p/q. Let σ = λaµb and τ = λqµp where a and b
+M
+are chosen so that ap − bq = 1. Then {σ,τ} gives a new generating set for
+π (∂M). We have λ = σpτ−b and µ = σ−qτa. To compute the A-polynomial
+1
+which corresponds to this new generating set, we set l = spt−b and m = s−qta
+in A (l,m) and normalize as before. The result is of the form
+M
+A (s,t) = f(t)+r(s,t)
+M
+20
+where f has at least one non-zero root ξ and r(0,t) = 0 for every t ∈ C. The
+edge polynomial for e is deﬁned as
+f (x) = x−n ·f(x)
+e
+where x ∈ Z+ is chosen so that f ∈ Z[x] and f (0) 6= 0.
+e e
+Noticethatthesolution(0,ξ)toA (s,t) = 0doesnotcorrespondtoan
+M
+imageofacharacterinX(M).However, inthesetofsolutionstothisequation,
+the points that do correspond to characters of irreducible representations are
+dense. Hence, there is a sequence {χ } of such characters with
+i
+lim χ (τ) = ξ +ξ−1 and lim χ (σ) = ∞.
+i i
+i→∞ i→∞
+Therefore, there is a type II ideal point corresponding to the limit of these
+characters. τ = λqµp is a strongly detected boundary slope and ξ is the
+associated root of unity.
+21
+Chapter 2
+Roots of unity and the character variety
+In this chapter, we prove the following theorem.
+Theorem 2.0.2. Let n be a positive integer. There exist inﬁnitely many hy-
+perbolic 3-manifolds {M } with |∂M | = 1 such that if ξ is any nth root of
+i i
+unity, then ξ appears as a root root of unity for every M .
+i
+The idea of the proof is this. For each n, we construct a 3-manifold M
+n
+for which every nth root of unity appears. The manifolds M contain essential
+n
+tori. It is well known that hyperbolic 3-manifolds do not contain essential tori,
+hence these manifolds are never hyperbolic. However, we can use standard
+techniques to construct hyperbolic 3-manifolds that admit degree-one maps
+onto M . The root of unity property is inherited by the hyperbolic manifolds
+n
+through the induced epimorphism on fundamental groups.
+2.1 Construction of the manifolds M
+n
+This section relies on the existence of 3-manifolds M with |∂M| = 1
+and a strongly detected boundary slope with root of unity +1. First, we show
+that the exterior of the ﬁgure-eight knot satisﬁes these conditions. We follow
+this discussion with the general construction for M .
+n
+22
+Let K ⊂ S3 be the ﬁgure-eight knot and M = E(K). We have a
+standard 2-bridge presentation for π (M) given by
+1
+π (M) = hµ,y|µW = Wyi
+1
+where W = y−1µyµ−1, and µ is a meridian for M. A longitude for µ can be
+computed to be λ = WW∗ where W∗ = µ−1yµy−1. We prove the following
+well-known proposition.
+Proposition 2.1.1. λµ4 is a strongly detected boundary slope for M. The
+associated root of unity is +1.
+Proof. The A-polynomial for M with respect to the basis {λ,µ} can be com-
+puted from the above presentation of π (M). As in [4], it is given by
+1
+A (l,m) = −l+lm2 +m4 +2lm4 +l2m4 +lm6 −lm8. (2.1)
+M
+The Newton polygon for this polynomial is pictured in Figure 2.1. Since the
+polygon has an edge with slope 4, we apply Theorem 1.4.1 to see that λµ4 is
+a strongly detected boundary slope. Let σ = λµ3 and τ = λµ4.
+We compute the A-polynomial for M with respect to the basis {σ,τ},
+as in the discussion following Theorem 1.4.1. We obtain
+A (s,t) = (t7 −t8)+s2(−s6 +s4t2 +2s2t4 +s6t+t6).
+M
+Therefore, the edge polynomial which corresponds to the boundary slope τ is
+f(x) = 1−x.
+23
+8
+8
+6
+6
+4
+4
+2
+2
+2 4 6 8
+1 2
+(a)Withrespectto{λ,µ} (b) With respect to {σ,τ}
+Figure 2.1: Newton polygons for the ﬁgure-eight knot
+Let M be any 3-manifold with |∂M| = 1 and xˆ an ideal point of X(M)
+which strongly detects a boundary slope τ ∈ π (∂M) with root of unity +1.
+1
+Choose σ ∈ π (∂M) so that {σ,τ} form a generating set for π (∂M). Then
+1 1
+there is a sequence of irreducible characters {χ } lying on a curve in X(M)
+i
+which approach the ideal point xˆ. Proposition 1.3.4 implies that
+χ (τ) → 2 and χ (σ) → ∞.
+i i
+We can choose irreducible representations in the ﬁbers over these characters
+which restrict to diagonal representations on π (∂M). That is, we have a se-
+1
+quence of irreducible representations
+ρ : π (M) −→ SL (C)
+i 1 2
+24
+with
+s 0 t 0
+ρ (σ) = i and ρ (τ) = i
+i 0 s −1 i 0 t −1
+i i
+µ ¶ µ ¶
+and
+lim s = 0 and lim t = 1.
+i i
+i→∞ i→∞
+(We may need to replace {σ,τ} with {σ−1,τ−1} to arrange this.)
+Figure 2.2: The (2,6)-torus link
+The manifold M will be the union of the manifold M and a two com-
+n
+ponent link exterior as follows. Fix a positive integer n, and let L be the
+n
+exterior of a two component link J ∪ K ⊂ S3 where the linking number of
+J and K is ±n. (For example, take J ∪ K to be the (2,2n)-torus link. The
+(2,6)-torus link is pictured in Figure 2.2.) For A ∈ {J,K}, let {λ ,µ } be a
+A A
+longitude/meridian pair for the exterior E(A). We have the Hurewicz epimor-
+phism
+h: π (L ) −→ H (L ) ∼= Z×Z.
+1 n 1 n
+The condition on the linking number of J and K gives the equalities
+h(λ ) = h(µ±n) and h(λ ) = h(µ±n).
+J K K J
+25
+Notice that H (L ) is generated by h(µ ) and h(µ ). We form the manifold
+1 n J K
+M as the union M∪ L where f: ∂M −→ ∂U(K) is a homeomorphism with
+n f n
+f (σ) = µ and f (τ) = λ .
+∗ K ∗ K
+Hence, |∂M | = 1 and the set {λ ,µ } is a generating set for π (∂M ).
+n J J 1 n
+2.2 M has nth roots
+n
+Theorem 2.2.1. Fix a positive integer n, and let ξ be any nth root of unity.
+Then there exists a sequence of irreducible representations
+∞
+ρ : π (M ) −→ SL (C)
+i 1 n 2 i=1
+© ª
+such that
+b 0 a 0
+ρ (λ ) = i and ρ (µ ) = i
+i J 0 b −1 i J 0 a −1
+i i
+µ ¶ µ ¶
+where as i → ∞, b → 0 and a → ξ. In particular, ξ appears at an ideal point
+i i
+for M .
+n
+Proof. To prove the theorem, we show that the representations
+ρ : π (M) −→ SL (C)
+i 1 2
+from the previous section extend to π (M ). As such, we will see that they
+1 n
+satisfy the conclusion of the theorem.
+Take any sequence of non-zero complex numbers {a } such that a → ξ
+i i
+and a±n = t . Let b = s±n. Deﬁne a homomorphism
+i i i i
+ρ0: π (L ) −→ SL (C)
+i 1 n 2
+26
+so that each ρ0 factors through h and
+i
+a 0 s 0
+ρ0(µ ) = i and ρ0(µ ) = i .
+i J 0 a −1 i K 0 s −1
+i i
+µ ¶ µ ¶
+ρ0 is a homomorphism because H (L ) is free abelian with generators h(µ )
+i 1 n J
+and h(µ ). Since ρ and ρ0 agree on the amalgamating subgroup hσ,τi, we can
+K i i
+use ρ0 to extend ρ to all of π (M ). We observe that
+i i 1 n
+Tr ρ (µ ) = a +a −1 → ξ +ξ−1
+i J i i
+¡ ¢
+and
+Tr ρ (λ ) = sn +s−n → ∞.
+i J i i
+¡ ¢
+Hence, there is an ideal point for M which strongly detects the boundary
+n
+slope µ with associated root of unity ξ.
+J
+As usual, the root of unity behavior of M can be seen in the A-
+n
+polynomial A .
+Mn
+Corollary 2.2.2. If A (y,z) is the A-polynomial for M , with respect to the
+Mn n
+generating set {λ ,µ } for π (∂M ), then the Newton polygon for A has a
+J J 1 n Mn
+vertical edge e such that 1−xn divides the edge polynomial f (x).
+e
+Proof. Given any nth root of unity, let {ρ }∞ be a sequence of representations
+i i=1
+as given by Theorem 2.2.1. Let χ = t(ρ ) and recall that
+i i
+lim χ (λ ) = ∞.
+i J
+i→∞
+¯ ¯
+¯ ¯
+27
+Therefore, the set i∗(χ ) ∞ ⊂ D contains an inﬁnite number of distinct
+i i=1 Mn
+points. Hence, by ©passingªto a subsequence, we may assume i∗(χ ) ∞ is a
+i i=1
+set of distinct points on a single curve component C of D . ©Recallªthat the
+Mn
+choice of generating set {λ ,µ } induces a quotient C× × C× −→ X(∂M ).
+J J n
+Let C ⊂ D ⊂ C× ×C× be the inverse image of C under this quotient map.
+Mn
+Let P(y,z) be the irreducible polynomial that deﬁnes the curve C.
+By construction, P(0,ξ) = 0. However, P(0,z) is not identically zero
+because the points (0,z) ∈ C always correspond to ideal points in X(M )
+n
+and C has only ﬁnitely many such points. Therefore, P(0,z) is a non-trivial
+single variable polynomial. Thus, we see that the Newton polygon N has a
+P
+vertical edge with edge polynomial x−m · P(0,x) for some integer m. ξ is a
+root of this edge polynomial. Also, by deﬁnition of the A-polynomial, P(y,z)
+divides A (y,z). So P(0,z) divides A (0,z). This implies that the Newton
+Mn Mn
+polygon for A also has a vertical edge e and f (ξ) = 0. Since this is true for
+Mn e
+any nth root of unity, we conclude that 1−xn divides f .
+e
+2.3 Hyperbolic Examples
+Here, we extend the result to hyperbolic examples and complete the
+proof of Theorem 2.0.2.
+Beforeweprovethetheorem, wegiveadeﬁnitionandstatetwolemmas.
+A null-homotopic knot in a 3-manifold M is an embedded circle k ⊂ M, such
+that k is homotopic to a point. Now, as a special case of the main theorem in
+[17], we have
+28
+Lemma 2.3.1. For each n ∈ Z+, M contains inﬁnitely many null-homotopic
+n
+hyperbolic knots.
+Oursecondlemmaisalsostandardbutwegiveaproofforcompleteness
+(cf. Proposition 3.2 in [1]).
+Lemma 2.3.2. Let k be a null homotopic knot in M and M be a 3-manifold
+n
+obtained by a Dehn surgery on k. Then there is a degree-one map f: M −→
+M .
+n
+Proof. Let M0 = M −U(k). From our assumptions, we have a slope s on ∂M0
+n
+so that M is obtained from M0 by identifying the boundary of a solid torus V
+to ∂M0 so that a simple closed curve representing the slope s bounds a disk
+D ⊂ V.
+Deﬁne f: M0 −→ M0 ⊂ M to be the identity. If we can extend the
+n
+map f over V then it will be a degree one map as needed. First, f extends
+over a regular neighborhood U(D) of the disk D since f(∂D) is homotopic to
+k which is homotopic to a point. Next, f extends over the ball V − U(D)
+because every immersed 2-sphere in M is homotopic to a point.
+n
+Armed with these lemmas, we are ready to prove Theorem 2.0.2.
+Proof. Let k be a null-homotopic knot in M as provided by Lemma 2.3.1.
+n
+By Thurston’s hyperbolic Dehn surgery theorem [24], for all but ﬁnitely many
+slopes s, the manifold obtained by doing Dehn surgery on k with surgery slope
+29
+s is hyperbolic. This gives us an inﬁnite set of distinct hyperbolic manifolds
+{M }∞ .
+i i=1
+Furthermore, for every i ∈ Z+, Lemma 2.3.2 gives us a degree-one map
+f : M −→ M .
+i i n
+Since f is degree-one, the induced map f∗: π (M ) −→ π (M ) is an epimor-
+i i 1 i 1 n
+phism and the restriction to the peripheral subgroup of π (M ) is an isomor-
+1 i
+phism onto the peripheral subgroup of π (M ).
+1 n
+Let α be a primitive element of π (∂M ) so that f∗(α) = µ . Similarly,
+1 i i J
+take β to be a primitive element of π (∂M ) so that f∗(β) = λ . Pick ξ to be
+1 i i J
+any nth root of unity. Then Theorem 2.2.1 gives us a sequence of irreducible
+∞
+representations ρ : π (M ) −→ SL (C) such that
+j 1 n 2 j=1
+© ª
+b 0 a 0
+ρ (λ ) = i and ρ (µ ) = i
+i J 0 b−1 i J 0 a−1
+µ i ¶ µ i ¶
+whereb → 0anda → ξ. Composingtheserepresentationswithf∗, wegetthe
+i i i
+sequence {ρ ◦f∗}∞ of irreducible representations for π (M ). Furthermore,
+j i j=1 1 i
+lim Tr ρ ◦f∗(α) = lim a +a−1 = ξ +ξ−1
+j i j j
+j→∞ j→∞
+¡ ¢ ¡ ¢
+and
+lim Tr ρ ◦f∗(β) = lim b +b−1 = ∞.
+j i j j
+j→∞ j→∞
+¯ ¯
+¡ ¢ ¯ ¯
+¯ ¯
+Therefore, α represents a detected boundary s¯lope and¯the root of unity which
+¯ ¯
+appears at the associated ideal point is ξ.
+30
+2.4 Computations for n = 5
+In this section, we give explicit calculations for the case n = 5. In
+the construction of M , take M to be the exterior of the ﬁgure eight knot.
+n
+We compute the factor of the A-polynomial for M which corresponds to the
+5
+representations that are irreducible on M and abelian on L . Take σ and τ as
+5
+in Proposition 2.1.1.
+Wewanttoreplacethevariablesl andmintheA-polynomial(2.1)with
+the variables b and a which represent the eigenvalues of ρ(λ ) and ρ(µ ) re-
+J J
+spectively. Here, wetakeresultantsinsteadofdirectlysubstitutingexpressions
+in terms of s and a. (If we substitute directly, we will get an expression with
+non-integral exponents.) Our resultant calculations are done with a computer.
+Recall that, under representations of π (M ) that are abelian on L , we
+1 5 5
+have
+ρ(µ5) = ρ(τ) and ρ(µ ) = ρ(σ).
+J K
+As in the discussion following 1.4.1, and by using the equation a5 = t, we have
+t a5 s4 s4
+m = = and l = = .
+s s t3 a15
+Starting with A (l,m), we take a resultant with respect to ms − a5
+M
+to eliminate the indeterminant m. Next, we take a resultant with respect to
+la15 −s4 to eliminate L, and ﬁnally with respect to b−s5 to eliminate s. We
+31
+conclude that the polynomial equation
+0 = −a175 +5a180 −10a185 +10a190 −5a195 +a200 +5a135b2 −35a140b2+
++60a145b2 −26a150b2 −5a155b2 −5a90b4 −45a95b4+
++98a100b4 −45a105b4 −5a110b4 −5a45b6 −26a50b6+
++60a55b6 −35a60b6 +5a65b6 +b8 −5a5b8 +10a10b8−
+−10a15b8 +5a20b8 −a25b8
+holds true for all such representations. Therefore, the right hand side is a
+factor of the A-polynomial for M with respect to the generating set {λ ,µ }.
+5 J J
+Evaluating at b = 0, we get
+0 = −a175 +5a180 −10a185 +10a190 −5a195 +a200
+= a175(a5 −1)5.
+We conclude that there is a vertical edge e in the Newton polygon for the
+A-polynomial of M . Furthermore, if f (x) is the associated edge polynomial,
+5 e
+(x5 −1)5 divides f (x).
+e
+2.5 Final Remarks
+It should be noted that, although the manifolds constructed in Section
+2.3 are hyperbolic, the ideal points at which nth roots of unity appear are not
+on components of the character varieties that correspond to the complete hy-
+perbolic structure of the manifold. This is because the components considered
+here arise from epimorphisms with non-trivial kernels and so the characters
+32
+on these components are never characters of discrete faithful representations.
+The question of whether all roots of unity appear at ideal points on hyperbolic
+components remains unanswered.
+33
+Chapter 3
+Not all boundary slopes are strongly detected
+Inthischapter, wegiveaninﬁnitefamilyofhyperbolicknotswithstrict
+boundary slopes that are not strongly detected.
+As mentioned in Section 1.3, Schanuel and Zhang give examples of
+graph manifolds with strict boundary slopes that are not strongly detected.
+Their examples left open the following interesting questions.
+Question 3.0.1 (Cooper-Long 1996). Is every strict boundary slope for
+the complement of a knot in S3 strongly detected?
+Question 3.0.2 (Schanuel-Zhang 2001). Let M be an orientable hyper-
+bolic 3-manifold with |∂M| = 1. Is every strict boundary slope of M strongly
+detected?
+Question 3.0.3. In the setting of either of the previous two questions, is
+every strict boundary slope either strongly or weakly detected? (Recall the
+deﬁnition of weak detection following Theorem 1.3.5.)
+We answer the ﬁrst two questions with Theorem 3.0.3, the main theo-
+rem of this chapter. We ﬁrst note that Question 3.0.1 can be answered with
+34
+non-hyperbolic examples by using the more elementary Theorem 3.0.1. Corol-
+lary3.0.2willshowthataconnectsumoftwosmallknots(Figure3.1)provides
+an answer to this question.
+Figure 3.1: A connect sum of two small knots
+Let K be the connect sum of two knots K and K and write M =
+L R
+E(K), M = E(K ), and M = E(K ). Let µ be a meridian for K. We can
+L L R R
+view π (M) as the free product with amalgamation
+1
+π (M) = π (M ) ∗ π (M ).
+1 1 L hµi 1 R
+This decomposition allows us to view µ also as a meridian for both K and
+L
+K . Let λ, λ , and λ be longitudes for µ in π (M), π (M ), and π (M ).
+R L R 1 1 L 1 R
+Observe that λ = λ λ . By construction, M contains an essential annulus
+L R
+with boundary slope µ. We can prove the following theorem.
+Theorem 3.0.1. If the strict boundary slope µ is strongly detected for M then
+µ is also a strongly detected boundary slope for either M or M .
+L R
+35
+Our proof uses the following elementary facts about SL (C).
+2
+(1) If A, B, and C are elements of SL (C) such that A and B commute and
+2
+also B and C commute, then A and C commute.
+(2) Let {A } and {B } be subsets of SL (C) with the property that A com-
+i i 2 i
+mutes with B for each i. If both Tr(A ) and Tr(B ) are bounded then
+i i i
+Tr(A B ) is also bounded.
+i i
+Proof. Assume that µ is strongly detected for M. Then Proposition 1.3.4 pro-
+vides a curve X ⊂ X(M) and an ideal point xˆ ∈ X such that
+e
+I (xˆ) = z ∈ C and I (xˆ) = ∞.
+µ λ
+This implies that there is a sequence of representations {ρ }∞ ⊂ R(M) whose
+i i+1
+characters lie on X and such that
+lim Tr ρ (µ) = z and lim Tr ρ (λ) = ∞.
+i i
+x→∞ x→∞
+¡ ¢ ¡ ¢
+Since µ commutes with both λ and λ we can apply fact (1) to conclude
+L R
+that the sequences {ρ (λ )} and {ρ (λ )} satify the hypotheses of fact (2).
+i L i R
+Because the traces Tr ρ (λ) are unbounded, fact (2) allows us, without loss
+i
+of generality, to assum¡e that¢
+lim Tr ρ (λ ) = ∞.
+i L
+x→∞
+¡ ¢
+We conclude that µ is a strongly detected boundary slope for M .
+L
+36
+Corollary 3.0.2. Let K be the connect sum of two small knots K and K .
+L R
+Then E(K) has the strict boundary slope 1/0 which is not strongly detected.
+Proof. Since K and K are small, [7] shows that neither M nor M have
+L R L R
+the boundary slope 1/0.
+If K is as in Corollary 3.0.2 then it is true that the character variety
+for K has ideal points that detect the essential annulus in E(K). These ideal
+must, by deﬁnition, be of type I. Hence, the strict boundary slope 1/0 of E(K)
+is weakly and not strongly detected.
+For the remainder of this chapter, we devote our attention to exhibit-
+ing knots which answer Question 3.0.2. Let M = E(K ) where K is the
+n n n
+(3,5,2n+1,2)-pretzel knot pictured in Figure 3.2.
+Theorem 3.0.3. Let n > 1 be an integer. Then M is hyperbolic and has the
+n
+strict boundary slope 4(n+4) which is not strongly detected.
+We do not know if these boundary slopes are weakly detected or not.
+In either case, there are interesting ramiﬁcations. If the slope is not weakly
+detected, then these would be the ﬁrst known examples of strict boundary
+slopes that are not detected by any ideal point, thus, giving an answer to
+Question 3.0.3. If it is weakly detected, then using [18], one can show that
+there is an ideal point which weakly detects two distinct boundary slopes:
+4(n+4) and 1/0. This second scenario would provide an answer to Question
+1.3.1.
+37
+a
+d
+f
+.
+.
+.
+e
+c
+b
+Figure 3.2: The pretzel knot K
+n
+Notice that weak detection implies the existence of a closed essential
+surface. This inspires the following question.
+Question 3.0.4. Is there a small knot exterior with a strict boundary slope
+that is not strongly (and hence not weakly) detected?
+3.1 Proof of Theorem 3.0.3
+This section gives an outline for the proof of Theorem 3.0.3. Missing
+details are given in Sections 3.2 and 3.3.
+One obvious approach to proving that a slope is not strongly detected
+is to calculate the A-polynomial and use the Newton polygon to ﬁnd the
+strongly detected boundary slopes. This is computationally diﬃcult and is
+unlikely to give a general argument for an inﬁnite collection of manifolds. We
+take a diﬀerent approach – the key idea is to use a relationship between the
+38
+character varieties of mutants.
+We deﬁne a Conway sphere in a knot exterior M to be a separating
+essential surface in M which is homeomorphic to a 2-sphere with four open
+disks removed and whose boundary components represent meridians for the
+knot.
+If S is a Conway sphere in M and
+4
+τ: S −→ S
+4 4
+is an orientation preserving involution, the mutant Mτ is deﬁned as the man-
+ifold formed by cutting M along S and re-glueing with the homeomorphism
+4
+τ.
+It follows from work of Oertel [18] that the manifolds M are not only
+n
+hyperbolic, but they also contain Conway spheres. In particular, there is a
+Conway sphere in M which separates the ﬁrst two tangles of K from the
+n n
+second two. A mutation in this Conway sphere results in a manifold Mτ
+n
+which is homeomorphic to the exterior of the (5,3,2n+1,2)-pretzel knot. We
+will write Kτ to denote this knot.
+n
+It will sometimes be convenient for us to think about mutation in a
+slightly diﬀerent way. Because [∂S ] = 0 ∈ H (M), the components of ∂S
+4 1 4
+come in two oppositely oriented pairs. Therefore, ∂S bounds two annuli in
+4
+∂M. Let G be the genus-2 surface formed by attaching these annuli to S and
+2 4
+pushing the resulting surface slightly into the interior of M. The involution
+39
+τ: S −→ S extends to an involution τ: G −→ G . If we cut along G and
+4 4 2 2 2
+re-glue using τ, we get a manifold which is homeomorphic to Mτ.
+The following proposition is the starting point for the ideas in this
+chapter. We outline the proof below, complete details can be found in [26].
+Proposition 3.1.1. Suppose that M and Mτ are knot exteriors related to each
+other by a mutation τ on a Conway sphere S . If X ⊂ X(M) is an algebraic
+4
+curve containing the character of a representation whose restriction to π (S )
+1 4
+is irreducible, then there exists a curve Xτ ⊂ X(Mτ) and a birational map
+f: X −→ Xτ. Furthermore, using standard longitude/meridian coordinates
+for slopes, the set of boundary slopes strongly detected for M by X is identical
+to the set of boundary slopes strongly detected by Xτ for Mτ.
+Proof. Because the peripheral subgroup of M is carried by one component of
+M −G , it will be helpful to thing of Mτ as being formed using the involution
+2
+τ: G −→ G . (Recall the notation preceding the proposition.)
+2 2
+The surface G splits both M and Mτ into the same two submanifolds
+2
+M and M . In particular, we have the following commutative diagram of
+1 2
+inclusion induced homomorphisms.
+g1
+π (G ) −−−→ π (M )
+1 2 1 1
+g2 i1
+ 
+π (M ) −−−→ π (M)
+1  2 1
+y i2 y
+40
+We also have the corresponding diagram for Mτ.
+g1
+π (G ) −−−→ π (M )
+1 2 1 1
+g2◦τ∗ j1
+π (M ) −−−→ π (Mτ)
+1  2 1 
+y j2 y
+We label M and M so that M is the submanifold with two boundary com-
+1 2 1
+ponents.
+Suppose that
+ρ: π (M) −→ SL (C)
+1 2
+is a representation whose restriction toπ (S ) is irreducible. Then since π (S )
+1 4 1 4
+is contained in the image of π (G ) in π (M), we see that
+1 2 1
+ρ◦i ◦g : π (G ) −→ SL (C)
+1 1 1 2 2
+is also irreducible. Hence, this representation for π (G ) is determined, up to
+1 2
+conjugacy, by its character. A calculation (see [26] for example) shows that
+Tr◦ρ◦i ◦g = Tr◦ρ◦i ◦g ◦τ .
+1 1 2 2 ∗
+Thus, we have an inner automorphism I: SL (C) −→ SL (C) such that
+2 2
+I◦(ρ◦i ◦g ◦τ ) = ρ◦i ◦g .
+2 2 ∗ 1 1
+We have another commutative diagram.
+g1
+π (G ) −−−→ π (M )
+1 2 1 1
+g2◦τ∗ ρ◦i1
+π (M ) −−−→ SL(C)
+1  2 2
+y I◦ρ◦i2 y
+41
+By applying Van Kampen’s theorem to Mτ = M ∪ M ([12]), there exists
+1 G2 2
+a unique homomorphism
+ρτ: π (Mτ) −→ SL (C)
+1 2
+with
+ρτ ◦j = ρ◦i and ρτ ◦j = I◦ρ◦i .
+1 1 2 2
+Let f be the map which takes the character of ρ to the character of ρτ.
+The characters in X that correspond to reducible representations on
+π (S ) form a codimension-1 subvariety of X. Hence, f is well-deﬁned on all
+1 4
+but a codimension-1 subvariety of X. It is shown in [26] that f is a rational
+map. Finally, to see that f is a birational equivalence, we simply deﬁne an
+inverse map g from the irreducible characters in Xτ to X in exactly the same
+way as we deﬁned f.
+It remains to prove that f preserves the set of strongly detected bound-
+ary slopes. Let B be the genus-1 boundary component of M and take
+1
+{λ,µ} ⊂ π (B) so that {i (λ),i (µ)} is a longitude/meridian pair for M. Let
+1 1 1
+h·,·i denote oriented intersection number. Since
+i (λ),i (µ) = hλ,µi = j (λ),j (µ) ,
+1 1 1 1
+  ®   ®
+we will be done if we can show that the image of λ is trivial in H (Mτ).
+1
+To see this, we may choose a presentation
+ha,b,c,d|aba−1b−1cdc−1d−1 = 1i
+for π (G ) such that
+1 2
+42
+(1) both a and d have trivial images in H (M ) and
+1 2
+(2) b and c are meridians for M with the same orientation.
+Note that the order-2 automorphism τ : π (G ) −→ π (G ) is either given
+∗ 1 2 1 2
+by τ (α) = α−1 for every α ∈ {a,b,c,d}, by τ (a) = d and τ (b) = c, or by
+∗ ∗ ∗
+the composition of the two. In any case, properties (1) and (2) are preserved
+under precomposition with τ . This implies that
+∗
+ker(h◦i ◦g ) = ker(h◦j ◦g ◦τ )
+1 1 2 2 ∗
+where h denotes the Hurewicz epimorphism from fundamental group to ﬁrst
+homology. We have shown that the image of λ in H (Mτ) is trivial, which
+1
+completes the proof of the proposition.
+Thus, from Proposition 3.1.1, we can conclude that if the set of bound-
+ary slopes for our manifolds M and Mτ are diﬀerent, then any boundary
+n n
+slope which is strongly detected and not contained in their intersection must
+be detected by a curve of characters whose restriction to the Conway sphere
+is reducible.
+Section 3.3 shows that, for the manifolds {M }, the only boundary
+n
+slope which could possibly be strongly detected on such a curve is the slope
+1/0. In Section 3.2, we show that 4(n + 4) is a boundary slope for M but
+n
+not for Mτ. Thus, Proposition 3.1.1 completes the proof that 4(n + 4) is a
+n
+boundary slope for M which is not strongly detected.
+n
+43
+3.2 Mutants with distinct slope sets
+In this section, the algorithm of [13] is used to show that the pretzel
+knot K has the boundary slope 4(n+4) whereas Kτ does not.
+n n
+3.2.1 Setup from [13]
+The constructions from [13] which apply to our setting are reviewed
+in this section. In particular, it is assumed throughout that K denotes a
+four-tangle pretzel knot.
+The 3-sphere S3 can be decomposed into the union of four 3-balls,
+{B }3 , where 3B ∼= S1 (the axis for K), and each B contains exactly one
+i i=0 0 i i
+of the four givenTtangles. If F is a properly embedded surface in M = E(K),
+we may assume that it is transverse to ∂B for every i. Hence, F = F ∩B is
+i i i
+properly embedded in B for all i and P = ∂B ∩K consists of four points. In
+i i i
+particular, ∂F is a curve system on the 4-punctured sphere S = ∂B −U(P ).
+i i i i
+We will denote the ith tangle K ∩B by T .
+i i
+Curve systems on the 4-punctured sphere are either carried by the
+train track shown in Figure 3.3(a) or by its mirror image. Usually we will
+considercurvesystemsuptoprojectiveclass, sorationalprojectivecoordinates
+[a,b,c] ∈ QP2 represent a projective curve system according to the ﬁgure. We
+alsodeﬁneuv-coordinatesforprojectivecurvesystems, wherethecurvesystem
+[a,b,c] corresponds to the point b , c in uv-coordinates. The slope of the
+a+b a+b
+curve system is the v-coordinate¡. ¢
+44
+a a c
+c
+b
+c
+a a
+c
+b
+(a) The traintrack with (b) The ∞-
+projectiveweightsa,b,and tangle
+c
+Figure 3.3: Curve systems and tangles
+A p/q-tangle, denotedbyhpi,is a projective curve system [1,q−1,p], or
+q
+equivalently ((q−1)/q, p/q) in uv-coordinates. A p/q-circle, denoted by hpi◦,
+q
+is a projective curve system [0,q,p], or equivalently (1, p/q). The ∞-tangle,
+denoted by h∞i, is the projective class of the pair of vertical arcs shown in
+Figure 3.3(b), and will be represented by (−1,0) in uv-coordinates.
+We now use the above deﬁnitions to deﬁne a graph D in the uv-plane.
+The vertices of D are the uv-coordinates of the p/q-tangles and p/q-circles for
+every p/q ∈ Q together with the point h∞i = (−1,0). There are four types of
+edges in D, non-horizontal edges, horizontal edges, vertical edges and inﬁnity
+edges. Two vertices hpi and hri are connected by a non-horizontal edge if
+q s
+|ps−qr| = 1, or equivalently, if hri can be obtained from hpi by surgery on an
+s q
+arc. The horizontal edges connect the vertices hpi◦ to hpi. The vertical edges
+q q
+connect hni to hn+1i for every n ∈ Z. Finally, the inﬁnity edges connect the
+45
+integer vertices hni to h∞i. Note that, for all but the horizontal edges, two
+vertices are connected by an edge if and only if the projective curve systems
+given by the vertices can be obtained from each other by surgery on an arc.
+If v and w are vertices of D that are connected by an edge, we will denote
+the edge by [v,w]. The subgraph S ⊂ D is deﬁned as the portion of D with
+u-coordinate in the interval [0,1]. Figure 3.4 shows part of the the graph D.
+h1i
+h1i h1i◦
+2 2
+1
+h i
+3 h1i◦
+3
+h1i◦
+5
+h∞i h0i
+Figure 3.4: A piece of D
+Given an edge [v,w] in D, we subdivide it as follows. For each m ∈ Z+
+and k = 1,...,m−1, let
+k m−k
+·v + ·w
+m m
+denote the point on [v,w] corresponding to the curve system consisting of k
+parallel copies of the pair of arcs representing v, together with m − k copies
+of the pair of arcs representing w.
+46
+Let ∂B ×[0,1] be a collar on ∂B inside B with ∂B = ∂B ×{1}. Let
+i i i i i
+1/q be the rational number corresponding to the tangle T . Then T is isotopic
+i i i
+(rel ∂B ) to the two component representative for h1i at the level S × {0}
+i qi i
+together with the four arcs P × [0,1]. Our goal is to associate a surface in
+i
+B −U(T ) to certain paths in D.
+i i
+An edgepath system γ = (γ ,...,γ ) is an 4-tuple of edgepaths in D
+0 3
+which start and end at rational points of D. An admissible path system is a
+path system with the following four properties:
+(E1) The starting point of γ lies on the horizontal edge connecting h1i◦ to
+i qi
+h1i and if the starting point is not the vertex h1i, then the path γ is
+qi qi i
+constant.
+(E2) γ is minimal. That is, it never stops and retraces itself and it never
+i
+travels along two sides of a triangle in D in succession.
+(E3) The ending points of the γ ’s all have the same u-coordinates and their
+i
+v-coordinates sum to zero.
+(E4) Each γ proceeds monotonically from right to left, in the sense that
+i
+traversing vertical edges is permitted.
+Admissible edgepath systems are divided into the following three types:
+• A type I system is an edgepath system γ where each γ stays in S and
+i
+has no vertical edges.
+47
+• A type II system is the same as a type I system except that at least one
+γ has a vertical edge.
+i
+• A type III system is a system where the γ ’s end to the left of S.
+i
+Hatcher and Oertel show how to associate candidate surfaces to each
+of these types of edgepaths. It is also shown in [13] that every essential surface
+in M with non-empty boundary of ﬁnite slope is isotopic to such a surface.
+For the purpose of this paper, it suﬃces to describe the construction of the
+candidate surfaces for type II and III systems with no constant paths and with
+the endpoints of the γ ’s on vertices of D. Let γ be such a system. We will
+i
+write γ as [v ,...,v ] where the v ’s are the vertices of γ and the vertex v
+i n 0 j i j
+is followed by the vertex v as we move along the path. A complete list of
+j+1
+candidate surfaces for γ is described in the following paragraphs.
+For any edge [v ,v ] of γ and a < b, we can build a 1-sheeted surface
+j+1 j i
+in S × [a,b] as follows. Let α and β be the curve systems with two arc
+i
+components in S that represent v and v respectively. The surface is
+i j j+1
+α× a, (a+b)/2 ∪ β × (a+b)/2, b ∪ D,
+h ´ ³ i
+where D is a regular neighborhood (saddle) of a surgery arc in S × (a+b)/2
+i
+given by the existence of the the edge [v ,v ]. Up to level preserv©ing isotopªy
+j+1 j
+there are two choices for each saddle. One of the two possible surfaces for
+h1i,h1i is shown in Figure 3.5. To each edgepath γ , we can now associate
+2 i
+a£ surface¤Γ which is properly embedded in B −U(T ) by simply stacking the
+i i i
+48
+surfacesassociatedtotheedgesofγ inthecollarS ×[0,1].ThenΓ ∩ S ×{1}
+i i i i
+is the two component representative of the vertex v and Γ ∩ S ¡× {0} i¢s
+n i i
+the two component representative of the vertex v and so lies o¡n the tan¢gle
+0
+T . The condition (E3) guarantees that the surfaces {Γ } ﬁt together to give a
+i i
+surface in M.
+Figure 3.5: A surface corresponding to the edge h1i,h1i
+2
+£ ¤
+We have described the construction of a 1-sheeted candidate surface.
+If m is a positive integer, we can also construct an m-sheeted surface for γ
+in a similar way. Again, for every edge [v ,v ] in γ , we construct a surface
+j j+1 i
+in S ×[a,b]. This time we further subdivide the edge into m edges separated
+i
+by the points k · v + m−k · v where k = 1,...,m − 1. Starting with the
+m j m j+1
+product surface α× a,(a+b)/2m , we add a saddle at the level (a+b)/2m
+to pass to the curve£system 1 · v¢ + m−1 · v . An m-sheeted surface for
+m j m j+1
+[v ,v ] is completed by adding saddles to pass between the product surfaces
+j j+1
+that correspond to each point k ·v + m−k ·v . Just as before, we can build
+m j m j+1
+a surface for γ by stacking the surfaces for each edge γ and ﬁnally gluing
+i
+everything together to give a surface in M. The meridian of the knot will
+49
+intersect an m-sheeted surface m times. It is worth noticing that, because
+every time we pass a point k ·v + m−k ·v we have a choice between two
+m j m j+1
+possible saddles, there can be many possible m-sheeted candidate surfaces
+associated to a given path system.
+The question whether a candidate surface is essential or not can be
+studied via the path systems which carry them. This motivates the following
+terminology. An admissible path system γ is incompressible if every candidate
+surface associated to γ is incompressible, and it is compressible if every asso-
+ciated candidate surface is compressible. If there are both compressible and
+incompressible candidate surfaces associated to γ, it is said to be indetermi-
+nant.
+For a path γ in γ, let e be the number of leftward directed edges of
+i +
+γ which increase slope, and e be the number of slope decreasing edges. The
+i −
+numbers e and e are independent of the behavior of γ to the left of u = 0.
++ − i
+The twist number of γ is
+i
+t(γ ) = 2(e −e ),
+i − +
+and the twist number of γ is
+t(γ) = t(γ ).
+i
+X
+Hatcher and Oertel show that if S is the Seifert surface for a knot and s a
+path system which carries S, then the boundary slope for any surface carried
+by γ is t(γ)−t(s).
+50
+In order to decide whether an admissible path system is compressible,
+incompressible, or indeterminant, Hatcher and Oertel deﬁne the notions of
+r-values and completely reversible paths. The r-value of a leftward directed
+non-horizontal edge is the denominator of the v-coordinate of the point where
+the extension of the edge meets the right hand edge of D. The r-value is taken
+to be positive if the edge travels upwards and negative if it travels downwards.
+If γ is a path in D then its ﬁnal r-value is the r-value for the last edge in the
+i
+path. If γ is an admissible path system, then its cycle of ﬁnal r-values is the
+4-tuple of ﬁnal r-values for the four paths {γ }. The cycle of ﬁnal r-values for
+i
+γ is deﬁned up to cyclic permutation. A path γ is completely reversible if each
+i
+pair of successive edges in γ lies in triangles that share a common edge.
+i
+3.2.2 Boundary slopes for K and Kτ
+n n
+Thegoalofthissectionistoapplythemachineryoftheprevioussection
+to prove that K has the boundary slope 4(n+4) whereas Kτ does not.
+n n
+Consider the admissible path system s = (s ) given by
+i
+s = [h∞i, h1i, h1/2i, h1/3i]
+0
+s = [h∞i, h1i, h1/2i, h1/3i, h1/4i, h1/5i]
+1
+s = [h∞i, h1i, h1/2i, ..., h1/(2n+1)i]
+2
+s = [h∞i, h1i, h1/2i].
+3
+Also let sτ = (s , s , s , s ).
+1 0 2 3
+51
+Lemma 3.2.1. A Seifert surface Σ for K is carried by the path system s.
+n
+Similarly, a Seifert surface Στ for Kτ is carried by sτ. Furthermore, the twist
+n
+numbers t(Σ) and t(Στ) are both −(14+4n).
+Proof. While building a 1-sheeted candidate surface for s, according to the
+construction from Section 3.2.1, we may choose saddles so that the resulting
+surface is is the same as the Seifert surface obtained by applying Seifert’s
+algorithm to the projection of K shown in Figure 3.2. We calculate the twist
+n
+number using the formula t(γ) = t(γ ). We have
+i
+P
+t(s ) = 2(0−2) = −4,
+0
+t(s ) = 2(0−4) = −8,
+1
+t(s ) = 2(0−2n) = −4n,
+2
+t(s ) = 2(0−1) = −2,
+3
+and hence
+t(s) = t(s ) = −4−8−4n−2 = −(14+4n).
+i
+X
+The same procedure works for Kτ.
+n
+Lemma 3.2.2. 4(n+4) is not a boundary slope of Kτ.
+n
+Proof. It suﬃces to show that every candidate surface with twist number 2 is
+compressible; this will be proved using three claims which will be established
+below.
+52
+Claim 1. If δ is a type III path system with t(δ) = 2 then
+δ = [h∞i, h0i, h1/5i]
+0
+δ = [h∞i, h1i, h1/2i, h1/3i]
+1
+δ = [h∞i, h0i, h1/(2n+1)i]
+2
+δ = [h∞i, h0i, h1/2i]
+3
+Assume δ is as claimed. Proposition 2.5 of [13] implies that since the
+sum of integer vertices of δ is 1, if two of the paths δ are completely reversible
+i
+then δ is a compressible path system. It can be veriﬁed that δ is completely
+0
+reversible by noticing that the triangle [h1/5i,h0i,h1i] shares an edge with the
+triangle [h0i,h∞i,h1i]. The same argument applies to δ and δ , hence δ is a
+2 3
+compressible path system.
+Claim 2. If δ is a type II path system with t(δ) = 2 then (up to adding
+or removing vertical edges on the individual paths)
+δ = [h0i, h1/5i]
+0
+δ = [h0i, h1i, h1/2i, h1/3i]
+1
+δ = [h0i, h1/(2n+1)i]
+2
+δ = [h0i, h1i, h1/2i]
+3
+If δ is as in Claim 2, the cycle of ﬁnal r-values for δ is (−4, 1, −2n, 1).
+Proposition 2.9 of [13] shows that there is no incompressible surface associated
+to δ.
+53
+Claim 3. There are no type I path systems with twist number 2.
+Assuming the claims, the proof of the lemma is completed.
+We now work on establishing the claims.
+A basic path is a path starting at a vertex hpi that proceeds monoton-
+q
+ically to the left (without vertical edges) ending at the left edge of S. A basic
+path system is a path system made up of basic paths. Note that a basic path
+δ from h1i is either
+i r
+[h1i, h1/2i, h1/3i, ..., h1/ri]
+or
+[h0i, h1/ri].
+Hence, any such path ends at either 0 or 1. If it ends at 0 then
+t(δ ) = 2(1−0) = 2.
+i
+If it ends at 1 then
+t(δ ) = 2 0−(r−1) = 2−2r.
+i
+¡ ¢
+If δ is a basic path system for Kτ that satisﬁes (E1) and (E2), then δ starts
+n 0
+at h1i, δ starts at h1i, δ starts at h 1 i, and δ starts at h1i. So we have
+5 1 3 2 2n+1 3 2
+2 if δ ends at 0
+t(δ ) = 0
+0 −8 if δ ends at 1
+0
+½
+2 if δ ends at 0
+t(δ ) = 1
+1 −4 if δ ends at 1
+1
+½
+2 if δ ends at 0
+t(δ ) = 2
+2 −4n if δ ends at 1
+2
+½
+2 if δ ends at 0
+t(δ ) = 3
+3 −2 if δ ends at 1
+3
+½
+54
+Proof of Claim 1. Let δ be a type III path system with t(δ) = 2. Notice that
+(E2) implies that δ has no vertical edges. Let δ0 be the basic path system
+δ ∩ S. Since extending paths to h∞i doesn’t aﬀect twist number, we have
+2 = t(δ) = t(δ0). There are two choices for each path and four paths, so we
+have a total of 24 possible path systems δ0. The corresponding twist numbers
+are in the set
+{−12, −8, −6, −2, 2, 4, 8, 6−4n, 2−4n, −4n,
+−4−4n, −8−4n, −10−4n, −14−4n.}
+Since n is an integer, 2 ∈/ {−4n, −4 − 4n, −8 − 4n} and n ≥ 2, so 2 ∈/
+{6 − 4n, 2 − 4n, −10 − 4n, 14 − 4n}. We must have t(δ0) = 2 for every n.
+There is only one such path system; it extends to the system δ given in the
+claim.
+Proof of Claim 2. Assume that δ is a type II path system with t(δ) = 2. Then
+t(δ) is determined by the basic path system δ0 obtained by deleting all vertical
+edges of δ. There are inﬁnitely many extensions of δ0 which satisfy (E3) formed
+by adding vertical edges to the end of the individual paths. However, even
+if the extensions do not satisfy the minimality condition (E2), any two such
+extensions will always have the same twist number. Thus, we may chose to
+˜
+work with the extension δ where all paths end at h0i. Then
+2 if δ0 ends at 0
+t(δ˜) = i .
+i t(δ0)+2 if δ0 ends at 1
+½ i i
+55
+Again there are 24 possibilities. The corresponding twist numbers are in the
+set
+{−6, −4, −2, 0, 2, 4, 6, 8, 8−4n, 6−4n, 4−4n,
+2−4n, −4n, −2−4n, −4−4n, −6−4n.}
+As before, we know that 2 ∈/ {−4−4n, −4n, 4−4n, 8−4n} since n
+is an integer. Also, n ≥ 2 implies 2 ∈/ {−6 − 4n, −2 − 4n, 2 − 4n, 6 − 4n}.
+Again, the only remaining possibility satisﬁes the claim.
+Proof of Claim 3. Assumethatδ isatypeIpathsystem. Let(t ,...,t )bethe
+0 3
+4-tuple of endpoints of the paths δ . Since δ is an admissible path system, we
+i
+knowthatthesumoftheverticalcoordinatesofthet ’siszero, buteverypoint
+i
+of every δ has vertical coordinate greater than or equal to zero. Therefore,
+i
+t = 0 for every i. We now know that
+i
+δ = [h0i, h1/3i]
+0
+δ = [h0i, h1/5i]
+1
+δ = [h0i, h1/(2n+1)i]
+2
+δ = [h0i, h1/2i].
+3
+However, for this path system, we have
+t(δ) = 2+2+2+2 = 8.
+We have now established claim 3.
+56
+In order to show that K has boundary slope 4(n + 4), consider the
+n
+path system γ = (γ ) in S given by
+i
+γ = [h1i, h1/2i, h1/3i]
+0
+γ = [h0i, h1/5i]
+1
+γ = [h0i, h1/(2n+1)i]
+2
+γ = [h1i, h1/2i]
+3
+Note that γ is not an admissible path system, but by adding vertical edges to
+the ends of the paths it extends to an admissible system.
+Lemma 3.2.3. For the knot K , the path system γ extends to an admissible
+n
+system that only carries incompressible surfaces with boundary slope 4(n+4).
+Also, every path system that carries this slope is a vertical extension of γ.
+Proof. The cycle of ﬁnal r-values for the path system γ is (1, −4, −2n, 1).
+Furthermore, the ﬁnal slopes of the γ have positive sum, γ satisﬁes (E2),
+i
+and each γ ends on the left edge of S. Therefore, by Proposition 2.9 of [13],
+i
+the γ ’s can be extended by vertical edges to form a system that carries an
+i
+incompressible surface. As in the proof of Claim 2 above, we can calculate the
+twist number of any such path system by calculating the twist number of the
+vertical extension γ0 given by adding the vertical edge [h0i,h1i] to both γ and
+0
+γ .
+3
+57
+We calculate the twist number as above; one has:
+t(γ0) = 2(1−2) = −2,
+0
+t(γ0) = 2(1−0) = 2,
+1
+t(γ0) = 2(1−0) = 2,
+2
+t(γ0) = 2(1−1) = 0,
+3
+giving
+t(γ0) = t(γ ) = −2+2+2 = 2.
+i
+X
+Therefore, the boundary slope of any surface carried by a vertical extension of
+γ is
+t(γ0)−t(s) = 2+14+4n = 4(n+4).
+The uniqueness of γ follows exactly as in Lemma 3.2.2.
+Combining Lemma 3.2.2 and Lemma 3.2.3 yields the following result:
+Proposition 3.2.4. For every n > 1, 4(n+4) is a boundary slope of K but
+n
+not of Kτ. Furthermore, every path system that carries this slope is a vertical
+n
+extension of γ.
+3.3 The slope 4(n + 4) of K is not strongly detected
+n
+The previous section has established that 4(n + 4) is not a boundary
+slope of Kτ. As stated in the introduction to this chapter, if 4(n+4) is strongly
+n
+detected by a curve in X(K ), then the restriction of every character to the
+n
+58
+Conway sphere S must be reducible. This observation greatly simpliﬁes the
+4
+problem of showing that this boundary slope is not strongly detected.
+3.3.1 Lemmas
+w
+2k+2
+w
+1
+w w
+2 3
+w w
+0 2k+1
+Figure 3.6: The diagram for Lemma 3.3.1
+Lemma 3.3.1. Assume that a twist region has a diagram as in Figure 3.6 with
+Wirtinger generators {w ,w ,...,w } as shown. Then for every k ≥ 0, we
+0 1 2k+2
+have
+w = (w w )−kw−1(w w )k+1
+2k+2 0 1 1 0 1
+and
+w = (w w )−kw (w w )k.
+2k+1 0 1 1 0 1
+Proof. For k = 0, the relations are the Wirtinger relation and the trivial
+relation respectively. The conclusion follows by induction.
+Lemma 3.3.2. Assume that x and y are elements of a subgroup G < π (M )
+1 n
+where x and y have identical images in the abelianization of G. If ρ ∈ R(M )
+n
+such that ρ(G) is a group of upper triangular matrices, then ρ(x) and ρ(y) are
+identical along their diagonals.
+59
+Proof. Let ∆ < SL (C) be the subgroup of upper-triangular matrices and
+2
+D < SL (C) be the abelian subgroup of diagonal matrices. Then we have an
+2
+epimorphism δ: ∆ −→ D given by
+α β α 0
+δ = .
+0 1/α 0 1/α
+µ ¶ µ ¶
+Since x and y have the same image in GAB we have δρ(x) = δρ(y).
+Lemma 3.3.3. If
+α 0 α 1
+A = and B =
+0 1/α 0 1/α
+µ ¶ µ ¶
+then, for every n ∈ Z+,
+α2n p (α)
+(AB)n = n
+0 α−2n
+µ ¶
+where p (x) ∈ C(x) and p (x) 6= 1 .
+n n (1−x2)x2n−1
+Proof. First we establish an inductive formula for p (x).
+n
+Claim 1. p (x) = x and p (x) = x3−2n +x2p (x).
+1 n n−1
+For n = 1 we calculate
+α2 α
+AB =
+0 α−2
+µ ¶
+to see that p (x) = x as claimed. Now assume that
+1
+α2n−2 p (α)
+(AB)n−1 = n−1 .
+0 α2−2n
+µ ¶
+60
+Multiplying this by AB we see that
+α2n α2p (α)+α3−2n
+(AB)n = n−1 .
+0 α−2n
+µ ¶
+Hence, claim 1 is true.
+Claim 2. x2n−3p (x) ∈ C[x].
+n
+Again, we establish this by induction. For n = 1
+x−1p (x) = x−1 ·x = 1 ∈ C[x].
+1
+Now assume that x2n−5p (x) ∈ C[x]. Then using claim 1, we have
+n−1
+x2n−3p (x) = x2n−3 x3−2n +x2p (x)
+n n−1
+= 1+x2¡n−1p . ¢
+n−1
+This is in C[x] by the inductive assumption.
+Finally, we see that p (x) 6= 1 because
+n (1−x2)x2n−1
+1 1
+x2n−3 · = ∈/ C[x].
+(1−x2)x2n−1 (1−x2)x2
+A Wirtinger presentation for π (M ) can be obtained from Figure 3.2
+1 n
+with generating set {a,b,c,d,e,f} given by the labels in the ﬁgure. We single
+out the following relations which will be used repeatedly in the arguments that
+follow:
+61
+(R1) ae = eb, and
+(R2) d = ab−1c.
+Also, by applying Lemma 3.3.1 to T and T , we get
+0 1
+(R3) b−1 = faf−1a−1f−1 (⇔ faf = bfa), and
+(R4) c = (fd)−2d−1(fd)3 (⇔ d(fd)2c = (fd)3).
+Before moving on to the calculations, we prove one more elementary
+lemma.
+Lemma 3.3.4. If ρ ∈ R(M ) with ρ(a) = ρ(b−1) and χ (a) 6= ±2, then
+n ρ
+χ (a) = 0.
+ρ
+Proof. Since χ (a) 6= ±2 we may conjugate ρ to assume that ρ(a) is diagonal.
+ρ
+Let
+α 0 w x
+ρ(a) = and ρ(e) = .
+0 α−1 y z
+µ ¶ µ ¶
+The lemma follows from the relation (R1), ae = eb. We have
+αw αx
+ρ(ae) =
+y/α z/α
+µ ¶
+and
+w/α αx
+ρ(eb) = ρ(ea−1) = .
+y/α αz
+µ ¶
+Then αw = w/α. This implies that either α2 − 1 = 0 or w = 0. The ﬁrst
+possibility is ruled out by assumption, hence w = 0. Similarly we have z = 0.
+Therefore χ (a) = χ (e) = 0.
+ρ ρ
+62
+3.3.2 Calculations
+The Conway sphere S separates M into two submanifolds N and N .
+4 n 1 2
+Let N be the piece that contains the tangles T and T . Choose a basepoint
+1 0 1
+in S for π (M ) and write Γ = π (N ) and H = π (S ).
+4 1 n i 1 i 1 4
+Iftheboundaryslope4(n+4)isastronglydetectedbyanidealpointon
+a curve X ⊂ X(M ) then Proposition 1.3.4 implies that there are characters
+n
+χ ∈ X with |χ(a)| taking arbitrarily large values. Also, Propositions 3.1.1 and
+3.2.4implythateverycharacteronX isthecharacterofarepresentationwhich
+is reducible when restricted to H. These observations motivate the following
+proposition.
+Proposition 3.3.5. There exists a ﬁnite set Λ ⊂ C such that if ρ is an
+irreducible representation in R(M ) where ρ| is reducible, then χ (a) ∈ Λ. In
+n H ρ
+particular, the boundary slope 4(n+4) is not strongly detected by X(M ).
+n
+Proof. We will calculate all conjugacy classes of irreducible representations ρ
+that are reducible on H and show that the possible values for χ (a) lie in a
+ρ
+ﬁnite set. We start with Λ = {0,±2} and add ﬁnitely many values to this set
+as we proceed through several cases.
+We may conjugate ρ to assume that its restriction to H is upper trian-
+gular. That is, the matrices ρ(a), ρ(b), ρ(c), and ρ(d) are all upper triangular.
+Furthermore, since we are looking for new values to add to Λ we may assume
+that Tr ρ(a) ∈/ {0,±2}.
+¡ ¢
+63
+To simplify notation in the remainder of this section, given g ∈ π (M ),
+1 n
+ρ(g)willalsobedenotedbyg.Theproofbreaksintoseveralcasesandsubcases.
+Case 1. ρ| is abelian.
+H
+Since Tr(a) 6= ±2, we can conjugate ρ to assume that a is diagonal.
+Since ρ(H) is abelian we know that b,c,d ∈ {a±1}. By Lemma 3.3.4, we know
+that b = a. Now using the relation (R1), we have ae = ea. Hence, e is also
+diagonal. Since Γ is generated by {a,b,c,d,e}, we conclude that ρ(Γ ) is
+2 2
+diagonal. The representation ρ is assumed to be irreducible, so ρ| must be
+Γ1
+irreducible.
+The relation (R2) implies that d = c and so (R3) becomes faf = afa
+and (R4) becomes cfcfc = fcfcf.
+We have already established that c ∈ {a±1}.
+• Subcase A. c = a.
+The relation (R4) becomes afafa = fafaf. Using (R3) we have
+afafa = fa(faf)
+= fa(afa)
+af = fa.
+Then f is diagonal, which contradicts that ρ| is irreducible.
+Γ1
+• Subcase B. c = a−1.
+64
+Sinceρ| isirreduciblewecanre-conjugatetherepresentationtoassume
+Γ1
+that
+α 1 β 0
+a = and f =
+0 1/α r 1/β
+µ ¶ µ ¶
+where β ∈ {α±1} and r 6= 0.
+If β = α, then (R3) implies that 1 = α2 +r + 1 and (R4) implies that
+α2
+r2−3r+1 = 0. There are at most eight simultaneous solutions to these
+two equations. We add the corresponding values of Tr(a) to Λ and note
+that Λ remains ﬁnite.
+Otherwise, we have β = 1/α. This time (R3) forces r = −1. Together
+with (R4), this means that α must satisfy the equation α8 +α6 +α4 +
+α2 +1 = 0. Again, we need only add a ﬁnite number of values to Λ to
+account for these representations.
+We may now assume that ρ(H) is not abelian.
+Case 2. ρ| is reducible.
+Γ2
+In this case, we may conjugate ρ to assume that a is diagonal and
+b, c, d, and e are all upper triangular.
+• Subcase A. [a,b] = I.
+Then b ∈ {a±1}. Lemma 3.3.2 shows that we must have b = a. Then
+(R1) gives [a,e] = I and e must also be diagonal. Also, (R2) implies
+d = c. Since ρ(H) is non-abelian, c cannot be diagonal.
+65
+Let
+α 0
+e = .
+0 1/α
+µ ¶
+By conjugating by diagonal matrices if necessary, we may assume that
+β 1
+c =
+0 1/β
+µ ¶
+where β ∈ {α±1}. Note that in ΓAB we have c = e. Since ρ| is reducible
+2 Γ2
+we may apply Lemma 3.3.2 to see that c and e are identical on their
+diagonals. Hence β = α.
+Using Lemma 3.3.1, we have (ec)ne = c(ec)n. Also, by Lemma 3.3.3 we
+have
+α2n p (α)
+(ec)n = n
+0 α−2n
+µ ¶
+where p (x) ∈ C(x) and p (x) 6= 1 .
+n n (1−x2)x2n−1
+Equating the upper right entries of the matrices (ec)ne and c(ec)n we get
+1
+αp (α)+α−2n = p (α).
+n n
+α
+We have assumed that α ∈/ {0,±1} so we have
+1
+p (α) = .
+n (1−α2)α2n−1
+This equation has ﬁnitely many solutions because p (x) 6= 1 .
+n (1−x2)x2n−1
+We add the corresponding values α+α−1 to Λ and move on.
+• Subcase B. [a,b] 6= I.
+Recall that we have conjugated ρ so that a is diagonal and ρ(Γ ) is upper
+2
+triangular. Since [a,b] 6= I, we know that the upper right entry of b is
+66
+non-zero, so we can conjugate by diagonal matrices to assume this entry
+is 1. As before, Lemma 3.3.2 implies that a and b are identical along
+their diagonals. We have
+α 0 α 1
+a = and b = .
+0 1/α 0 1/α
+µ ¶ µ ¶
+We have assumed that ρ is irreducible. This implies that the lower left
+entry of f is non-zero. We also know that Tr(f) = Tr(a) = α + 1/α.
+Putting this together, we know that f is of the form
+x 1 (−αx2 +α2x+x−α)
+f = αy
+y 1 (−αx+α2 +1)
+µ α ¶
+where y 6= 0.
+If ρ is a representation, then we must have faf = bfa by (R3). Looking
+at the lower left entries of these matrices we get the equation
+y(α3x−αx+1)
+= 0.
+α2
+Then, because α,y 6= 0, we must have
+−1
+x = .
+α(α2 −1)
+Making this substitution and equating the upper left entries of faf and
+bfa, we arrive at the conclusion that yα = 0, which is not possible.
+Therefore, there are no such representations.
+Case 3. ρ| is irreducible.
+Γ2
+67
+In this case, when we conjugate so that a is diagonal and b,c, and d
+are upper triangular, we know that the lower left entry of e must be
+non-zero.
+First, note that [a,b] 6= I. This follows from (R1) and Lemma 3.3.4.
+Since a is diagonal and not parabolic, if a and b commute then b = a−1
+or b = a. Lemma 3.3.4 shows that the ﬁrst possibility doesn’t occur. On
+the other hand, if a = b, then (R1) implies that a and e commute. This
+is not possible because the lower left entry of e is non-zero.
+We may now assume that
+α 0 β 1
+a = and b =
+0 1/α 0 1/β
+µ ¶ µ ¶
+where β ∈ {α±1}. Also, as argued for f in Case 2: Subcase B, we have
+x 1 (−αx2 +α2x+x−α)
+e = αy
+y 1 (−αx+α2 +1)
+µ α ¶
+where y 6= 0.
+We claim that β 6= α. This follows from (R1). Equating the lower right
+entries of ae and eb we get
+1 1
+(−αx+α2 +1) = y + (−αx+α2 +1)
+α2 α2
+which implies that y = 0, a contradiction. Thus we must have
+1/α 1
+b = .
+0 α
+µ ¶
+68
+Looking at the upper right entries of ae and eb, we see that x = 0.
+Substituting for x and checking ae = eb in the lower right entries, we
+conclude that y = α−2(1−α4). This implies that
+0 α2
+e = α4−1 .
+1−α4 α2+1
+Ã α2 α !
+We know that c is upper triangular and Tr(c) = Tr(a), thus,
+β r
+c =
+0 1/β
+µ ¶
+where β ∈ {α±1} and r ∈ C. Formally, we assign a matrix Θ ∈ SL (C)
+2
+to represent the product (ec)n.
+Applying Lemma 3.3.1 to the tangle T , we get the relation w =
+2 2n−1
+(ec)−nc(ec)n and from T we have that w = aea−1. Putting these
+3 2n−1
+together, we conclude that the matrix Θ should satisfy the relation
+Θ−1cΘ = aea−1. (R5)
+The matrix Θ should also commute with ec, so we have
+Θec = ecΘ. (R6)
+Using (R5) and det(Θ) = 1, we can express Θ in terms of α, β,r, and a
+new independent variable z. By comparing the matrices in (R6), we can
+express r as a function in α, β, and z. If β = α, then the upper right
+entries of the matrices from (R5) gives the equality α6−α4−α2+1 = 0.
+Thus we may assume that β = 1/α at the price of adding {α+α−1|α6−
+69
+α4 −α2 +1 = 0} to Λ. Both c and Θ are now expressed as functions of
+α and z:
+1/α r α4−z2 αz
+c = and Θ = α4z α4−1
+µ 0 α¶ Ãz(1α−5α4) z !
+where r = α4+α2z2−z2.
+z2(α4−1)
+Write
+p q
+f =
+s t
+µ ¶
+and consider the consequences of (R3). Equating the lower right entries
+of faf and bfa, we see that q(α3p + αt − 1) − αt = 0. If q = 0, this
+equation implies that t = 0. Then det(f) = 0, a contradiction. Hence
+q 6= 0 and we solve det(f) = 1 for s to get s = pt−1. Substituting this
+q
+for s and looking at the lower right entries again, we get an expression
+for p in terms of α and t. Compare the lower left entries to see that
+(α−t)(α2t−t−α) = 0. There are two subcases.
+• Subcase A. t = α. (This is the case where ρ| is reducible.)
+Γ1
+At this point we have f in terms of α and q. Using (R3) once again,
+we are able to solve for q to get
+1/α α2
+f = 2α2−1 .
+0 α
+µ ¶
+Checking (R4) gives the polynomial equation
+(6α8 −17α6 +13α4 +2α2 −4)z2 −6α8 +7α6 −2α4 = 0.
+70
+By adding {α+α−1|6α8 −17α6 +13α4+2α2−4 = 0} to the set
+Λ, we can solve for z2 to get
+α4(6α4 −7α2 +2)
+z2 = .
+6α8 −17α6 +13α4 +2α2 −4
+We would like to use this equality to replacez in our only remaining
+relation, Θ = (ec)n. Although our expression for Θ in terms of α
+and z does contain odd powers of z, when we look at the resulting
+expression for Θ2 in terms of α and z we see that it contains only
+even powers of z. We replace our expression for z2 into Tr(ec) and
+Tr(Θ2) to write these quantities as rational functions in α only,
+(α2 +1)(10α4 −15α2 +6)
+Tr(ec) =
+α4(2α2 −1)(3α2 −2)
+and
+(α2+1)(72α12−288α10+446α8−278α6−25α4+108α2−36)
+Tr(Θ2) = .
+α4(2α2−1)(3α2−2)(6α6−11α4+2α2+4)
+In light of this, instead of using Θ = (ec)n, we focus on the relation
+Tr(Θ2) = Tr (ec)2n . (3.1)
+¡ ¢
+Using standard trace formulas, Tr(Θ2) = P Tr(ec) where P(x) ∈
+Z[x] is a monic polynomial of degree 2n. W¡e wish¢to rule out the
+possibility that there are inﬁnitely many solutions for α that will
+satisfy this equation. This will happen precisely when the rational
+functions Tr(Θ2) and P Tr(ec) are identically equal. However,
+Tr(Θ2) has a pole at the r¡oots of¢the polynomial 6x6−11x4+2x2+4
+71
+while P Tr(ec) takes a ﬁnite value at each of these roots, since the
+poles of¡P Tr(e¢c) are the same as the poles of Tr(ec). Therefore,
+these ratio¡nal func¢tions are not identically equal and there are only
+ﬁnitely many values for α that satisfy equation (3.1). We add the
+corresponding traces to Λ and move to the second subcase.
+• Subcase B. t = α . (ρ| is irreducible.)
+α2−1 Γ1
+Just as in subcase A, we can use (R3) to get
+α4−α2−1 α2
+f = α(α2−1) (α2+1)(α2−1)2 .
+α4−α2−2 α
+Ã α2 α2−1 !
+After adding ± 21/2 +2−1/2 to Λ, the relation (R4) implies that
+¡ ¢
+(−α12 +8α10 −22α8 +23α6 −3α4 −9α2 +4)z4+
++(2α12 −12α10 +22α8 −11α6 −3α4 +2α2)z2−
+−α12 +4α10 −4α8 = 0. (3.2)
+LetC ⊂ C2 bethezerosetforthispolynomial. Settingthevariables
+α4z2 +α4 −z2
+T = Tr(Θ) = (3.3)
+α4z
+and
+α4z2 −α4 +z2
+E = Tr(ec) = (3.4)
+α2z2
+we have a corresponding projection
+φ: C −→ (T,E) ∈ C2 .
+© ª
+72
+We take resultants to get a polynomial Q(E,T) ∈ Z[E,T], where
+Q = 0 on the image of φ. (This polynomial is quite large, so we do
+not include it here.) As before, we can express T as a monic degree
+n polynomial r(E) ∈ Z[E]. The one variable polynomial equation
+Q E,r(E) = 0 holds on Im(φ). As long as this polynomial is not
+id¡entically¢zero, the image of φ is 0-dimensional. We show that this
+is true by showing that its degree is bigger than zero.
+Writing Q as a polynomial in Z[E][T], we get
+5
+Q(E,T) = p (E)·T2i
+i
+i=0
+X
+where
+deg p (E) = 12 =⇒ deg p (E)·r(E)0 = 12
+0 0
+deg¡p (E)¢ = 11 =⇒ deg¡p (E)·r(E)2¢ = 11+2n
+1 1
+deg¡p (E)¢ = 10 =⇒ deg¡p (E)·r(E)4¢ = 10+4n
+2 2
+deg¡ p (E¢) = 8 =⇒ deg¡p (E)·r(E)6¢ = 8+6n
+3 3
+deg¡p (E)¢ = 7 =⇒ deg¡p (E)·r(E)8¢ = 7+8n
+4 4
+deg¡p (E)¢ = 4 =⇒ deg¡p (E)·r(E)10¢ = 4+10n.
+5 5
+¡ ¢ ¡ ¢
+Since n > 1, the degree 4+10n term in p (E)·r(E)10 is the unique
+5
+term of highest degree in Q E,r(E) . Therefore,
+¡ ¢
+deg Q E,r(E) = 4+10n > 0.
+¡ ¡ ¢
+We have now established that Im(φ) is a ﬁnite set of points. The
+proof will be complete if we show that the ﬁbers of φ are ﬁnite.
+73
+Using equations (3.3) and (3.4),
+α2T
+z = .
+2α2 −E
+This, together with equation (3.4), implies that
+0 = (T2 −4)α4 +(4E −T2E)α2 −E2 +T2.
+Therefore, the ﬁbers are ﬁnite over every (E,T) unless T2 = 4 and
+E2 = 4. It is easy to see that these points are not in the image of
+φ.
+This completes the proof that 4(n+4) is not strongly detected.
+74
+Bibliography
+[1] M. Boileau and S. Wang. Non-zero degree maps and surface bundles over
+S1. J. Diﬀerential Geom., 43(4):789–806, 1996.
+[2] S. Boyer and X. Zhang. A proof of the ﬁnite ﬁlling conjecture. J.
+Diﬀerential Geom., 59(1):87–176, 2001.
+[3] S. Boyer and X. Zhang. Every nontrivial knot in S3 has nontrivial A-
+polynomial. Proc. Amer. Math. Soc., 133(9):2813–2815 (electronic),
+2005.
+[4] D. Cooper, M. Culler, H. Gillet, D. D. Long, and P. B. Shalen. Plane
+curves associated to character varieties of 3-manifolds. Invent. Math.,
+118(1):47–84, 1994.
+[5] D. Cooper and D. D. Long. Roots of unity and the character variety of
+a knot complement. J. Austral. Math. Soc. Ser. A, 55(1):90–99, 1993.
+[6] D. Cooper and D. D. Long. Remarks on the A-polynomial of a knot. J.
+Knot Theory Ramiﬁcations, 5(5):609–628, 1996.
+[7] M. Culler, C. McA. Gordon, J. Luecke, and P. B. Shalen. Dehn surgery
+on knots. Ann. of Math. (2), 125(2):237–300, 1987.
+75
+[8] M. Culler and P. B. Shalen. Varieties of group representations and split-
+tings of 3-manifolds. Ann. of Math. (2), 117(1):109–146, 1983.
+[9] N. Dunﬁeld. Examples of non-trivial roots of unity at ideal points of
+hyperbolic 3-manifolds. Topology, 38(2):457–465, 1999.
+[10] N. Dunﬁeld and S. Garoufalidis. Non-triviality of the A-polynomial for
+knots in S3. Algebr. Geom. Topol., 4:1145–1153 (electronic), 2004.
+[11] A. Hatcher. On the boundary curves of incompressible surfaces. Paciﬁc
+J. Math., 99(2):373–377, 1982.
+[12] A.Hatcher. Algebraic topology. CambridgeUniversityPress, Cambridge,
+2002.
+[13] A. Hatcher and U. Oertel. Boundary slopes for Montesinos knots. Topol-
+ogy, 28(4):453–480, 1989.
+[14] S. Kuppum and X. Zhang. Roots of unity associated to strongly detected
+boundary slopes. preprint.
+[15] J. Morgan and P. B. Shalen. Valuations, trees, and degenerations of
+hyperbolic structures. I. Ann. of Math. (2), 120(3):401–476, 1984.
+[16] R. Myers. Simple knots in compact, orientable 3-manifolds. Trans.
+Amer. Math. Soc., 273(1):75–91, 1982.
+[17] R.Myers. Excellent1-manifoldsincompact3-manifolds. Topology Appl.,
+49(2):115–127, 1993.
+76
+[18] U. Oertel. Closed incompressible surfaces in complements of star links.
+Paciﬁc J. Math., 111(1):209–230, 1984.
+[19] T. Ohtsuki. Ideal points and incompressible surfaces in two-bridge knot
+complements. J. Math. Soc. Japan, 46(1):51–87, 1994.
+[20] S. Schanuel and X. Zhang. Detection of essential surfaces in 3-manifolds
+with SL -trees. Math. Ann., 320(1):149–165, 2001.
+2
+[21] J. P. Serre. Trees. Springer Monographs in Mathematics. Springer-
+Verlag, Berlin, 2003. Translated from the French original by John Still-
+well, Corrected 2nd printing of the 1980 English translation.
+[22] P. B. Shalen. Three-manifold topology and the tree for PSL : the Smith
+2
+conjecture and beyond. In Algebra, K-theory, groups, and education
+(New York, 1997), volume 243 of Contemp. Math., pages 189–209. Amer.
+Math. Soc., Providence, RI, 1999.
+[23] P. B. Shalen. Representations of 3-manifold groups. In Handbook of
+geometric topology, pages 955–1044. North-Holland, Amsterdam, 2002.
+[24] W. P. Thurston. Geometry and topology on 3-manifolds. Princeton
+University mimeographed notes, 1979.
+[25] W. P. Thurston. Three-dimensional geometry and topology. Vol. 1,
+volume 35 of Princeton Mathematical Series. Princeton University Press,
+Princeton, NJ, 1997. Edited by Silvio Levy.
+77
+[26] S. Tillmann. On the Kinoshita-Terasaka knot and generalised Conway
+mutation. J. Knot Theory Ramiﬁcations, 9(4):557–575, 2000.
+[27] X. Zhang. personal communication.
+78
+Vita
+Eric Bruce Chesebro was born in Washington D.C., on June 4, 1971,
+the son of Bruce and Joan Chesebro. He grew up on a small ranch in the
+Bitterroot Valley of Western Montana. In 1989, he entered The Colorado
+College in Colorado Springs, Colorado and received a Bachelor of Arts degree
+in Mathematics in 1993. He then moved to Portland, Oregon where he worked
+as a sculptor until deciding to return to school in 1999. He began his graduate
+work in the fall of 2000 at the University of Texas at Austin.
+Permanent address: 874 Willow Creek Road
+Corvallis, MT 59828
+This dissertation was typeset with LATEX† by the author.
+†LATEX is a document preparation system developed by Leslie Lamport as a special
+version of Donald Knuth’s TEX Program.
+79

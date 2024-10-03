@@ -1,0 +1,2768 @@
+None
+ 
+ 
+ 
+ 
+Essays in Institutions, Economic Policy and Development 
+ 
+ 
+A dissertation submitted in partial fulfillment of the requirements for the degree of 
+Doctor of Philosophy at George Mason University 
+ 
+ 
+ 
+By 
+ 
+ 
+ 
+Silviu Dochia 
+Master of Arts 
+George Mason University, 2005 
+ 
+ 
+ 
+ 
+Director: Richard E. Wagner, Professor 
+Department of Economics 
+ 
+ 
+ 
+ 
+Spring Semester, 2008 
+George Mason University 
+Fairfax, VA 
+ 
+ 
+TABLE OF CONTENTS 
+ 
+                                                                                                                                        Page 
+List of Tables……………………………………………………………….……..…..….iv 
+List of Figures……………………………………………………………….…..………..v 
+Abstract...................................................................................................................……...vii 
+ 
+1. Private participation in infrastructure: cancelled projects …….............................1 
+Introduction  …………………………………………………………….……………...1 
+1.1 Background and existing literature…………………………………….……………..3 
+Infrastructure and development…………………………………….………….....3 
+Private participation in infrastructure ……………………………………………6 
+1.2 Hypothesis……………………………………………………………………………9 
+1.3 Empirical model and variables………………………………………………………16 
+1.4 Results……………………………………………………………………………….23 
+1.5 Foundations and extensions……………………………………………………….....27 
+1.6 Conclusions………………………………………………………………………….30 
+ 
+2. Enterprise size and economic policy ………………………………………………32 
+2.1 Economic policy and firm size: brief historical overview………………..…………32 
+2.2 Firm size, risk and uncertainty………………………………………………………40 
+2.2.1 The neoclassical theory of the firm: risk and firm size ……………..…………....43 
+2.2.2 Firm size, uncertainty and growth……………………………………………….48 
+2.3 Conclusions ……………………………………………………………………….55 
+  ii
+3. A framework for analyzing SME financing ……………………………………..58 
+Introduction……………………………………………………………………………59 
+3.1 The effectiveness of SME financing programs……………………………………60 
+3.2 SMEs and the financial sector: possible constraints……………………………….63 
+3.3 SME Financing Programs: Two Case Studies from Romania …………………….70 
+3.3.1 Program impact at the firm level ……………………………………..................72 
+3.3.2 Lessons from the Romanian case study –SME programs and financing sector 
+development ………………………………………………………...............................82 
+3.4 Conclusions………………………………………………………………………...91 
+ 
+Appendix …………………………………….………………………………………..92 
+References ………………………………………………………………………..…...95 
+ 
+  iii 
+ 
+LIST OF TABLES 
+ 
+ 
+Table                                                                                                                            Page 
+1. 1990-2003 energy consumption……………………………………………..…………7 
+2. Cochabamba Water and Sewage System……………………………………..……….13 
+3. The distribution of cancelled projects by sector……………………………..………..18 
+4. The geographic distribution of cancelled projects………………………….….....…...19 
+5. Empirical results………………………………………………………………….…...23 
+6. Cancelled project by contract type………………………………………….………...26 
+7. Romania macroeconomic indicators……………………………………………….....88 
+8. The impact of the RICOP SME financing program in Romania……………………..90 
+9. The impact of the BT SME financing program in Romania………………………….91 
+  iv
+ 
+LIST OF FIGURES 
+ 
+ 
+ 
+ 
+Figure                                                                                                                            Page 
+1. Cancelled vs. awarded PPI projects, 1990 – 2005……………………………….…..19 
+2. Uncertainty, investments and profits………………………………………………...54 
+6. SME financing in the economy……………………………………………………...65 
+  v
+ 
+ 
+ 
+ 
+ABSTRACT 
+ 
+ 
+ 
+ESSAYS IN INSTITUTIONS, ECONOMIC POLICY AND DEVELOPMENT 
+ 
+Silviu Dochia, PhD 
+ 
+George Mason University, 2008 
+ 
+Dissertation Director: Dr. Richard Wagner 
+ 
+ 
+ 
+This thesis consists of three essays examining the relationship between institutions and 
+economic development. 
+ 
+Essay one focuses on private participation in infrastructure. Over the past decade private 
+involvement in the provision of infrastructure services has grown increasingly common 
+in a large number of countries around the world. Increased activity brought along a good 
+deal of controversy, most frequently relating to the cancellation of high profile projects. 
+This paper analyzes this phenomenon empirically, using project level panel data from the 
+1990-2005 period. My first finding is that, contrary to popular belief, infrastructure 
+project cancellations are rare. Second, contract cancellations are not randomly 
+distributed, but seem correlated with a number of factors. I find that cancellation rates are 
+higher for water sector projects, countries with a poor track record of protecting property 
+rights and those with more effective local bureaucracies. Neither the level of GDP per 
+capita nor its growth rate seem to be important factors, but larger current account deficits 
+are correlated with more cancellations. Essay two examines the economic rationale for 
+industrial policies aimed at supporting small firms with the intention of improving the 
+rate of innovation and economic growth. I argue that such policies, while very common 
+in the last few decades, frequently ignore two fundamental facts. First, a firms’ size is 
+largely determined by the economic environment surrounding it, and in particular by the 
+uncertainty it must face. Attempts to actively micromanage the mix of small to large 
+firms while ignoring the environment they operate within is more likely to be harmful 
+than helpful. The second often overlooked observation is that small and large firms often 
+play complementary roles in the process of innovation. Instead of attempting to actively 
+pick winners with certain characteristics, policymakers’ efforts are better spent on 
+building a framework which is conducive to all innovation, wherever it may originate. 
+ 
+In the third paper I analyze the real world impact of direct financing programs for small 
+and medium enterprises. I base my analysis on two specific SME financing schemes 
+implemented in Romania between 1998 and 2004, but my findings are broadly 
+applicable. I argue that direct funding programs can suffer from two major flaws: a 
+failure to address the financial system’s binding constraints, and a difficulty in dealing 
+with imperfect information. I find that both problems were acutely relevant in Romania, 
+where they created programs that appeared successful at the firm level but in fact had 
+very limited impact. 
+ 
+1. Private participation in infrastructure: cancelled projects 
+ 
+ 
+ 
+ 
+Introduction 
+ 
+A large literature suggests infrastructure is in many countries a key constraint on 
+economic growth. In the early 1990s this body of evidence was integrated in the 
+Washington Consensus reforms to prescribe private participation in infrastructure as an 
+important pro-growth policy (Williamson, 2000). Private involvement was seen as 
+alleviating pressure on government budgets and greatly increasing efficiency in all 
+economic areas, including traditional industries but also infrastructure, healthcare, 
+education and law enforcement. In developing countries this led to boom of privately 
+operated infrastructure projects that peaked in the late 1990s.  
+ 
+This period of rising private involvement was followed by a sharp slowdown. Hall, 
+Lobina and Motte (1999) summarize the changing mood at the start of the new 
+millennium: 
+ 
+Private-sector investment in developing countries is falling, multinational 
+companies have failed to make sustainable returns on their investments, and the 
+process of privatisation in water and energy has proved widely unpopular and 
+      1 
+encountered strong political opposition. […] Local civil society has successfully 
+mobilised highly effective political activity, its opposition being based on the 
+perceived conflicts between privatisation and equity, and over the role of the state 
+and community in these sectors. 
+ 
+This paper attempts to contribute to the debate over private involvement in infrastructure 
+by analyzing the problem of project cancellations empirically. I use project level data 
+from the World Bank’s PPI database covering 149 developing countries for the 1990-
+2005 period. 
+ 
+My first finding is that, contrary to frequently gloomy perceptions, contract cancellations 
+are in fact quite rare in infrastructure. For the 1990-2005 period only 148 service 
+provision contracts were cancelled in developing countries, out of a total of 3265 
+awarded projects.  
+ 
+My second finding is that contract cancellations are not randomly distributed. As 
+previous authors postulated, water and sewage contracts are more prone to cancellations 
+(Hall, Lobina and Motte, 1999). This effect is large, as water sector projects are about 
+twice as likely as those in other sectors to be cancelled. I also find that the size of the 
+current account, a useful proxy for inflationary expectations, is correlated with higher 
+project cancellation rates. Ceteris paribus, countries with more secure property rights 
+have fewer cancellations. Somewhat surprisingly, a more effective government 
+bureaucracy is associated with higher cancellation rates.  
+  2
+ 
+1.1 Background and existing literature 
+ 
+Infrastructure and development 
+ 
+Good roads, canals and navigable rivers, by diminishing the expense of carriage, 
+put the remote parts of the country more nearly upon a level with those in the 
+neighbourhood of the town. They are upon that account the greatest of all 
+improvements. They encourage the cultivation of the remote, which must always 
+be the most extensive circle of the country. They are advantageous to the town, by 
+breaking down the monopoly of the country in its neighbourhood. They are 
+advantageous even to that part of the country. Though they introduce some rival 
+commodities into the old market, they open many new markets to its product. 
+Monopoly, besides, is a great enemy to good management, which can never be 
+universally established but in consequence of that free and universal competition 
+which forces everybody to have recourse to it for the sake of self-defence. (Adam 
+Smith, The Wealth of Nations 1776, Pelican edition 1970, p. 251) 
+ 
+Smith’s insightful words on the importance of infrastructure for trade and development 
+still ring true to many economists today. Boucheas, Demetriades and Mamuneas (2000), 
+for example, provide us with a close interpretation of Smith using Romer’s (1987) 
+endogenous growth model and defining infrastructure as a cost reducing technology. This 
+  3
+lower cost method of production is shown to raise long term growth through increased 
+specialization and trade, very much in the spirit of Smith’s original work. 
+ 
+Other authors suggest slightly different channels through which infrastructure can help 
+economic growth. Better communications and transport networks, for example, can make 
+credit more easily available and relieve financing constraints, especially in remote rural 
+areas. Better infrastructure can also improve healthcare and education, both with an effect 
+on human capital and productivity (Agenor and Moreno-Dodson, 2006).  
+ 
+The claim that good infrastructure in a precondition to growth has been tested empirically 
+in a large number of studies. Aschauer (1989) wrote the breakthrough study in the field 
+and found a large effect of the stock of infrastructure on total factor productivity. 
+Aschauer’s (1989) findings were seen by many researchers as implausibly large 
+(Gramlich, 1994, provides a good survey of critics), and spurred a number of efforts for 
+better estimates. More recent studies seem to confirm a positive influence of 
+infrastructure on development. Demetriades and Mamuneas (2000), for instance, examine 
+the impact of public infrastructure on output in 12 OECD countries and find a significant 
+long term effect in all cases. Canning (1999) and Roller and Waverman (2001) find that 
+telecom infrastructure is particularly important. Calderon and Serven (2003) focus on 
+Latin America and find positive and significant output contributions for 
+telecommunications, power and transport infrastructure.  
+ 
+  4
+Micro level evidence from a number of new studies seems to reinforce these findings. 
+Carlin, Schaffer and Seabright (2003), for example, find that infrastructure plays a 
+distinct role in the firm’s decision to innovate and expand.  
+ 
+Taken individually, empirical studies can generally be dismissed as inconclusive1.  As a 
+joint body of evidence however, these findings seem to indicate that a significant number 
+of countries currently operate at a margin where infrastructure constitutes an important 
+growth constraint.  
+ 
+Poor infrastructure is of more concern in developing countries, where incompetent or 
+corrupt governments, insufficient administrative capacity, increased uncertainty and lack 
+of funding all add to the problem. Some authors have gone as far as to argue that poor 
+infrastructure, combined with geographical and resource endowment characteristics can 
+leave some countries stuck in a “poverty trap” (Sachs, 2003).  
+ 
+ 
+Private participation in infrastructure 
+ 
+The realization that infrastructure is often an important growth constraint raises questions 
+about the appropriate way to tackle this problem. Traditionally, infrastructure services 
+were considered to have strong public good characteristics, and were provided by 
+governments. Excludability is sometimes difficult and, as its been pointed out many times 
+                                                 
+1 Rodrik (2005) discusses the problem with cross country regressions, for example.  
+  5
+since the days of Adam Smith, positive externalities from good infrastructure might mean 
+private supply is inadequate. 
+ 
+More recently however, a new focus towards private sector participation in the sector has 
+emerged. This change was initially implemented by Great Britain in the 1980s, and then 
+spread across to developing countries as part of the 1990s “Washington Consensus” 
+economic reform package (Williamson, 2000).  
+ 
+Proponents of private involvement in infrastructure typically focus on the efficiency 
+gains from private management. In developing countries a second powerful reason for 
+co-opting the private sector exists: the public sector simply cannot afford to finance 
+necessary infrastructure investments. Demand for infrastructure rose faster than GDP in 
+many countries (see table for an example with energy consumption), making it hard for 
+local governments to keep pace using taxation alone. This trend is projected to continue, 
+and even accelerate. Fay and Yepes (2003), for example, argue that based on current 
+population and output growth rates, consumer infrastructure demand will grow 
+exponentially in developing countries for the next decade. Private sector investments in 
+infrastructure are poised to continue growing.  
+ 
+ 
+ 
+ 
+ 
+  6
+Table 1: 1990-2003 energy consumption 
+Source: International Energy Authority. 
+ 
+Private involvement in the infrastructure sector, while increasingly common, carries 
+significant risks. Private companies, through their focus on lowering costs and rising 
+revenues, are frequently opposed by both poor consumers and labor groups. This puts 
+pressure on local governments to renegotiate or even cancel previously awarded 
+contracts. This threat is particularly important in projects with large up-front sunk costs in 
+non-tradable assets which are particularly vulnerable to regulatory and political risk. The 
+highly specialized nature of investments opens up the possibility of ex-post opportunistic 
+behavior on the part of governments (Williamson, 1979, 1985).  
+ 
+Recent empirical studies on private infrastructure provision often take a broad view of the 
+factors influencing such projects. Of particular interest in this literature is the importance 
+of institutions. These studies recognize private involvement does not happen in a vacuum, 
+and ask a number of important questions as to the conditions which facilitate private 
+sector involvement.  
+  7
+ 
+Most studies on institutions and private infrastructure provision focus on a single sub-
+sector. Jensen and Blanc-Brude (2006), for example, look at the determinants of the 
+number of water and sanitation projects per country between 1990 and 2004. They find 
+that measures for the security of property rights and the quality of the bureaucracy are the 
+most important institutions in attracting private sector participation.  
+ 
+The only major study I am aware of that analyzes the importance of institutions for 
+private participation in infrastructure and covers all sub-sectors is Banerjee, Oetzel and 
+Ranganathan (2006). The authors use the 1991-2000 PPI dataset to argue that country 
+level institutions characteristics play an important role in determining where private 
+companies decide to invest. The study finds that property rights and bureaucratic quality 
+are significant factors. Perhaps surprisingly, higher levels of corruption also seem to be 
+correlated with more private participation.  
+ 
+My paper comes to complement these recent studies by asking the question of what 
+happens next: which private infrastructure projects fail, and are there any factors in 
+particular that seem to matter for a projects’ fate? 
+ 
+1.2 Hypotheses 
+ 
+The null hypothesis I will test for is that project cancellations are randomly distributed, 
+and independent of project characteristics, macroeconomic and institutional variables. 
+  8
+ 
+A. Strong institutions help lower project cancellation rates 
+ 
+Conjecture one: Higher levels of corruption increase the rate of project cancellation.  
+ 
+Shleifer and Vishny (1993) famously argued that opportunistic behavior will be a large 
+problem in regions with highly corrupt officials and weak governments. Running a 
+business in such an environment is more difficult, and more projects may be expected to 
+fail. Louis and Rafiq (2006) offer a good collection of many real world examples of 
+foreign investors running into trouble with corrupt officials.  
+ 
+At the other end of the spectrum, a number of authors have suggested an “efficient 
+grease” theory implies corruption can in fact help in an environment of heavy regulation 
+(Kaufman and Wei, 1999). Arguments along this line of reasoning might indicate that 
+corruption should have a positive impact by lowering the rate of project cancellations. 
+The “efficient grease” view does not seem to be backed by as much empirical evidence as 
+its counterpart. A notable exception are the results of Banerjee, Oetzel and Ranganathan 
+(2006), who find that more corrupt countries seem to attract more private participation in 
+infrastructure.  
+ 
+Conjecture two: Higher regulatory quality lowers the likelihood of project 
+cancellation.  
+ 
+  9
+Bureaucratic quality should matter for two reasons: initial contract design and subsequent 
+regulation.  
+ 
+Good contract design is essential to avoid future problems, and an effectively run 
+government is in a better positioned to draw up such contracts. No contract will be able to 
+cope with every future contingency, but obvious design flaws will almost certainly be 
+fatal. For example, some contracts indexed tariffs to the local currency but require yearly 
+investments/concession fees that were tied to foreign currencies. In Argentina this 
+contract design flaw was exposed when the Peso was devalued in 2002, leading to a 
+number of cancellations and international litigation cases. 
+ 
+Regulatory quality matters greatly even where good contracts are already in place. This is 
+important since regulators are more than benevolent extra-economic agents operating in a 
+vacuum. As argued by Wagner (2006), governmental structures, much as regular 
+“markets”, are best understood as arenas in which self interested agents interact with each 
+other. This means regulators are subject to pressure from operators, interest groups, 
+consumers and politicians. In a well functioning society regulatory agencies can facilitate 
+dialogue between these groups. A poorly functioning regulatory agency, on the other 
+hand, can fail to defuse tensions, forcing actors to opt for alternative solutions which 
+include revoking licenses or outright expropriation after mass protests on the part of 
+consumers. Box one presents a case that illustrates a mix of poor program design 
+subsequently exacerbated by a poorly functioning regulatory agency.  
+ 
+  10
+Conjecture three: Projects in countries with better contract enforcement / court 
+systems are likely to have fewer project cancellations. 
+ 
+An environment in which contracts are generally respected and enforced is likely to have 
+a positive effect on the relationship between operators and their suppliers and customers. 
+A common problem with infrastructure supply, for example, is a rate of fee collection. 
+This issue should be far worse in areas where customers are used to not respecting 
+contracts and aware that local authorities lack the means and the will to enforce them.  
+ 
+The relationship between local governments and the private operators is also likely 
+affected by the overall level of contract enforcement. Reputation is an important deterrent 
+for governments reneging on existing contracts, and is likely to matter far more in 
+countries that are trying to maintain a good standing. An already tarnished reputation, in 
+contrast, is unlikely to provide much of a deterrent. 
+ 
+Conjecture four: Governments with higher democratic accountability scores are 
+more likely to have lower project cancellation rates. 
+ 
+Democratic accountability helps legitimize reform programs and private markets 
+(Rodrick, 2004). This link has been empirically studied by Dethier, Ghanem and Zoli 
+(1999), who did find that democratization helped structural reforms and privatization 
+campaigns “stick” in Eastern Europe and Russia.  
+ 
+  11
+Conjecture five: Political instability expected to increase the chance of re-negotiations 
+and cancellations. 
+ 
+Projects located in countries whose governments are more likely to be overthrown 
+through unconstitutional means clearly face higher uncertainty. On the other hand, 
+countries with a long tradition of stable politics should result in fewer cancellations. 
+ 
+B. Project characteristics influence cancellation rates 
+ 
+Conjecture six: Energy and water sector projects are more likely to be cancelled than 
+those in other sectors.  
+ 
+As discussed by Hall, Lobina and de la Motte (2005), in many countries privatization of 
+water and energy services remains a very unpopular reform. Consumer groups, non profit 
+organizations such as Public Citizen, and worker’s unions often waged successful 
+campaigns to discredit privatization plans. In a number of cases these opposition groups 
+staged mass demonstrations to oust the private operators (see Table 2 for a brief 
+description of the famous Cochabamba water concession in Bolivia). For their part, 
+private operators frequently found returns in the sector were lower than expected due to 
+low bill collection rates, high maintenance costs and tariff inflexibility.  
+ 
+These concerns can in principle be alleviated by government subsidies and regulation. In 
+reality, in developing countries governments often lack the ability to effectively regulate 
+  12
+and monitor private operators, as well as properly structure and design the initial 
+contracts. Such governance shortcomings are likely to be far more important in the 
+sensitive water sector than in the highly commercial telecommunications field. 
+ 
+Table 2: Cochabamba water and sewage system 
+In October 1999, the municipality of Cochabamba, Bolivia, awarded a 40-year exclusive concession to 
+supply potable water and sewer services for the city to international consortium Aguas del Tunari. The 
+consortium took over the assets of former municipal water operator Semapa. In 1999 local authorities 
+were unhappy with the performance of Semapa, which had only achieved a coverage rate of 60% of the 
+600,000 Cochabamba inhabitants for water services and 50% for the sewerage system. Network losses 
+were high and water shortages were common, as only 23% of consumers had a 24-hour supply. The 
+concession with Aguas del Tunari was intended to address these shortcomings. 
+ 
+The terms of the 40 year concession were directly negotiated between Aguas del Tunari and the 
+Cochabamba municipality. The direct negotiations came after an open international tender that failed 
+when the sole bidder was Aguas del Tunari. The 1999 contract granted Aguas del Tunari exclusive 
+property rights over all water sources in the Cochabamba Valley, including the ground water from all 
+area wells, previously used for free by locals. Water tariffs were set by a formula that was intended to 
+provide Aguas del Tunari a return on investment of 15%. Aguas del Tunari committed to invest $320 
+million over the concession’s lifetime to improve the local water and sewage infrastructure. Some $180 
+million were to be invested in the first 5 years of the contract, so that 93% of the city’s population 
+would be connected to the water and sewerage systems by 2004. Aguas del Tunari also committed to 
+build a 40 MW hydro power plant on the Misicuni river. 
+ 
+The Aguas del Tunari consortium was 50% owned by International Water (a joint venture of Bechtel 
+and Edison SpA of Italy). Abengoa of Spain held a 25% stake in Aguas del Tunari and four Bolivian 
+investors held the last 25%: Sociedad Boliviana de Cementos, ICE Ingenieros, Compania Boliviana de 
+Ingenieria and Constructora Petricevich S.A. 
+ 
+In January 2000 Aguas del Tunari started operating the Cochabamba water systems. The consortium 
+immediately announced an average tariff increase of 35%, in line with the terms of the contract, and as 
+approved by the municipal Regulator. Water was also no longer free for irrigation, as Aguas del Tunari 
+started to charge farmers that owned wells for the use of groundwater. This generated widespread 
+objection among farmers. Some sources indicated that for many consumers water bills doubled and in 
+some cases went up by as much as 200-300%. The rate increases, coupled with broader discontent in 
+Bolivia over a nationwide crackdown on illegal coca production, police salary protests, and opposition 
+to a controversial new water law unrelated to this project, sparked mass-protests, road blockades and a 
+general strike in the city of Cochabamba in early 2000. 
+ 
+In April 2000, during the widespread civil unrest, the managers of Aguas del Tunari left Cochabamba 
+and President Banzar of Bolivia cancelled the concession contract on the basis that they had abandoned 
+the project. In November 2001, Aguas del Tunari applied for arbitration at the World Bank’s 
+International Centre for Settlement of Investment Disputes (ICSID), seeking $25 million in damages 
+from the Bolivian Government for their termination of the contract. 
+  13
+ 
+ 
+Conjecture seven: Projects with high levels of initial commitments are less frequently 
+cancelled.  
+ 
+The size of the initial commitments should matter for a number of reasons. The private 
+operators undertaking large infrastructure projects are typically larger than those awarded 
+small local contracts. This means they might have considerably more experience with 
+similar projects. This should help forecast future earnings and costs, but also insist on 
+better contract design.  
+ 
+A counterpoint to this argument is that smaller companies may have better local 
+knowledge and connections. Such projects also attract less public scrutiny, which may in 
+some cases translate in less pressure on regulators to renegotiate/cancel signed contracts. 
+ 
+ 
+C. Macroeconomic variables are important in determining project cancellation rates 
+ 
+Conjecture eight: Volatility of the national currency is correlated with higher rates of 
+cancellation.   
+ 
+There are two main measures of currency volatility: inflation and foreign exchange rates. 
+A variety of authors suggest inflation increases risk and lowers overall investments in 
+  14
+developing countries (for instance Cardoso, 1993, Larrain and Vergara, 1995). Volatility 
+is likely to matter even more for the infrastructure sector, where tariffs are typically 
+collected in local currency and closely regulated. Derivative contracts can, in principle, 
+help lower this risk, but in developing countries forward markets are usually 
+underdeveloped and diversification of risk is more difficult (Clark, Tamirisa and Wei, 
+2004).  
+ 
+Conjecture nine: Large current account imbalances are linked to higher rates of 
+project cancellation. 
+ 
+I will use the current account as a proxy for investor’s expectations of future exchange 
+rate fluctuations. The link between a current account deficit and currency crises has been 
+explored by a number of authors. Fischer (2003), for example, argues that large current 
+accounts present imminent current and future dangers for macroeconomic stability.  
+ 
+Fischer’s interpretation is contested by some authors who point out that large current 
+account deficits are not detrimental when driven by growth enhancing foreign 
+investments. Frankel and Rose (1996), for example, argued that even significant deficits 
+do not increase the probability of a currency crisis. This means to get a “clean” impact of 
+the current account on cancellation rates I will need to control for GDP growth. 
+ 
+Conjecture ten: Growing economies are likely to have fewer cancellations.  
+ 
+  15
+A thriving environment typically translates in better collection rates and revenue, and, in 
+principle, lowers the rate of cancellations.  
+ 
+The opposite conjecture could be plausible here as well: favorable conditions can lead to 
+rates of return considered too high by local governments, which can lead to project 
+renegotiation and in some cases cancellation. A number of projects awarded in China in 
+the late 1990s, for example, guaranteed minimum rates of return for the private operators. 
+In 2002, after a period of sustained high economic growth and with soaring foreign 
+investments, the Chinese government passed a law outlawing revenue guarantees, 
+causing a number of projects to be cancelled. 
+ 
+1.3 Empirical model and variables 
+ 
+To test my hypotheses I use a probit model with the following basic form: 
+ 
+Pr (CANCEL=1│ X, Y, Z) = φ (α+βX+γY+δZ+ε), 
+ 
+where φ is the cumulative standard normal distribution function, and X, Y and Z are 
+vectors of project-specific, macroeconomic and institutional variables, respectively.  
+ 
+ 
+ 
+ 
+  16
+A. Dependent variable 
+ 
+My dependent variable CANCEL is a binary construct built from the World Bank’s PPI 
+database. It takes the form: 
+ 
+CANCEL = 1 if a project has been cancelled. 
+CANCEL = 0 if a project has not been cancelled. 
+ 
+The “CANCEL” variable does not include distressed or renegotiated contracts. I make 
+this choice because, in contrast to renegotiations, cancellations are operationally easier to 
+track, define and quantify in a meaningful fashion.  
+ 
+The dataset I constructed is built on the 1990 to 2005 PPI database. For this timeframe 
+the database contains a total of 3268 infrastructure projects that meet the following set of 
+criteria2: 
+ 
+•  The “infrastructure” name covers basic transport services (roads, railways, ports 
+and airports), water and sewage treatment and distribution, energy generation and 
+distribution, and telecommunications.  
+•  They must take place in a developing country, as classified by the World Bank in 
+1998. 
+•  The project must have reached successful financial closure to be included.  
+                                                 
+2 For full details on the PPI methodology see http://ppi.worldbank.org/resources/ppi_methodology.aspx . 
+  17
+•  The private partner must at the minimum bears some operational risk. (This 
+covers management and lease contracts, greenfield projects, concessions and 
+divestitures, but does not include turn-key or maintenance contracts, where the 
+private party does not share in the operational decisions and risks, and the service 
+is essentially provided by the state.) 
+•  The project must “serve the public”. This means that captive facilities, such as a 
+power plant that only supplies electricity to a factory, are not included. 
+ 
+ 
+The geographic and sector distribution of cancelled projects in my sample is presented in 
+Tables 3 and 4 on the following page. The peak activity in PPI projects was reached in 
+the late 1990s (Kerf and Izaguirre, 2007). The median cancelled project is five years old. 
+(Figure 1) 
+ 
+ 
+Table 3: The distribution of cancelled projects by sector 
+ 
+ 
+ 
+  18
+Table 4: The geographic distribution of cancelled projects 
+ 
+ 
+Canceled vs. awarded PPI projects by year 
+of cancelation, 1990-2005
+s 400 30 s
+oject 300 2205 oject Total projects
+d pr 200 15 d Pr aCwaanrcdeeledd
+e 10 e
+ard 100 5 cel Projects
+w 0 0 an
+A C
+0 2 4 6 8 0 2 4
+9 9 9 9 9 0 0 0
+9 9 9 9 9 0 0 0
+1 1 1 1 1 2 2 2
+ 
+Figure 1: Cancelled vs. awarded PPI projects, 1990 – 2005. 
+ 
+B. Independent variables  
+ 
+For my institutional variables I use the World Bank’s 2005 Worldwide Governance 
+Indicators (WGI)3. The data is available for 1996-2005 and covers all countries in my 
+dataset. The main substitute measure of institutional quality is the International Country 
+                                                 
+3 Available at http://info.worldbank.org/governance/kkz2005/ 
+  19
+Risk Guide (ICRG). This alternative set goes back to 1980 and is excellent for time-series 
+analysis, but is not the best choice for my study, as it misses a large number of countries 
+with PPI projects. 
+ 
+The WGI reports institutional scores varying between -2.5 and + 2.5, with higher scores 
+representing better outcomes. The database is constructed from a variety of sources 
+including surveys of firms and individuals and the assessments of commercial risk rating 
+agencies, non-governmental organizations, and a number of multilateral aid agencies 
+(Kaufmann, Kraay and Mastruzzi, 2006). At the country level institutional scores are 
+relatively stable between 1996 and 2005. I use the average score during this period for the 
+following WGI variables:  
+ 
+•  Corruption, defined as the extent to which government officials use public office 
+for personal gain. (CORR) 
+•  Rule of law, measuring the degree of contract enforcement, the quality of the 
+police force and the courts system, and the general level to which agents abide by 
+social rules. (ROL) 
+•  Regulatory quality, a variable that attempts to quantify the ability of the 
+government to pass and enforce sound policies that support the private sector. 
+(REGQ) 
+•  Bureaucratic effectiveness, defined as the quality of public services and the 
+ability of public servants to stay independent from political pressures. (EFF) 
+  20
+•  Political stability, a measure of the likelihood the government will be overthrown 
+by extra-constitutional / violent means. (STAB) 
+•  Democratic accountability, measuring freedom of expression and association as 
+well as the degree to which citizens are able to choose their government. (ACCT) 
+ 
+The second group of independent variables consists of a series of project level 
+characteristics. These are taken from the World Bank’s private participation in 
+infrastructure database, and include: 
+ 
+•  The sector of infrastructure a project operates in: water and sanitation, transport, 
+energy or telecom. (SECTOR, WATER, TRANSPORT, TELECOM, ENERGY) 
+•  The size of the project’s total initial investment commitments, measured as the 
+sum of money to be paid to the government and the committed investments in 
+facilities. For future payments/investments the PPI database uses a present value 
+figure. (TOTAL) 
+•  The type of contract signed between the private operator and the government. 
+Contracts are divided into divestitures, greenfield projects, concessions and 
+management and lease agreements. (CONTRACT) 
+ 
+My macroeconomic variables are taken from the September 2006 version of the 
+International Monetary Fund’s “World Economic Outlook” report4. This data is available 
+                                                 
+4 Available at http://www.imf.org/external/pubs/ft/weo/2006/02/data/index.aspx . 
+  21
+for the entire 1990-2005 years, for most of the countries in my sample5. The 
+macroeconomic variables I control for are: 
+ 
+•  The logarithm of per capita gross domestic product, calculated at purchasing-
+power-parity. (LOG_PPPC) 
+•  Inflation, measured as the average annual percentage change in prices. 
+(PCPIPCH) 
+•  Current account balance as a percent of GDP, a useful proxy for future 
+inflationary expectations. (BCA_NGDP) 
+•  Foreign exchange rate fluctuations, calculated as the percent variance in yearly 
+exchange rates. (FX_NSTD) 
+ 
+Finally, I will test for systematic geographical differences by including the logarithm of 
+the host country’s population, and dummy variables for the projects’ country, and the 
+area it belongs to (East Asia Pacific, Europe and Central Asia, Latin America and the 
+Caribbean, South Asia and Sub Saharan Africa).  
+ 
+ 
+ 
+ 
+ 
+                                                 
+5 In a small number of cases I had to use data from alternative sources that was missing in the IMF’s report. 
+For example, the report contained no data on exchange rates for Serbia or Uzbekistan. I used market rates 
+from http://fxtop.com and http://www.oanda.com instead. 
+  22
+1.4 Results 
+ 
+Table 5: Empirical Results
+probit cancelation rol_avg eff_avg water total contract
+LOG_PPPPC pcpipch bca_ngdpd fx_nstd lp REGION_N
+Iteration 0:00 Log likelihood = -602.337
+Iteration 1:00 Log likelihood = -573.909
+Iteration 2:00 Log likelihood = -573.008
+Iteration 3:00 Log likelihood = -573.007
+Iteration 4:00 Log likelihood = -573.007
+Number of obs = 3262
+LR chi2(11) = 58.66
+Prob > chi2 =  0
+Pseudo R2 =  0.0487
+Log likelihood = -573.007
+ 
+ 
+ 
+A. Institutions  
+ 
+Institutions clearly matter for the cancellation rates of privately operated infrastructure 
+projects. Taken as a group, institutional variables have a high Wald test score and appear 
+statistically significant at the 99.45% level.  
+ 
+  23
+The most significant institutional variable is the rule of law index, which is statistically 
+significant in a number of plausible model specifications. This result is in line with my 
+prior expectations and the findings of previous studies (quote): better enforcement of 
+property rights enforcement through more efficient courts and police departments is 
+associated with fewer cancellations of privately operated infrastructure projects. The 
+effect is fairly large: an improvement of one standard deviation in a country’s rule of law 
+score is predicted to roughly halve the cancellation rate.  
+ 
+The second relevant finding from my set of institutional variables is that higher 
+bureaucratic effectiveness is correlated with more cancellations. Banerjee, Oetzel and 
+Ranganathan find that higher levels of publicly provided infrastructure seem to crowd out 
+private participation in infrastructure (2006, pp 16). My finding goes further and suggests 
+that, even when private companies start infrastructure projects in countries with effective 
+bureaucracies, they are more likely to be subsequently cancelled.  
+ 
+The positive sign on bureaucratic effectiveness can be interpreted in a number of ways. 
+One possibility is that governments that are relatively efficient at providing public 
+services are more confident to step in and take over operations in controversial 
+infrastructure projects. A second interpretation is that private provision in countries 
+where infrastructure is not a binding constraint on growth may be cancelled more 
+frequently. The ICRG index of bureaucratic quality is a score of the “quality of public 
+services”, which include infrastructure provision.  
+ 
+  24
+The possibility that more contracts get cancelled when infrastructure is not a binding 
+constraint fits with the observations of Rodrik et al (2005). In a first best world a long list 
+of policies could be adopted simultaneously. In the real world this is never an option: 
+even when well intended, policy makers operate under political constraints. This means 
+where and how political capital is spend matters. It may be impossible, or at least 
+counter-productive, for a government to insist on a highly unpopular water service 
+privatization with little impact on growth. Sequencing matters for building support for 
+future reforms. Ceteris paribus, countries with high scores for bureaucratic effectiveness 
+could have other more pressing constraints on development, and local governments may 
+be under more pressure to cancel those contracts. 
+ 
+Corruption, regulatory quality and political stability scores do not appear to be 
+statistically significant. This finding could be deceptive however, as all institutional 
+variables in my dataset are highly collinear: pair-wise correlation coefficients range 
+between 0.63 and 0.93. 
+ 
+B. Project characteristics 
+ 
+As postulated by Hall, Lobina and de la Motte (2005), water and sewage projects are 
+considerably more likely to get cancelled. The predicted cancellation rate for water 
+projects is 8.4 percent, the highest for any sector.  
+ 
+  25
+Hall, Lobina and de la Motte (2005) suggest energy projects also create a lot of 
+controversy and may be prone to subsequent cancellation. My findings are that, in fact, 
+energy is the sector with the lowest cancellation rate. Only 2.35 percent of all awarded 
+energy projects were cancelled for the 1990-2005 period. 
+ 
+The second result from my study is that larger investment commitments seem to be 
+associated with a higher rate of project cancellation. The effect is even stronger when 
+management contracts, where usually the private operator does not commit to invest 
+anything, are excluded. 
+ 
+ 
+Table 6: Cancelled project by contract type 
+ 
+ 
+C. Macroeconomic variables.  
+ 
+Inflationary expectations matter. A large current account deficit relative to GDP 
+seems to be correlated with a higher rate of project cancellations. This finding lends some 
+  26
+support to the thesis that a large current account deficit may be perceived by investors as 
+source of future macroeconomic instability (Fischer, 2003). The effect I find remains 
+statistically significant even after controlling for historical inflation rates, national 
+currency volatility and GDP growth.  
+ 
+This finding may be an indication of a weakness in some contracts’ design when it comes 
+to protection against future inflation6. This is essential for infrastructure services, whose 
+prices are often closely regulated.  
+ 
+1.5. Foundations and extensions 
+ 
+The theory of public finance offers two major analytical frameworks for the study of 
+government activities. On one hand there is the Anglo-Saxon tradition, which focuses on 
+optimal taxation and spending levels. The ultimate goal of Anglo-Saxon public finance is 
+to better understand goods markets with the ultimate goal of providing governments with 
+improved policy tools. The most important competing school of thought is broadly called 
+the Continental approach to public finance. The distinguishing characteristic of the 
+Continental tradition is that governments are treated as a different kind of “market” in 
+which rational agents interact. Understanding the inner workings of this political market 
+is key. The main difference between these two currents is captured by Wagner (2006): 
+ 
+                                                 
+6 A well known example is the Aguas Argentinas contract awarded to French company Lyonnaise des 
+Eaux. In this case water tariffs were indexed to the US, not the Argentrine, inflation rate. During the 
+Argentine crisis of 1998 the Peso suddenly devalued, but water tariffs stayed the same in nominal terms. 
+The contract was cancelled and a lengthy international arbitration followed. 
+  27
+The relationship between economy and polity is sequential in conventional fiscal 
+theorizing: market equilibrium is first established, with government then intervening to 
+shift society to some alternative equilibrium. This is, of course, as it must be with systems 
+design, for an existing system is to be followed by some alternative. In contrast, when 
+public finance is treated as a facet of social theorizing, the relationship between economy 
+and polity must be coeval within a societal catallaxy. Moreover, primacy of analytical 
+focus is placed on emergent processes of development and not on states of equilibrium. 
+(Wagner, 2006, pp viii) 
+  
+In this paper I used many findings from the traditional public finance literature to build 
+my case for the importance of good infrastructure for economic growth. Some of these 
+papers explicitly speak of socially optimal levels of infrastructure provision, and ways for 
+governments to get closer to these levels. These papers add much to our understanding of 
+the role of infrastructure in developing countries, but in the end they are not fully 
+satisfactory.  
+ 
+Today there is increasing recognition of the fact that governments and markets rarely 
+interact in the sequential manner assumed by traditional public finance. Rather, goods 
+markets and governments are different types of forums in which the same rational agents 
+interact with each other. The rules of interaction differ across these forums, but their 
+analysis belongs in the same conceptual framework.  
+ 
+  28
+In this paper I attempt to quantify the impact of some of the rules of interactions in both 
+public and private arenas for the private provision of infrastructure services. In my essay 
+governments are susceptible to corruption, accountable to varying degrees and may be 
+more or less effective at providing the services desired by their constituencies. These 
+“institutional” factors are essential for understanding the rate of failure of private projects 
+in infrastructure. 
+ 
+This study can be expanded in a number of directions. On one front new developments in 
+the field of public finance will provide a better analytical framework for analyzing 
+infrastructure contracts. On another level much progress will be made in the future with 
+the availability of richer data on infrastructure provision contracts. 
+ 
+Efforts are currently underway to systematize a number of characteristics of cancellations 
+which are missing in my analysis. For example, my data does not contain any information 
+on contract renegotiations, which are more common than cancellations and potentially 
+every bit as important. Another important missing piece of information in my analysis is 
+the reason for a contract’s cancellation. These could include: over-enthusiastic bids from 
+the private operators; abuse from poorly monitored public officials; popular discontent 
+reflected in the actions of local politicians; inadequate insurance in the face of 
+macroeconomic crises; miscalculation during attempted contract renegotiations. Perhaps 
+certain types of government support have an effect on contract cancellation rates. Better 
+data on these topics will help us form a better image of what happens to private 
+infrastructure contracts.  
+  29
+ 
+1. 6 Conclusions  
+ 
+The main goal of this paper was to analyze contract cancellations for privately operated 
+infrastructure projects in developing countries. My results show that, for the entire 
+population of projects undertaken between 1990 and 2005, cancellations are relatively 
+uncommon. When they do happen, contract cancellations are not randomly distributed, 
+and appear to be correlated with a number of institutional, macroeconomic and technical 
+characteristics. The most controversial projects were for water and sewage services, 
+while energy projects were very infrequently cancelled. A better record of property rights 
+enforcement and lower current account deficits lower the likelihood of cancellations, 
+ceteris paribus. 
+ 
+An interesting finding from my dataset is that countries with more effective bureaucracies 
+have higher rates of contract cancellations. This can be an indication that governments 
+that are good at providing public services are more confident in retaking control of 
+controversial projects. This trend is possibly accentuated in countries where unpopular 
+privatizations take place and fail to deliver economic growth. Where infrastructure is not 
+a binding constraint, politicians may be more willing to backtrack on unpopular sector 
+reforms. 
+ 
+My findings are directly relevant to both investors and policymakers interested in 
+developing countries. Understanding the extent of the contract cancellation problem is a 
+  30
+useful first step in forming expectations about future projects. I also quantified the 
+correlation between a number of technical, macroeconomic and institutional variables 
+and project cancellations. In the academic literature, this study makes contributions to the 
+growth literature, the debate on the importance of institutions and the public finance 
+literature. 
+  31
+ 
+2. ENTERPRISE SIZE AND ECONOMIC POLICY 
+ 
+ 
+ 
+ 
+2.1 Economic policy and firm size: brief historical overview 
+ 
+Industrial policy is typically understood as the active support by the government of a 
+particular economic sector through direct financing, regulation or law.  
+ 
+The case for such policies typically rests on perceived “market failures” (Krugman, 
+1986). These coordination breakdowns are thought to generate both immediate and long 
+term problems. In the short run, the redistribution to correct for a market failure can 
+provide an increase in total welfare. In the long run, growth rates are affected. A common 
+argument today is that there are important externalities in knowledge and in new-good 
+creation (Klenow and Rodriguez-Clare 2005). If these externalities are significant, 
+subsidies to the sectors generating them could be growth-enhancing.  
+ 
+Throughout the past half century a key targeting factor for industrial policy has been firm 
+size. The trend started in the decades following the Second World War, when many 
+Western European countries adopted a large number of reconstruction programs in 
+residential construction, industry and infrastructure. These programs, often planned and 
+supported by the central government, created a network of firms that maintained a close 
+relationship with regulators. These links grew over the following decades, and by the 
+  32
+1960s many policymakers embraced the idea of actively supporting the development of 
+specific large firms – the “national champions”. (Hayward, 1995) 
+ 
+A number of other factors contributed to the rise of “national champions”. In academia, 
+this was a time when the Harrod-Domar model and its Solow-augmented form dominated 
+growth theory. A central idea behind these models was that capital accumulation is a key 
+determinant of productivity, and high savings/investments rates are essential. The 
+apparent success of communist economies is another factor that doubtlessly helped 
+generate some support for industrial policies aimed at helping “national champions”. 
+Rapid industrialization was typically equated with the construction of ever greater 
+factories, often planned and financed with public support.  
+ 
+In this favorable academic and geopolitical context, the systematic policy of 
+redistribution towards large firms became the norm in Western Europe by the 1960s. In 
+the United States pressure on the government to actively support “re-industrializing” 
+resurfaced in the 1970s and 1980s. Walter Mondale, the Democratic presidential nominee 
+for the 1984 election was a vocal advocate of active industrial policy as the means to stop 
+capital flight, deindustrialization and increase international competitiveness (McKenzie, 
+2002)7. 
+ 
+                                                 
+7 Mondale’s nomination does reflect a clear preference in some part of both the electorate and the political 
+establishment for such policies. However, broader support remained relatively weak, as reflected by the 
+heavy loss suffered by Mondale in the presidential election.  
+  33
+Support for “national champions” gradually weakened during the 1980s. On the policy 
+front, this change in perception was driven by the success of Margaret Thatcher’s reforms 
+in Great Britain, as well as the collapse of centrally planned economies. In academia a 
+number of empirical studies raised serious doubts as to the effectiveness of policies 
+supporting “national champions”8. By the early 1990s a new “consensus” emerged in 
+development economics, emphasizing liberalization and privatization, and 
+institutionalized redistribution programs supporting large firms went out of fashion.  
+ 
+The lower levels of redistribution towards large firms marked a shift, rather that an end to 
+industrial policy. In fact, a new class of redistribution plans was greatly scaled up in the 
+1990s: small business support programs.  
+ 
+Examples of pro-small enterprise programs abound. Virtually every country now has at 
+least one agency dedicated to the task. These agencies are typically created as popular 
+means to foster growth in low and middle income countries, but are by no means absent 
+from rich countries. In the US, for example, the Small Business Administration was 
+created in 1953 with the goal to “maintain and strengthen the nation's economy by aiding, 
+counseling, assisting and protecting the interests of small businesses and by helping 
+                                                 
+8 Paul Krugman summarizes the prevailing view among professional economists at this time: 
+“The case for a targeted industrial policy therefore stands or falls on the issue of criteria for selection. Can 
+we devise criteria for choosing targets which will by and large pick the right industries? If we can, can we 
+devise an institutional framework which will actually act on these criteria and not degenerate into a system 
+of political payoffs? The answers I will suggest are not encouraging. Most criteria for targeting suggested 
+by the advocates of industrial policy are poorly thought out and would lead to counterproductive policies. 
+While there are more sophisticated criteria suggested by economic theory, we do not know enough to turn 
+the theoretical models into policy prescriptions. Indeed, we find it hard to tell whether industrial policies 
+have been successful even after the fact. Given this lack of clear guidelines, it is very naive to suppose that 
+government agencies can somehow intuit their way to appropriate policies.” (Krugman, 1987) 
+  34
+families and businesses recover from national disasters.”9 The total amount of loans 
+awarded by the SBA has tripled after 199210. Japan has its own Small and Medium 
+Enterprise Agency (METI) that provides a wide variety of services ranging from help 
+obtaining venture capital to management consultancy and “smoothing adaptation to 
+changes in the economic and social environment.”11 The list of country level agencies 
+could go on and on. 
+ 
+Multinational donors are also increasingly active in supporting small and medium size 
+businesses. The World Bank, for example, spent over two billion dollars in 2004 on SME 
+and micro enterprise support programs. Eighty percent of those funds were used for 
+financing programs in developing countries.12  
+ 
+The European Union, one of the most active regions in supporting national champions in 
+the 1960s and 1970s, is today a leading promoter of active support programs for small 
+business. This support was made explicit in June 2000, when the heads of state from all 
+member countries met in Portugal to discuss the most effective ways to foster innovation 
+and competitiveness in the region. An essential part of the European Union’s push to 
+foster innovation was the adoption of the Charter for Small Enterprises, which clearly 
+articulates the way small firms are viewed by many policymakers: 
+“Small enterprises are the driving force for innovation and job creation in Europe. Their 
+small size makes them very sensitive to changes in the industry and environment in which 
+                                                 
+9 http://www.sba.gov/aboutsba/index.html 
+10 U.S. Small Business Administration, Results Report, Report to Employees July 2005—June 2006, pp 2. 
+11 http://www.chusho.meti.go.jp/ 
+12 World Bank project database. 
+  35
+they operate. This is why emphasis was placed on the need to facilitate the development 
+of small enterprises by the Heads of State or Government and the European Commission 
+at the European Council in Feira (Portugal) on 19 and 20 June 2000.  
+The Heads of State or Government and the European Commission acknowledge the 
+dynamic capacity of small enterprises, particularly when it comes to providing new 
+services, creating jobs and fostering social and regional development. They also stress 
+the importance of entrepreneurship and of not penalising some of the failures. “13 
+The Lisbon agenda justified an expansion of various incentives for small firms at the 
+national level, such as lower tax rates or direct funding. Another layer of programs was 
+added at the EU level. For example, the Joint European Resources for Micro to Medium 
+Enterprises (JEREMIE), a new program endowed with over 11 billion Euros, is 
+scheduled to become operational in 2007.14 JEREMIE will offer advisory and technical 
+assistance, equity and venture capital and guarantees both for micro credit loans and SME 
+loans. 
+ 
+The European Union’s pro-small business programs reflect a desire on the part of its 
+members to increase the area’s competitiveness in innovative, cutting edge industries. 
+Governments in poorer countries have somewhat different objectives, and are frequently 
+more focused on employment and growth, rather than being at the technological cutting 
+edge. What both groups have in common is a desire to replicate a “successful” economic 
+                                                 
+13 European Charter for Small Enterprises, adopted by the European Council in June 2000.  
+14 http://www.eif.europa.eu/jeremie/ 
+  36
+environment in their economy, in the hope this will translate into economic performance 
+comparable to that of the market leaders.  
+ 
+From a historic perspective, the recent small business support programs are reminiscent 
+of the pro-national champion policies of earlier decades. There is a strong similarity, for 
+example, between the “innovation” based arguments used to justify these pro-small 
+business programs and those iterated during the national champion era. Small firms are 
+also commonly described as drivers of innovation.  
+ 
+As a theoretical argument, the case for industrial policies is rarely disputed: a 
+policymaker endowed with sufficient information could improve on market outcomes. 
+The trouble is, real world policymakers rarely have enough information, when they need 
+it, to effectively target the right areas of the economy. To make matters worse, 
+bureaucrats may not have the right incentives to make the best policy decisions from a 
+welfare standpoint. The net effect of these difficulties is that actual policies are often 
+based on the wrong targeting criteria.  
+ 
+Efforts to assess the link between firm size and innovation empirically fail to give 
+convincing answers. Macro level studies relying on cross country statistical analysis raise 
+doubts as to the benefits of a large SME sector: there seems to be no evidence that it is 
+the SMEs which cause rapid economic growth. Rather, high growth rates seem to be the 
+result of a good institutional mix that leads to – strong enforcement of property rights, 
+reasonable regulation, and macroeconomic stability (Biggs, 2002, or Beck, Demirguc-
+  37
+Kunt and Levine, 2003). Studies undertaken from a micro perspective also often offer 
+ambiguous answers15. Some authors show that in many cases large firms are far more 
+productive than smaller ones (see for example William Lewis, 2004, pp30, for a 
+discussion of McKinsey’s productivity case studies in Japan), while others find the 
+opposite result (reference). Systematic empirical evidence on positive externalities by a 
+subset of firms has also been harder to come by16.  
+ 
+These indecisive statistical results are not entirely surprising. Much of the empirical 
+discussion seeking correlations between the size of a certain sector and economic 
+performance are “engineering”17 efforts often lacking an in depth understanding of why 
+firm size should matter in the first place.  
+ 
+In this paper I argue that firm size is the result of the risk and uncertainty in their 
+operating environment. Because of its endogenous determination, firm size cannot 
+become a policy target in and of itself. The primary lesson from the now discredited 
+national champion era is not that large firms are inherently less worthy of redistributive 
+programs, but that attempts to micro-manage the “mix” of small and large businesses in 
+the economy may not be effective at stimulating growth.  
+                                                 
+15 A good survey of empirical studies into the link between firm size and innovation rates can be found in 
+chapter nine of Freeman and Soete’s book The Economics of Industrial Innovation. 
+16 Acemoglu and Angrist (2001) discuss the difficulty of establishing an empirical basis for even the least 
+controversial “knowledge” externality – the return to schooling.  
+17 Mankiw argues economists can be broadly classified as engineers and scientist: “My premise is that the 
+field has evolved through the efforts of two types of macroeconomist—those who understand the field as a 
+type of engineering and those who would like it to be more of a science. Engineers are, first and foremost, 
+problem-solvers. By contrast, the goal of scientists is to understand how the world works.” (Mankiw, 2006) 
+Much of the empirical literature on small firms, innovation and growth can be classified as an 
+“engineering” effort, often without a solid understanding of why firm size should matter in the first place. 
+  38
+ 
+2.2 Firm size, risk and uncertainty 
+ 
+As is the case with many topics in economics, the discussion of firm size can be traced 
+back to Adam Smith and his Wealth of Nations.  In his epic book Smith points out that 
+people are far more productive when they specialize and trade with each other than when 
+they work separately. Smith demonstrates his point with an example of the division of 
+labor in a pin factory18.  
+ 
+                                                 
+18 “To take an example, therefore, from a very trifling manufacture; but one in which the division of labour 
+has been very often taken notice of, the trade of the pin-maker; a workman not educated to this business 
+(which the division of labour has rendered a distinct trade), nor acquainted with the use of the machinery 
+employed in it (to the invention of which the same division of labour has probably given occasion), could 
+scarce, perhaps, with his utmost industry, make one pin in a day, and certainly could not make twenty. But 
+in the way in which this business is now carried on, not only the whole work is a peculiar trade, but it is 
+divided into a number of branches, of which the greater part are likewise peculiar trades. One man draws 
+out the wire, another straights it, a third cuts it, a fourth points it, a fifth grinds it at the top for receiving the 
+head; to make the head requires two or three distinct operations; to put it on, is a peculiar business, to 
+whiten the pins is another; it is even a trade by itself to put them into the paper; and the important business 
+of making a pin is, in this manner, divided into about eighteen distinct operations, which, in some 
+manufactories, are all performed by distinct hands, though in others the same man will sometimes perform 
+two or three of them. I have seen a small manufactory of this kind where ten men only were employed, and 
+where some of them consequently performed two or three distinct operations. But though they were very 
+poor, and therefore but indifferently accommodated with the necessary machinery, they could, when they 
+exerted themselves, make among them about twelve pounds of pins in a day. There are in a pound upwards 
+of four thousand pins of a middling size. Those ten persons, therefore, could make among them upwards of 
+forty-eight thousand pins in a day. Each person, therefore, making a tenth part of forty-eight thousand pins, 
+might be considered as making four thousand eight hundred pins in a day. But if they had all wrought 
+separately and independently, and without any of them having been educated to this peculiar business, they 
+certainly could not each of them have made twenty, perhaps not one pin in a day; that is, certainly, not the 
+two hundred and fortieth, perhaps not the four thousand eight hundredth part of what they are at present 
+capable of performing, in consequence of a proper division and combination of their different operations.” 
+Smith, An Inquiry into the Nature and Causes of the Wealth of Nations, I.1.3. 
+  39
+Smith’s pin factory example, interpreted literally, can be considered as one of the first 
+explicit discussions of the determinants of firm size19. The main prediction of the pin 
+factory model is that larger companies should have higher productivity levels than 
+smaller ones. As long as it is technically feasible to split the production of a good into 
+smaller and smaller sub-tasks, large firms will come to dominate every industry. This is 
+troubling prediction, as the real world is clearly not made up solely of large companies, 
+but, a mix of firms of all sizes interacting side by side. Much of the modern theory of the 
+firm can be understood as an attempt to complement the economies of scale described in 
+Smith’s pin factory.  
+ 
+A key contribution to the literature on the boundaries of the firm came in 1921, when 
+Frank Knight introduced his concept of uncertainty. Knight argued that people use two 
+mechanisms to form expectations about the future. On one hand, there are situations, such 
+as betting on the roll of a fair die, in which people know the true statistical distribution of 
+expected outcomes, and consequently the amount of “risk” involved in an activity. On the 
+other hand, people may contemplate actions whose distribution of outcomes is not 
+known. In this case, agents must use “statistical probabilities” – attempts to discover the 
+possible distribution of outcomes from existing observations.20 When the distribution of 
+                                                 
+19 Smith’s pin factory example also opens up the debate on increasing vs. constant returns to scale. David 
+Warsh offers a great review of the main arguments in this discussion in his Knowledge and the Wealth of 
+Nations (2006).  
+20 “There are two fundamentally different ways of arriving at the probability judgment of the form that a 
+given numerical proportion of X's are also Y's. The first method is by a priori calculation, and is applicable 
+to and used in games of chance. This is also the type of case usually assumed in logical and mathematical 
+treatments of probability. It must be strongly contrasted with the very different type of problem in which 
+calculation is impossible and the result is reached by the empirical method of applying statistics to actual 
+instances. As an illustration of the first type of probability we may take throwing a perfect die. If the die is 
+really perfect and known to be so, it would be merely ridiculous to undertake to throw it a few hundred 
+  40
+outcomes for an action is unknown and there are no available empirical observations, 
+people operate under “true uncertainty”.  
+ 
+The difference drawn by Knight between risk and uncertainty is in my opinion highly 
+relevant for the discussion related to firm size as it provides a good tool to organize the 
+literature that examines firm size into two groups. The first, usually identified with the 
+neoclassical theory of the firm, is exclusively concerned with how risks affect the 
+production decisions of a firm. The second family of models focuses on the role of 
+uncertainty in shaping firm’s structure and behavior. Since each group of papers 
+addresses quite different economic processes, I will review them separately.  
+ 
+2.2.1 The neoclassical theory of the firm: risk and firm size 
+ 
+Modern economics formalized the relationship between risk and the behavior of the firm. 
+There are three families of models linking risk to firm size (Bauer, 2005). Each analyzes 
+how the firm’s output behavior changes when it faces risks in different areas: demand, 
+access to inputs, and methods of production. Within each area two strands of research can 
+be identified. The first focuses on how environmental factors change the internal 
+structure of the firm: how worker compensation is structured, how decision making 
+                                                                                                                                                 
+thousand times to ascertain the probability of its resting on one face or another. And even if the experiment 
+were performed, the result of it would not be accepted as throwing any light on the actual probability. The 
+mathematician can easily calculate the probability that any proposed distribution of results will come out of 
+any given number of throws, and no finite number would give certainty as to the probable distribution. On 
+the other hand, consider the case already mentioned, the chance that a building will burn. It would be as 
+ridiculous to suggest calculating from a priori principles the proportion of buildings to be accidentally 
+destroyed by fire in a given region and time as it would to take statistics of the throws of dice.” (Knight, 
+1921, III.VII.25.) 
+  41
+mechanisms are designed, etc. The second family of papers examines how the firm’s 
+production decisions are likely to be affected by environmental and policy changes 
+(Greenwald and Stiglitz, 1990). 
+ 
+There are three areas of risk that can impact a company’s size and structure. First, there is 
+risk about the demand for a firm’s product. Second, the methods of production used may 
+change quite dramatically. Third, acquiring the right inputs may be a challenge. All these 
+risk factors are in turn affected by meta-factors of risk, such as institutional instability 
+and the technological environment21.  
+ 
+A. The neoclassical theory of the firm with risky demand 
+ 
+The first formalized model of a firm’s productive behavior which incorporated risk was 
+proposed by Sandmo in 1971, and subsequently extended by a number of writers (Coes, 
+1977, Feder 1977). The model removes the assumption that the demand for products is 
+known with certainty at the time when output decision is made. The firm’s utility is 
+modelled to be increasing in profit, but with a decreasing marginal utility of profit (Bauer 
+2005). Firms are thus assumed to be risk averse and maximize: 
+ 
+Max Ev(πi) = Epi – (1 + r) * c(qi).  
+ 
+                                                 
+21 Knight writes: “The world is made up of objects which are practically infinite in variety as aggregates of 
+sensible qualities and modes of behavior not immediately sensible. And when we consider the number of 
+objects which function in any particular conduct situation, and their possible variety, it is evident that only 
+an infinite intelligence could grasp all the possible combinations.” (Knight, 1921, III.VII.15) 
+  42
+Here “π” is the firm’s uncertain profit, c(qi) is the cost function, “q”  is the output level, 
+“Epi” is the expected price and interest rate “r” is the opportunity cost of staying in 
+business. The profit maximizing output for the firm must satisfy: 
+ 
+Ev(πi)[ Epi – (1+r)c’(q*)]+cov[v’(πi ), pi] = 0 
+ 
+The last equation captures the main predictions of the neoclassical models of the firm: a 
+risk averse firm will have a negative covariance between the marginal utility of income 
+and price, and will produce less than a risk neutral firm. Coes (1977) also shows that the 
+more “stretched” the distribution of the expected price around a mean the larger the gap 
+between a risk averse and risk neutral firm will be. Put differently, this conclusion would 
+seem to indicate that when demand for a product is riskier firm size tends to be small. 
+ 
+B. Risk in acquiring inputs: asset specificity and access to finance 
+ 
+Following Coase (1938), a large part of the industrial organizations literature focuses on 
+the importance of transactions costs in shaping the structure of the firm. In his 
+breakthrough article, Coase describes the firm as a system of relationships where 
+resources are organized and combined using an internal allocation mechanism, different 
+from “external” alternative to coordination through “markets” and price signals (Coase 
+1937, pp 393). Coase argues that the boundaries of the firm are shaped by the relative 
+magnitude of coordination and transaction costs inside companies versus those in outside 
+“markets”.  
+  43
+ 
+This transactions cost approach gave rise to a number of insightful articles on the 
+structure of the firm. Williamson (1983) applied the transactions costs argument to asset 
+specificity. In some cases, Williamson agued, investments made to support a particular 
+transaction have a higher value to that transaction than they would if used for any other 
+purpose. This can create “captive” rents which can ex-post be appropiated by one of the 
+parties, reducing the incentive to make the investment in the first place. A possible 
+solution to this dillemma is vertical integration. The classic example in this literature is 
+the purchase of Fisher-Body by General Motors in 1919 and 1926 (Klein, 1988) 22.  
+ 
+Grossman and Hart formalized the transactions costs model of the firm in 1986. They 
+distinguish between two types of contractible rights to an asset: residual and specific. 
+When it is costly to describe and contract over all specific rights, it can be optimal to let 
+one party purchase all residual rights.  
+ 
+The conclusion from this literature seems to be that, when access to a particular resource 
+is difficult and/or requires firm specific investments, vertical integration is a possible 
+solution, and firm size is expected to rise (Klein 1988, Grossman and Hart 1986, Hart and 
+Holmstrom, 2002). 
+ 
+C. Risk in financial markets: capital structure and agency theory of the firm 
+                                                 
+22 Klein (1998) notes that some writers, including Ronald Coase, reject the idea that vertical integration was 
+a better solution for the hold-up problem than long term contracts. Klein argues that long term contracts are 
+never complete and can create hold-up problems of their own.  
+  44
+ 
+Risk in financing firms accounts for an entire literature attempting to explain the capital 
+structure of the firm. The seminal article in this field was written by Modigliani-Miller 
+(1958), and outlined the “irrelevance principle”. Simply stated, the principle shows that, 
+in the absence of taxes, bankruptcy costs, and asymmetric information, the value of a 
+firm is unaffected by how that it finances itself. This means it makes no difference if the 
+firm is financed by issuing stock or taking out debt, or whether it pays dividends or 
+retains its earnings in the firm. The Modigliani-Miller principle spurred a large number of 
+studies analyzing what happens when one or more of the theorem’s assumptions are 
+violated and risk is introduced into the model. 
+ 
+Jensen and Meckling (1976) integrate elements from the neoclassical theory of the firm, 
+agency theory and finance to argue that, when firms use a mix of debt and equity 
+managers will be risk averse and firms will produce less than in a Modigliani-Miller 
+neoclassical world. Greenwald and Stiglitz (1993), reach a similar conclusion.23 Bauer 
+(2005) extends the Greenwald-Stiglitz model and shows that firms remain risk averse 
+even when they can raise extra equity. Both models find that firms with access to more 
+equity are less risk averse and produce more than those which are more equity 
+constrained.  
+ 
+                                                 
+23 The Greenwald and Stiglitz paper is written in the New-Keynesian tradition of establishing micro-
+foundations for macroeconomic cycles. In this case, asymmetric information in financial markets ensures 
+cyclical behavior can easily be persistent, and may even be made worse when wages and prices are more 
+easily adjustable. 
+  45
+The less information asymmetry there is between lenders and borrowers, the easier and 
+cheaper it is for firms to raise financing of any kind. Larger firms certainly fit this profile, 
+as they tend to be tracked by more financial analysts, have more standardized and 
+transparent accounting standards and, in the case of debt financing, more assets to offer 
+as collaterals (D’Melo and Ferris, 2000). 
+ 
+ 
+2.2.2. Firm size, uncertainty and growth 
+ 
+The level of mathematical formalism reached by neoclassical economists in describing 
+the link between risks in the business environment to firm size brings a great deal of 
+precision to the discussion, but fails to address some important questions. Most notably, 
+neoclassical models of the firm ignore Knightian uncertainty, which by definition refers 
+to unknown, and thus un-modelable, distributions of possible outcomes. This makes main 
+stream economic theory appropriate for firms with short term horizons, over which they 
+are not overly concerned with the fundamental changes in their business environment. 
+Given the role such fundamental changes play in economic growth, ignoring them is 
+highly unsatisfactory. As Bauer points out “time and uncertainty are integral parts of 
+economic reality and omitting these facts is like playing Hamlet without Hamlet.” (Bauer, 
+2005, pp 3)  
+ 
+ 
+ 
+  46
+ 
+A. Creative destruction, uncertainty and firm size 
+ 
+Early writers on the theory of the firm recognized the importance of Knightian 
+uncertainty. This is clear, for example, in Joseph Schumpeter’s first book - the Theory of 
+Economic Development, written in 1912. Schumpeter starts with the simple observation 
+that standard economic models predict no profits when systems are in “equilibrium”: all 
+firms merely enjoy “normal” returns. This prediction is at odds with the real world, where 
+many firms do in fact manage to obtain extra-normal returns. Schumpeter contends that 
+the puzzle must imply that the real world economy is often not in “equilibrium”. 
+Furthermore, Schumpeter notes, the economic agents who stand to enjoy extra-normal 
+profits have strong incentives to try to move away from equilibrium and break the status 
+quo. These incentives are the very fuel which keeps the engine of wealth creation going 
+in a capitalist system. Schumpeter calls this dynamic force “entrepreneurship”, and sees it 
+as being primarily the work of individual firm owners operating at the fringes of the 
+established “circular flow” of goods and services, in new and typically small firms 
+(Scherer 1992). These small firms venture into areas of Knightian uncertainty and make 
+discoveries capable of causing systemic changes and great leaps forward24. 
+ 
+                                                 
+24 Following Schumpeter’s 1912 book, the term “entrepreneurship” is to this day associated with small 
+firms, even in academic circles. Business schools for instance often offer courses in “small business 
+management” under the entrepreneurship curriculum (Foss and Klein, 2004). Similarly, new efforts to 
+measure “entrepreneurship” rely in large part on the share of small businesses and/or the number of startups 
+in an economy (see for instance the Global Entrepreneurship Monitor). 
+  47
+Subsequent authors pointed out that Schumpeter’s description of entrepreneurship in the 
+Theory of Economic Development is greatly simplified. In particular, there are many 
+“entrepreneurial” acts undertaken by large firms. Established companies often have more 
+resources dedicated to research and development activities compared to new start-ups 
+(Beck, Demirguc-Kunt and Levine, 2003). Additionally, the idea of an extra-normal rate 
+of return must go hand in hand with some degree of monopoly power. Larger companies 
+may be in a better position to obtain and use this market power. By 1942 Schumpeter 
+himself becomes convinced of the importance of monopoly rents for the innovative 
+process. Schumpeter’s most famous term “creative destruction” coined in his 1942 book, 
+refers to a process driven mainly by large corporations: 
+ 
+“What we have got to accept is that [the large firm] has come to be the most powerful 
+engine of … progress and in particular of the long run expansion of output not only in 
+spite of, but to a considerable extent through, this strategy which looks so restrictive … 
+In this respect, perfect competition is not only impossible but inferior, and has no title to 
+being set up as a model of ideal efficiency.” (Schumpeter, 1942, p. 106)25 
+ 
+Schumpeter’s two accounts of creative destruction point to two important 
+misunderstandings. First, “innovation” and “entrepreneurship” are not homogenous 
+commodities. Second, the difference between risk and uncertainty is important for 
+understanding the role of firm size in generating the “creative destruction” process. Some 
+                                                 
+25 Schumpeter is reluctant to “accept” this trend, and worries about its consequences. The process of 
+turning innovation into scientific routine made the art of the entrepreneur obsolete. Scientists and 
+bureaucrats working for large corporations would replace entrepreneurs, eventually paving the way for 
+socialism. Capitalism would become the victim of its own success. 
+  48
+entrepreneurial activities could plausibly be best undertaken by small firms, while others 
+are primarily driven by large companies.  
+ 
+B. Product life cycles, uncertainty and firm size 
+ 
+A major area of study that deals with the possibility of multiple types of innovation and 
+their link to firm size is the product life cycle (PLC) literature. Insights from a variety of 
+fields are used to draw loose analogies between the evolution of industries and that of 
+biological organisms. Typically PLC models are less concerned with describing a 
+complete general equilibrium system and more interested in explaining particular 
+observed patterns in real world industries.  
+ 
+The product lifecycle literature makes clear distinctions between different types of 
+discoveries or innovations. Jovanovic and MacDonald, for example, argue that in the 
+early stages of an industry demand is uncertain, and a great deal of effort goes into 
+product research. Once some general standards are in place the innovative emphasis 
+shifts to process research and development. (Jovanovic and MacDonald 1994a,b). In a 
+separate paper Klepper summarizes: 
+ 
+“when a product is introduced, there is considerable uncertainty about user preferences 
+(even among the users themselves) and the technological means of satisfying them. As a 
+result, many firms producing different variants of the product enter the market and 
+competition focuses on product innovation. As users experiment with the alternative 
+  49
+versions of the product and producers learn about how to improve the product, 
+opportunities to improve the product are depleted and a de facto product dubbed a 
+dominant design, emerges. Producers who are unable to produce efficiently the dominant 
+design exit, contributing to a shake- out in the number of producers. The depletion of 
+opportunities to improve the product coupled with locked-in of the dominant design leads 
+to a decrease in product innovation. This in turn reduces producers’ fears that 
+investments in the production process be rendered obsolete by technological change in 
+the product. Consequently, they increase their attention to the production process and 
+invest more in capital-intensive methods of production, which reinforces the shakeout of 
+producers by increasing the minimum efficient size firm.” (Keppler, 1996, pp 562-563) 
+ 
+It is important to note that, while PLC models discuss Knightian uncertainty and place 
+structural change at the heart of the conversation, they are in agreements with many 
+predictions made by neoclassical models of the firm. As Keppler suggests, higher levels 
+of risk or uncertainty on the demand side, for example, are expected to reduce firm size in 
+both neoclassical and PLC models26.  
+ 
+Amar Bhide captures the essence of this similarity between neoclassical models of the 
+firm and life cycle type models in his excellent book Origin and Evolution of New 
+Businesses (2000). Bhide offers a fascinating account of how new companies get started, 
+operate in their early days, and grow. The centerpiece of the book however is the 
+                                                 
+26 It should be noted that in the neoclassical models of risky demand firms produce less only when they 
+behave in a risk averse manner. By contrast, PLC models do not require this strong assumption. 
+  50
+observation that there is a negative relationship between the amount of Knightian 
+uncertainty faced by a firm and its size. (Figure 1) 
+ 
+Bhide also shows that few startups in fact operate in entirely new fields. More often, new 
+companies tweak existing products trying to find niches for themselves where they do not 
+have to directly compete with larger firms. The search for such niches represents taking 
+on some uncertainty, deviating from the industry standards.   
+ 
+Large corporations are unlikely to be able to compete with smaller firms for highly 
+uncertain projects.  Careful planning, an area where large firms generally have a 
+competitive advantage, does not help very much in uncertain environments27. Poor 
+incentive alignment can easily make operating a hierarchical structure considerably more 
+difficult, as it is harder to infer the effort put in by agents at all levels and monitoring 
+costs increase abruptly. By contrast, in small firms there is a closer relationship between 
+owners, investors and employees, incentives are better aligned and principal-agent 
+problems tend to be of lesser importance. This enables these firms to better explore 
+uncertain opportunities.  
+                                                 
+27 Alfred Marshall first proposed adding “organizational capital” as a factor of production (Schumpeter 
+1954, pp 559). This factor is extremely helpful when dealing with repetitive tasks, but considerably less 
+useful (or even counter-productive) in uncertain environments.  
+  51
+ 
+Figure 2: Uncertainty, investments and profits28. 
+ 
+ 
+It is important to note that a critical part of this discovery process is early recognition of 
+failures. There are two important reasons for allowing firms to exit an industry quickly. 
+First off, the quicker bad projects are closed down, the faster resources will be 
+redistributed to higher end yields. Second, failed ideas provide important information in 
+uncertain environments. This knowledge is greatly diluted when it is harder to distinguish 
+between the successful and failed innovations. Given the high failure rates of small firms 
+engaged in innovative activities, it is quite likely that programs supporting the entire 
+group reach many under-performing companies.  
+ 
+                                                 
+28 http://www.bhide.net/book/Bhide_book_talk.PDF  
+  52
+Taken together, these findings indicate that small and large firms perform rather different 
+and often complementary entrepreneurial acts. Trying to single out one group as THE 
+main driver of innovation in the economy is ill-conceived. Small firms are needed to 
+explore areas of uncertain demand and production methods, but it is large companies that 
+invest in the process R&D necessary to lower prices and greatly increase welfare.  
+ 
+2.3. Conclusions 
+ 
+In this paper I have argued that the size and structure of firms is primarily determined by 
+a number of risk factors they face. Two frameworks exist for looking at the precise 
+connection between these risks and firm structure. The first is the neoclassical theory of 
+the firm, which emphasizes the importance of quantifiable risks. Neoclassical theory is 
+very useful for understanding firm behavior around a position of equilibrium, where no 
+great disturbances take place. The second window into what determines the size of a 
+typical company places its emphasis on Knightian uncertainty. This theory is less formal 
+and precise, but better equipped to analyze the link between creative, equilibrium-
+changing innovation and firm size and structure. 
+ 
+The neoclassical theory of the firm predicts that firms will be smaller when the variability 
+of demand around a mean is higher, when firm owners are more risk averse, and when 
+the methods of production are not well known. By contrast, larger, more vertically 
+  53
+integrated firms are predicted to emerge when the major risk comes from acquiring inputs 
+and/or relationship specific investments are needed.  
+ 
+Knightian uncertainty is important for understanding the role of small firms in the 
+process of innovation. When firms are faced with a set of decision for which the 
+distribution of demand and the best method of production are not knowable a priori and 
+for which there are very few empirical data points, the natural response of individual 
+businesses is to construct such as a set of observations. This is best done by many small 
+firms through a process of gradual experimentation with alternative product variants, 
+production methods, contractual structures, bribes, etc. Large firms do not perform well 
+at this task due to fast rising principal agent problems and monitoring cost. Additionally, 
+many of the major advantages of being large are negated in such an environment.  
+ 
+Viewing firm size as endogenously determined by the various risk factors present in a 
+firm’s environment is an approach with important policy implications. In developing 
+economies small firms may well have an advantage in dealing with weak and corrupt 
+government – where there uncertainty in dealing with all levels of authority may require a 
+flexible and experimental approach. Attempts to simply replicate the mix of small to 
+large firms observed in more advanced nations is a fruitless exercise as long as the 
+underlying local risk factors remain the same. In developed countries, where 
+policymakers tend to focus more on fostering innovation and structural change, a similar 
+problem exists: innovation rates are not driven by a particular ratio of small to large 
+  54
+firms. Instead, firm size is again endogenously determined and influenced by the rate of 
+technological change and the increased levels of uncertainty it entails.  
+ 
+Programs supporting small firms do not simply change the mix of large to small firms. 
+Firm behavior within a target group is also affected. Small firms operating in a free 
+market environment help discover new products and production methods by an adaptive 
+process of experimentation and failure. Under an industrial policy regime, by contrast, 
+subsidies to small firms may well slow this discovery process by encouraging firms to 
+stay in the market longer than they should. Differentiating between winning innovations 
+and failures can become more difficult. Paradoxically, the “small business sector” as a 
+whole may well be less innovative when it receives government support.  
+ 
+Reducing institutional risks for all participants regardless of their size is likely to have a 
+bigger positive impact on the overall economy. In particular, market entry and exit should 
+be as easy as possible. 
+ 
+ 
+ 
+ 
+ 
+  55
+ 
+ 
+3. A framework for analyzing SME financing 
+ 
+ 
+ 
+ 
+Introduction 
+ 
+Starting with the mid 1990’s it has become widely accepted in policy making circles that 
+directly supporting small and medium size enterprises29 is good for economic 
+development. The dominant view shared by policy makers is that SMEs are essential 
+sources of innovation, growth and employment, but that their development is prevented 
+by a wide range of market imperfections. This analysis forms the basis for a series of 
+programs aimed at actively supporting SMEs.  
+ 
+Access to financing is perceived as a particularly important problem for the SME sector. 
+Firms of a smaller size have a harder time accessing financial markets than their larger 
+counterparts. The main factor driving this fact is the greater information asymmetry 
+between owners/managers and potential investors in the case of small firms. Typically a 
+smaller business will have less standardized accounting systems and shorter histories, 
+making it harder for financial institutions to assess its creditworthiness. The problem is 
+compounded by the fact that small enterprises typically own fewer assets they can use as 
+collateral. 
+                                                 
+29 The European Union defines Small and Medium Sized Enterprises as firms with less than 250 employees 
+and either an annual turnover of less than ECU 40 million or an annual balance sheet total not exceeding 
+ECU 27 million. (Recommendation 96/280/EC.) 
+  56
+ 
+Information asymmetry problems are typically worse in developing countries. This is the 
+direct result of a more unpredictable environment and less sophisticated financial 
+markets: specialized institutions and available financing instruments, no credit rating 
+agencies, limited and unreliable information available – all reflected in higher financing 
+premiums. For these reasons, as we saw in the previous section, international 
+development agencies typically dedicate a good deal of efforts to provide additional 
+funding for SMEs in developing countries. 
+ 
+3.1 The effectiveness of SME financing programs 
+ 
+This great level of interest in small business financing programs motivated a number of 
+studies on policy effectiveness. Conclusions vary with the authors, and an overall verdict 
+on pro-SME programs is not clear.  
+ 
+A strong theoretical argument in favor of any aid program is the promise that even minor 
+reforms which successfully relax “binding constraints” can lead to sustained growth30. On 
+the other hand, failure to correctly diagnose a country’s problems may render otherwise 
+sensible reforms useless31. Policymakers could, in principle, identify the general causes 
+behind observed inadequacies in financing markets and design programs to address them.  
+                                                 
+30 Rodrik cites the example of China, where relatively minor but ultimately very successful policy changes 
+in the agricultural sector worked very well, creating social and political capital for further reforms.  
+31 Rodrik et al (2005) argue that it is relatively easy to differentiate between two large groups of problems: 
+low access to finance and low returns to economic activity. The authors offer the example of El Salvador, 
+which seems to have ample savings and good access to capital, and Brazil, where credit is scarce. 
+  57
+ 
+In practice such precise diagnostics are always difficult, and the implementation of the 
+corresponding reforms even harder. Still, the question of how well a program targets the 
+relevant constraints on development remains essential: failure here can waste resources 
+and even have a negative impact on the recipient. There is some evidence that donor 
+activity is correlated with lower growth rates and poorer economic performance 
+(Djankov, Montalvo and Reynal-Querol, 2005). Some authors suggest that poorly 
+designed aid programs can bring with them a “resource curse” and damage local 
+institutions, increase corruption and in the end be detrimental to the target country’s 
+economy (Brautigam and Knack, 2004). The defenders of foreign aid are not persuaded, 
+and point out that it should be no surprise that countries which receive more aid have 
+lower growth rates: that is where help is most needed. This debate is not likely to be 
+conclusively resolved through cross country regressions32. What seems clear is that how 
+well aid is targeted matters a great deal.  
+ 
+Financing programs targeting the private sector are typically less controversial than those 
+offering aid to national governments.  In general, programs that introduce new 
+products/technologies are regarded as having the best chance to avoid the “resource 
+curse” problem which can undermine local institutions. When they do not overlap with 
+                                                                                                                                                 
+Implementing the same set of economic policies in the same sequence in both nations is unlikely to be the 
+best way forward. 
+32 For a review of the problems with empirical research on the determinants of growth see: Why we learn 
+nothing from regressing economic growth on policies, Rodrik, 2005.  
+ 
+  58
+existing financing institutions crowding out effects of the private sector should also be 
+minimal. 
+ 
+Success in this area is most often associated with microcredit programs, yet a similar 
+reasoning could apply to SME schemes. The most frequently cited example of a 
+financing program that spurred widespread financial sector changes is that of microcredit 
+lenders in Latin America33. The first regional programs of lending to the poor were 
+started by NGOs in the 1970s, with ACCION International as one of the first 
+organizations to get involved. The NGOs implemented credit evaluation techniques that 
+were novel at the time. At the center of this approach were the use of “social capital” as 
+collateral and a more careful applicant evaluation. By the early 1990s some microcredit 
+programs in Latin America applied for licenses to accept deposits from the population, 
+moving upstream to becoming commercial banks. The first NGO to transition into a full 
+fledged “bank for microentrepreneurs” was BancoSol of Bolivia, which opened its gates 
+in 1992. BancoSol started off with some 22,000 customers. Over the next five years 
+BancoSol proved the feasibility of microloans by registering low arrears for Bolivia 
+(around 3.5%) and being some 10% more profitable than traditional Bolivian commercial 
+banks. This success spurred imitators all over Latin America, and seems to be a case 
+where innovative screening methods and new products introduced by non-commercial 
+organizations revolutionized financing for poor people.34 
+                                                 
+33 http://topics.developmentgateway.org/microfinance/rc/ItemDetail.do~1060460?itemId=1060460 
+Grameen type programs were independently started in South-East Asia around the same time, but there is 
+less evidence of “demonstrational” effects there. 
+34 For a more skeptical view on the impact of microfinance see Jonathan Morduch, 1998. Nathanael 
+Goldberg, 2005, provides a broader review on the topic. 
+  59
+ 
+Expertly designed and targeted programs may be difficult to create and implement in the 
+real world. In The White Man’s Burden, for example, William Easterly describes at 
+length many instances in which policies aimed at spurring economic growth failed over 
+and over again in many parts of the world or time periods. The main problem faced by 
+aid programs, as Easterly points out, is that policymakers are “planners” who rarely have 
+all the knowledge necessary to identify the relevant constraints, devise adequate solutions 
+and implement them fast enough to remain relevant. 
+ 
+In this paper I am directly interested on how well SME financing programs fit the 
+“binding constraints” policy model, and how they are impacted by real world imperfect 
+information. While the essay is written starting from observations on two specific 
+financing schemes, the questions I address are framed for a far broader range of 
+programs. Many of my conclusions are also easily generalized. 
+ 
+3.2 SMEs and the financial sector: possible constraints 
+ 
+In order to correctly identify the source of problems in the market for SME financing a 
+broad analysis of the overall economy is necessary. We can distinguish between four 
+separate types of agents that are relevant to this market: small and medium enterprises, 
+financial institutions, regulators, and a broad category of “other agents” that encompass 
+households, micro enterprises, large firms and state owned businesses.  
+ 
+  60
+A multitude of exchanges takes place between these actors, as shown in diagram one. 
+Regulators receive taxes and fees in exchange for contract enforcement, setting standards 
+and providing of some basic infrastructure services. Financial institutions provide a broad 
+range of financial products to firms, ranging from basic loans and deposits to trade 
+finance, structured finance or leasing. In exchange for these facilities financiers receive 
+some payments, either in the form of interest or as fixed service charges. The SME sector 
+purchases a number of inputs from larger firms or directly from households, while in turn 
+selling their products to them for revenues.  
+ 
+The interrelated nature of an economy means that serious problems with any of these 
+relationships will impact all other areas. A lack of activity in the SME financing sector, 
+for example, could well be driven by problems that originate elsewhere. Direct financing 
+programs, with their narrow focus on supplementing the product offer for a particular 
+group of agents, should therefore not be viewed as the universal cure for improved access 
+to funding. When the most pressing problems lie elsewhere such programs are not going 
+to be effective.  
+ 
+Broadly speaking, there are seven areas that can at any given time be problematic:  
+ 
+A. SME regulation 
+ 
+A vast number of rules and regulations can affect the viability of a small business. Tax 
+levels matter for the firms’ capacity to repay loans. In some countries paying taxes also 
+  61
+imposes significant administrative costs on firms35. In other regions dealing with licenses 
+may be a large impediment for firms. Labor market regulation is often a huge cost for 
+smaller firms in many countries (Botero et al, 2004). The quality of a country’s court 
+system matters greatly for contract enforcement (Djankov, 2002). Bankruptcy laws can 
+also make an important difference in how willing a lender will be to disburse funds to 
+firms (Djankov et al 2007).  
+ 
+ 
+                                                 
+35 The doing business database maintained by the World Bank estimates that in Brazil, for example, a 
+medium size firm spends some 2,600 hours in a preparing forms for 23 different tax payments. In Belarus a 
+company is required to make 125(!) different payments each year, which take a combined 1,188 hours. 
+  62
+SME 
+financing  SME Sector  Revenues, 
+programs 
+Inputs 
+ 
+Set tax rates, labor 
+laws, contract 
+Financial 
+Lobbying 
+enforcement, etc. 
+products  Revenues 
+Feedback 
+Votes 
+Taxes 
+Lobbying 
+Feedback 
+Financial  Taxes  Regulators 
+institutions 
+Financial sector 
+regulation, 
+Taxes 
+Lobbying 
+Feedback 
+Revenues  Set tax rates, labor 
+Financial  Votes 
+laws, contract 
+products  Taxes 
+enforcement, etc. 
+Revenues, 
+Inputs  Other agents: large firms, micro 
+  enterprises, households. 
+Figure 3: SME financing in the economy. 
+ 
+ 
+ 
+ 
+  63
+B. SMEs’ influence on regulators 
+ 
+Regulators are influenced by SMEs in a number of ways. Direct interaction with 
+individual firms provides the basic feedback to regulators about necessary changes. Small 
+businesses also interact with regulators through associations that represent large groups 
+of entrepreneurs. When these basic mechanisms of communication do not function 
+properly more forceful methods, such as organized protests, can take their place.  
+ 
+Indirectly firms also influence regulators through the amount of taxes they pay. In 
+countries with oppressive regulation an incentive for change comes from the promises of 
+attracting tax revenues from firms operating in the informal sector. 
+ 
+SMEs’ influence on regulators is not always efficiency enhancing. In a number of 
+countries strong SME lobbies manage to pass legislation that hurts development by 
+limiting entry and scale. In some industries large firms are far more productive than 
+smaller ones, but small firms succeed in getting government protection against 
+competition, with large detrimental effects on growth and productivity (see for example 
+William Lewis, 2004, pp30, for a discussion of McKinsey’s productivity case studies in 
+Japan). 
+ 
+ 
+ 
+C. Financial sector regulation 
+  64
+ 
+Poor regulation of the financial sector can easily damage its competitiveness. In many 
+countries entry is restricted, which reduces pressure on incumbents to expand their range 
+of services. In other areas taxation of financial institutions can be a problem. Price caps 
+on the interest rates lenders can legally charge to small businesses also restrict the range 
+of products that are legally offered. In India, for example, banks often cannot break even 
+on small loans because of regulation, mostly from local states, that forbids them charging 
+the necessary interest rates (Radcliffe and Tripathi, 2006). 
+ 
+D. Financial sector’s influence on regulators 
+ 
+Financial institutions can exercise some amount of pressure on regulators to change 
+unfavorable legislation. As with other companies, this can be done through direct 
+lobbying or indirectly, through the promise of bringing in more tax revenues from 
+formerly illegal activities. 
+ 
+Large financial institutions will sometimes lobby for less, rather than more competition. 
+In a market dominated by a few large banks, for example, these can be expected to 
+attempt to limit entry. This in turn can have an adverse effect on the financing products 
+offered. 
+ 
+E. Inadequate financial products 
+ 
+  65
+Distortions coming from parts A through D exert a large influence on the range of 
+products offered by the financial sector at a given point in time. Yet there may be other 
+problems with SME financing that originate in the financial sector itself.  
+ 
+Financial products are similar to goods in other markets: they need to address the specific 
+needs of their intended users. This requires creative thinking and innovative solutions, 
+and incumbent firms can fail to provide these types of advances. A 2007 report by the 
+Boston Consulting Group notes that today’s financing industry is badly structured to 
+reach small customers in developing countries. The study finds that banks, for example, 
+use a top down decision making process which is not conducive to the type of innovation 
+needed to develop new products that target small customers. 
+ 
+Lack of innovation can have a negative impact in two areas of the financing market. First, 
+it can reduce the range of available products. Second and perhaps more importantly, it 
+can raise production costs for existing services when inefficient technology is used. 
+ 
+The primary problem firms operating in financial markets face stems from the 
+information asymmetry between lenders and borrowers. The screening methods used to 
+reduce this asymmetry are an essential part of the “production technology” used by 
+financial firms. Improvements in the screening process would make financing available 
+to a wider range of agents. 
+ 
+F. Inadequate revenues for financial institutions 
+  66
+ 
+Financial institutions tend to charge SMEs higher fees and commissions in order to 
+compensate for higher processing costs and higher risks. If for whatever reasons small 
+businesses are unable to pay the premiums, banks will be reluctant to deal with them. In a 
+perfectly competitive environment this reality simply means that only projects/businesses 
+that generate a high enough return to pay the premiums are financed. However, in real-
+world situations there may be lots of distortions induced by various factors:  
+-  Regulatory. Capping interest rates charged to small businesses is a typical 
+example of policy aimed at supporting SMEs, which results in fewer transactions 
+between lenders and small firms36. Many other bad regulations of the SME or of 
+the financial sector have a negative impact on their capacity to do business with 
+each other.  
+-  Technological. Financial institutions do not have or do not use appropriate 
+solutions/products for small businesses which results in excessive costs.  
+-  Market structure. When the financial sector is weak and uncompetitive, banks 
+enjoy some degree of monopoly power over firms and tend to pick only the deals 
+most profitable for them. This usually means favoring large operations. 
+ 
+G. Weakness in the broader economy 
+ 
+A weak economy impacts SME financing in a variety of ways. A region with poor 
+households and no profitable large firms is unlikely to attract a lot of activity in its 
+                                                 
+36 Radcliffe and Tripathi offer a good review of these interest caps in India, for example. 
+  67
+financial sector, which will in also lead to fewer products being offered to SMEs. Weak 
+overall conditions also have a negative impact on the firm’s ability to sell its products and 
+obtain inputs. This can make individual SMEs less predictable and can also negatively 
+impact profitability. In such an environment even the financial intermediaries that do 
+operate are likely to offer fewer products and charge higher premiums.  
+ 
+3.3 SME Financing Programs: Two Case Studies from Romania 
+ 
+Project financing comes in a variety of forms, from strictly commercial programs where 
+an investor seeks to maximize profits, to pure donations. Many “development” programs 
+position themselves somewhere in between these polar cases. Common examples are 
+matching grants or loans with subsidized interest rates.  
+ 
+To try to cover as much as possible of this diversity of real world small business 
+financing programs I picked two funding schemes that were quite different in their 
+design. The first program was managed under the European Union’s Phare initiative. The 
+program’s objectives were pronouncedly “social”, and implementation was done through 
+grants. The second program I chose was managed by the European Bank for 
+Reconstruction and Development (EBRD). It was designed as a chiefly “commercial” 
+instrument to provided loans to qualifying SMEs. 
+ 
+For each of the two programs I conducted a number of semi-structured interviews with 
+people from the implementing agency and entrepreneurs that benefited from the 
+  68
+programs. I also had interviews with individuals from financial institutions, consultants 
+on financing, and the president of an SME association. The interviews were conducted 
+over a period of five weeks in the summer of 2004. 
+ 
+My first goal is to see how well the two programs I studied perform at the micro-level: 
+what firms are reached, how honest or corrupt is the actual implementation, and how 
+participant firms perform subsequently. One of the programs I chose has a pronounced 
+social character, so I will also examine how it achieves these goals.  
+ 
+This basic understanding of each program will then help me evaluate each of the two 
+schemes on their impact in the development of the broader Romanian SME financing 
+sector. To this end, I will rate the program’s effectiveness in each of the seven areas I 
+outlined in section 3.3.  
+ 
+In both cases I use two types of evidence: firm level interviews and macroeconomic / 
+sector data.  
+ 
+3.3.1. Program impact at the firm level 
+ 
+A first step towards evaluating the effectiveness of SME financing programs is to look at 
+the impact they have on participant firms. At this level we can see if the funding reaches 
+“good” firms and if it helps honest entrepreneurs prosper. 
+ 
+  69
+Consider the example of Mr. Constantin Cucu, a Romanian entrepreneur I interviewed in 
+the summer of 2004. Mr. Cucu was the CEO and owner of Cubus Tech. The company 
+was located in Bucharest and specialized in advertising and printing. Mr. Cucu founded 
+the company in 1994, using personal funds. Over its lifetime Cubus Tech has grown 
+significantly: in 1994 the firm had four employees and revenues of $10,000; by 2004 the 
+company had 45 workers and sales were over $2 million, with assets around $1.5 million. 
+In 2004 the company was number seven in the Romanian advertising industry.  
+ 
+In 2004 Mr. Cucu decided to expand the output of his printing shop by 30%. To achieve 
+this goal Mr. Cucu asked his bank – Banca Transilvania37 - for advice on the best 
+financing options available to him. BT was happy to help, and offered him a loan from an 
+EBRD line designed to provide medium term financing to SMEs. Mr Cucu became a 
+beneficiary of the SME financing program backed by the EBRD. 
+ 
+The Banca Transilvania SME credit line that Mr. Cucu benefited from was part of a 
+larger EBRD loan facility approved in December 1996, covering a number of early 
+transition countries. At the time, the EBRD assessed that banks in Romania did not 
+provide adequate medium and long term financing to SMEs.  
+ 
+                                                 
+37Romanian bank founded in 1993 in Cluj-Napoca (Transilvania) as a local alternative to larger state owned 
+banks dominant by that time. BT enjoyed early local success and gradually expanded its network 
+throughout Romania. Today (end of 2006) BT has a market share of around 4.6%, total assets of some US$ 
+3.1 billion, total equity of $153 million and a net profit of $46.8 million. BT is also one of the most actively 
+traded companies on the Romanian stock market, with a market capitalization of $1.2 billion. The fact that 
+BT developed from scratch in Cluj forced the bank to rely heavily on small local clients. This focus on 
+small businesses created in BT a corporate culture and philosophy that was different from that of the larger 
+Romanian banks, placing BT as one of the leading Romanian banks in financing start-ups. 
+  70
+Banca Transilvania was chosen as one of the first participants in the EBRD SME Credit 
+Line. The EBRD started its partnership with BT in 1999, by investing an initial 5 million 
+Euros into the bank in exchange for equity participation. The 5 million were used to 
+create a credit line for SMEs that would provide medium term financing in both foreign 
+currencies and Romanian Lei. The first installment of the program was very successful, 
+with many requests for financing and thus a large pool of quality projects to choose from. 
+The loans performed well, with a default rate under 1%. The success of the first SME 
+credit line extended to BT led the EBRD to invest an additional 5 million Euros into the 
+Romanian bank. This makes the EBRD the largest stakeholder in BT, with 15% of the 
+total shares38.  
+ 
+Like Mr. Cucu, typical beneficiaries of the EBRD SME loans are solid companies with 
+very clear investment plans and profitable projects. The soundest available projects are 
+prioritized for financing, and many “success” stories seemed to be generated at an 
+individual firm level.  
+ 
+This good rate of success at the level of individual firms comes from two sources. First, 
+offering financing in the form of a loan forces good projects to self select themselves into 
+the program. A firm that does not think it will be able to repay the loan is unlikely to 
+apply in the first place. Second, the commercial character of the program insures that the 
+implementing agency has every incentive to screen applicants carefully and work closely 
+with them for the duration of the project. Often times, for instance, BT offered a number 
+                                                 
+38 The rest of 85.% of the shares are owned by investors with less than 5% each. 
+  71
+of consulting services to participant firms and developed a long standing relationship 
+with them.  
+ 
+In summary, the EBRD credit line looks like a success at the level of individual firms: 
+•  The screening process was rigorous and honest. 
+•  The financing reached solid firms. 
+•  The projects that got funded are generally profitable. 
+•  Participant firms often experienced good growth rates. 
+ 
+A second approach to SME financing is exemplified by AP39, a participant in the PHARE 
+RICOP grant scheme I interviewed in 2004. AP started his business in the summer of 
+1992, when he had just graduated college and returned to his home town of Brasov. By 
+pure chance he one day met a truck driver who was delivering oranges from Greece. The 
+driver was desperately trying to find a buyer for a truck full of oranges, as the store he 
+was supposed to deliver them to refused to pay for them. AP offered to buy the oranges 
+from the truck driver for a very low price. Worried that the oranges were going to spoil, 
+the truck driver accepted. AP sold the oranges in Brasov and made a small profit from the 
+deal. Immediately AP started to look for a way to invest his newly found money. AP’s 
+father was working in heavy truck factory in Brasov at the time, and though it would be a 
+good idea to use the funds to start a small truck repair shop. AP agreed to use the money 
+                                                 
+39 Firms participating in the RICOP program are in principle tracked for a period of two years by the 
+Romanian government to ensure they maintain certain contractual obligations. This Policy Comment could 
+create some problems for the entrepreneurs I interviewed, so I will avoid using the full name of the 
+business and its owner.  
+  72
+he had to purchase a small plot of land adjacent to the highway where they could build a 
+garage and repair trucks.  
+ 
+By 2004 there was little growth in AP’s truck repair business. He did manage to buy a 
+larger plot of land in 2001, but it remained mostly empty, occupied by only a small shop 
+selling auto parts. The firm never had a high volume of customers, as it averaged between 
+one to two truck repairs per week. This made AP unwilling to commit to any commercial 
+loan, unsure that he can generate the cash flows to pay the money back.  
+ 
+In 2002 AP learned from the internet of the RICOP grants for SMEs. He assumed that 
+most of the grants must be given away on some political criteria, or at least that some 
+bribery had to be involved. Still, he figured it cannot hurt to learn more about the RICOP 
+grants.  
+ 
+The RICOP Grant program came from a fairly long tradition of European Union SME 
+financing grants in Romania, started in 1992 with a ECU 4 million scheme. Most 
+recently, the EU offered through its PHARE office grants for SMEs through RICOP – the 
+Industrial Restructuring and Professional Reconversion Program. RICOP was designed to 
+target areas with high rates of unemployment, where layoffs took place in the process of 
+closing down or restructuring state owned enterprises. The goal of the RICOP program 
+was to “support job creation and economic growth” by helping applicant SMEs with 
+  73
+matching grants between ECU 10,000 and ECU 100,000. The total amount to be 
+distributed was ECU 30 million.40 
+ 
+The RICOP program had ambitious objectives for both participant firms and local 
+communities. Job creation and economic growth were central policy objectives of the 
+program. The RICOP scheme was trying to simultaneously achieve more objectives than 
+the EBRD program discussed earlier. This multitasking affected the program’s design in 
+a number of ways.  
+ 
+First of all, it was argued that because of its “social” component (job creation), the 
+program was not meant to operate on a purely commercial basis. This translated into a 
+choice of handing out grants rather than making loans. The grants were seen as an 
+instrument to encourage job creation even in areas where there would otherwise be no 
+employment opportunities.  
+ 
+Second, a number of requirements were imposed on firms applying for the grants: they 
+had to be an SME from an area with high unemployment rates (five such areas were 
+designated in Romania); they had to be able to show a profit for the past two years; they 
+were asked to partly match the EU grant; for each ECU 5,000 received a new job must be 
+created; no alternative (commercial) source of funding should be available for the project. 
+These requirements were imposed in addition to the “standard” screening process used by 
+                                                 
+40See www.ricop.ro  
+  74
+commercial loans, making the procedure for obtaining a grant fairly difficult. Often, 
+business owners reported that it was easier to obtain a bank credit than a RICOP grant. 
+ 
+The disbursement of the grants was to be done through Banca Comercial Romana (The 
+Romanian Commercial bank – BCR), the largest bank in Romania, controlling almost 
+25% of the banking sector’s assets. Using BCR as the implementing agency helped the 
+RICOP program in two ways: it provided both a good network of local offices and a large 
+number of credit officers trained to screen regular financing applications. 
+ 
+The “standard” set of screening requirements was first applied to ensure that firms 
+obtaining the grants were worthy recipients; SMEs that did not qualify were screened out. 
+The additional requirements imposed on applicant firms were seen as necessary to ensure 
+that the social objectives of the RICOP program would be met.  
+ 
+After reading up on the RICOP program AP drew up a business plan that seemed to meet 
+the grant requirements: he proposed an expansion of his auto repair business through the 
+construction of a large service garage, where seven trucks could be repaired 
+simultaneously. The RICOP grant AP requested was for the amount of ECU 70,000. To 
+meet the RICOP requirements on job creation AP estimated he would need 15 new 
+workers once construction of the new garage would be complete. Once the business plan 
+was complete AP submitted it to the RICOP office, without much hope of being 
+accepted. To his surprise, AP got the PHARE financing, without resorting to any bribery 
+or using any connections. Work on the new seven truck garage started. 
+  75
+The desire to simultaneously reach viable projects that can be seen as “success” stories 
+while at the same time achieving “social” goals and expanding financing to ventures that 
+cannot obtain funds from commercial sources created a fundamental tension in the 
+RICOP program.  
+ 
+In an attempt to showcase “success stories” at the firm level, PHARE required very 
+rigorous ex-ante screening of applicant firms, making it harder to obtain RICOP grants 
+than regular commercial loans.41. While this rigorous screening ensured relatively high 
+applicant quality, the process was incongruent with the programs’ goal of expanding 
+traditional sources of financing, rather than replacing them. In annex A, section 1.6, of 
+the RICOP application, for example, entrepreneurs are asked why their (presumably solid 
+firms) cannot obtain other forms of funding for the project. When I asked entrepreneurs 
+how they answered the question I always got a surprised reaction: most people did not 
+remember that question; all entrepreneurs I interviewed told me it would not have been 
+very hard to obtain funding from other sources (granted in most cases the investment 
+would not have been made in the absence of a grant). This design inconsistency 
+highlights a difficult question facing all non-profit financing programs: how do you 
+consistently pick “winners” that were missed by the existing private sector financing 
+system?  
+ 
+                                                 
+41 For a broader criticism of donor’s bias towards visible projects see William Easterly’s “The White Man’s 
+Burden”. 
+  76
+In the case of the RICOP program, the use of grants made the situation worse: not only 
+did the grants go to firms that in fact could have found alternative financing, but they also 
+went to projects that were rarely very profitable. Interviewing people such as AP I 
+learned that the use of grants encouraged SMEs to apply for funding even when they do 
+not have a clear investment plan in mind. Just like AP, entrepreneurs typically did not 
+apply for the grants because of a particularly good business opportunity, but simply 
+because funding was available. In the process, business plans were drawn up and usually 
+“prepped up” to pass through the screening process while entrepreneurs frequently did 
+not believe in the forecasts they made. In my interviews I found that grant beneficiaries 
+frequently listed as a major challenge for the future “using up the entire productive 
+capacity” available after the new investment. When asked about future plans, AP, for 
+example, simply stated that it would be great to keep the new truck repair shop working 
+anywhere near full capacity. He was not sure he could find enough customers, as he’d 
+never attracted that volume of clients before. This means investments made with grant 
+money rarely turn out to be as profitable as they were projected to be in the original 
+business plans. 
+ 
+The principal agent problem we see here is one all financing programs have to face: the 
+objectives of the principal (the development agency) are naturally misaligned with those 
+of the agent (the beneficiary). As with all principal-agent problems the two available 
+solutions are better monitorization or a better incentive scheme. 
+ 
+  77
+Monitorization by the agency disbursing the grants it is often very difficult. It is quite 
+hard for the agency to correctly assess the ex-ante profitability of a project. Ex-post 
+monitorization (output based aid, an increasingly popular instrument with international 
+development agencies), is also not easy when financing SMEs. It is unclear what 
+parameters should be monitored, and how this could be done effectively. The RICOP 
+program, for example, attempted to use ex-post monitorization and ran into many 
+practical difficulties. In theory, once the money was disbursed by BCR, the Romanian 
+government was going to monitor participant firms for a two year period, to insure they 
+maintained a set of “indicators”. For example, new jobs should have been created, as 
+stipulated in the contract. Entrepreneurs knew such monitoring was in reality quite 
+difficult: they often felt that in the unlikely event of an inspection they could always bribe 
+their way out of trouble, or simply declare they intended to create the jobs at a later date. 
+The choices made during the program design meant that many of the RICOP jobs are 
+only created on paper.  
+ 
+Because of these difficulties in solving the principal agent problem through increased 
+monitorization, changing the incentives themselves may work better. Using loans rather 
+than grants tends to minimize the principal agent problem, as entrepreneurs who do not 
+think they can repay a loan will generally not apply for financing, unless they have 
+outright fraudulent intentions. Entrepreneurs have a much stronger incentive to make 
+more accurate forecasts about the future of their business when they share the costs of 
+possible failure.  
+ 
+  78
+To summarize, the RICOP program exemplifies the problem of trying to achieve too 
+many goals with the same instrument. Multitasking often leads to a lack of understanding 
+over which goals are actually prioritized and the design of the program suffers. The end 
+results are a diminished impact of the RICOP grant scheme at the firm level:  
+•  The screening process was rigorous and “honest”. There were no reports in the 
+press of blatant abuses of the RICOP funds, for example. 
+•  The grants reached solid firms. 
+•  The firms the program reached typically did have access to alternative sources of 
+funding. 
+•  The projects that got funded were not necessarily viable on a commercial basis. 
+•  Participant firms often did not grow very fast after receiving the RICOP grants. 
+•  The “social” objectives of the program were not achieved well. In particular, 
+firms often did not create the numbers of jobs they promised in their business 
+plans. The belief that the RICOP program can at the margin trade some growth 
+impact for job creation proved to be illusory. 
+ 
+3.3.2 Lessons from the Romanian case study –SME programs and financing sector 
+development 
+ 
+Financing programs often aim to do a lot more than provide temporary relief for a target 
+group. The more ambitious goal is to help provide “sustainable”, long term financing 
+solutions. This can only be achieved through the broader development of the financial 
+sector, a process which leads to the creation of new products and improves financing 
+  79
+“depth”. This section focuses on the question of how well the two programs I studied 
+target the “binding constraints” for SME funding, and how successful they are at 
+facilitating the financial sector’s development.  
+ 
+The theoretical outline from section 3.3 offers a natural way to frame this discussion. As I 
+argued there, many factors can lead to low levels of financial intermediation. Direct 
+funding programs only target a small subset of problems. Moreover, direct funding 
+schemes are likely most effective when they introduce innovative new financial products 
+in the market. 
+ 
+Similarly to all other entrepreneurs I interviewed in 2004, Mr. Cucu felt that access to 
+financing for SMEs had improved significantly compared to previous years. Mr. Cucu 
+felt that even in the absence of the EBRD facility he would still have received funding 
+from BT for his expansion. He was confident in his business plan and his company had a 
+good track record. He felt financing of good projects was generally available. More 
+detrimental to his business were in Mr. Cucu’s opinion the relatively high taxation, the 
+system of permits, the frequently changing regulation and competition from the networks 
+of friends in the state owned sector of the economy. Mr. Cucu also mentioned that he did 
+not plan on hiring any new workers with the expansion of his business. He preferred to 
+substitute labor with capital, and was investing the entire amount of the credit in 
+acquiring new machinery. Excessive regulation of the labor market, particularly the 
+difficulty of firing incompetent full time employees, was the main reason Mr. Cucu tried 
+to avoid hiring more workers.  
+  80
+ 
+AP also felt that financing was not the most important concern for him, but for a slightly 
+different reason: he could afford to take his time in expanding his garage; did not feel he 
+was missing out on a great immediate business opportunity. Comparing AP’s experience 
+with that of Mr. Cucu, it is clear that small firms are not a homogenous group. Some 
+innovate, experiment and grow, others do not. Reallocating scarce resources towards the 
+latter group can easily have a negative impact for the economy. Even if funding programs 
+could somehow overwhelmingly target the innovators, it is unclear they would have a 
+beneficial impact. Small firms typically have a comparative advantage in uncertain 
+environments, where trial and error experimentation helps reveal the best production 
+methods, the customer’s tastes, and so on. At this stage it is critical firms recognize 
+failure early and either change strategies or exit. Programs that slow down this process by 
+rewarding all firms of a certain size could well be counter-productive when they keep 
+scarce resources in low yield projects. The lesson is that SME support programs can 
+change the behavior of firms in a detrimental way, by reducing the rate of turnover 
+essential for adaptive innovation. 
+ 
+AP felt that the biggest problems facing SMEs felt were the large number of licenses and 
+permits required for constructing new buildings (a pressing issue for him, in the middle 
+of the expansion process). Taxation and frequently changing legislation were also issues 
+AP viewed as important.  
+ 
+  81
+Can this improvement in the availability of financing for SMEs be viewed as a success of 
+financing programs such as the EBRD SME credit line or the RICOP grants? The EBRD, 
+and most other developmental agencies, would like to at least in part answer “yes”.  
+ 
+The EBRD SME loan program made an explicit goal of helping Romanian small firms 
+find long term, sustainable financing solutions. To achieve its objective the EBRD 
+correctly believed its program had to impact the broader financial sector. The EBRD 
+identified three channels through which it could influence the quality and depth of SME 
+financing:  
+ 
+•  Investing in local banks would strengthen their balance sheets, improve corporate 
+governance and increase the level of competition in the financial sector. 
+•  Leading by example: if an SME credit line can be proven successful, other banks 
+would be more likely to start their own similar programs.  
+•  Training bank staff in evaluating SME credit applications as a way of building 
+institutional lending capacity.  
+ 
+During my stay in Romania I had several informal interviews with local bankers, to help 
+me asses the impact of programs such as the EBRD’s SME lending scheme on the 
+financial environment of Romania. The general feeling was that their long term impact 
+was minimal. It was certainly not the cost of training bank personnel, for example, that 
+kept banks from lending to SMEs, but rather the fact that other market segments were 
+more attractive at that time. Training of personnel was not, by itself, going to change that 
+  82
+fundamental fact. The binding constraint in this case was not access to training programs, 
+and the EBRD did not introduce any new screening techniques. 
+ 
+The Romanian financial sector has undergone major structural reforms starting from 
+1998, centered on banks’ privatization. In 1998, 47 commercial banks were licensed to 
+operate in Romania, out of which the 7 state owned banks dominated the market in terms 
+of assets (64% of the banking assets), loans (around 60% of total loans to non-
+governmental institutions) and territorial coverage (about 1400 out of the total number of 
+1500 branches and agencies in the country)42. In the early 1990s many of the state owned 
+banks were directed by the Romanian government to give out loans to loss making state 
+owned enterprises. Large non – performing credits accumulated on the banks’ balance 
+sheets. By 1997 a crisis was imminent, and by 1998 many banks were forced to file for 
+bankruptcy43. The wave of bankruptcies brought the Romanian financial system to the 
+brink of total collapse by early 1999. To its credit, the Romanian government managed to 
+avoid a crash by radically restructuring the banking system. In 1999 two major banks 
+with a sound financial situation were privatized: the Romanian Development Bank 
+(BRD) and Banc-Post, both acquired by large multinational banks (Societe Generale and 
+General Electric respectively). By the end of the 1999 state ownership in the banking 
+system had fallen to 46%. Privatization progressed during the early 2000s and was 
+                                                 
+42 See Claudiu Doltu, The Evolution of the Banking System in Romania. 
+43 The most notable victim at the time was Bancorex – owner of some 25% of the Romanian banking 
+system’s assets. The Romanian government unsuccessfully tried to bail out the banks, investing some $600 
+million (about 2% of GDP at the time) into a recapitalization of Bancorex. Banca Agricola was the second 
+largest bank in distress, primarily because of its large portfolio of government directed non performing 
+loans to the agricultural sector. Banca Agricola was restructured and in 2001 successfully sold to 
+Raiffeisen. 
+ 
+  83
+practically completed by the end of 2006, when the largest bank in the system, Banca 
+Comerciala Romana, was sold to ERSTE Bank from Austria, Currently, 37 out of the 
+total of 39 credit institutions are now in private hands while foreign capital controls 89% 
+of the banking assets,  
+ 
+Privatization dramatically changed the way banks operate: government lending declined 
+(from 11% of the banking assets in 2000 to 1.6% of the banking assets in 2006) while 
+lending to households and companies increased over five times, from less than RON 6 
+billion in 2000 to over 30 billion in 2006. At less than RON 1 bn., lending to state-owned 
+companies remains marginal. Not only the available funds for businesses increased, but 
+the cost of lending was reduced substantially: nominal interest rates came down from 
+over 40% a year in 2000 to less than 10% in 2006. The lending process itself was much 
+improved, with new products and procedures adopted by local banks drawing on the 
+experience of their parent company abroad. Practically all banks now are competing for 
+small business clients and advertise specially designed products and procedures for 
+SMEs.  
+ 
+Bank privatization is without a doubt the most important development in improving the 
+availability of financing for Romanian firms. The process brought large multinational 
+institutions to Romania, immediately increasing the level of competition in the financial 
+markets, improving local governance and raising the amount of available funds. Although 
+banks remain the most important financial intermediaries, other institutions are 
+  84
+increasingly playing a role in providing funds to SMEs: leasing companies, private equity 
+funds, microcredit organizations.  
+ 
+A second crucial factor contributing to the creation of a better financing environment is 
+increased macroeconomic stability. Lower and lower inflation rates increased the 
+credibility of the National Bank of Romania and reduced perceived uncertainty 
+surrounding future monetary policy. This lower risk perception led banks to decrease the 
+share of government securities in their portfolio, and to loan out more money. More 
+stable inflationary expectations also reduced the spread between deposits and credits, 
+making financing affordable to a larger segment of economic agents. The sustained 
+growth and overall better environment had a positive effect on the companies’ balance 
+sheets, improving their capacity to take credit.  
+ 
+Table 7: Romania macroeconomic indicators 
+  85
+ 
+Finally, a series of legislative initiatives were passed by the Romanian government in an 
+effort to align domestic legislation to the EU legislation that substantially improved the 
+business environment44. A special law was passed in 2001 that created favorable 
+conditions for small enterprises (simplified taxation based on revenues, not on profit).  
+ 
+These important structural changes caused a rapid increase in the availability of domestic 
+non governmental credit after 2000. The level of bank deposits as percentage of GDP, 
+also increased significantly45. 
+ 
+In this broader context the macroeconomic impact of the two SME financing programs I 
+discuss in this paper is likely to be very limited. I conclude that the program’s impact is 
+negligible for a number of reasons: 
+•  The programs fail to offer innovative, sustainable, financial products or new 
+lending technologies. The RICOP program uses grants, which are not 
+commercially viable and will disappear once the program ends. The BT credit line 
+fails to offer new screening techniques and products. This means the medium 
+term impact on the financial services market is negligible. 
+•  In the short run the programs can supplement existing funds and improve the 
+“depth” of financing. However, crowding out effects seem to have been quite 
+                                                 
+44 It is worthwhile to note that Romania has in 2005 adopted a flat tax system: corporate profits as well as 
+personal income are taxed at 16%.  
+45 In spite of these recent improvements financial intermediation in Romania remains relatively low. For 
+2003 total banking sector assets amounted to 33% of GDP in Romania, compared with a Euro zone average 
+of 260% or an east European average of about 70%.  
+ 
+  86
+large for both schemes, as participant firms typically could have found alternative 
+sources of financing. 
+•  Grants awarded through the RICOP project were likely to go to lower yield 
+projects and generate little growth. Entrepreneurs applied for funding even when 
+they lacked confidence in the viability of their investment, which often result in 
+misallocated resources.  
+•  Volume: the two financing lines are almost invisible as a share of total credit. 
+ 
+Table 8: The impact of the RICOP SME financing program in Romania 
+ 
+ 
+ 
+ 
+ 
+ 
+  87
+ 
+ 
+Table 9: The impact of the BT SME financing program in Romania 
+ 
+ 
+To the extent that today it is easier for SMEs to obtain financing in Romania, as both my 
+interviews and the macroeconomic data suggest is indeed the case, this is an 
+improvement that cannot be attributed to direct financing programs. The Romanian case 
+illustrates clearly that direct funding programs can easily fail to target the financial 
+system’s binding constraints, and instead focus on treating their symptoms.  
+ 
+3.4 Conclusions 
+ 
+In this paper I have argued that any aid program needs to start with a careful investigation 
+of the binding constraints affecting the economy at a particular point in time. It is only 
+after such an analysis is complete that policymakers can hope to pick effective programs 
+and avoid superfluous or potentially damaging ones.  
+  88
+ 
+SME financing programs cannot be expected to act as universal cures for observed 
+inadequacies in the funding markets. There are many factors that can lead to inadequate 
+SME financing which direct funding programs cannot address: SME regulation, SME-
+regulator influence, financial sector regulation, the degree of pull exerted by the lenders 
+on regulators, the competitiveness of SMEs in the economy, and the overall prosperity of 
+households and other firms.  
+ 
+The most promising route for direct financing programs to have a lasting impact is 
+through promoting new and innovative products or lending technologies that are designed 
+for clients without access to existing funding sources. 
+ 
+In reality, direct financing programs are rarely implemented as a result of a careful 
+analysis of the “binding constraints”. Rather, they represent a knee-jerk reaction to 
+observed lack of financing, an attempt to treat the market’s symptoms while ignoring the 
+underlying ailment. As a result, most financing programs fail to make a lasting impact on 
+financial markets. 
+ 
+I illustrate this problem with two case studies of financing schemes implemented in 
+Romania between 1998 and 2004. My analysis indicates that the binding constraint in 
+Romania was not an insufficient offer of financing products per say, but poor regulation 
+and a lack of competitiveness in a financial sector dominated by state owned banks. Not 
+  89
+surprisingly, I find that the two programs I studied likely did not play an important role in 
+providing a sustainable solution for small end medium enterprise financing.  
+ 
+The Romanian case studies also illustrate a series of practical problems that confront 
+most direct financing programs. Imperfect information, for example, means that even the 
+short run impact of the two programs was not very impressive: they only reached firms 
+that were able to obtain funding elsewhere. In some cases skewed incentives gave 
+participant entrepreneurs a reason to overestimate the profitability of the provided funds.  
+The long time it usually takes from the original design of the program and its 
+implementation is another important concern, even when the relevant constraints can be 
+carefully identified at the start of the program. In the case of Romania, many of the 
+impediments to financing initially identified by the program designers had changed by 
+the time it was implemented, making it either irrelevant or inadequate.  
+ 
+Another concern about programs designed to support smaller firms is that they may 
+change firm behavior in a counter-productive way. Small firms as a group play an 
+important part in risky/uncertain environments, where small scale experimentation and 
+adaptation important parts of the discovery process. A key ingredient in such 
+environments is quick exit/failure. Subsidies rewarding all small firms likely slow down 
+this process and reduce the rate of innovation. 
+ 
+My findings provide project level evidence for a problem previously identified by a 
+number of authors: skewed incentives faced by development agencies and 
+  90
+policymakers46. Experimenting with new financing instruments or selection algorithms 
+takes a considerable degree of entrepreneurial spirit, and reaching out to firms which do 
+not use financial markets carries significant project risks. International development 
+agencies currently face only weak incentives to pursue such innovative opportunities. 
+There are much stronger incentives to manufacture project level “success stories” and 
+highlight them to donors by selecting safer firms who may already be able to access 
+funding from alternative sources. The race for “success stories” may also play a part in 
+the choice of direct financing programs even in areas where they will clearly fail to 
+address the system’s binding constraints. My paper provides a critical tool for analyzing 
+these “success stories”, and some hope for improving future programs.  
+                                                 
+46 See for instance Eastely, 2006. 
+  91
+Appendix 
+ 
+ 
+ 
+"Kitchen Sink" model results
+probit cancelation corr_avg rol_avg regq_avg eff_avg stab_avg acct_avg sector
+total contract LOG_PPPPC pcpipch bca_ngdpd fx_nstd lp REGION_N
+Iteration 0:00 Log likelihood = -602.337
+Iteration 1:00 Log likelihood = -567.775
+Iteration 2:00 Log likelihood = -566.592
+Iteration 3:00 Log likelihood = -566.589
+Iteration 4:00 Log likelihood = -566.589
+Probit estimates Number of obs = 3262
+LR chi2(11) = 71.5
+Prob > chi2 =  0
+Pseudo R2 =  0.0593
+ 
+ 
+ 
+ 
+ 
+Significance testing for groups of variables: 
+test  corr_avg  rol_avg  regq_avg  eff_avg  stab_avg 
+           
+  1    corr_avg  =  0 
+  2    rol_avg  =  0 
+  3    regq_avg  =  0 
+  4    eff_avg  =  0 
+  5    stab_avg  =  0 
+  6    acct_avg  =  0 
+           
+  chi2(6) =   16.97       
+  Prob > chi2 =  0.0094       
+  92
+           
+           
+test  sector  contract  total     
+           
+  1    sector  =  0 
+  2    contract  =  0 
+  3    total  =  0 
+           
+  chi2(3) =   35.85       
+  Prob > chi2 =  0       
+           
+           
+test  LOG_PPPPC  pcpipch  bca_ngdpd  fx_nstd   
+           
+  1    LOG_PPPPC  =  0 
+  2    pcpipch  =  0 
+  3    bca_ngdpd  =  0 
+  4    fx_nstd  =  0 
+           
+  chi2(4) =  10.18       
+  Prob > chi2 =  0.0375       
+ 
+ 
+ 
+ 
+ 
+Rule of Law descriptive stats: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Bureaucratic effectiveness descriptive stats: 
+  93
+ 
+ 
+ 
+  94
+ 
+References 
+  95
+ 
+References 
+ 
+Agenor, P.R., and Moreno-Dodson, B., 2006. “Public Infrastructure and Growth: New 
+Channels and Policy Implications.” Working paper, available at 
+http://www.new-rules.org/docs/epiam/agenor1.pdf 
+ 
+Alchian, Armen A., 1965. “The Basis of Some Recent Advances in the Theory of 
+Management of the Firm.” Journal of Industrial Economics (November): 30-44. 
+ 
+Alchian, Armen A., 1968. Corporate Management and Property Rights. Economic Policy and 
+the Regulation of Securities, Washington, D.C., American Enterprise Institute. 
+ 
+Alchian, Armen A., 1979. “Some Implications of Recognition of Property Right Transaction 
+Costs”. Economics and Social Institutions. 
+ 
+Aschauer, D., 1989. "Is Public Expenditure Productive?" Journal of Monetary Economics 
+23, 177-200. 
+ 
+Aschauer, D., 1989. “Public investment and productivity growth in the group of seven.” 
+Economic Perspectives 13, 17-25. 
+ 
+ 
+Bauer, Michal, 2005. “Theory of the Firm under Uncertainty: Financing, Attitude to Risk 
+and Output Behavior”. Institute of Economic Studies, Faculty of Social Sciences, 
+Charles University in Prague, Czech Republic. 
+ 
+Beck, Thorsten, Demirguc-Kunt, Asli , Laeven, Luc A. and Levine, Ross, "Finance, Firm 
+Size, and Growth", 2004. NBER Working Paper No. W10983. 
+http://ssrn.com/abstract=635386 
+ 
+Beck, Thorsten, Asli Demirgüç-Kunt, and Vojislav Maksimovic, 2005. “Financial and 
+Legal Constraints to Firm Growth: Does Firm Size Matter?” Journal of Finance, 60, 137-
+77. 
+ 
+Boettke, Peter J., Coyne, Christopher J., and Leeson Peter T., 2005. Hayek vs. the 
+Neoclassicists: Lessons from the Socialist Calculation Debate in Elgar Companion to 
+Hayekian Economics, Edward Elgar Publishing Ltd., Norman Barry, edition. 
+ 
+Botero, Juan & Simeon Djankov & Rafael Porta & Florencio C. Lopez-De-Silanes, 2004. 
+"The Regulation of Labor," The Quarterly Journal of Economics, MIT Press, vol. 119(4), 
+pages 1339-1382, November. 
+ 
+ 
+  96
+Boucheas, S., Demetriades, P.O., and Mamuneas, T. P., 2000. “Infrastructure, specialization 
+and economic growth”. Canadian Journal of Economics Vol. 33, no. 2, 506-522.  
+ 
+Boycko, M., Shleifer, A., and Vishny, R. W., 1993. ‘‘Privatizing Russia.’’ Brookings 
+Papers Econ. Activity, no. 2, pp. 139–81. 
+ 
+Buchanan, James, 1960, "La scienza delle finanze: The Italian Tradition 
+In Fiscal Theory", in Buchanan J. Economics: Between Predictive Science and Moral Philosophy, 
+Texas A&M University Press, 1987. 
+ 
+Calderon, C. and Severn, L., 2004. “The effects of infrastructure development on growth 
+and income distribution”. Santiago: Central Bank of Chile. Working paper no. 270.  
+http://www.bcentral.cl/eng/stdpub/studies/workingpaper/pdf/dtbc270.pdf 
+ 
+Canning, D., 1999. “Infrastructure’s contribution to aggregate output.” World Bank 
+Policy Research Working Paper 2246. 
+ 
+Cardoso, E., 1993. “Macroeconomic Environment and Capital Formation in Latin 
+America” in Striving for Structural Adjustment: The Role of Capital Formation by L. 
+Serven, and A. Solimano, Eds., The World Bank: Washington D.C, 181-228. 
+ 
+Clark, P., Tamirisa, N., and Wei, S. J., 1994. “Exchange Rate Volatility and Trade Flows 
+- Some New Evidence.” International Monetary Fund. 
+http://www.imf.org/external/np/res/exrate/2004/eng/051904.pdf 
+ 
+Coase, R., H., 1937. “The Nature of the Firm”. Economica, vol:4 iss:16 pg:386. 
+ 
+Coes, D.: “Firm Output and Changes in Uncertainty”. The American Economic Review, 
+1977, vol. 67, n. 2, pp. 249-251. 
+ 
+Dethier J., Ghanem H., and Zoli E. 1999. “Does democracy facilitate economic transition: An 
+empirical study of Central and Eastern Europe and the former Soviet Union.” World Bank 
+Policy Research Working Paper 2194. 
+ 
+Carlin, W., Schaffer, M., Seabright, P., 2003. “Infrastructure, competition and 
+innovation: new survey evidence from transition”. 
+http://idei.fr/doc/wp/2003/infrastructure_draft.pdf 
+ 
+D'Mello, Ranjan and Stephen P. Ferris. 2000. "The Information Effects of Analyst 
+Activity at the Announcement of New Equity Issues." Financial Management. Spring, 
+29:1, pp. 78-95. 
+ 
+Demetriades, P. O. and Mamuneas, T. P., 2000. “Intertemporal Output and Employment 
+Effects of Public Infrastructure Capital: Evidence from 12 OECD Economies”. The 
+Economic Journal 110, 465 – 687. 
+ 
+  97
+Djankov, Simeon, La Porta, Rafael, Lopez de Silanes, Florencio and Shleifer, Andrei, 
+"Courts: The Lex Mundi Project" (April 2002). NBER Working Paper No. W8890. 
+Available at SSRN: http://ssrn.com/abstract=307127 
+ 
+Djankov, Simeon, Hart , Oliver D., McLiesh, Caralee and Shleifer, Andrei, "Debt 
+Enforcement Around the World" (December 20, 2006). ECGI - Finance Working Paper 
+No. 147/2007 Available at SSRN: http://ssrn.com/abstract=953000 
+ 
+Doltu, Claudiu. The Evolution of the Banking System in Romania, in Economic 
+Transition in Romania, Past, Present and Future – Proceedings of the Conference 
+“Romania 2000. 10 Years of Transition”, organized by The World Bank and CEROPE, 
+October 1999 (volume edited by Christof Ruhl and Daniel Daianu). 
+ 
+Easterly, William. “The White Man’s Burden: Why the West’s efforts to aid the rest have 
+done so much ill and so little good”. The Penguin Press, New York, 2006. 
+ 
+Feder, G, 1977. “The impact of uncertainty in a class of objective functions”, Journal of 
+Economic Theory vol. 16, pp 504-12. 
+ 
+Fischer, S., 2003. “Financial Crises and Reform of the International Financial System”, 
+Review of World Economics 139 (1): 1-37. 
+ 
+Frankel, J., A., and Rose, A., 1996: “Currency Crashes in Emerging Markets: An 
+Empirical Treatment.” Journal of International Economics, 41, November 1996. 
+ 
+Freeman, Chris and Soete, Luc, 1997. “The Economics of Industrial Innovation”. 
+Cambridge, MIT Press, 3rd edition. 
+ 
+Gramlich, Edward M., 1994. “Infrastructure investment: a review essay.” Journal of 
+Economic Literature 32, 1176-96. 
+ 
+Greenwald, B. and Stiglitz, J.E, 1990. “Asymmetric Information and the New Theory of 
+the Firm: Financial Constraints and Risk Behavior.” The American Economic Review, 
+vol. 80, n.2. 
+ 
+Greenwald, B.C. and Stiglitz, J.E., 1993. “Financial Market Imperfections and Business 
+Cycles”. The Quarterly Journal of Economics, vol. 108, n.1, pp. 77-114. 
+ 
+Grossman, S. and O. Hart, 1986. “The Costs and Benefits of Ownership: A Theory of 
+Vertical and Lateral Integration,” Journal of Political Economy, 94(4):691-719. 
+ 
+Hall, D., Lobina, E., and de la Motte, R., 1999. “Public resistance to privatization in 
+water and energy”. Development in Practice, Volume 15, Numbers 3&4, June 2005.  
+ 
+  98
+Hallberg, K., (2001): “A Market-Oriented Strategy For Small and Medium-Scale 
+Enterprises”. IFC Discussion Paper # 48. 
+ 
+Harris, C., Hodges, J., Schur, M., and Shukla, P., 2003. “Infrastructure Projects: A 
+Review of Canceled Private Projects”, Public Policy for the Private Sector 252. World 
+Bank, Washington, D.C. 
+ 
+Hart, Oliver D. and Holmström, Bengt R., "A Theory of Firm Scope" (November 4, 
+2002). MIT Department of Economics Working Paper No. 02-42. 
+ 
+Hayward Jack Ernest Shalom, 1995.  “Industrial Enterprise and European Integration: 
+From National to International Champions in Western Europe.” Oxford University Press. 
+ 
+ 
+Janacek K (2000) Privatization in the Czech Republic: Results, Problems and Open 
+Issues. Paper presented at Conference “A 10-year Review of Transitional 
+Economies”, Vienna, WIIW, November. 
+ 
+Jensen, M., C., and Meckling, W., H., 1976. “Theory of the Firm: Managerial Behavior, 
+Agency Costs and Ownership Structure”. Journal of Financial Economics, III (1976), 
+305–360. 
+ 
+Jensen, Olivia and Blanc-Brude, Frederic, 2006. “The handshake : why do governments 
+and firms sign private sector participation deals ? Evidence from the water and sanitation 
+sector in developing countries”. World Bank Policy Research Working Paper 3937.  
+http://www-
+wds.worldbank.org/external/default/WDSContentServer/IW3P/IB/2006/06/02/00001640
+6_20060602090120/Rendered/PDF/wps3937.pdf 
+ 
+Jovanovic, B. and Glenn M. MacDonald (1994a), “Competitive Diffusion”, Journal 
+of Political Economy, 102(1): 24-52. 
+ 
+Jovanovic, B. and Glenn M. MacDonald (1994b), “The Life Cycle of a Competitive 
+Industry”, Journal of Political Economy, 102(2): 322-347. 
+ 
+Kaufman, D. and Wei, S. J., 1999. “Does Grease Money Speed Up the Wheels of 
+Commerce?” National Bureau of Economic Research, working paper 7093. 
+http://www.nber.org/papers/w7093.pdf 
+ 
+Kaufmann, Daniel, Aart Kraay and Massimo Mastruzzi, 2004. “Governance Matters III: 
+Governance Indicators for 1996, 1998, 2000, and 2002”. World Bank Economic 
+Review. 18:253-287. 
+ 
+  99
+Kerf, M., Izaguirre, A., K., 2007. “Revival of private participation in developing country 
+infrastructure: A look at recent trends and their policy implications.” World Bank Note 
+no. 16, January 2007. 
+ 
+Klein, B. "Vertical Integration as Organizational Ownership: The Fisher Body - General 
+Motors Relationship Revisited", The Journal of Law, Economics and Organization, 1988, 
+pp. 199-213. 
+ 
+Klenow, Peter J. and Rodriguez-Clare, Andres. “Externalities and Growth, Handbook of 
+Economic Growth,” Vol. 1A, P. Aghion and S. Durlauf, eds., North-Holland, 2005, 817-
+86. 
+ 
+Klepper, S. (1996), “Entry, Exit, Growth, and Innovation over the Product Life Cycle”, 
+American Economic Review, 86(3): 562-583. 
+ 
+Knight, H. F., 1921. Risk, Uncertainty, and Profit Boston, MA: Hart, Schaffner & Marx; 
+Houghton Mifflin Company. 
+ 
+Krugman, P. (1987). “Targeted industrial policies: theory and evidence.” 
+http://www.kansascityfed.org/Publicat/Sympos/1983/S83KRUGM.pdf 
+ 
+La Porta, R., Lopez-de-Silanes, F., Shleifer, A., and Vishny, R., W., 1998. “Law and 
+Finance.” Journal of Political Economy 106: 1113-1155. 
+ 
+Larrain, F., and Vergara, R. 1993. “Investment and Macroeconomic Adjustments: The 
+Case for East Asia” in Striving for Structural Adjustment: The Role of Capital Formation 
+by L. Serven, and A. Solimano, Eds., The World Bank: Washington D.C, 181-228. 
+ 
+Lewis, W. (2004). The Power of Productivity.  
+ 
+Little, I., M., D., 1987. Small Manufacturing Enterprises in Developing Countries. The 
+World Bank Economic Review. 
+ 
+Louis, T. W., Jr., and Rafiq A., 2006. “High Tension: Foreign Investment, Property 
+Rights, and National Sovereignty.” New York: Oxford University Press, forthcoming. 
+ 
+Mankiw, N., G., 2006. The Macroeconomist as Scientist and Engineer. NBER Working 
+Paper No. W12349. 
+ 
+McKenzie, Richard B., "Industrial Policy". The Concise Encyclopedia of Economics. 
+Indianapolis: Liberty Fund, Inc., ed. David R. Henderson, 2002. [Online] available from 
+http://www.econlib.org/library/Enc/IndustrialPolicy.html; accessed 13 October 2007; 
+Internet. 
+ 
+  100
+Modigliani , F., and Miller, M., H., 1958. “The Cost of Capital, Corporation Finance and 
+the Theory of Investment”. The American Economic Review vol:48 iss:3 pg:261. 
+ 
+Quiggin, J.: Production under uncertainty and choice under uncertainty in the emergence 
+of generalized expected utility theory. Theory and Decision, 2001, vol. 51, pp. 125-44. 
+ 
+Radcliffe, Daniel and Rati Tripathi, 2006. “Sharpening the Debate: Assessing the Key 
+Constraints in Indian Micro Credit Regulation.” Institute for Financial Management and 
+Research, working paper series, November 2006. 
+ 
+Rodrik, D., 2005. “Why we learn nothing from regressing economic growth on policies”. 
+http://ksghome.harvard.edu/~drodrik/policy%20regressions.pdf 
+ 
+Rodrik, D., Hausmann, R., Velasco, A., 2005. “Growth Diagnostics”. 
+http://ksghome.harvard.edu/~drodrik/barcelonafinalmarch2005.pdf 
+ 
+Rodrik, D., 2004. “Growth Strategies.”  
+http://ksghome.harvard.edu/~drodrik/GrowthStrategies.pdf 
+ 
+Rodrik, Dani, 2007. “Normalizing Industrial Policy”. 
+http://ksghome.harvard.edu/~drodrik/Industrial%20Policy%20_Growth%20Commission
+_.pdf ; accessed 15 October 2007; Internet.  
+ 
+Roller, L.H., and Waverman, L, 2001. Telecommunications infrastructure and economic 
+development: a simultaneous approach.” The American Economic Review, VOL. 91 NO. 
+4, pp 909-923. 
+ 
+Romer, Paul M., 1987. “Growth based on increasing returns due to specialization”. 
+American Economic Review, Papers and Proceedings 77, 56-62. 
+ 
+Rothbard, Murray N. 1985. Professor Hébert on Entrepreneurship, in The Logic of 
+Action Two: Applications and Criticism from the Austrian School. Aldershott, U.K.: 
+Edward Elgar, 1997, pp. 245–53. 
+ 
+Sachs J. D. 2003. “Institutions matter, but not for everything”. Finance and Development, 
+June, 2003.  
+http://www.who.int/macrohealth/infocentre/media/en/sachs1.pdf 
+ 
+Sandmo, A.: On the Theory of the Competitive Firm Under Price Uncertainty. American 
+Economic Review, 1971, vol.61, pp. 65-73. 
+ 
+Scherer, F., M., 1992. Schumpeter and Plausible Capitalism. Journal of economic 
+literature, vol. XXX, pp. 1416-1433.  
+ 
+  101
+Schultze, Charles. "Industrial Policy: A Dissent." Brookings Review (October 1983): 3-
+12. 
+ 
+Schumpeter, Joseph A., 1911. “The Theory of Economic Development”. 1983 ed. New 
+Brunswick. 
+ 
+Schumpeter, Joseph. 1954/1981. “Histoy of Economic Analysis”, London: Routledge. 
+ 
+Schumpeter, Joseph, 1942. “Capitalism, Socialism and Democracy.” London, 1954. 
+ 
+Shleifer, A. and Vishny, R. W., 1993. “Corruption”. Quarterly Journal of Economics, 
+108: 599-617. 
+ 
+Stiglitz, Joseph E, 1969. A Re-Examination of the Modigliani-Miller Theorem. American 
+Economic Review, vol. 59(5), pages 784-93, December. 
+ 
+Trujillo, L., Martín, N., Estache, and Campos, J., 2002.  “Macroeconomics Effects of 
+Private Participation in Latin America’s Infrastructure”. World Bank Institute, Policy 
+Research Working Paper 2906. 
+ 
+Wagner, E., Richard, 2007. “Fiscal Sociology and the Theory of Public Finance. An 
+Exploratory Essay.” Edward Elgar Publishing, forthcoming. 
+ 
+Warsh, David, 2005. “Knowledge and the wealth of nations. A Story of Economic 
+Discovery”. W.W. Norton. 
+ 
+Walter Piacsek, Michele Pikman, Janmejaya Sinha, Arvind Subramanian. "The Next 
+Billion Banking Consumers". June 29, 2007, Boston Consulting Group. 
+ 
+Williamson, J., 2000. The World Bank Research Observer, vol. 15, no. 2, pp. 251–64. 
+ 
+Williamson, O. E., 1979. “Transaction-cost economics: The governance of contractual 
+relations.” Journal of law and Economics, 22:233-261. 
+ 
+Williamson, O. E., 1985. “Economic institutions and capitalism.” New York: Free Press. 
+ 
+World Bank. “Private Participation in Infrastructure Database”  
+http://ppi.worldbank.org/ 
+ 
+Williamson, O. E. "Credible Commitments: Using Hostages to Support Exchange", 
+American Economic Review, 1983, pp. 519-38. 
+ 
+World Bank Group (2004). World Bank Group Review of Small Business Activities. 
+http://www.ifc.org/ifcext/sme.nsf//AttachmentsByTitle/SME+AReport2004Full.pdf/$FIL
+E/SME+AReport2004Full.pdf 
+  102
+ 
+CURRICULUM VITAE 
+ 
+ 
+ 
+Silviu Dochia graduated from the State University of New York at Binghamton in May 
+2002, receiving a Bachelor of Science degree in Economics and a Bachelor of Arts in 
+Mathematics. In 2005 Mr. Dochia received his Masters of Art in Economics from George 
+Mason University. Between 2005 and 2007 Mr. Dochia worked as a consultant with the 
+World Bank in Washington DC. At the end of 2007 Silviu Dochia moved to the 
+Philadelphia area to work with Jeffrey A. Parker and Associates, a transportation 
+infrastructure financial consultancy team.  
+  103
